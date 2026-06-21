@@ -1,7 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { blogs, projects, platforms } from "../data/content";
 import "./Home.css";
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx1DhN7geGDBV4tDP5HZghupYO1ENmFF4vOJSYm0lvXPHZz7YRt3BBtUb9ytNde1T1KGA/exec";
 
 const MARQUEE_ITEMS = [
   "Amazon","eBay","Walmart","Google Maps","Facebook Marketplace",
@@ -45,15 +47,14 @@ function ContactForm() {
     setLoading(true);
     setStatus(null);
     try {
-      const date = new Date().toLocaleString("en-US",{timeZone:"America/New_York"});
-      const params = new URLSearchParams({...form, date});
-      
-      await fetch("https://script.google.com/macros/s/AKfycbx1DhN7geGDBV4tDP5HZghupYO1ENmFF4vOJSYm0lvXPHZz7YRt3BBtUb9ytNde1T1KGA/exec?" + params.toString(), { method:"GET", mode:"no-cors" });
-      setStatus({ type:"success", text:`Message sent! I'll email you at ${form.email} within 24 hours.` });
+      const date = new Date().toLocaleString("en-US", { timeZone:"America/New_York" });
+      const params = new URLSearchParams({ ...form, date });
+      await fetch(APPS_SCRIPT_URL + "?" + params.toString(), { method:"GET", mode:"no-cors" });
+      setStatus({ type:"success", text:"Message sent! I'll email you at " + form.email + " within 24 hours." });
       setForm({ name:"", email:"", company:"", service:"", budget:"", message:"" });
-    } catch {
-      window.location.href = `mailto:sam@autosmartcode.com?subject=Project from ${form.name}&body=Name: ${form.name}%0AEmail: ${form.email}%0AService: ${form.service}%0A%0A${encodeURIComponent(form.message)}`;
-      setStatus({ type:"success", text:"Opening your email client — your message will go directly to sam@autosmartcode.com" });
+    } catch(err) {
+      window.location.href = "mailto:sam@autosmartcode.com?subject=Project from " + form.name + "&body=Name: " + form.name + "%0AEmail: " + form.email + "%0AService: " + form.service + "%0A%0A" + encodeURIComponent(form.message);
+      setStatus({ type:"success", text:"Opening your email client..." });
     }
     setLoading(false);
   }
@@ -96,23 +97,20 @@ function ContactForm() {
       </div>
       <div className="form-group">
         <label>Project Details *</label>
-        <textarea value={form.message} onChange={set("message")} rows={5} placeholder="What website? What data do you need? Any deadlines or special requirements..." />
+        <textarea value={form.message} onChange={set("message")} rows={5} placeholder="What website? What data do you need? Any deadlines..." />
       </div>
       <button className="form-btn" onClick={submit} disabled={loading}>
         {loading ? "Sending..." : "Send Message — I'll Reply Within 24hrs →"}
       </button>
-      {status && <div className={`form-msg ${status.type}`}>{status.type==="success" ? "✅" : "⚠️"} {status.text}</div>}
+      {status && <div className={"form-msg " + status.type}>{status.type==="success" ? "✅" : "⚠️"} {status.text}</div>}
     </div>
   );
 }
 
 export default function Home() {
-  const marqueeRef = useRef(null);
-
   return (
     <div className="home">
 
-      {/* HERO */}
       <section className="hero">
         <div className="hero-glow hero-glow-1" />
         <div className="hero-glow hero-glow-2" />
@@ -142,7 +140,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MARQUEE */}
       <div className="marquee-wrap">
         <div className="marquee-track">
           {[...MARQUEE_ITEMS,...MARQUEE_ITEMS].map((m,i) => (
@@ -151,7 +148,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SERVICES */}
       <section className="section services-section" id="services">
         <div className="container">
           <div className="section-head">
@@ -174,7 +170,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PLATFORMS */}
       <section className="section platforms-section" id="platforms">
         <div className="container">
           <div className="section-head">
@@ -194,7 +189,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURED PROJECTS */}
       <section className="section projects-section">
         <div className="container">
           <div className="section-head-row">
@@ -206,7 +200,7 @@ export default function Home() {
           </div>
           <div className="projects-grid">
             {projects.slice(0,6).map(p => (
-              <Link to={`/projects/${p.id}`} key={p.id} className="proj-card">
+              <Link to={"/projects/" + p.id} key={p.id} className="proj-card">
                 <div className="proj-type" style={{ color: p.color }}>{p.emoji} {p.type}</div>
                 <h3>{p.title}</h3>
                 <p>{p.description.slice(0,130)}...</p>
@@ -223,7 +217,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
       <div className="stats-banner">
         <div className="container stats-inner">
           {[["1000+","Projects Completed"],["100+","US Clients Served"],["50+","eCommerce Stores"],["50+","Platforms Mastered"],["5★","Client Rating"]].map(([n,l]) => (
@@ -235,7 +228,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* TESTIMONIALS */}
       <section className="section">
         <div className="container">
           <div className="section-head">
@@ -260,7 +252,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BLOG PREVIEW */}
       <section className="section blog-section">
         <div className="container">
           <div className="section-head-row">
@@ -272,7 +263,7 @@ export default function Home() {
           </div>
           <div className="blog-grid">
             {blogs.slice(0,3).map(b => (
-              <Link to={`/blog/${b.slug}`} key={b.id} className="blog-card">
+              <Link to={"/blog/" + b.slug} key={b.id} className="blog-card">
                 <div className="blog-img" style={{ background: b.color }}>{b.emoji}</div>
                 <div className="blog-body">
                   <div className="blog-tag">{b.tag}</div>
@@ -286,7 +277,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section className="section contact-section" id="contact">
         <div className="container">
           <div className="contact-wrap">
