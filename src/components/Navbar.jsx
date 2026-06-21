@@ -15,11 +15,30 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false); }, [location]);
 
+  // After navigation to home, scroll to contact
+  useEffect(() => {
+    if (location.pathname === "/" && location.hash === "#contact") {
+      setTimeout(() => {
+        const el = document.getElementById("contact");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [location]);
+
+  function handleContact(e) {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      const el = document.getElementById("contact");
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#contact";
+    }
+  }
+
   const links = [
     { to: "/", label: "Home" },
     { to: "/projects", label: "Projects" },
     { to: "/blog", label: "Blog" },
-    { to: "/#contact", label: "Contact" },
   ];
 
   return (
@@ -40,9 +59,14 @@ export default function Navbar() {
               </Link>
             </li>
           ))}
+          <li>
+            <a href="/#contact" onClick={handleContact}>Contact</a>
+          </li>
         </ul>
 
-        <Link to="/#contact" className="nav-cta">Get Free Quote</Link>
+        <a href="/#contact" className="nav-cta" onClick={handleContact}>
+          Get Free Quote
+        </a>
 
         <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
           <span /><span /><span />
