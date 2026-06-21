@@ -112,30 +112,54 @@ export default function Home() {
     <div className="home">
 
       <section className="hero">
-        <div className="hero-glow hero-glow-1" />
-        <div className="hero-glow hero-glow-2" />
+        {/* 3D animated background */}
+        <div className="hero-canvas">
+          <div className="hero-grid" />
+          <div className="hero-orb-1" />
+          <div className="hero-orb-2" />
+        </div>
+      
         <div className="container hero-inner">
           <div className="hero-badge">
             <span className="hero-badge-dot" />
             Available for US Projects — Fast Turnaround
           </div>
+      
           <h1 className="hero-h1">
-            Scraping, Automation<br />
-            & <em>AI Solutions</em><br />
-            That Scale Your Business
+            <span className="line-1">Web Scraping, Automation</span>
+            <span className="line-2">&amp; AI Solutions for</span>
+            <span className="line-accent">US Businesses That Scale</span>
           </h1>
+      
           <p className="hero-desc">
-            I extract data from any website, automate any workflow, and build AI-powered tools that give your business a real competitive edge. 1000+ projects delivered across Amazon, eBay, Walmart, Zillow, Manheim, and 50+ more platforms.
+            I extract data from <strong>any website</strong>, automate any workflow, and build
+            AI-powered tools that give your business a real competitive edge.
+            Trusted by <strong>100+ US clients</strong> across Amazon, eBay, Walmart,
+            Zillow, Manheim, and <strong>50+ more platforms</strong>.
           </p>
+      
           <div className="hero-actions">
             <a href="#contact" className="btn btn-blue">Start Your Project →</a>
             <Link to="/projects" className="btn btn-outline">See My Work</Link>
           </div>
+      
           <div className="hero-stats">
-            <div className="hero-stat"><span className="hero-stat-n">1000<em>+</em></span><span className="hero-stat-l">Projects Delivered</span></div>
-            <div className="hero-stat"><span className="hero-stat-n">100<em>+</em></span><span className="hero-stat-l">Happy US Clients</span></div>
-            <div className="hero-stat"><span className="hero-stat-n">50<em>+</em></span><span className="hero-stat-l">eCommerce Stores Built</span></div>
-            <div className="hero-stat"><span className="hero-stat-n">5<em>★</em></span><span className="hero-stat-l">Average Rating</span></div>
+            <div className="hero-stat">
+              <span className="hero-stat-n">1000<em>+</em></span>
+              <span className="hero-stat-l">Projects Delivered</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-n">100<em>+</em></span>
+              <span className="hero-stat-l">Happy US Clients</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-n">50<em>+</em></span>
+              <span className="hero-stat-l">eCommerce Stores Built</span>
+            </div>
+            <div className="hero-stat">
+              <span className="hero-stat-n">5<em>★</em></span>
+              <span className="hero-stat-l">Average Rating</span>
+            </div>
           </div>
         </div>
       </section>
