@@ -45,9 +45,10 @@ function ContactForm() {
     setLoading(true);
     setStatus(null);
     try {
-      const fd = new FormData();
-      Object.entries({...form, date: new Date().toLocaleString("en-US",{timeZone:"America/New_York"})}).forEach(([k,v]) => fd.append(k,v));
-      await fetch("https://script.google.com/macros/s/AKfycbx1DhN7geGDBV4tDP5HZghupYO1ENmFF4vOJSYm0lvXPHZz7YRt3BBtUb9ytNde1T1KGA/exec", { method:"POST", body:fd, mode:"no-cors" });
+      const date = new Date().toLocaleString("en-US",{timeZone:"America/New_York"});
+      const params = new URLSearchParams({...form, date});
+      
+      await fetch("https://script.google.com/macros/s/AKfycbx1DhN7geGDBV4tDP5HZghupYO1ENmFF4vOJSYm0lvXPHZz7YRt3BBtUb9ytNde1T1KGA/exec?" + params.toString(), { method:"GET", mode:"no-cors" });
       setStatus({ type:"success", text:`Message sent! I'll email you at ${form.email} within 24 hours.` });
       setForm({ name:"", email:"", company:"", service:"", budget:"", message:"" });
     } catch {
