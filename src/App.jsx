@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useEffect } from "react-router-dom";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -8,6 +8,9 @@ import "./index.css";
 import "./pages/Home.css";
 import "./pages/Projects.css";
 import "./pages/Blog.css";
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect } from "react";
 
 function ScrollToTop() {
   const { pathname } = window.location;
