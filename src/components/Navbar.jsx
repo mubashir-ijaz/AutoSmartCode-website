@@ -15,20 +15,10 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false); }, [location]);
 
-  useEffect(() => {
-    if (location.pathname === "/" && location.hash === "#contact") {
-      setTimeout(() => {
-        const el = document.getElementById("contact");
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }, [location]);
-
   function handleContact(e) {
     e.preventDefault();
     if (location.pathname === "/") {
-      const el = document.getElementById("contact");
-      if (el) el.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
     } else {
       window.location.href = "/#contact";
     }
@@ -38,23 +28,18 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-logo">
-          <img src="/logo.svg" alt="AutoSmartCode" className="nav-logo-img" />
+          <img src="/logo.svg" alt="AutoSmartCode logo" className="nav-logo-img" />
           Auto<span>Smart</span>Code
         </Link>
-
         <ul className={`nav-links ${open ? "open" : ""}`}>
-          {[{ to: "/", label: "Home" }, { to: "/projects", label: "Projects" }, { to: "/blog", label: "Blog" }].map(l => (
-            <li key={l.to}>
-              <Link to={l.to} className={location.pathname === l.to ? "active" : ""}>{l.label}</Link>
-            </li>
+          {[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/blog",label:"Blog"}].map(l => (
+            <li key={l.to}><Link to={l.to} className={location.pathname===l.to?"active":""}>{l.label}</Link></li>
           ))}
           <li><a href="/#contact" onClick={handleContact}>Contact</a></li>
         </ul>
-
         <a href="/#contact" className="nav-cta" onClick={handleContact}>Get Free Quote</a>
-
-        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
-          <span /><span /><span />
+        <button className="nav-burger" onClick={()=>setOpen(!open)} aria-label="Menu">
+          <span/><span/><span/>
         </button>
       </div>
     </nav>
