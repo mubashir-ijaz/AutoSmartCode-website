@@ -110,59 +110,68 @@ function ContactForm() {
 export default function Home() {
   return (
     <div className="home">
-
+######
       <section className="hero">
-        {/* 3D animated background */}
-        <div className="hero-canvas">
-          <div className="hero-grid" />
-          <div className="hero-orb-1" />
-          <div className="hero-orb-2" />
-        </div>
-      
-        <div className="container hero-inner">
-          <div className="hero-badge">
-            <span className="hero-badge-dot" />
-            Available for US Projects — Fast Turnaround
+  <div className="hero-canvas">
+    <div className="hero-grid" />
+    <div className="hero-orb-1" />
+    <div className="hero-orb-2" />
+  </div>
+
+  <div className="container hero-layout">
+    <div className="hero-left">
+      <div className="hero-badge">
+        <span className="hero-badge-dot" />
+        Available for US Projects — Fast Turnaround
+      </div>
+      <h1 className="hero-h1">
+        Web Scraping, Automation<br />
+        &amp; <span className="hero-grad">AI Solutions</span><br />
+        That Scale Your Business
+      </h1>
+      <p className="hero-desc">
+        Extract data from <strong>any website</strong>, automate any workflow,
+        and build AI-powered tools that give your business a real edge.
+        Trusted by <strong>100+ US clients</strong> across Amazon, eBay,
+        Walmart, Zillow, Manheim &amp; <strong>50+ platforms</strong>.
+      </p>
+      <div className="hero-actions">
+        <a href="#contact" className="btn btn-blue">Start Your Project →</a>
+        <Link to="/projects" className="btn btn-outline">See My Work</Link>
+      </div>
+      <div className="hero-stats">
+        <div className="hero-stat"><span className="hero-stat-n">1000<em>+</em></span><span className="hero-stat-l">Projects Delivered</span></div>
+        <div className="hero-stat"><span className="hero-stat-n">100<em>+</em></span><span className="hero-stat-l">Happy US Clients</span></div>
+        <div className="hero-stat"><span className="hero-stat-n">50<em>+</em></span><span className="hero-stat-l">eCommerce Stores</span></div>
+        <div className="hero-stat"><span className="hero-stat-n">5<em>★</em></span><span className="hero-stat-l">Average Rating</span></div>
+      </div>
+    </div>
+
+    <div className="hero-right">
+      <div className="hero-cards-label">Live Services</div>
+      <div className="hero-cards">
+        {[
+          { icon:"🕷️", title:"Amazon Scraper", sub:"Products · Prices · Reviews", badge:"Live", color:"rgba(37,99,235,0.12)", bc:"live" },
+          { icon:"🚗", title:"Car Auction Tools", sub:"Manheim · BacklotCars · MMR", badge:"Active", color:"rgba(34,197,94,0.12)", bc:"active" },
+          { icon:"🏠", title:"Real Estate Data", sub:"Zillow · Airbnb · Redfin", badge:"Hot", color:"rgba(245,158,11,0.12)", bc:"hot" },
+          { icon:"🤖", title:"AI Review Analysis", sub:"GPT-4 · Sentiment · Reports", badge:"New", color:"rgba(139,92,246,0.12)", bc:"new" },
+          { icon:"🗺️", title:"Lead Generation", sub:"Google Maps · LinkedIn", badge:"Live", color:"rgba(6,214,247,0.12)", bc:"live" },
+          { icon:"🌐", title:"Web Development", sub:"React · Next.js · eCommerce", badge:"Active", color:"rgba(37,99,235,0.12)", bc:"active" },
+        ].map((c,i) => (
+          <div key={i} className="hero-card" style={{ animationDelay: `${i * 0.15}s` }}>
+            <div className="hero-card-icon" style={{ background: c.color }}>{c.icon}</div>
+            <div className="hero-card-info">
+              <div className="hero-card-title">{c.title}</div>
+              <div className="hero-card-sub">{c.sub}</div>
+            </div>
+            <div className={`hero-card-badge ${c.bc}`}>{c.badge}</div>
+              </div>
+                  ))}
+                 </div>
+              </div>
           </div>
-      
-          <h1 className="hero-h1">
-            <span className="line-1">Web Scraping, Automation</span>
-            <span className="line-2">&amp; AI Solutions for</span>
-            <span className="line-accent">US Businesses That Scale</span>
-          </h1>
-      
-          <p className="hero-desc">
-            I extract data from <strong>any website</strong>, automate any workflow, and build
-            AI-powered tools that give your business a real competitive edge.
-            Trusted by <strong>100+ US clients</strong> across Amazon, eBay, Walmart,
-            Zillow, Manheim, and <strong>50+ more platforms</strong>.
-          </p>
-      
-          <div className="hero-actions">
-            <a href="#contact" className="btn btn-blue">Start Your Project →</a>
-            <Link to="/projects" className="btn btn-outline">See My Work</Link>
-          </div>
-      
-          <div className="hero-stats">
-            <div className="hero-stat">
-              <span className="hero-stat-n">1000<em>+</em></span>
-              <span className="hero-stat-l">Projects Delivered</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-n">100<em>+</em></span>
-              <span className="hero-stat-l">Happy US Clients</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-n">50<em>+</em></span>
-              <span className="hero-stat-l">eCommerce Stores Built</span>
-            </div>
-            <div className="hero-stat">
-              <span className="hero-stat-n">5<em>★</em></span>
-              <span className="hero-stat-l">Average Rating</span>
-            </div>
-          </div>
-        </div>
       </section>
+      
 
       <div className="marquee-wrap">
         <div className="marquee-track">
