@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { blogs, projects, platforms } from "../data/content";
@@ -58,6 +59,90 @@ function ContactForm() {
     }
     setLoading(false);
   }
+  useEffect(() => {
+  const canvas = document.getElementById("heroCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let w = canvas.width = window.innerWidth;
+  let h = canvas.height = window.innerHeight;
+  let frame = 0;
+
+  const particles = Array.from({length: 60}, () => ({
+    x: Math.random() * w, y: Math.random() * h,
+    vx: (Math.random() - 0.5) * 0.4, vy: -Math.random() * 0.5 - 0.2,
+    r: Math.random() * 1.5 + 0.5, life: Math.random()
+  }));
+
+  const lines = Array.from({length: 8}, (_,i) => ({
+    x: (i / 7) * w, speed: Math.random() * 0.3 + 0.1, offset: Math.random() * h
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    frame++;
+
+    // Grid
+    ctx.strokeStyle = "rgba(37,99,235,0.05)";
+    ctx.lineWidth = 0.5;
+    const gs = 55;
+    for (let x = 0; x < w; x += gs) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, h); ctx.stroke();
+    }
+    for (let y = 0; y < h; y += gs) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke();
+    }
+
+    // Vertical light beams
+    lines.forEach(l => {
+      const y = (l.offset + frame * l.speed) % h;
+      const grad = ctx.createLinearGradient(0, y - 80, 0, y + 80);
+      grad.addColorStop(0, "transparent");
+      grad.addColorStop(0.5, "rgba(37,99,235,0.06)");
+      grad.addColorStop(1, "transparent");
+      ctx.fillStyle = grad;
+      ctx.fillRect(l.x - 1, y - 80, 2, 160);
+    });
+
+    // Floating particles
+    particles.forEach(p => {
+      p.x += p.vx; p.y += p.vy; p.life += 0.003;
+      if (p.y < -10) { p.y = h + 10; p.x = Math.random() * w; }
+      const alpha = Math.sin(p.life * Math.PI) * 0.5;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(34,211,238,${alpha})`;
+      ctx.fill();
+    });
+
+    // Connection lines between nearby particles
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+        if (dist < 100) {
+          ctx.strokeStyle = `rgba(37,99,235,${0.08 * (1 - dist/100)})`;
+          ctx.lineWidth = 0.5;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+  const resize = () => {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  };
+  window.addEventListener("resize", resize);
+  return () => window.removeEventListener("resize", resize);
+}, []);
 
   return (
     <div className="contact-form-card">
