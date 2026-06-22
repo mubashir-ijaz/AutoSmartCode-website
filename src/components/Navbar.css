@@ -1,12 +1,10 @@
 .navbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-  padding: 0.85rem 0;
-  transition: background 0.3s, border-color 0.3s;
+  padding: 0.85rem 0; transition: background 0.3s, border-color 0.3s;
   border-bottom: 1px solid transparent;
 }
 .navbar.scrolled {
-  background: rgba(8,9,15,0.95);
-  backdrop-filter: blur(20px);
+  background: rgba(8,9,15,0.96); backdrop-filter: blur(20px);
   border-color: rgba(255,255,255,0.07);
 }
 .nav-inner {
@@ -14,40 +12,30 @@
   display: flex; align-items: center; gap: 1.5rem;
 }
 .nav-logo {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.05rem; font-weight: 700;
-  color: #f1f5f9; text-decoration: none;
-  margin-right: auto; display: flex; align-items: center; gap: 0.6rem;
-  letter-spacing: -0.01em;
+  font-family: 'Inter', sans-serif; font-size: 1rem; font-weight: 700;
+  color: #f1f5f9; text-decoration: none; margin-right: auto;
+  display: flex; align-items: center; gap: 0.55rem; letter-spacing: -0.01em;
 }
 .nav-logo span { color: #22d3ee; }
-.nav-logo-img { width: 28px; height: 28px; border-radius: 7px; }
-
+.nav-logo-img { width: 30px; height: 30px; border-radius: 8px; display: block; }
 .nav-links { display: flex; gap: 1.8rem; list-style: none; }
 .nav-links a {
   color: #94a3b8; font-size: 0.85rem; font-weight: 500;
   text-decoration: none; transition: color 0.2s; cursor: pointer;
 }
 .nav-links a:hover, .nav-links a.active { color: #f1f5f9; }
-
 .nav-cta {
-  background: #2563eb; color: #fff;
-  padding: 0.48rem 1.2rem; border-radius: 7px;
-  font-size: 0.82rem; font-weight: 600;
-  text-decoration: none; white-space: nowrap;
-  transition: background 0.2s, transform 0.2s; cursor: pointer; border: none;
+  background: #2563eb; color: #fff; padding: 0.48rem 1.2rem;
+  border-radius: 7px; font-size: 0.82rem; font-weight: 600;
+  text-decoration: none; white-space: nowrap; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 .nav-cta:hover { background: #3b82f6; transform: translateY(-1px); }
-
 .nav-burger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
 }
-.nav-burger span {
-  display: block; width: 20px; height: 2px;
-  background: #f1f5f9; border-radius: 2px;
-}
-
+.nav-burger span { display: block; width: 20px; height: 2px; background: #f1f5f9; border-radius: 2px; }
 @media (max-width: 768px) {
   .nav-burger { display: flex; }
   .nav-cta { display: none; }
