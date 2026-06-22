@@ -38,12 +38,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-inner">
         <Link to="/" className="nav-logo">
-          <div className="nav-logo-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#22d3ee"/>
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#22d3ee" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </div>
+          <img src="/logo.svg" alt="AutoSmartCode" className="nav-logo-img" />
           Auto<span>Smart</span>Code
         </Link>
 
