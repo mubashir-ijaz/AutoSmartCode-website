@@ -110,7 +110,7 @@ function ContactForm() {
 export default function Home() {
   return (
     <div className="home">
-######
+
       <section className="hero">
   <div className="hero-canvas">
     <div className="hero-grid" />
