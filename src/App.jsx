@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { FeedbackProvider } from "./components/FeedbackModal";
 import Home from "./pages/Home";
+import About from "./pages/About";
 import { ProjectsPage, ProjectDetailPage } from "./pages/Projects";
 import { BlogPage, BlogDetailPage } from "./pages/Blog";
 
@@ -43,6 +44,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
           <Route path="/blog" element={<BlogPage />} />

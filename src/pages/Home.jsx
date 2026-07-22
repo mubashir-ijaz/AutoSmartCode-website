@@ -563,20 +563,6 @@ export default function Home() {
               <strong> built clean, delivered fast.</strong>
             </p>
 
-            <div className="hero-outcomes">
-              {[
-                { icon: "⚡", title: "2–5 days", sub: "from your brief to the finished file" },
-                { icon: "🔁", title: "Runs daily", sub: "unattended, on schedule, without you" },
-                { icon: "🙌", title: "Zero code", sub: "you never touch a line of it" },
-              ].map(o => (
-                <div key={o.title} className="hero-outcome">
-                  <span className="ho-icon">{o.icon}</span>
-                  <strong className="ho-title">{o.title}</strong>
-                  <span className="ho-sub">{o.sub}</span>
-                </div>
-              ))}
-            </div>
-
             <div className="hero-actions">
               <a href="#contact" className="btn btn-blue">Start Your Project →</a>
               <Link to="/projects" className="btn btn-outline">See My Work</Link>
@@ -584,23 +570,31 @@ export default function Home() {
 
           </div>
 
-          {/* The face behind the business — above the fold, so it's eager, not lazy */}
+          {/* The face behind the business — above the fold, so it's eager, not lazy.
+              The studio backdrop is masked out at the edges so the photo dissolves
+              into the hero background instead of sitting on it as a disc. */}
           <div className="hero-portrait">
             <picture>
               <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
               <img
                 src={process.env.PUBLIC_URL + "/sam.jpg"}
                 alt="Sam — Founder and CEO of AutoSmartCode"
-                width="360"
-                height="360"
+                width="420"
+                height="420"
                 fetchpriority="high"
                 decoding="async"
               />
             </picture>
+
             <div className="hp-card">
               <div className="hp-name">Sam</div>
               <div className="hp-role">Founder &amp; CEO · AutoSmartCode</div>
-              <div className="hp-meta"><span className="hp-dot" /> Replies within 24 hours</div>
+              <p className="hp-bio">
+                One developer, not an agency. I've built scraping and automation
+                systems for car dealers, eCommerce sellers, agencies and property
+                investors across the US.
+              </p>
+              <Link to="/about" className="hp-link">More about me →</Link>
             </div>
           </div>
 
@@ -781,107 +775,6 @@ export default function Home() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ ABOUT / FOUNDER ============ */}
-      <section className="section about-section" id="about">
-        <div className="container">
-          <div className="about-wrap">
-
-            <div className="about-photo">
-              {/* WebP for everything current, JPEG for the long tail */}
-              <picture>
-                <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
-                <img
-                  src={process.env.PUBLIC_URL + "/sam.jpg"}
-                  alt="Sam — Founder and CEO of AutoSmartCode"
-                  width="420"
-                  height="420"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
-              <div className="about-badge">
-                <span className="ab-dot" />
-                Available for new projects
-              </div>
-            </div>
-
-            <div className="about-copy">
-              <span className="about-eyebrow">About me</span>
-              <h2 className="s-title">Hi, I'm Sam —<br />founder &amp; CEO of AutoSmartCode</h2>
-
-              <p>
-                I started AutoSmartCode because I kept meeting business owners paying
-                people to copy and paste data all day. That's not a staffing problem —
-                it's a software problem. So I build the software that does it instead:
-                scrapers, automations, dashboards and alert bots that run every day
-                without anyone watching them.
-              </p>
-              <p>
-                My depth is in the hard part of this work — <strong>the sites that don't
-                want to be read</strong>. Rotating proxies and session handling,
-                fingerprint and Cloudflare defences, JavaScript-rendered pages,
-                pagination that hides half the catalogue, and the schema drift that
-                quietly breaks a scraper three weeks after launch. I write these systems
-                to fail loudly and recover on their own, because data you can't trust is
-                worse than no data at all.
-              </p>
-
-              <div className="about-skills">
-                {[
-                  { k: "Scraping engineering", v: "Python · Scrapy · Playwright · Selenium · proxy rotation · anti-bot bypass · CAPTCHA-aware flows" },
-                  { k: "Data & pipelines", v: "Pandas · deduplication · validation rules · MySQL / PostgreSQL · scheduled ETL · Google Sheets and REST delivery" },
-                  { k: "Automation & bots", v: "Cron and queue-driven jobs · Telegram / Slack / email alerting · retry and self-healing logic · uptime monitoring" },
-                  { k: "Product & front end", v: "React · Next.js · Node.js · dashboards and admin panels that put the data in front of your team" },
-                  { k: "AI on top of the data", v: "LLM APIs for classification, sentiment and summarisation · competitor and pricing intelligence reports" },
-                ].map(s => (
-                  <div key={s.k} className="about-skill">
-                    <strong>{s.k}</strong>
-                    <span>{s.v}</span>
-                  </div>
-                ))}
-              </div>
-
-              <p>
-                Most of that experience comes from four industries I now know unusually
-                well: <strong>car wholesalers</strong> pricing auction inventory against
-                Carfax, MMR and J.D. Power; <strong>eCommerce sellers</strong> tracking
-                catalogues and Buy Box movement across marketplaces;{" "}
-                <strong>agencies</strong> that need verified lead lists rather than
-                scraped noise; and <strong>real estate investors</strong> modelling yield
-                from listing and rental data. When you hire AutoSmartCode you're not
-                routed to a junior developer or an account manager — you work with me
-                directly, from the first email to the finished system.
-              </p>
-
-              <div className="about-stats">
-                {[
-                  { n: "100+", l: "US businesses served" },
-                  { n: "5+ yrs", l: "building automation" },
-                  { n: "2–5 days", l: "typical delivery" },
-                  { n: "24 hrs", l: "reply guaranteed" },
-                ].map(s => (
-                  <div key={s.l} className="about-stat">
-                    <strong>{s.n}</strong>
-                    <span>{s.l}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="about-sign">
-                <div className="about-sign-name">Sam</div>
-                <div className="about-sign-role">Founder &amp; CEO, AutoSmartCode</div>
-              </div>
-
-              <div className="about-actions">
-                <a href="#contact" className="btn btn-blue">Work with me →</a>
-                <Link to="/projects" className="btn btn-outline">See my work</Link>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

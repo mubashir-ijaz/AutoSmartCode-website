@@ -37,10 +37,9 @@ export default function Navbar() {
           Auto<span>Smart</span>Code
         </Link>
         <ul className={`nav-links ${open ? "open" : ""}`}>
-          {[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/blog",label:"Blog"}].map(l => (
+          {[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/blog",label:"Blog"},{to:"/about",label:"About"}].map(l => (
             <li key={l.to}><Link to={l.to} className={location.pathname===l.to?"active":""}>{l.label}</Link></li>
           ))}
-          <li><a href="/#about" onClick={jumpTo("about")}>About</a></li>
           <li><a href="/#contact" onClick={handleContact}>Contact</a></li>
           <li className="nav-mobile-cta">
             <a href="/#contact" className="btn btn-blue" onClick={handleContact}>Get Free Quote</a>

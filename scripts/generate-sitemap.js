@@ -47,6 +47,7 @@ const xml = [
   url("/", today, "weekly", "1.0"),
   url("/projects", today, "monthly", "0.9"),
   url("/blog", today, "weekly", "0.9"),
+  url("/about", today, "monthly", "0.8"),
   "",
   "  <!-- Blog articles -->",
   ...slugs.map((s, i) => url("/blog/" + s, iso(dates[i]), "monthly", "0.8")),
@@ -59,6 +60,6 @@ const xml = [
 
 fs.writeFileSync(path.join(root, "public/sitemap.xml"), xml);
 console.log(
-  `sitemap.xml written — 3 core + ${slugs.length} articles + ${projects.length} projects ` +
-  `= ${3 + slugs.length + projects.length} URLs`
+  `sitemap.xml written — 4 core + ${slugs.length} articles + ${projects.length} projects ` +
+  `= ${4 + slugs.length + projects.length} URLs`
 );
