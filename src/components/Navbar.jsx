@@ -15,14 +15,19 @@ export default function Navbar() {
 
   useEffect(() => { setOpen(false); }, [location]);
 
-  function handleContact(e) {
-    e.preventDefault();
-    if (location.pathname === "/") {
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.href = "/#contact";
-    }
+  /* On the home page these are in-page anchors; anywhere else, go home first. */
+  function jumpTo(id) {
+    return e => {
+      e.preventDefault();
+      if (location.pathname === "/") {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.href = "/#" + id;
+      }
+    };
   }
+
+  const handleContact = jumpTo("contact");
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -35,6 +40,7 @@ export default function Navbar() {
           {[{to:"/",label:"Home"},{to:"/projects",label:"Projects"},{to:"/blog",label:"Blog"}].map(l => (
             <li key={l.to}><Link to={l.to} className={location.pathname===l.to?"active":""}>{l.label}</Link></li>
           ))}
+          <li><a href="/#about" onClick={jumpTo("about")}>About</a></li>
           <li><a href="/#contact" onClick={handleContact}>Contact</a></li>
           <li className="nav-mobile-cta">
             <a href="/#contact" className="btn btn-blue" onClick={handleContact}>Get Free Quote</a>

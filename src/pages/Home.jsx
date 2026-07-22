@@ -764,6 +764,73 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ ABOUT / FOUNDER ============ */}
+      <section className="section about-section" id="about">
+        <div className="container">
+          <div className="about-wrap">
+
+            <div className="about-photo">
+              <img
+                src={process.env.PUBLIC_URL + "/sam.png"}
+                alt="Sam — Founder and CEO of AutoSmartCode"
+                width="420"
+                height="420"
+                loading="lazy"
+              />
+              <div className="about-badge">
+                <span className="ab-dot" />
+                Available for new projects
+              </div>
+            </div>
+
+            <div className="about-copy">
+              <span className="about-eyebrow">About me</span>
+              <h2 className="s-title">Hi, I'm Sam —<br />founder &amp; CEO of AutoSmartCode</h2>
+
+              <p>
+                I started AutoSmartCode because I kept meeting business owners paying
+                people to copy and paste data all day. That's not a staffing problem —
+                it's a software problem. So I build the software that does it instead:
+                scrapers, automations, dashboards and alert bots that run every day
+                without anyone watching them.
+              </p>
+              <p>
+                I've spent years writing data extraction and automation systems for car
+                dealers, eCommerce sellers, agencies and real estate investors across the
+                US. When you hire AutoSmartCode, you're not routed to a junior developer
+                or an account manager — <strong>you work with me directly</strong>, from
+                the first email to the finished system.
+              </p>
+
+              <div className="about-stats">
+                {[
+                  { n: "100+", l: "US businesses served" },
+                  { n: "5+ yrs", l: "building automation" },
+                  { n: "2–5 days", l: "typical delivery" },
+                  { n: "24 hrs", l: "reply guaranteed" },
+                ].map(s => (
+                  <div key={s.l} className="about-stat">
+                    <strong>{s.n}</strong>
+                    <span>{s.l}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="about-sign">
+                <div className="about-sign-name">Sam</div>
+                <div className="about-sign-role">Founder &amp; CEO, AutoSmartCode</div>
+              </div>
+
+              <div className="about-actions">
+                <a href="#contact" className="btn btn-blue">Work with me →</a>
+                <Link to="/projects" className="btn btn-outline">See my work</Link>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* ============ FAQ ============ */}
       <section className="section faq-section" id="faq">
         <div className="container">

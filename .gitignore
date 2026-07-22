@@ -33,3 +33,6 @@ Thumbs.db
 
 # vercel
 .vercel
+
+# source photo (copied into public/ as sam.png)
+/my image.png
