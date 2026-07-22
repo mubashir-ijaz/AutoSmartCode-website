@@ -81,15 +81,18 @@
 .ab-portrait img {
   position: relative; z-index: 1;
   width: 100%; max-width: 440px; height: auto;
-  mask-image: radial-gradient(circle at 50% 50%, #000 44%, rgba(0, 0, 0, 0.55) 47.5%, transparent 50%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 44%, rgba(0, 0, 0, 0.55) 47.5%, transparent 50%);
+  /* Circular crop only — the subject reaches the edge of the frame, so any
+     soft fade here eats the top of the head. */
+  border-radius: 50%;
+  border: 1px solid rgba(52, 211, 153, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
 .ab-badge {
   position: relative; z-index: 2;
   display: flex; align-items: center; justify-content: center; gap: 0.5rem;
   width: max-content; max-width: 100%;
-  margin: -3.25rem auto 0;
+  margin: -1.4rem auto 0;
   padding: 0.5rem 1.05rem;
   border-radius: 999px;
   background: rgba(8, 13, 12, 0.9);

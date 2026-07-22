@@ -80,7 +80,7 @@
 
 .hero-actions {
   display: flex; gap: 0.9rem; justify-content: flex-start; flex-wrap: wrap;
-  margin-top: 1.4rem;   /* breathing room between the headline block and the CTAs */
+  margin-top: 2.9rem;   /* breathing room between the headline block and the CTAs */
 }
 
 /* --- copy left, the person you'd be hiring on the right --- */
@@ -107,17 +107,20 @@
 .hero-portrait img {
   position: relative; z-index: 1;
   width: 100%; max-width: 440px; height: auto;
-  mask-image: radial-gradient(circle at 50% 50%, #000 44%, rgba(0, 0, 0, 0.55) 47.5%, transparent 50%);
-  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 44%, rgba(0, 0, 0, 0.55) 47.5%, transparent 50%);
+  /* Circular crop only — the subject reaches the edge of the frame, so any
+     soft fade here eats the top of the head. */
+  border-radius: 50%;
+  border: 1px solid rgba(52, 211, 153, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
-/* Short "about me" card under the portrait, linking to the full page */
+/* Just the name plate under the portrait — the detail lives on /about */
 .hp-card {
   position: relative; z-index: 3;
-  margin: -3.75rem auto 0;   /* tuck under the photo's faded lower edge */
-  max-width: 340px;
+  margin: -1.4rem auto 0;   /* overlaps the photo's lower edge like a badge */
+  max-width: 320px;
   text-align: center;
-  padding: 1.1rem 1.4rem 1.2rem;
+  padding: 0.95rem 1.5rem 1.05rem;
   border-radius: 18px;
   background: rgba(8, 13, 12, 0.88);
   border: 1px solid var(--border2);
@@ -130,11 +133,7 @@
 }
 .hp-role {
   font-size: 0.76rem; font-weight: 600; letter-spacing: 0.04em;
-  color: var(--accent-bright); margin-bottom: 0.7rem;
-}
-.hp-bio {
-  font-size: 0.83rem; color: var(--body); line-height: 1.65;
-  margin-bottom: 0.85rem;
+  color: var(--accent-bright); margin-bottom: 0.6rem;
 }
 .hp-link {
   display: inline-block;

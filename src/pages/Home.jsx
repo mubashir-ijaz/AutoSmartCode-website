@@ -589,11 +589,6 @@ export default function Home() {
             <div className="hp-card">
               <div className="hp-name">Sam</div>
               <div className="hp-role">Founder &amp; CEO · AutoSmartCode</div>
-              <p className="hp-bio">
-                One developer, not an agency. I've built scraping and automation
-                systems for car dealers, eCommerce sellers, agencies and property
-                investors across the US.
-              </p>
               <Link to="/about" className="hp-link">More about me →</Link>
             </div>
           </div>
