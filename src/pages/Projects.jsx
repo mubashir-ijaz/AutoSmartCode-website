@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/content";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
+import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Projects.css";
 
 export function ProjectsPage() {
@@ -29,8 +30,11 @@ export function ProjectsPage() {
     <div className="inner-page">
       <div className="inner-hero">
         <div className="container">
-          <h1 className="s-title">All Projects</h1>
-          <p className="s-sub">1000+ projects delivered. Here are some of the most impactful ones — each solved a real business problem.</p>
+          <FounderHeader
+            title="All Projects"
+            sub="1000+ projects delivered. Here are some of the most impactful ones — each solved a real business problem."
+            line="every project on this page, built by me"
+          />
         </div>
       </div>
       <section className="section">
@@ -56,6 +60,26 @@ export function ProjectsPage() {
           </div>
         </div>
       </section>
+      <FounderNote
+        eyebrow="Who built these"
+        title={<>No two of these were the same job</>}
+        cta="Tell me about yours →"
+      >
+        <p>
+          There's no template behind this list. An auction system that reconciles
+          Carfax against MMR has nothing in common with a Google Maps scraper that
+          verifies 5,000 phone numbers — different sites, different defences,
+          different definitions of "correct". I wrote each one from scratch.
+        </p>
+        <p>
+          What they do share is the part clients never see: <strong>the handling for
+          when it goes wrong</strong>. Retries when a page half-loads, alerts when a
+          site changes its markup, checks that catch a price field quietly returning
+          empty. That's the difference between a script that worked once and a system
+          you can leave running.
+        </p>
+      </FounderNote>
+
       <div className="cta-strip">
         <div className="container cta-strip-inner">
           <div>
@@ -194,6 +218,24 @@ export function ProjectDetailPage() {
           </div>
         </div>
       </section>
+
+      <FounderNote
+        eyebrow="About the developer"
+        title={<>The person who built this<br />is the person you'd email</>}
+        cta="Discuss a build like this →"
+      >
+        <p>
+          I'm Sam — I run AutoSmartCode, and I wrote this system myself. Not a team, not
+          a subcontractor: one developer who scoped it, built it, tested it against the
+          live site, and handed it over with alerting so the client would know before I
+          did if it ever stopped behaving.
+        </p>
+        <p>
+          That matters most <strong>after</strong> delivery. Sites redesign, defences
+          change, a field moves — and when they do, you're not filing a ticket with
+          someone who's never seen the code. You're emailing the person who wrote it.
+        </p>
+      </FounderNote>
     </div>
   );
 }

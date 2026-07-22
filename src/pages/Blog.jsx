@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/content";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
+import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Blog.css";
 
 export function BlogPage() {
@@ -28,8 +29,11 @@ export function BlogPage() {
     <div className="inner-page">
       <div className="inner-hero">
         <div className="container">
-          <h1 className="s-title">Guides That Actually Help</h1>
-          <p className="s-sub">Practical tutorials on web scraping, automation, AI, and tools for US businesses — written from real project experience.</p>
+          <FounderHeader
+            title="Guides That Actually Help"
+            sub="Practical tutorials on web scraping, automation, AI, and tools for US businesses — written from real project experience."
+            line="written by me, from paid client work"
+          />
         </div>
       </div>
       <section className="section">
@@ -55,6 +59,25 @@ export function BlogPage() {
           </div>
         </div>
       </section>
+      <FounderNote
+        eyebrow="Why I write these"
+        title={<>Everything here came out of<br />a job somebody paid for</>}
+        cta="Have me build it instead →"
+      >
+        <p>
+          I don't write tutorials from documentation. Every guide on this page started as
+          a problem a client hit — a site that blocked the obvious approach, a dataset
+          that needed cleaning before it meant anything, a nightly job that had to survive
+          being left alone for a year.
+        </p>
+        <p>
+          So they include the parts most articles skip: <strong>what breaks, and what it
+          costs to fix</strong>. If a technique only works until a site adds rate limiting,
+          I say so. You should be able to follow one of these and build the thing — or read
+          it, decide it's not worth your week, and hire me instead. Both are fine outcomes.
+        </p>
+      </FounderNote>
+
       <div className="cta-strip">
         <div className="container cta-strip-inner">
           <div>
@@ -186,7 +209,15 @@ export function BlogDetailPage() {
             <div className="sidebar-card">
               <h3>About the Author</h3>
               <div className="author-block">
-                <div className="author-avatar-lg">MI</div>
+                <picture>
+                  <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
+                  <img
+                    className="author-avatar-lg"
+                    src={process.env.PUBLIC_URL + "/sam.jpg"}
+                    alt="Sam, founder of AutoSmartCode"
+                    width="56" height="56" loading="lazy" decoding="async"
+                  />
+                </picture>
                 <div>
                   <div className="author-name-lg">Mubashir Ijaz</div>
                   <div className="author-title">Founder, AutoSmartCode</div>
@@ -234,6 +265,24 @@ export function BlogDetailPage() {
           </div>
         </div>
       </section>
+
+      <FounderNote
+        eyebrow="About the author"
+        title={<>I build this for a living,<br />which is why I can write about it</>}
+        cta="Get this built for you →"
+      >
+        <p>
+          I'm Sam, founder of AutoSmartCode. I've delivered scraping and automation
+          systems to over a hundred US businesses — car wholesalers, eCommerce sellers,
+          agencies and property investors — and the articles here are the notes from
+          that work rather than a content plan.
+        </p>
+        <p>
+          If something in this piece doesn't match what you're seeing on your own target
+          site, that's worth an email. Half of what I know about a site I only learned
+          because someone asked <strong>"why doesn't this work for mine?"</strong>
+        </p>
+      </FounderNote>
     </div>
   );
 }

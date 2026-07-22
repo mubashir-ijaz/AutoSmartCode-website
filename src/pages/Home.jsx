@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { projects } from "../data/content";
 import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
 import { useSeo, ORIGIN } from "../useSeo";
+import { FlipCoin } from "../components/Founder";
 import "./Home.css";
 
 const SERVICES = [
@@ -704,28 +705,7 @@ export default function Home() {
       <section className="section coin-section">
         <div className="container coin-wrap">
 
-          <div className="coin-stage" aria-hidden="true">
-            <div className="coin">
-              <div className="coin-face coin-front">
-                <picture>
-                  <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
-                  <img
-                    src={process.env.PUBLIC_URL + "/sam.jpg"}
-                    alt=""
-                    width="260"
-                    height="260"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-              <div className="coin-face coin-back">
-                <img src={process.env.PUBLIC_URL + "/logo.svg"} alt="" width="110" height="110" />
-                <span className="coin-back-name">AutoSmartCode</span>
-              </div>
-            </div>
-            <div className="coin-shadow" />
-          </div>
+          <FlipCoin size={260} />
 
           <div className="coin-copy">
             <span className="coin-eyebrow">Got a project in mind?</span>
