@@ -1,13 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useFeedback } from "./FeedbackModal";
 import "./Navbar.css";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
-  const { open: openRate } = useFeedback();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 40);
@@ -39,11 +37,9 @@ export default function Navbar() {
           ))}
           <li><a href="/#contact" onClick={handleContact}>Contact</a></li>
           <li className="nav-mobile-cta">
-            <button className="nav-rate wide" onClick={openRate}>★ Rate Us</button>
             <a href="/#contact" className="btn btn-blue" onClick={handleContact}>Get Free Quote</a>
           </li>
         </ul>
-        <button className="nav-rate" onClick={openRate}>★ Rate Us</button>
         <a href="/#contact" className="nav-cta" onClick={handleContact}>Get Free Quote</a>
         <button className="nav-burger" onClick={()=>setOpen(!open)} aria-label="Menu">
           <span/><span/><span/>
