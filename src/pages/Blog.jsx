@@ -20,7 +20,7 @@ export function BlogPage() {
         headline: b.title,
         url: ORIGIN + "/blog/" + b.slug,
         datePublished: new Date(b.date).toISOString().slice(0, 10),
-        author: { "@type": "Person", name: "Mubashir Ijaz" },
+        author: { "@type": "Person", name: "Sam" },
       })),
     },
   });
@@ -154,7 +154,7 @@ export function BlogDetailPage() {
           wordCount: blog.content.split(/\s+/).length,
           articleSection: blog.tag,
           inLanguage: "en-US",
-          author: { "@type": "Person", name: "Mubashir Ijaz", url: ORIGIN },
+          author: { "@type": "Person", name: "Sam", url: ORIGIN },
           publisher: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
           mainEntityOfPage: { "@type": "WebPage", "@id": ORIGIN + "/blog/" + blog.slug },
         },
@@ -191,7 +191,7 @@ export function BlogDetailPage() {
             <span>·</span>
             <span>{blog.readTime}</span>
             <span>·</span>
-            <span>By Mubashir Ijaz, AutoSmartCode</span>
+            <span>By Sam, AutoSmartCode</span>
           </div>
         </div>
       </div>
@@ -219,7 +219,7 @@ export function BlogDetailPage() {
                   />
                 </picture>
                 <div>
-                  <div className="author-name-lg">Mubashir Ijaz</div>
+                  <div className="author-name-lg">Sam</div>
                   <div className="author-title">Founder, AutoSmartCode</div>
                 </div>
               </div>
