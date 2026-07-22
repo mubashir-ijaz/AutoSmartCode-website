@@ -1,13 +1,28 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="40" height="40" rx="10" fill="url(#grad)"/>
-  <path d="M12 20 L18 14 L24 20 L18 26 Z" fill="none" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-  <circle cx="26" cy="14" r="3.5" fill="white"/>
-  <path d="M22 28 L28 28" stroke="white" stroke-width="2" stroke-linecap="round"/>
-  <path d="M25 25 L28 28 L25 31" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="grad" x1="0" y1="0" x2="40" y2="40">
-      <stop offset="0%" stop-color="#2563eb"/>
+    <linearGradient id="asc-bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="55%" stop-color="#10b981"/>
       <stop offset="100%" stop-color="#06b6d4"/>
     </linearGradient>
+    <linearGradient id="asc-shine" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.28"/>
+      <stop offset="60%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
   </defs>
+
+  <rect width="48" height="48" rx="13" fill="url(#asc-bg)"/>
+  <rect width="48" height="48" rx="13" fill="url(#asc-shine)"/>
+
+  <!-- brackets: the code that does the work -->
+  <path d="M19 12h-3a4 4 0 0 0-4 4v3.5a4.5 4.5 0 0 1-4.5 4.5A4.5 4.5 0 0 1 12 28.5V32a4 4 0 0 0 4 4h3"
+        stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M29 12h3a4 4 0 0 1 4 4v3.5a4.5 4.5 0 0 0 4.5 4.5A4.5 4.5 0 0 0 36 28.5V32a4 4 0 0 1-4 4h-3"
+        stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+  <!-- scattered data resolving into one clean, structured row -->
+  <circle cx="20.5" cy="16.5" r="1.7" fill="#ffffff" fill-opacity="0.55"/>
+  <circle cx="27.5" cy="16.5" r="1.7" fill="#ffffff" fill-opacity="0.8"/>
+  <circle cx="24" cy="23" r="1.9" fill="#ffffff"/>
+  <rect x="19" y="29.5" width="10" height="3.6" rx="1.8" fill="#ffffff"/>
 </svg>

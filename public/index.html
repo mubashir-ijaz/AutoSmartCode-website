@@ -3,11 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AutoSmartCode — Professional web scraping, automation, AI data analysis, and web development. 1000+ projects for Amazon, eBay, Walmart, Zillow, Manheim and 50+ platforms." />
-  <meta name="keywords" content="web scraping, Python automation, AI analysis, Amazon scraper, car dealer automation, lead generation, ecommerce development" />
+  <meta name="theme-color" content="#060a09" />
+  <meta name="color-scheme" content="dark" />
+
+  <!-- Defaults for the homepage and for any crawler that reads raw HTML.
+       Every route overwrites these at runtime via src/useSeo.js. -->
+  <title>Web Scraping &amp; Automation Services for US Businesses | AutoSmartCode</title>
+  <meta name="description" content="We turn any website into clean, structured data. Custom scrapers, lead lists, price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours." />
+  <meta name="author" content="Mubashir Ijaz — AutoSmartCode" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <link rel="canonical" href="https://www.autosmartcode.com/" />
+
+  <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+  <link rel="apple-touch-icon" href="/logo.svg" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AutoSmartCode" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="Web Scraping &amp; Automation Services for US Businesses | AutoSmartCode" />
+  <meta property="og:description" content="Turn any website into clean, structured data. Scrapers, lead lists and price monitors — built in 2–5 days, quoted in 24 hours." />
+  <meta property="og:url" content="https://www.autosmartcode.com/" />
+  <meta property="og:image" content="https://www.autosmartcode.com/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="AutoSmartCode — web scraping and automation for US businesses" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Web Scraping &amp; Automation Services | AutoSmartCode" />
+  <meta name="twitter:description" content="Turn any website into clean, structured data. Built in 2–5 days, quoted in 24 hours." />
+  <meta name="twitter:image" content="https://www.autosmartcode.com/og-image.png" />
+
+  <!-- Fonts: preconnect + preload so text paints without blocking render (LCP) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
-  <title>AutoSmartCode | Scraping, Automation & AI for US Businesses</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Site-wide identity. Per-page schema (Article, FAQ, Breadcrumb) is added
+       per route by src/useSeo.js under id="route-schema".
+       NOTE: aggregateRating was removed — see SEO.md. Ratings in schema must be
+       genuine and visible on the page; inventing them risks a manual action. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.autosmartcode.com/#org",
+        "name": "AutoSmartCode",
+        "url": "https://www.autosmartcode.com/",
+        "logo": "https://www.autosmartcode.com/logo.svg",
+        "email": "sam@autosmartcode.com",
+        "founder": { "@type": "Person", "name": "Mubashir Ijaz" },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "sam@autosmartcode.com",
+          "contactType": "sales",
+          "availableLanguage": "English",
+          "areaServed": "US"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.autosmartcode.com/#website",
+        "url": "https://www.autosmartcode.com/",
+        "name": "AutoSmartCode",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://www.autosmartcode.com/#org" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.autosmartcode.com/#service",
+        "name": "AutoSmartCode",
+        "description": "Web scraping, process automation, AI data analysis and web development for US businesses.",
+        "url": "https://www.autosmartcode.com/",
+        "parentOrganization": { "@id": "https://www.autosmartcode.com/#org" },
+        "areaServed": { "@type": "Country", "name": "United States" },
+        "priceRange": "$$",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Services",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Scraping & Data Extraction" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Process Automation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI & Data Analysis" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lead Generation" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Car Dealer Automation" } }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <div id="root"></div>

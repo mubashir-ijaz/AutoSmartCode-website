@@ -1,13 +1,34 @@
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/content";
+import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import "./Projects.css";
 
 export function ProjectsPage() {
+  useSeo({
+    title: "Web Scraping & Automation Projects | AutoSmartCode Portfolio",
+    description: "Real client work — car auction intelligence, Google Maps lead scrapers, Amazon and Walmart data pipelines, price monitors and eCommerce builds.",
+    path: "/projects",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "AutoSmartCode Projects",
+      url: ORIGIN + "/projects",
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: projects.map((p, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: p.title,
+          url: ORIGIN + "/projects/" + p.id,
+        })),
+      },
+    },
+  });
+
   return (
     <div className="inner-page">
       <div className="inner-hero">
         <div className="container">
-          <span className="s-label">Portfolio</span>
           <h1 className="s-title">All Projects</h1>
           <p className="s-sub">1000+ projects delivered. Here are some of the most impactful ones — each solved a real business problem.</p>
         </div>
@@ -51,6 +72,34 @@ export function ProjectsPage() {
 export function ProjectDetailPage() {
   const { id } = useParams();
   const project = projects.find(p => p.id === parseInt(id));
+
+  useSeo(project ? {
+    title: project.title + " | AutoSmartCode Case Study",
+    description: project.description.slice(0, 155),
+    path: "/projects/" + project.id,
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.description,
+          url: ORIGIN + "/projects/" + project.id,
+          about: project.type,
+          keywords: project.stack.join(", "),
+          inLanguage: "en-US",
+          creator: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
+        },
+        crumbs([["Projects", "/projects"], [project.title, "/projects/" + project.id]]),
+      ],
+    },
+  } : {
+    title: "Project not found | AutoSmartCode",
+    description: "This project does not exist.",
+    path: "/projects/" + id,
+    noindex: true,
+  });
 
   if (!project) return (
     <div className="inner-page not-found">

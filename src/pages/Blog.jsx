@@ -1,13 +1,33 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/content";
+import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import "./Blog.css";
 
 export function BlogPage() {
+  useSeo({
+    title: "Web Scraping & Automation Guides | AutoSmartCode Blog",
+    description: "Practical guides on web scraping, Python automation, lead generation and AI data analysis — written from real client projects, not theory.",
+    path: "/blog",
+    schema: {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: "AutoSmartCode Blog",
+      url: ORIGIN + "/blog",
+      description: "Guides on web scraping, automation and data for US businesses.",
+      blogPost: blogs.map(b => ({
+        "@type": "BlogPosting",
+        headline: b.title,
+        url: ORIGIN + "/blog/" + b.slug,
+        datePublished: new Date(b.date).toISOString().slice(0, 10),
+        author: { "@type": "Person", name: "Mubashir Ijaz" },
+      })),
+    },
+  });
+
   return (
     <div className="inner-page">
       <div className="inner-hero">
         <div className="container">
-          <span className="s-label">Blog & Resources</span>
           <h1 className="s-title">Guides That Actually Help</h1>
           <p className="s-sub">Practical tutorials on web scraping, automation, AI, and tools for US businesses — written from real project experience.</p>
         </div>
@@ -91,6 +111,39 @@ function renderContent(content) {
 export function BlogDetailPage() {
   const { slug } = useParams();
   const blog = blogs.find(b => b.slug === slug);
+  const published = blog ? new Date(blog.date).toISOString().slice(0, 10) : "";
+
+  useSeo(blog ? {
+    title: blog.title + " | AutoSmartCode",
+    description: blog.summary.slice(0, 155),
+    path: "/blog/" + blog.slug,
+    type: "article",
+    schema: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BlogPosting",
+          headline: blog.title,
+          description: blog.summary,
+          url: ORIGIN + "/blog/" + blog.slug,
+          datePublished: published,
+          dateModified: published,
+          wordCount: blog.content.split(/\s+/).length,
+          articleSection: blog.tag,
+          inLanguage: "en-US",
+          author: { "@type": "Person", name: "Mubashir Ijaz", url: ORIGIN },
+          publisher: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
+          mainEntityOfPage: { "@type": "WebPage", "@id": ORIGIN + "/blog/" + blog.slug },
+        },
+        crumbs([["Blog", "/blog"], [blog.title, "/blog/" + blog.slug]]),
+      ],
+    },
+  } : {
+    title: "Article not found | AutoSmartCode",
+    description: "This article does not exist.",
+    path: "/blog/" + slug,
+    noindex: true,
+  });
 
   if (!blog) return (
     <div className="inner-page not-found">
@@ -144,7 +197,7 @@ export function BlogDetailPage() {
 
             <div className="sidebar-card">
               <h3>Need This Done?</h3>
-              <p style={{ color: "var(--gray)", fontSize: "0.85rem", lineHeight: "1.7", marginBottom: "1rem" }}>
+              <p style={{ color: "var(--body)", fontSize: "0.9rem", lineHeight: "1.75", marginBottom: "1.1rem" }}>
                 Don't want to build it yourself? I'll build exactly what this article describes for your business — and deliver it fast.
               </p>
               <Link to="/#contact" className="btn btn-blue" style={{ width: "100%", justifyContent: "center" }}>

@@ -1,0 +1,64 @@
+/* ===================== Rate-us popup ===================== */
+.rate-overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem;
+  background: rgba(3, 6, 5, 0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: rate-fade .22s ease;
+  overflow-y: auto;
+}
+@keyframes rate-fade { from { opacity: 0 } to { opacity: 1 } }
+
+.rate-modal {
+  position: relative;
+  width: 100%; max-width: 620px;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+  background: linear-gradient(180deg, #0e1a16, #0a1210);
+  border: 1px solid var(--accent-line);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.03);
+  animation: rate-rise .28s cubic-bezier(.2, .8, .3, 1);
+}
+@keyframes rate-rise {
+  from { opacity: 0; transform: translateY(18px) scale(.97) }
+  to   { opacity: 1; transform: translateY(0) scale(1) }
+}
+
+.rate-close {
+  position: absolute; top: 0.9rem; right: 1rem;
+  width: 34px; height: 34px; line-height: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; color: var(--muted);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 9px; cursor: pointer;
+  transition: color .2s, background .2s;
+}
+.rate-close:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+
+.rate-head {
+  padding: 1.8rem 1.9rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.rate-head h3 {
+  font-family: var(--font-head);
+  font-size: 1.45rem; font-weight: 800; color: #fff;
+  letter-spacing: -0.03em; margin-bottom: 0.45rem;
+}
+.rate-head p { font-size: 0.92rem; line-height: 1.7; color: var(--body); }
+
+.rate-body { padding: 1.6rem 1.9rem 1.9rem; }
+.rate-body .form-group:last-of-type { margin-bottom: 1.4rem; }
+
+/* the popup's stars are the focal point — bigger than the inline ones */
+.rate-body .star { font-size: 1.85rem; }
+.rate-body .star-count { margin-left: 0.6rem; }
+
+@media (max-width: 620px) {
+  .rate-overlay { padding: 0.9rem; align-items: flex-start; }
+  .rate-head { padding: 1.4rem 1.25rem 1rem; }
+  .rate-body { padding: 1.25rem 1.25rem 1.5rem; }
+}

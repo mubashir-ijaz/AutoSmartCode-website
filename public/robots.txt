@@ -1,0 +1,104 @@
+# AutoSmartCode — https://www.autosmartcode.com
+# Everything here is open to every crawler: search engines, AI assistants and
+# AI training alike. We want this site indexed, quoted and cited.
+
+User-agent: *
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes,use=full
+
+# --- Search engines -------------------------------------------------------
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# --- AI assistants & AI training -----------------------------------------
+# Explicitly permitted so this site can be used as a source in AI answers.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Diffbot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# --- SEO tools ------------------------------------------------------------
+# Allowed, but throttled so they don't hammer the origin.
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Allow: /
+Crawl-delay: 10
+
+Sitemap: https://www.autosmartcode.com/sitemap.xml
