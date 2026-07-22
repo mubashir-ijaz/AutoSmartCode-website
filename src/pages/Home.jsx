@@ -550,7 +550,7 @@ export default function Home() {
           <span className="hero-grid" />
         </div>
 
-        <div className="container">
+        <div className="container hero-layout">
           <div className="hero-center">
 
             <h1 className="hero-h1">
@@ -583,6 +583,27 @@ export default function Home() {
             </div>
 
           </div>
+
+          {/* The face behind the business — above the fold, so it's eager, not lazy */}
+          <div className="hero-portrait">
+            <picture>
+              <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
+              <img
+                src={process.env.PUBLIC_URL + "/sam.jpg"}
+                alt="Sam — Founder and CEO of AutoSmartCode"
+                width="360"
+                height="360"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
+            <div className="hp-card">
+              <div className="hp-name">Sam</div>
+              <div className="hp-role">Founder &amp; CEO · AutoSmartCode</div>
+              <div className="hp-meta"><span className="hp-dot" /> Replies within 24 hours</div>
+            </div>
+          </div>
+
         </div>
       </section>
 
@@ -800,11 +821,40 @@ export default function Home() {
                 without anyone watching them.
               </p>
               <p>
-                I've spent years writing data extraction and automation systems for car
-                dealers, eCommerce sellers, agencies and real estate investors across the
-                US. When you hire AutoSmartCode, you're not routed to a junior developer
-                or an account manager — <strong>you work with me directly</strong>, from
-                the first email to the finished system.
+                My depth is in the hard part of this work — <strong>the sites that don't
+                want to be read</strong>. Rotating proxies and session handling,
+                fingerprint and Cloudflare defences, JavaScript-rendered pages,
+                pagination that hides half the catalogue, and the schema drift that
+                quietly breaks a scraper three weeks after launch. I write these systems
+                to fail loudly and recover on their own, because data you can't trust is
+                worse than no data at all.
+              </p>
+
+              <div className="about-skills">
+                {[
+                  { k: "Scraping engineering", v: "Python · Scrapy · Playwright · Selenium · proxy rotation · anti-bot bypass · CAPTCHA-aware flows" },
+                  { k: "Data & pipelines", v: "Pandas · deduplication · validation rules · MySQL / PostgreSQL · scheduled ETL · Google Sheets and REST delivery" },
+                  { k: "Automation & bots", v: "Cron and queue-driven jobs · Telegram / Slack / email alerting · retry and self-healing logic · uptime monitoring" },
+                  { k: "Product & front end", v: "React · Next.js · Node.js · dashboards and admin panels that put the data in front of your team" },
+                  { k: "AI on top of the data", v: "LLM APIs for classification, sentiment and summarisation · competitor and pricing intelligence reports" },
+                ].map(s => (
+                  <div key={s.k} className="about-skill">
+                    <strong>{s.k}</strong>
+                    <span>{s.v}</span>
+                  </div>
+                ))}
+              </div>
+
+              <p>
+                Most of that experience comes from four industries I now know unusually
+                well: <strong>car wholesalers</strong> pricing auction inventory against
+                Carfax, MMR and J.D. Power; <strong>eCommerce sellers</strong> tracking
+                catalogues and Buy Box movement across marketplaces;{" "}
+                <strong>agencies</strong> that need verified lead lists rather than
+                scraped noise; and <strong>real estate investors</strong> modelling yield
+                from listing and rental data. When you hire AutoSmartCode you're not
+                routed to a junior developer or an account manager — you work with me
+                directly, from the first email to the finished system.
               </p>
 
               <div className="about-stats">
