@@ -64,17 +64,30 @@
   41%, 91%                { transform: scaleX(0.45); opacity: 0.45; }
 }
 
-/* ================= page heading with the coin beside it ================= */
-.founder-header { display: flex; align-items: center; gap: 1.9rem; }
-.founder-header .coin-stage { flex-shrink: 0; }
+/* ============ page heading left, the coin and its credit line right ============ */
+.founder-header {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 2.75rem;
+}
 .fh-text { min-width: 0; }
-.fh-text .s-sub { margin-bottom: 0.7rem; }
-.fh-line { font-size: 0.82rem; color: var(--muted); }
+.fh-text .s-sub { margin-bottom: 0; }
+
+.fh-credit {
+  flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 0.85rem;
+  max-width: 240px; text-align: center;
+}
+.fh-line { font-size: 0.82rem; line-height: 1.5; color: var(--muted); }
 .fh-line strong { color: var(--ink2); font-weight: 700; }
 
-@media (max-width: 640px) {
-  .founder-header { flex-direction: column; align-items: flex-start; gap: 1.3rem; }
-  .founder-header .coin-stage { --coin-size: 88px; }
+@media (max-width: 820px) {
+  /* side by side leaves neither enough room — credit drops under the heading */
+  .founder-header { flex-direction: column; align-items: flex-start; gap: 1.8rem; }
+  .fh-credit {
+    flex-direction: row; align-items: center; gap: 1rem;
+    max-width: none; text-align: left;
+  }
+  .fh-credit .coin-stage { --coin-size: 88px; }
 }
 
 /* ================= closing about-me band ================= */

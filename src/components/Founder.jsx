@@ -33,14 +33,16 @@ export function FlipCoin({ size = 260, shadow = true }) {
   );
 }
 
-/** Page heading with the coin standing beside it — title, one line, nothing more. */
+/** Page heading on the left, the coin and a one-line credit on the right. */
 export function FounderHeader({ title, sub, line }) {
   return (
     <div className="founder-header">
-      <FlipCoin size={116} shadow={false} />
       <div className="fh-text">
         <h1 className="s-title">{title}</h1>
         <p className="s-sub">{sub}</p>
+      </div>
+      <div className="fh-credit">
+        <FlipCoin size={124} shadow={false} />
         <span className="fh-line"><strong>Sam</strong> · {line}</span>
       </div>
     </div>
