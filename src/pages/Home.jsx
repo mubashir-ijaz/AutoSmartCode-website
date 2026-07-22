@@ -700,6 +700,52 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ FLIP COIN — the person and the business, same thing ============ */}
+      <section className="section coin-section">
+        <div className="container coin-wrap">
+
+          <div className="coin-stage" aria-hidden="true">
+            <div className="coin">
+              <div className="coin-face coin-front">
+                <picture>
+                  <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
+                  <img
+                    src={process.env.PUBLIC_URL + "/sam.jpg"}
+                    alt=""
+                    width="260"
+                    height="260"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div className="coin-face coin-back">
+                <img src={process.env.PUBLIC_URL + "/logo.svg"} alt="" width="110" height="110" />
+                <span className="coin-back-name">AutoSmartCode</span>
+              </div>
+            </div>
+            <div className="coin-shadow" />
+          </div>
+
+          <div className="coin-copy">
+            <span className="coin-eyebrow">Got a project in mind?</span>
+            <h2 className="s-title">The developer and the company<br />are the same person</h2>
+            <p>
+              Flip it either way and you get me. No account manager forwarding your email,
+              no junior picking up the build after you've signed — just the person who
+              writes your code, answering your questions and staying reachable long after
+              the invoice is paid.
+            </p>
+            <div className="coin-actions">
+              <a href="#contact" className="btn btn-blue">Start your project →</a>
+              <Link to="/about" className="btn btn-outline">More about me</Link>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
       {/* ============ HOW IT WORKS ============ */}
       <section className="section steps-section">
         <div className="container">
@@ -795,51 +841,6 @@ export default function Home() {
               </details>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ============ FLIP COIN — the person and the business, same thing ============ */}
-      <section className="section coin-section">
-        <div className="container coin-wrap">
-
-          <div className="coin-stage" aria-hidden="true">
-            <div className="coin">
-              <div className="coin-face coin-front">
-                <picture>
-                  <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
-                  <img
-                    src={process.env.PUBLIC_URL + "/sam.jpg"}
-                    alt=""
-                    width="260"
-                    height="260"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-              <div className="coin-face coin-back">
-                <img src={process.env.PUBLIC_URL + "/logo.svg"} alt="" width="110" height="110" />
-                <span className="coin-back-name">AutoSmartCode</span>
-              </div>
-            </div>
-            <div className="coin-shadow" />
-          </div>
-
-          <div className="coin-copy">
-            <span className="coin-eyebrow">Got a project in mind?</span>
-            <h2 className="s-title">The developer and the company<br />are the same person</h2>
-            <p>
-              Flip it either way and you get me. No account manager forwarding your email,
-              no junior picking up the build after you've signed — just the person who
-              writes your code, answering your questions and staying reachable long after
-              the invoice is paid.
-            </p>
-            <div className="coin-actions">
-              <a href="#contact" className="btn btn-blue">Start your project →</a>
-              <Link to="/about" className="btn btn-outline">More about me</Link>
-            </div>
-          </div>
-
         </div>
       </section>
 
