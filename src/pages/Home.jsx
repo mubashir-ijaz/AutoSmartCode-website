@@ -770,13 +770,18 @@ export default function Home() {
           <div className="about-wrap">
 
             <div className="about-photo">
-              <img
-                src={process.env.PUBLIC_URL + "/sam.png"}
-                alt="Sam — Founder and CEO of AutoSmartCode"
-                width="420"
-                height="420"
-                loading="lazy"
-              />
+              {/* WebP for everything current, JPEG for the long tail */}
+              <picture>
+                <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
+                <img
+                  src={process.env.PUBLIC_URL + "/sam.jpg"}
+                  alt="Sam — Founder and CEO of AutoSmartCode"
+                  width="420"
+                  height="420"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <div className="about-badge">
                 <span className="ab-dot" />
                 Available for new projects

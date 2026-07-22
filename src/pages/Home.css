@@ -907,6 +907,7 @@
   filter: blur(38px);
   z-index: 0;
 }
+.about-photo picture { display: block; }
 .about-photo img {
   position: relative; z-index: 1;
   width: 100%; max-width: 420px; height: auto;

@@ -34,5 +34,5 @@ Thumbs.db
 # vercel
 .vercel
 
-# source photo (copied into public/ as sam.png)
+# original founder photo (compressed into public/sam.webp + sam.jpg)
 /my image.png
