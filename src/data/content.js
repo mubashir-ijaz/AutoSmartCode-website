@@ -849,6 +849,467 @@ Send me the products or competitors you want to track and how fast you need to k
 
 **Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
     `
+  },
+  {
+    id: 11,
+    slug: "free-vin-decoder-nhtsa-api",
+    tag: "Car Dealers",
+    emoji: "🔧",
+    color: "linear-gradient(135deg, #062a1f 0%, #0a1f33 100%)",
+    title: "Free VIN Decoding: What NHTSA's vPIC API Actually Gives You",
+    summary: "There is a US government API that decodes any VIN for free, with no key, no rate limit and no licensing. Most dealers are paying for data they could get from it.",
+    date: "February 12, 2026",
+    readTime: "7 min read",
+    content: `
+## The most underused free data source in the car business
+
+The US National Highway Traffic Safety Administration runs a database called vPIC — Vehicle Product Information Catalog. It decodes any VIN sold in the United States, it is free, it requires no API key, it has no published rate limit, and because it is a US government work it carries no licensing restriction on what you do with the output.
+
+Almost every dealer I have built for was paying a vendor for at least part of what vPIC returns for nothing.
+
+## What a VIN decode actually returns
+
+Feed vPIC a 17-character VIN and it gives you back the manufacturer's own declaration of what that vehicle is. Not an estimate, not a lookup against a third-party table — the decoded content of the VIN itself plus the manufacturer's filing.
+
+- Make, model, model year and series
+- Trim level and body class
+- Engine — displacement, cylinder count, configuration, fuel type, horsepower
+- Drive type, transmission style and speed count
+- Plant city, state and country of manufacture
+- Gross vehicle weight rating class
+- Restraint system type and airbag locations
+- Number of doors and seat rows
+- Electrification level for hybrids and EVs
+
+For a dealer, the useful part is trim and engine. Two cars with the same year, make and model can differ by several thousand dollars on trim alone, and auction run lists are notoriously vague about it. Decoding the VIN settles it.
+
+## What it does not give you
+
+This is the part vendors are actually selling, and it is worth being clear about.
+
+vPIC tells you **what the car is**. It does not tell you **what happened to it**. No accident history, no title brands, no odometer readings, no ownership count, no service records. That information comes from Carfax, AutoCheck, or an NMVTIS-approved provider, and it is licensed data you pay for.
+
+So the honest framing is not "vPIC replaces Carfax". It is: decode everything for free, then spend your paid report credits only on the cars where history actually changes the decision.
+
+## The other free NHTSA endpoints
+
+vPIC is the best known but not the only one.
+
+- **Recalls by VIN** — open safety recalls that have not been remedied. Worth checking before any car hits your lot.
+- **Recalls by make, model and year** — the broader campaign data.
+- **Safety ratings** — NHTSA's own crash test results, which are a genuine selling point on a listing.
+- **Complaints** — owner-filed complaints by model, useful for spotting a trim with a known transmission problem before you buy fifteen of them.
+
+## Doing it at volume
+
+One VIN in a browser is easy. The reason this becomes a build rather than a bookmark is volume and shape.
+
+vPIC has a batch endpoint that accepts multiple VINs in a single POST, which is how you decode a four-hundred-car run list without four hundred requests. The response is verbose — well over a hundred fields per vehicle, most of them empty for any given car — so the real work is selecting the twelve fields you care about, normalising the values, and joining the result onto whatever you already have.
+
+That last part is where the value is. A decoded VIN sitting on its own is trivia. A decoded VIN joined onto an auction run list, so every lot on tomorrow's sale arrives with its true trim and engine attached, changes what you bid on.
+
+## What I build with it
+
+The typical shape: a pipeline reads your run lists or inventory feed, batch-decodes every VIN through vPIC, checks each one for open recalls, and writes the enriched rows into a sheet or database. Paid history reports are pulled afterwards, through your own dealer account, only for the cars that survived the first filter.
+
+The dealers who run this stop paying for reports on cars they were never going to buy.
+
+## Get it built
+
+Send me where your VINs come from — an auction platform, a DMS export, a spreadsheet — and what you want on each row. Free decoding plus recall checks is usually a two to three day build.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
+  },
+  {
+    id: 12,
+    slug: "price-used-cars-market-data",
+    tag: "Car Dealers",
+    emoji: "📊",
+    color: "linear-gradient(135deg, #062629 0%, #06262e 100%)",
+    title: "How to Price Used Cars Against the Live Market, Not a Book Value",
+    summary: "Book values tell you what a car was worth. Live listing data tells you what buyers in your market are being asked to pay for it today. Here is how to build the second one.",
+    date: "March 18, 2026",
+    readTime: "8 min read",
+    content: `
+## Book value versus asking price
+
+Every dealer has a book value source — MMR, Black Book, J.D. Power, Galves. They are good at what they do, which is telling you roughly what a car is worth wholesale, nationally, on average.
+
+None of those three qualifiers matches how you actually sell a car. You sell retail, in one market, today. And the number your customer is comparing you against is not a book value they have never heard of — it is the twenty listings they just scrolled through on their phone.
+
+Pricing against live listings closes that gap. It is not a replacement for book value; it is the other half of the picture.
+
+## What the comparable set should contain
+
+A comp is not "same year, make, model". That is how you end up pricing a base trim against a loaded one and wondering why the car sat for ninety days.
+
+A usable comparable set matches on:
+
+- Year, make, model **and trim** — decoded from the VIN, not read off the listing title
+- Mileage within a sensible band, not an arbitrary one
+- Drivetrain and transmission
+- Geography — a radius that reflects how far your buyers actually travel
+- Condition signals where published — accident-free flags, owner count, certified status
+
+Then it records, per listing: asking price, days on market, dealer identity, and every price change observed since first capture.
+
+## Days on market is the number nobody tracks
+
+Asking price alone is half the story, and it is the half that lies. A car listed at 24,000 dollars that has sat for eighty days is not telling you the market value is 24,000. It is telling you the market value is somewhere below that, and the dealer has not worked it out yet.
+
+Once you are capturing listings daily, days-on-market comes for free — you know when each listing first appeared because you were there. Pair it with price-change history and the picture sharpens considerably:
+
+- Trims that clear in under three weeks at asking price are under-supplied. Buy more, price at the top of the range.
+- Trims sitting past sixty days with two price cuts are over-supplied. Either skip them or buy at a price that assumes you will be cutting too.
+- A competitor who cuts price on day fourteen every single time has a floorplan problem you can plan around.
+
+## Where the data comes from
+
+The listing sites your buyers actually use — AutoTrader, Cars.com, CarGurus, CarMax, and increasingly Facebook Marketplace for private-party. Individual dealer websites matter more than people expect, because they update the moment a car is repriced, often days before the aggregators catch up.
+
+Each of those has its own defences and its own quirks, which is why this tends to be a build rather than a subscription. I have written separately about the individual sites — the [AutoTrader](/autotrader-scraper), [CarMax](/carmax-scraper) and [Cars.com](/cars-com-scraper) pages go into what each one publishes and what gets in the way.
+
+## Turning listings into a price
+
+The output that actually gets used is not a spreadsheet of every comp. It is a single recommendation per car with the workings attached:
+
+- The comparable set size, so you know whether to trust it
+- Median and percentile asking prices across that set
+- Your position within the range if you list at a given number
+- Estimated days to sell at each price point, from observed history
+- The spread against MMR or your landed cost
+
+Twelve comps says something. Three comps says almost nothing, and the system should tell you that rather than quietly averaging them into a confident-looking number.
+
+## What changes when you have it
+
+The dealers I have built this for describe the same shift. Pricing meetings stop being arguments about instinct and start being five-minute reviews of a list. Cars stop sitting because somebody priced from memory. And the reprice decision — the one that actually costs money when it comes late — gets made on day twenty instead of day fifty.
+
+## Get it built
+
+Tell me your market, the segments you stock, and which sites your buyers shop. Most pricing feeds are running within a week.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
+  },
+  {
+    id: 13,
+    slug: "ai-parsing-scraped-data",
+    tag: "AI Analysis",
+    emoji: "🧠",
+    color: "linear-gradient(135deg, #1d1640 0%, #2a1038 100%)",
+    title: "Using AI to Clean Up Messy Scraped Data (And When Not To)",
+    summary: "Language models are very good at the parsing problems that used to need a hundred regexes — and a bad, expensive choice for the ones a regex already solves.",
+    date: "April 9, 2026",
+    readTime: "9 min read",
+    content: `
+## The problem regex was always bad at
+
+Extraction gets you the raw text. The work that decides whether the dataset is usable is what happens next, and it is usually messier than the scraping.
+
+Consider a single field — the price — as it actually appears across a few hundred sites:
+
+- 1,299.00 and 1.299,00 and 1 299 kr
+- From 49 dollars a month
+- Was 89, now 59
+- Call for pricing
+- 24.99 per unit, minimum order 12
+
+A regex handles the first two variants. By the fifth you are writing special cases, and by the fiftieth you have a thousand lines of parsing code that nobody can safely change.
+
+This is exactly the shape of problem language models are good at: high variety, low volume per variant, and a clear notion of what the right answer looks like.
+
+## What to hand to a model
+
+The rule I use: **if you can write the rule down, write the rule.** Use a model where the rule would be "you know it when you see it".
+
+Good candidates:
+
+- Splitting an address blob into components across inconsistent international formats
+- Deciding whether two differently-spelled business names are the same company
+- Classifying free-text product descriptions into your own category tree
+- Extracting structured attributes from prose specs — "brushed stainless, 18 inch, dishwasher safe"
+- Normalising job titles into levels so "VP Eng" and "Vice President of Engineering" collapse together
+- Reading sentiment and specific complaints out of review text at volume
+
+Bad candidates, where a model is slower, costlier and less reliable than five lines of code:
+
+- Anything with a fixed format — ISO dates, phone numbers in one country, currency with a known symbol
+- Deduplication on an exact key
+- Arithmetic
+- Validation you can express as a rule
+
+## Structure the output, do not parse it
+
+The mistake I see most often is asking a model for JSON in the prompt and then parsing whatever comes back. That works until it does not, and it fails silently in the middle of a large batch.
+
+Every current Claude model supports structured outputs — you supply a JSON Schema and the response is constrained to match it. That turns "usually valid JSON" into "valid JSON or an explicit error", which is the difference between a pipeline you can leave running and one you have to babysit.
+
+Define the schema tightly. Enumerate the values you will accept for a category field rather than leaving it as a free string, and include an explicit "unknown" option — a model given no way to say it does not know will invent something.
+
+## Cost, honestly
+
+This is where people either overspend badly or dismiss the approach on bad arithmetic.
+
+The current Claude lineup, priced per million tokens of input and output:
+
+- **Claude Haiku 4.5** — 1 dollar in, 5 dollars out
+- **Claude Sonnet 5** — 3 dollars in, 15 dollars out
+- **Claude Opus 4.8** — 5 dollars in, 25 dollars out
+
+A short parsing task — a messy product record in, a clean structured record out — runs somewhere around 400 tokens in and 150 out. On Haiku that is roughly 0.0011 dollars per record, so about 1.10 dollars for a thousand records. Ten thousand product records cleaned for around eleven dollars is cheap against any amount of engineering time.
+
+Two things make the difference between that number and a bill ten times larger:
+
+**Use the smallest model that passes your evaluation.** Parsing and classification are exactly the tasks the cheaper models handle well. Reach for a larger model when the task needs genuine reasoning, not when it needs careful pattern matching. Test the cheap one first; if it passes, you are done.
+
+**Batch, and cache the instructions.** If you send the same long system prompt with every record, you pay for it every time. Prompt caching makes repeated prefixes read at roughly a tenth of the input price, which matters enormously when the instructions are long and the records are short. Send records in batches rather than one at a time and the per-record overhead collapses.
+
+## Always validate the output
+
+A model that returns a confidently wrong answer is worse than one that errors, because you will not notice.
+
+Every AI parsing step I build ships with deterministic checks behind it:
+
+- Does the parsed price fall within a plausible range for this category?
+- Does the extracted date exist, and is it not in 1970 or 2087?
+- Does the normalised category appear in the allowed list?
+- What percentage of this batch came back as unknown, and is that percentage stable against yesterday?
+
+That last one is the alarm that matters. A parsing step that quietly starts returning unknown for a third of records has broken, and the null rate catches it long before anyone notices the numbers look odd.
+
+## Where this sits in a real pipeline
+
+Deterministic first, model second, validation third. Extract the raw values with code. Handle everything with a knowable rule using that code. Route only the leftovers — the genuinely ambiguous ones — to a model. Then validate everything that comes back with rules again.
+
+Done that way, the AI step usually touches ten to twenty percent of records, which keeps both the cost and the blast radius small.
+
+## Get it built
+
+If you have a dataset that is technically complete and practically unusable, that is the job. Send me a sample of the mess and what you want the clean version to look like.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
+  },
+  {
+    id: 14,
+    slug: "self-healing-scrapers-ai",
+    tag: "Technical",
+    emoji: "🩹",
+    color: "linear-gradient(135deg, #14183a 0%, #1d1640 100%)",
+    title: "Self-Healing Scrapers: What AI Fixes When a Site Changes, and What It Doesn't",
+    summary: "Every scraper eventually breaks because a site redesigns. AI can genuinely repair some of those breaks automatically — and pretending it fixes all of them is how you end up with silently wrong data.",
+    date: "May 21, 2026",
+    readTime: "8 min read",
+    content: `
+## Why scrapers break
+
+Not because they were written badly. Because the site changed, and it was always going to.
+
+A scraper is a contract with a page structure that the other party never agreed to and can rewrite whenever they like. A class name goes from product-price to price-display. A value that was in the HTML moves into a JavaScript payload. A single-column layout becomes a grid. None of that is malicious and none of it is unusual — it is just what shipping a website looks like from the other side.
+
+The question is not whether your scraper breaks. It is how long it takes you to find out, and how much wrong data you acted on in the meantime.
+
+## The two failure modes, and only one is obvious
+
+**Loud failures** are fine. The selector matches nothing, the parser throws, the run exits non-zero, an alert fires. You know within minutes.
+
+**Silent failures** are the expensive ones. The selector still matches something — just the wrong thing. Now your price column contains the shipping cost. The run succeeds. The row count looks normal. The alert never fires, and you make decisions on that data for three weeks before somebody notices the margins look strange.
+
+Everything below is really about catching the second kind.
+
+## Where AI genuinely helps
+
+Give a model the old page structure, the field definitions, and the new page HTML, and ask it to locate the same fields again. This works well, and it works because it is a recognition problem rather than a rule-following one — the price still looks like a price, it has just moved.
+
+A repair loop I have had good results with:
+
+1. The run fails validation — nulls spike, or a value falls outside its expected range
+2. The system snapshots the page that failed
+3. A model is given that snapshot, the field list, and examples of previously-correct values
+4. It proposes new selectors
+5. **The proposal is tested against a stored set of pages with known-correct answers**
+6. If it passes, the selectors are updated and the run retries; a human is notified either way
+
+Step five is the entire load-bearing part. Without it you have replaced a broken scraper with a confidently wrong one.
+
+## Where it does not help
+
+Be clear-eyed about the limits.
+
+- **A login flow that changed** — this is a sequence of actions, not a structure to recognise. It needs a person.
+- **New anti-bot defences** — if the site deployed a challenge, no amount of selector repair gets you past it, and you should not want a system that tries to route around a defence automatically.
+- **Data that genuinely moved behind a paywall** — the field is gone. That is a business decision, not a bug.
+- **Semantic changes** — the site now shows price excluding tax where it used to include it. The scraper works perfectly and your dataset is wrong. No structural check catches this; only a human who knows the domain will.
+
+That last one is worth sitting with. It is the failure mode that no amount of automation addresses, and it is the reason I do not sell "set and forget".
+
+## Validation is what makes any of this work
+
+The repair loop only ever triggers because validation caught something. So the validation is the real system:
+
+- **Null rate per field**, compared against the rolling average rather than against zero
+- **Range checks** — a used car priced at 40 dollars or 4 million is a parse error, not a bargain
+- **Type checks** — a price field returning text
+- **Row count** against expectation, catching pagination that silently stopped early
+- **Cross-field consistency** — a sale price above the list price
+- **Distribution drift** — the shape of today's values against last week's, which catches the subtle ones
+
+A pipeline with these checks and no AI at all is far more trustworthy than one with automatic repair and no checks.
+
+## What I actually ship
+
+Honest version: most systems I build do not repair themselves. They detect and they shout.
+
+The reason is that on a well-scoped pipeline, breakages are rare enough that a same-morning alert plus a fix from me is faster and safer than an automated repair I have to verify anyway. Automated repair earns its place when you are running against many sites at once and manual response does not scale.
+
+What every delivered system does have: validation on every run, alerting the moment a check fails, a stored snapshot of the page that broke so diagnosis does not start from scratch, and fixes from the person who wrote it.
+
+Sites change and scrapers break. Anyone who tells you otherwise is selling something. The measure of a good build is not that it never breaks — it is that you find out from the system rather than from a bad decision three weeks later.
+
+## Get it built
+
+If you have a scraper that keeps failing quietly, or you are about to build something you need to trust for months, that is the conversation.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
+  },
+  {
+    id: 15,
+    slug: "why-cold-email-lists-bounce",
+    tag: "Lead Generation",
+    emoji: "📬",
+    color: "linear-gradient(135deg, #2b1e08 0%, #2a1608 100%)",
+    title: "Why Your Cold Email List Bounces (And What It Costs You)",
+    summary: "A 30% bounce rate does not just waste 30% of your list. It damages your sending domain in ways that outlast the campaign — often permanently.",
+    date: "June 16, 2026",
+    readTime: "7 min read",
+    content: `
+## The damage is not the wasted sends
+
+Most people think of a bad list as a volume problem. You bought 10,000 contacts, 3,000 bounced, so you got 7,000 sends. Annoying, but survivable.
+
+That is not what happened. What happened is that mailbox providers watched your domain send thousands of messages to addresses that do not exist, concluded you are either buying lists or guessing addresses, and adjusted how they treat everything you send from now on.
+
+The 7,000 that did not bounce increasingly land in spam. Then your invoices start landing in spam. Then your password resets. Recovering a burned sending domain takes months of careful low-volume sending, and sometimes the practical answer is to buy a new one.
+
+## Where the bad addresses come from
+
+Four sources, in rough order of how much damage they do.
+
+**Guessed patterns.** A tool takes a name and a domain and generates firstname@, f.lastname@, firstname.lastname@ and sends to all of them hoping one lands. This is the worst thing you can do. It is what spam filters are specifically built to detect, and hitting a spam trap this way can get you blocklisted outright.
+
+**Stale databases.** Someone scraped a directory in 2023 and has been reselling it since. Business email churn runs somewhere around a quarter to a third per year — people leave, companies rebrand, domains lapse. A three-year-old list is mostly fiction.
+
+**Role addresses.** info@, sales@, contact@. These are real addresses, so they do not bounce, which makes them look like list quality. In practice they go to a shared inbox nobody reads, they convert at close to nothing, and a high proportion of complaints come from them.
+
+**Spam traps.** Addresses that were real, went dead, and were then reactivated by a provider specifically to catch senders using old data. Hitting one is a strong negative signal, and you cannot tell them apart from ordinary addresses by looking.
+
+## What verification actually checks
+
+Four layers, each catching something the previous one cannot.
+
+- **Syntax** — is it a structurally valid address. Catches typos and junk.
+- **Domain** — does the domain resolve. Catches dead companies and misspelled domains.
+- **MX record** — does the domain accept mail at all. A domain with no mail server cannot receive anything.
+- **Mailbox** — does this specific address exist on that server, checked without sending anything.
+
+Only the fourth catches the individual dead address at a live company, which is the majority of the problem. Anything sold as "verified" that stops at the first three is not verified in the sense that matters.
+
+**Catch-all domains** are the honest complication. Some mail servers accept every address at the domain rather than revealing which exist, so mailbox verification cannot return a definitive answer. A good list marks these as risky rather than pretending they passed. What you do with them is a judgement call — send at low volume, or set them aside.
+
+## Fresh beats big, every time
+
+The single most reliable way to avoid all of this is not to buy a list at all.
+
+A list built the week you need it, from live public sources, against your actual criteria, does not have the stale-data problem because there is no elapsed time for the data to go stale in. Every business on it was trading when it was collected. Every address was verified against a live server days ago rather than years ago.
+
+That is what I build. Google Maps and industry directories for the businesses, a pass over each company website for the contact details, then full verification before anything is delivered. Typical outcome is a verified email on somewhere between 40 and 70 percent of a list — lower for trades, higher for professional services.
+
+## The number that matters
+
+When someone quotes you a list size, ask what the verified count is, and ask what happened to the difference.
+
+I would rather hand over 600 verified contacts and tell you the other 400 could not be confirmed than hand over 1,000 and let you find out through your bounce rate. A smaller honest list outperforms a bigger dirty one on every measure that matters, and it does not cost you your domain.
+
+## Get it built
+
+Tell me who you sell to — industry, geography, size, whatever else defines a good fit — and I will build the list against those criteria and verify it before you see it.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
+  },
+  {
+    id: 16,
+    slug: "slow-website-cost-small-business",
+    tag: "Web Development",
+    emoji: "⏱️",
+    color: "linear-gradient(135deg, #06262e 0%, #0a1f33 100%)",
+    title: "What a Slow Website Actually Costs a Small Business",
+    summary: "Every second your site takes to load, a share of your visitors leave — and they never tell you they were there. Here is where the time goes and what it is worth fixing.",
+    date: "July 14, 2026",
+    readTime: "6 min read",
+    content: `
+## The customers you never hear about
+
+When a website is slow, nobody complains. They just leave, go back to the search results, and click the next business down. You never see the enquiry, you never get the call, and nothing in your inbox tells you it happened.
+
+That is what makes site speed easy to ignore for years. The cost is entirely invisible, and it is entirely real.
+
+## Where the seconds actually go
+
+Almost always the same handful of causes, roughly in order of how much time they waste.
+
+**Unoptimised images.** Someone uploaded a 4 MB photo straight off a phone and the page displays it at 400 pixels wide. The browser downloads all 4 MB anyway. On a phone on mobile data this alone can be five seconds. It is also the single easiest thing to fix.
+
+**Page builder bloat.** A drag-and-drop theme that loads a full animation library, three icon fonts and a slider script on a page with no animations, icons or sliders. Very common, and largely invisible because the page looks fine on the desktop it was built on.
+
+**Too many plugins.** Every plugin adds its own scripts and styles to every page, whether that page uses it or not. Twenty plugins is twenty sets of overhead on your contact page.
+
+**Cheap shared hosting.** The server itself takes a second or more to respond before anything else can begin. Nothing you do on the page fixes a slow server.
+
+**No caching.** Every visitor triggers a full rebuild of a page whose content has not changed in eight months.
+
+## What "fast" means in practice
+
+Google measures three things and uses them in ranking. Stripped of the jargon:
+
+- **How long until the main content appears** — target is under 2.5 seconds
+- **How quickly the page responds when someone taps** — target is under 200 milliseconds
+- **How much the layout jumps around while loading** — the thing that makes you tap the wrong link when an ad loads late
+
+The layout-shift one is worth calling out because it is a conversion problem more than a speed one. If your call button moves 300 milliseconds after it appears, a real share of people tap the wrong thing and give up.
+
+## The compounding part
+
+Speed does not just cost you the visitors who leave. It costs you the visitors who never arrive.
+
+Slow sites rank lower. Ranking lower means fewer people see you. Fewer visitors means less of the engagement that search engines read as a positive signal. It is a slow spiral, and it is why a site that was fine five years ago can quietly stop producing enquiries without anything visibly breaking.
+
+## What actually fixes it
+
+In descending order of value per hour spent:
+
+1. **Compress and resize every image**, and serve modern formats. Often halves page weight on its own.
+2. **Remove what you are not using** — plugins, scripts, fonts, entire libraries loaded for one component.
+3. **Get real caching in place** so returning visitors and repeat pages are near-instant.
+4. **Move off oversold shared hosting.** Modern hosting for a small business site is usually cheaper than what you are on.
+5. **Reserve space for images and embeds** so nothing jumps as the page loads.
+6. **Rebuild if the foundation is the problem.** Past a certain amount of page-builder overhead, optimising is more work than replacing.
+
+## How to know where you stand
+
+Run your site through Google's PageSpeed Insights. It is free, it takes thirty seconds, and it gives you both scores and a specific list of what is costing you time. Test the mobile score, not the desktop one — that is where most of your visitors are and where the gap is widest.
+
+If mobile comes back under 50, you are losing enquiries you do not know about.
+
+## Get it fixed
+
+I build [small business websites](/small-business-website-design) that load fast because there is nothing extra in them, and I do [redesigns](/website-redesign-services) that keep the Google ranking you already have rather than resetting it. Either way you own everything at the end, and there is no monthly fee to me.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+    `
   }
 ];
 
@@ -1000,4 +1461,42 @@ export const platforms = [
   { name: "CarMax", emoji: "🚗", cat: "Automotive" },
   { name: "EdgePipeline", emoji: "⚡", cat: "Automotive" },
   { name: "AutoTrader", emoji: "🚘", cat: "Automotive" },
+];
+
+
+/* Homepage FAQ — rendered on the page, emitted as FAQPage schema, and read
+   by scripts/prerender.js. One source so the three can never disagree. */
+export const FAQS = [
+  {
+    q: "How much does a web scraper cost?",
+    a: "Most one-off scraping jobs land between $150 and $800 depending on how many sites, how many fields and how much anti-bot protection is involved. Recurring systems that run daily are quoted as a build fee plus a small monthly amount. You get a fixed price up front — never an hourly meter.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Most projects are built and delivered in 2 to 5 days. You get a scope, a fixed price and a delivery date within 24 hours of describing what you need, and you see sample output early so nothing is a surprise at the end.",
+  },
+  {
+    q: "Is web scraping legal?",
+    a: "Scraping publicly accessible data is generally legal in the United States, and US courts have repeatedly upheld that. What matters is what you collect and how you use it — I avoid personal data behind logins, respect terms where they bind, and will tell you plainly if a request looks like a problem rather than take the money.",
+  },
+  {
+    q: "What format do I get the data in?",
+    a: "Excel (.xlsx), CSV, JSON, Google Sheets, a direct database write (MySQL or Postgres), or a REST API endpoint — whatever slots into what you already use. Most clients take Excel or a Google Sheet that refreshes on a schedule.",
+  },
+  {
+    q: "Can you scrape sites that block bots or need a login?",
+    a: "Yes. Sites with rate limiting, fingerprinting, JavaScript rendering or an account wall are routine work here. Where a login is involved I use credentials you own and are entitled to use.",
+  },
+  {
+    q: "Do I need to know how to code?",
+    a: "No. You describe the website and the details you want in plain English. You get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal or touch a line of code.",
+  },
+  {
+    q: "What happens if the website changes and the scraper breaks?",
+    a: "Sites do change, and scrapers do break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than finding out from stale data, and I fix breakages on systems I built.",
+  },
+  {
+    q: "Who will I actually be working with?",
+    a: "Me. AutoSmartCode is one developer, not an agency — the person who writes your code is the person who answers your emails. No account managers, no handoffs.",
+  },
 ];

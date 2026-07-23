@@ -1,0 +1,27 @@
+<!-- Favicon — a deliberately different drawing from logo.svg.
+
+     logo.svg carries the full story: two brackets, three scattered dots, and
+     the clean row they resolve into. That's ten elements, and at 16x16 it
+     collapses into a green smudge.
+
+     This is the same idea reduced to what survives at 16px: two bold chevrons
+     and one dot. Filled tile rather than outline, because a thin stroke on a
+     dark tile disappears against a dark browser theme — small icons need
+     mass, not line work. -->
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fav-bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="55%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="48" height="48" rx="11" fill="url(#fav-bg)"/>
+
+  <path d="M19 16 L11.5 24 L19 32" stroke="#fff" stroke-width="4.6"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M29 16 L36.5 24 L29 32" stroke="#fff" stroke-width="4.6"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="24" cy="24" r="3.3" fill="#fff"/>
+</svg>

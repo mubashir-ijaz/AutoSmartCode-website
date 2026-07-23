@@ -14,8 +14,15 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
   <link rel="canonical" href="https://www.autosmartcode.com/" />
 
+  <!-- Tab icon stays on the full logo — deliberate, not an oversight.
+       public/favicon.svg holds a simplified 3-shape version that reads better
+       at 16x16; swapping to it is a one-line change here when the mark is chosen.
+
+       Raster icons (favicon.ico, favicon-16/32.png, apple-touch-icon.png) are
+       NOT generated yet. Do not add link tags for them until the files exist in
+       public/ — a tag pointing at a missing file 404s on every page load. -->
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <link rel="apple-touch-icon" href="/logo.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -40,6 +47,100 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- ===================== Preloader =====================
+       Inline on purpose: this has to paint on the first frame, before the JS
+       bundle arrives. Anything imported through React would appear after the
+       thing it's meant to cover.
+
+       It animates the logo's own idea — scattered data resolving into one
+       clean structured row — rather than a generic spinner.
+
+       Three rules it must never break:
+       1. It never adds artificial delay. It's dismissed the moment React
+          mounts (src/index.js), not after a fixed timer.
+       2. It shows once per session. Returning to the site from a new tab is
+          instant; only a genuine cold visit sees it.
+       3. If JavaScript never runs, the CSS failsafe hides it anyway — a
+          preloader that can trap a visitor on a blank screen is a bug, not a
+          brand moment. -->
+  <style>
+    .asc-pre {
+      position: fixed; inset: 0; z-index: 9999;
+      display: grid; place-items: center;
+      background: #060a09;
+      /* Failsafe: hides itself even if the bundle never loads. */
+      animation: asc-failsafe 0s linear 6s forwards;
+    }
+    .asc-pre::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(620px 420px at 50% 42%, rgba(16, 185, 129, 0.10), transparent 70%),
+        radial-gradient(420px 300px at 50% 58%, rgba(6, 182, 212, 0.06), transparent 70%);
+    }
+    .asc-pre-inner {
+      position: relative;
+      display: flex; flex-direction: column; align-items: center; gap: 1.4rem;
+      animation: asc-rise 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    .asc-pre-mark {
+      width: 88px; height: 88px;
+      filter: drop-shadow(0 12px 34px rgba(16, 185, 129, 0.34));
+      animation: asc-breathe 2.4s ease-in-out 0.7s infinite;
+    }
+    /* Brackets draw themselves on. pathLength normalises both paths to 100. */
+    .asc-bracket {
+      stroke-dasharray: 100; stroke-dashoffset: 100;
+      animation: asc-draw 0.85s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards;
+    }
+    /* The scattered data points, arriving out of order — as they do. */
+    .asc-dot { opacity: 0; animation: asc-pop 0.44s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .asc-dot-1 { animation-delay: 0.62s; }
+    .asc-dot-2 { animation-delay: 0.50s; }
+    .asc-dot-3 { animation-delay: 0.74s; }
+    /* …resolving into one clean row. */
+    .asc-row { transform-origin: 24px 31.3px; transform: scaleX(0); animation: asc-resolve 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.92s forwards; }
+
+    .asc-pre-name {
+      font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+      font-size: 1.32rem; font-weight: 800; letter-spacing: -0.02em; color: #fff;
+      opacity: 0; animation: asc-rise 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+    }
+    .asc-pre-name span { color: #34d399; }
+
+    .asc-pre-bar {
+      width: 132px; height: 2px; border-radius: 2px;
+      background: rgba(255, 255, 255, 0.08); overflow: hidden;
+      opacity: 0; animation: asc-fade 0.5s ease 0.72s both;
+    }
+    .asc-pre-bar i {
+      display: block; width: 42%; height: 100%; border-radius: 2px;
+      background: linear-gradient(90deg, transparent, #34d399, #06b6d4, transparent);
+      animation: asc-sweep 1.15s cubic-bezier(0.65, 0, 0.35, 1) 0.8s infinite;
+    }
+
+    /* Exit — the site is already painted underneath, so this lifts away. */
+    .asc-pre-done { animation: asc-exit 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards; pointer-events: none; }
+
+    @keyframes asc-draw    { to { stroke-dashoffset: 0; } }
+    @keyframes asc-pop     { 0% { opacity: 0; transform: translateY(-5px) scale(0.4); } 100% { opacity: 1; transform: none; } }
+    @keyframes asc-resolve { to { transform: scaleX(1); } }
+    @keyframes asc-rise    { from { opacity: 0; transform: translateY(11px); } to { opacity: 1; transform: none; } }
+    @keyframes asc-fade    { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes asc-sweep   { 0% { transform: translateX(-115%); } 100% { transform: translateX(340%); } }
+    @keyframes asc-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.035); } }
+    @keyframes asc-exit    { to { opacity: 0; transform: scale(1.06); visibility: hidden; } }
+    @keyframes asc-failsafe { to { opacity: 0; visibility: hidden; } }
+
+    /* Respect the OS setting. Motion sickness outranks a brand moment. */
+    @media (prefers-reduced-motion: reduce) {
+      .asc-pre, .asc-pre * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+      .asc-bracket { stroke-dashoffset: 0; }
+      .asc-dot { opacity: 1; }
+      .asc-row { transform: scaleX(1); }
+      .asc-pre-done { opacity: 0; visibility: hidden; }
+    }
+  </style>
 
   <!-- Site-wide identity. Per-page schema (Article, FAQ, Breadcrumb) is added
        per route by src/useSeo.js under id="route-schema".
@@ -100,6 +201,45 @@
   </script>
 </head>
 <body>
+  <div class="asc-pre" id="asc-preloader" role="presentation" aria-hidden="true">
+    <div class="asc-pre-inner">
+      <svg class="asc-pre-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="pre-bg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#34d399"/><stop offset="55%" stop-color="#10b981"/><stop offset="100%" stop-color="#06b6d4"/>
+          </linearGradient>
+          <linearGradient id="pre-shine" x1="0" y1="0" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.28"/><stop offset="60%" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <rect width="48" height="48" rx="13" fill="url(#pre-bg)"/>
+        <rect width="48" height="48" rx="13" fill="url(#pre-shine)"/>
+        <path class="asc-bracket" pathLength="100" d="M19 12h-3a4 4 0 0 0-4 4v3.5a4.5 4.5 0 0 1-4.5 4.5A4.5 4.5 0 0 1 12 28.5V32a4 4 0 0 0 4 4h3"
+              stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="asc-bracket" pathLength="100" d="M29 12h3a4 4 0 0 1 4 4v3.5a4.5 4.5 0 0 0 4.5 4.5A4.5 4.5 0 0 0 36 28.5V32a4 4 0 0 1-4 4h-3"
+              stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle class="asc-dot asc-dot-1" cx="20.5" cy="16.5" r="1.7" fill="#fff" fill-opacity="0.55"/>
+        <circle class="asc-dot asc-dot-2" cx="27.5" cy="16.5" r="1.7" fill="#fff" fill-opacity="0.8"/>
+        <circle class="asc-dot asc-dot-3" cx="24" cy="23" r="1.9" fill="#fff"/>
+        <rect class="asc-row" x="19" y="29.5" width="10" height="3.6" rx="1.8" fill="#fff"/>
+      </svg>
+      <div class="asc-pre-name">Auto<span>Smart</span>Code</div>
+      <div class="asc-pre-bar"><i></i></div>
+    </div>
+  </div>
+  <script>
+    /* Once per session. A splash on every internal cold load is an obstacle,
+       not a brand moment — removed before first paint so there's no flash. */
+    try {
+      if (sessionStorage.getItem("asc-splash")) {
+        var p = document.getElementById("asc-preloader");
+        if (p) p.parentNode.removeChild(p);
+      } else {
+        sessionStorage.setItem("asc-splash", "1");
+      }
+    } catch (e) { /* private mode — just show it */ }
+  </script>
+
   <div id="root"></div>
 </body>
 </html>

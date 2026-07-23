@@ -1,0 +1,3111 @@
+# AutoSmartCode — full site content
+
+Source: https://www.autosmartcode.com
+Generated: 2026-07-23
+
+Web scraping, automation, data pipelines and web development for US
+businesses. One developer-led studio. Contact: sam@autosmartcode.com
+
+## Frequently asked questions
+
+### How much does a web scraper cost?
+
+Most one-off scraping jobs land between $150 and $800 depending on how many sites, how many fields and how much anti-bot protection is involved. Recurring systems that run daily are quoted as a build fee plus a small monthly amount. You get a fixed price up front — never an hourly meter.
+
+### How long does it take?
+
+Most projects are built and delivered in 2 to 5 days. You get a scope, a fixed price and a delivery date within 24 hours of describing what you need, and you see sample output early so nothing is a surprise at the end.
+
+### Is web scraping legal?
+
+Scraping publicly accessible data is generally legal in the United States, and US courts have repeatedly upheld that. What matters is what you collect and how you use it — I avoid personal data behind logins, respect terms where they bind, and will tell you plainly if a request looks like a problem rather than take the money.
+
+### What format do I get the data in?
+
+Excel (.xlsx), CSV, JSON, Google Sheets, a direct database write (MySQL or Postgres), or a REST API endpoint — whatever slots into what you already use. Most clients take Excel or a Google Sheet that refreshes on a schedule.
+
+### Can you scrape sites that block bots or need a login?
+
+Yes. Sites with rate limiting, fingerprinting, JavaScript rendering or an account wall are routine work here. Where a login is involved I use credentials you own and are entitled to use.
+
+### Do I need to know how to code?
+
+No. You describe the website and the details you want in plain English. You get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal or touch a line of code.
+
+### What happens if the website changes and the scraper breaks?
+
+Sites do change, and scrapers do break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than finding out from stale data, and I fix breakages on systems I built.
+
+### Who will I actually be working with?
+
+Me. AutoSmartCode is one developer, not an agency — the person who writes your code is the person who answers your emails. No account managers, no handoffs.
+
+
+
+---
+
+## Car Auction Automation for Dealers and Wholesalers
+
+URL: https://www.autosmartcode.com/services/car-auction-automation
+Keywords: car auction automation, manheim mmr automation, adesa auction data, backlotcars scraper, autoniq automation, wholesale car buying software, auction deal finder
+
+Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it.
+
+### What car auction automation actually does
+
+A car auction automation system logs into the auction platforms you already have accounts on, reads every run list and live listing that matches your buy box, and compares each vehicle against its market value before a person looks at it. What lands in your inbox is not a data dump — it is a ranked list of the cars worth bidding on, with the numbers that justify the bid attached.
+
+The work it removes is the work nobody wants: opening Manheim, then ADESA, then BacklotCars, then Autoniq, filtering each one by hand, copying VINs into a spreadsheet, and pulling condition reports one at a time. That routine takes a buyer three to four hours a day and it still misses cars, because the profitable ones move before anyone gets to the fourth tab.
+### Auction platforms this covers
+
+Every platform below is one I have built against for a paying dealer, using the dealer's own licensed account. Anything not on this list is usually still doable — the pattern is the same, only the login and the page structure change.
+
+- Manheim and Manheim MMR — run lists, live pricing, MMR market values
+- ADESA — listings, condition grades, sale calendars
+- BacklotCars — inventory, buy-now pricing, offer history
+- Autoniq — VIN scan data and valuation lookups
+- EdgePipeline and ACV — listings and condition reports
+- Copart and IAA — salvage and total-loss listings
+- Facebook Marketplace, Craigslist and OfferUp — private-party sourcing
+### The arithmetic it does for you
+
+Pulling the listings is the easy half. The half that makes money is the scoring: for each vehicle, the system takes the auction price, adds your transport, recon and fee assumptions, compares that landed cost against MMR or your own retail comps, and drops anything that does not clear the margin you set.
+
+You set the buy box once — years, mileage bands, makes, minimum margin, maximum recon, geography — and the system applies it identically to every car, every day, without the fatigue that makes a human skim the last thirty rows of a run list.
+### How it reaches you
+
+Most dealers take a formatted HTML email at 6 AM, sorted best deal first, with a photo, the key numbers and a direct link to the lane. Others take a Google Sheet the whole desk can open, a Slack or Telegram alert the moment a matching car appears, or a write straight into their DMS or inventory database.
+
+Systems that run unattended need to tell you when they stop working, so every build ships with alerting — if a login expires or a site changes its markup, you hear about it from the system rather than from a quiet inbox.
+### Access, credentials and what is fair game
+
+This runs on accounts you hold and are entitled to use. I do not resell auction data, share credentials between clients, or work around a platform's licensing — a system built on borrowed access is a system that dies the first time somebody audits it, and it takes your account with it.
+
+Where a platform publishes an official API or data feed, that is what the build uses. Where it does not, the system automates the same browser session your buyer would have opened anyway, at a request rate that does not hammer the site.
+
+### What you get
+
+- Daily ranked deal email before the lane opens
+- Buy-box filtering you control without touching code
+- Landed-cost and margin calculation per vehicle
+- MMR / market-value comparison on every VIN
+- Google Sheet, Excel, database or DMS delivery
+- Slack, Telegram or SMS alerts for instant matches
+- Failure alerting so silence never means 'no deals'
+
+### Questions
+
+**Do I need my own Manheim or ADESA account?**
+
+Yes. The system automates the account you already hold and are licensed to use — it does not create access you do not have, and I do not share credentials between clients. If you have a dealer login, that is all it needs.
+
+**How much does a car auction automation system cost?**
+
+A single-platform build with daily email delivery typically lands between $600 and $1,500 depending on how many sites and how much scoring logic is involved. Multi-platform pipelines with MMR reconciliation run higher. Recurring systems are quoted as a build fee plus a small monthly amount that covers hosting and fixes.
+
+**How long before it is running?**
+
+Most auction builds are live in 3 to 7 days. You see sample output from your real buy box in the first couple of days, so any misunderstanding about what counts as a good car gets caught before the full build.
+
+**What happens when an auction site changes its layout?**
+
+It breaks, like every scraper eventually does — the difference is you find out from an alert the same morning rather than from three quiet days of no deals. Fixes on systems I built are part of the arrangement, not a new project.
+
+**Can it place bids automatically?**
+
+I do not build automated bidding. Most auction platforms prohibit it outright, and the downside of a bug in a bidding bot is that you own a car you never wanted. The system finds and ranks; a person decides.
+
+
+---
+
+## Vehicle History Report Automation — Carfax, AutoCheck and VIN Data
+
+URL: https://www.autosmartcode.com/services/vehicle-history-reports
+Keywords: carfax report automation, autocheck report, car history report, vehicle history report api, bulk vin decoder, vin lookup automation, vin history data
+
+One VIN at a time is fine for one car. For a 400-car run list it is a lost afternoon — and the reports end up as 400 PDFs nobody can sort.
+
+### The problem with car history reports at volume
+
+Vehicle history reports are built for looking at one car. You paste a VIN, you read a page, you make a call. That model falls apart the moment you are appraising a whole run list or reconciling a hundred-car inventory, because the thing you actually want — accident count, title brand, owner count, odometer rollback flag, service gaps — is buried in prose across a hundred separate documents.
+
+What this service does is turn that into a table. One row per VIN, one column per fact you care about, sortable, filterable, and joinable against your auction data or your inventory feed.
+### How the reports get pulled
+
+Through your own dealer account. Carfax and AutoCheck both sell dealer subscriptions with report allowances, and if you hold one, the automation drives that session the same way your team would — it just does it four hundred times without stopping for lunch, and it parses each result instead of filing a PDF.
+
+Where you hold an official data agreement, the build uses the API instead of the browser, which is faster, cleaner and does not break when a page is redesigned. If you have an enterprise or API-tier arrangement with either provider, say so up front and the build changes shape accordingly.
+### Free and public VIN data you may not be using
+
+A surprising amount of what dealers pay for is available at no cost and no licensing risk, and a good pipeline pulls it first so paid report credits get spent only where they add something.
+
+- NHTSA vPIC — full VIN decode: make, model, year, trim, engine, plant, body class, restraint systems
+- NHTSA recall and complaint data by VIN or by make and model
+- NHTSA safety ratings and crash test results
+- NMVTIS-derived title and brand data through an approved provider
+- Manufacturer window-sticker and build-sheet lookups where published
+### What you get back
+
+A single sheet or database table where each row is a VIN and each column is a decision input: accident count and severity, title brand, number of owners, reported odometer readings with a rollback flag, service record density, use type — personal, fleet, rental, lease — and open recalls.
+
+Because it is structured, it becomes filterable in ways a PDF never is. Show me every car in this run list with a clean title, one owner, no accidents and no open recall. That query takes a second instead of an afternoon, and it is the same query every day.
+### Where the line is on licensing
+
+Carfax and AutoCheck licence their data; their terms restrict redistribution, and I will not build something that republishes their reports to third parties or resells report access you have not paid for. That is not caution for its own sake — it is the difference between a system you can run for years and one that gets your dealer account terminated.
+
+What is squarely fine: automating your own licensed account for your own inventory, decoding VINs against public government data, and structuring the results for your own internal use. That covers what almost every dealer actually wants. If your use case is outside it, I will tell you before you pay, not after.
+
+### What you get
+
+- Bulk VIN decode — thousands of VINs in one pass
+- Automated report retrieval via your own dealer account
+- Every report parsed into structured columns
+- Accident, title-brand, owner-count and odometer flags
+- Open recall check against NHTSA per VIN
+- One spreadsheet, database table or API endpoint
+- Joins straight onto your auction or inventory data
+
+### Questions
+
+**Can you get me Carfax reports without a Carfax account?**
+
+No. Carfax licences its data and its terms prohibit redistribution — a system built on someone else's access gets shut down and takes the account with it. What I automate is your own dealer subscription, which is exactly what most dealers need and is entirely within their agreement.
+
+**What is the difference between a VIN decode and a history report?**
+
+A decode tells you what the car is — make, model, year, trim, engine, plant — and comes free from NHTSA's vPIC database with no licensing at all. A history report tells you what happened to the car: accidents, title brands, owners, odometer readings. Most builds use free decoding for everything and spend paid report credits only where a decision depends on history.
+
+**How many VINs can it process?**
+
+Decoding runs to tens of thousands per day with no practical ceiling. Paid report retrieval is capped by whatever your subscription allows, not by the software — the automation is built to respect that limit and to prioritise which VINs are worth a credit.
+
+**Can this feed into my auction deal-finder?**
+
+That is the usual reason people ask for it. History data joins onto the auction pipeline on VIN, so the morning deal email arrives with accident count and title status already on each row — and cars with a branded title never make the list in the first place.
+
+**Do you handle AutoCheck as well as Carfax?**
+
+Yes, and the same rules apply — your own account, your own inventory. Some dealers run both and reconcile them, which is straightforward once each report is parsed into the same set of columns.
+
+
+---
+
+## Car Dealer Inventory Scraping — AutoTrader, CarMax, Cars.com and More
+
+URL: https://www.autosmartcode.com/services/dealer-inventory-scraping
+Keywords: dealer inventory scraper, autotrader scraper, carmax scraper, autoscout24 scraper, carsales scraper, cars.com data scraping, cargurus scraper, vehicle listing data, automate vehicle listings
+
+Every competitor's price, every listing, every day. What used to be a market feeling becomes a sortable column.
+
+### Why dealers scrape listing sites
+
+Pricing a car against the market means knowing what the market is asking, and the market changes daily. A dealer inventory scraper reads the live listings on the sites your buyers actually shop — AutoTrader, Cars.com, CarGurus, CarMax, and their equivalents outside the US — and hands you the whole comparable set as data rather than as twenty browser tabs.
+
+The uses stack up quickly once the data exists: pricing against genuine local comps instead of a gut number, spotting which competitor just cut $1,200 across their sedans, tracking how long specific trims sit before they move, and finding sourcing opportunities where a market is thin.
+### Sites this covers
+
+US and international listing platforms, marketplaces and individual dealer websites. Individual dealer sites matter more than people expect — a competitor's own inventory page is often the fastest signal that something has been repriced.
+
+- AutoTrader — listings, prices, dealer details, days on market
+- Cars.com and CarGurus — listings, price history, deal ratings
+- CarMax and Carvana — inventory, pricing, location availability
+- AutoScout24 and Mobile.de — European listing data
+- Carsales — Australian listing data
+- Facebook Marketplace, Craigslist and OfferUp — private-party listings
+- Any individual dealer website, including DealerSocket, Dealer.com and vAuto-backed sites
+### What comes out of it
+
+One row per listing: VIN, year, make, model, trim, mileage, asking price, previous prices seen, dealer name and location, days listed, photo URLs, and the full option list where the site publishes it. Re-run daily and you get price history for free, because the system remembers what it saw yesterday.
+
+Delivery is whatever fits your workflow — an Excel file, a Google Sheet that refreshes overnight, a Postgres table, or an API endpoint your own tooling can query. Most dealers take the Google Sheet because their whole desk can open it without installing anything.
+### Sites that fight back
+
+Most large listing platforms run bot detection: fingerprinting, rate limiting, JavaScript challenges, and layouts that change without notice. This is routine rather than exotic — the build uses a real browser engine, sensible request pacing, rotating residential exits where the site demands it, and structural selectors that survive a cosmetic redesign.
+
+The pacing part matters and is not just politeness. A scraper that hammers a site gets blocked, and a blocked scraper delivers nothing. Running at a rate the site can absorb is what makes a pipeline last months instead of days.
+
+### What you get
+
+- Daily refresh of every matching listing
+- Price-change history built up automatically
+- VIN, trim, mileage, options and photos per row
+- Competitor-level and market-level roll-ups
+- Days-on-market tracking per vehicle
+- Excel, Google Sheets, Postgres or API delivery
+- Alerts when a watched vehicle or dealer changes price
+
+### Questions
+
+**Is scraping car listing sites legal?**
+
+Collecting publicly visible listing data is generally lawful in the United States, and US appellate courts have repeatedly held that scraping public pages is not unauthorised access. What matters is what you collect and what you do with it — I stay off personal data behind logins, keep request rates civil, and will say plainly if a specific request looks like a problem.
+
+**How fresh is the data?**
+
+As fresh as you want to pay for. Daily overnight refresh is the common choice and suits pricing work. Hourly or near-real-time is possible for a narrow watch list, and costs more because it means more requests and more infrastructure.
+
+**Can you scrape a specific dealer's own website?**
+
+Yes, and it is often the most useful feed. Individual dealer sites usually have lighter defences than the big portals and update the moment a car is repriced, which makes them a faster signal than the aggregators.
+
+**What about international sites like AutoScout24 or Carsales?**
+
+Same work, different markup. AutoScout24, Mobile.de and Carsales are all builds I have done. Non-English sites are fine — the field names get normalised into whatever schema you are already using.
+
+**How much does a listing scraper cost?**
+
+A single site with daily delivery usually lands between $300 and $900. Multi-site pipelines with price history and roll-ups run higher. You get a fixed quote within 24 hours of describing the sites and fields, not an hourly meter.
+
+
+---
+
+## Business Leads Data & B2B Lead Scraping Services
+
+URL: https://www.autosmartcode.com/services/business-leads-data
+Keywords: business leads data, b2b lead scraping services, lead list building service, google maps lead scraping, linkedin lead generation data, verified business email list, leads data scraping
+
+Not a database somebody else already emailed twice. A list built this week, to your criteria, from sources you can point at.
+
+### Built to order, not bought off a shelf
+
+Most lead lists sold online are the same aggregated database resold to everyone in your industry, months stale, with bounce rates that quietly wreck your sending domain. The alternative is to build the list at the moment you need it, from the sources where the businesses actually are, filtered to the criteria that matter to you rather than to the criteria a vendor happened to store.
+
+That means you get to be specific in ways a stock list never allows. Every HVAC contractor in three named metros with a Google rating above 4.0, at least 25 reviews, a website that has no booking form, and a listed mobile number — that is a build, not a filter on somebody's database.
+### Where the data comes from
+
+Public business listings, professional directories, association member lists, marketplace seller pages and company websites. The right source depends entirely on who you are selling to, which is the first thing worth talking through before anything is built.
+
+- Google Maps and Google Business Profiles — by category and geography
+- Yelp, Yellow Pages and regional directories
+- LinkedIn company pages and public professional data
+- Industry association and licensing-board member registers
+- Trade show and conference exhibitor lists
+- Marketplace seller directories — Amazon, Etsy, Shopify storefronts
+- Company websites, for contact pages and technology signals
+### Fields you can have
+
+Business name, category, full address, geo coordinates, phone, website, email, contact name and role where published, rating and review count, opening hours, social profiles, employee-count band, and technology signals scraped from the site — whether they run Shopify, whether they have live chat, whether their booking is online or by phone.
+
+That last category is what turns a list into a campaign. Knowing that 340 of your 900 targets have no online booking gives you the first line of the email, and it is the difference between outreach that gets replies and outreach that gets deleted.
+### Verification, because a raw list is half a list
+
+Every email goes through syntax, domain, MX and mailbox checks before delivery, and anything that fails is either dropped or flagged rather than quietly padding the row count. Phone numbers are format-validated and line-type checked. Duplicates are collapsed across sources so the same business does not arrive three times under three spellings.
+
+You are told the numbers honestly: how many were found, how many survived verification, how many were dropped and why. A smaller verified list beats a big dirty one every time, because deliverability damage from a bad send outlasts the campaign.
+### Staying on the right side of privacy law
+
+This is B2B data from public sources: business contact details, published listings, professional profiles. I do not scrape personal data from behind logins, do not touch consumer PII, and do not build lists designed to circumvent someone's opt-out.
+
+CAN-SPAM, GDPR and CCPA all bear on what you can do with a list once you have it, and the rules differ by where your targets are. If your list includes EU or UK businesses, that changes what a lawful send looks like — I will flag it, though what your lawyer says about your sending practice is a separate question from what the data is.
+
+### What you get
+
+- Lead list built to your exact filter criteria
+- Email, phone, address, website and contact name
+- Ratings, review counts and opening hours
+- Technology and website signals per business
+- Full email verification before delivery
+- Cross-source deduplication
+- Excel, CSV, Google Sheets or straight into your CRM
+
+### Questions
+
+**How many leads can you deliver and how fast?**
+
+Five thousand verified business leads in about 24 to 48 hours is a normal run. Larger builds are a question of scale rather than difficulty. The limit is usually how many businesses actually match your criteria — if a niche only contains 800 real targets, you get 800 real targets rather than 5,000 padded ones.
+
+**What does a lead list cost?**
+
+Most one-off lists land between $200 and $700 depending on the number of sources, the depth of fields and whether verification is included. Recurring monthly builds are quoted as a lower per-run fee. You get a fixed price up front.
+
+**How accurate are the emails?**
+
+Every address is syntax, domain, MX and mailbox verified before it reaches you, which typically puts deliverability in the 90 to 95 percent range. Anything that cannot be verified is flagged rather than silently included, so you always know what you are sending to.
+
+**Can you find a specific person's email at each company?**
+
+Where a named contact and role are published — on the company site, in a directory, on a professional profile — yes. What I will not do is guess-and-test private addresses or pull personal data from behind a login. Business contact details from public sources is the line.
+
+**Can it drop straight into my CRM?**
+
+Yes. HubSpot, Pipedrive, Salesforce, Close, Airtable and Notion are all straightforward, either as a scheduled push or as a webhook that fires as each verified lead is found.
+
+
+---
+
+## Web Scraping Services for US Businesses
+
+URL: https://www.autosmartcode.com/services/web-scraping
+Keywords: web scraping services, data extraction services, custom web scraper development, hire a web scraping developer, price monitoring scraper, ecommerce data scraping, web scraping company usa
+
+If the data is on a website, it can be in your spreadsheet. Usually within the week, always for a price agreed before anything starts.
+
+### What a custom scraper gets you that a tool does not
+
+Off-the-shelf scraping tools work beautifully until the site does something interesting — an infinite scroll, a login wall, a price that only appears after a JavaScript call, a layout that differs on every fifth page. That is where point-and-click products stop and custom work starts, and it is where most of the sites worth scraping actually live.
+
+A custom build is written against your specific target. It handles that site's pagination, that site's defences, that site's inconsistencies, and it produces exactly the columns you asked for rather than a generic dump you have to clean before it is useful.
+### What people use it for
+
+Almost always one of a handful of jobs, wearing different clothes depending on the industry.
+
+- Competitor price monitoring — track prices across rival sites daily and get alerted on changes
+- Product and catalogue data — thousands of SKUs with specs, images, stock and variants
+- Lead generation — business contact data from directories and listings
+- Real estate research — listings, rents, sale history and yield analysis
+- Review and sentiment data — customer reviews at scale for product or market research
+- Job and hiring data — postings, salary bands and hiring signals by company
+- Financial and market data — public filings, listings and published rates
+### Sites that do not want to be read
+
+Cloudflare, DataDome, PerimeterX, fingerprinting, rate limits, CAPTCHA challenges, login walls, and single-page apps that render nothing in the raw HTML. These are the normal conditions of the job rather than exceptions to it.
+
+The tooling that gets through is a real browser engine driven properly, request pacing that looks like traffic rather than an attack, residential exits where the site demands them, and session handling that persists. Where a login is involved, it is your credentials, on your account, doing what you are entitled to do.
+### Clean data, or it is not finished
+
+Extraction is the first half. The half that determines whether you can use the output is normalisation: prices parsed to numbers with currency separated, dates in one format, addresses split into components, duplicates collapsed, missing fields marked as missing rather than as an empty string that looks like a zero.
+
+Every delivered dataset gets validated before it reaches you — row counts against expectations, null-rate checks on required fields, and range checks that catch a price column quietly returning empty because a selector moved. Silent data corruption is worse than an outright failure, because you act on it.
+### How it works, start to finish
+
+You send the URLs and the fields you want, in plain English — no technical spec required. Within 24 hours you get a scope, a fixed price and a delivery date. Most builds take 2 to 5 days, and you see sample output early so a misunderstanding about what a field means costs an hour rather than the whole project.
+
+Then you either get a file, or a running system handed over with scheduling and alerting so it keeps delivering without you thinking about it. Either way you are talking to the person writing the code, from the first email to whatever the site does six months later.
+
+### What you get
+
+- Custom scraper written for your specific target sites
+- Anti-bot handling, sessions and login support
+- Scheduled runs — hourly, daily or weekly
+- Validated, normalised, deduplicated output
+- Excel, CSV, JSON, Google Sheets, SQL or REST API
+- Alerting when a run fails or a field goes empty
+- Fixes when a site changes, on systems I built
+
+### Questions
+
+**How much does a web scraper cost?**
+
+Most one-off jobs land between $150 and $800 depending on how many sites, how many fields and how much anti-bot protection is involved. Recurring systems that run daily are quoted as a build fee plus a small monthly amount. The price is fixed before work starts — never an hourly meter.
+
+**Is web scraping legal?**
+
+Scraping publicly accessible data is generally legal in the United States, and US courts have repeatedly upheld that. What matters is what you collect and how you use it — I stay away from personal data behind logins, respect terms where they bind, and will tell you plainly if a request looks like a problem rather than take the money.
+
+**How long does a project take?**
+
+Most builds are delivered in 2 to 5 days. You get a scope, a fixed price and a delivery date within 24 hours of describing what you need, and sample output arrives early enough to correct course.
+
+**What format does the data come in?**
+
+Excel, CSV, JSON, Google Sheets, a direct write into MySQL or Postgres, or a REST endpoint your own systems can query. Most clients take Excel or a Google Sheet that refreshes on a schedule.
+
+**Do I need to know anything technical?**
+
+No. You describe the website and the details you want in plain English and you get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal.
+
+**What if the site changes and it breaks?**
+
+Sites change and scrapers break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than discovering it through stale data, and I fix breakages on systems I built.
+
+
+---
+
+## Web Development Services — Sites, Stores and Dashboards
+
+URL: https://www.autosmartcode.com/services/web-development
+Keywords: web development services, react web development, next.js development services, custom dashboard development, ecommerce website development, hire a web developer usa, internal tools development
+
+The website is the front of the business. It should load instantly, say the right thing, and be findable — three things most templates get wrong.
+
+### What gets built here
+
+Marketing sites and landing pages that load fast and are structured so search engines can actually read them. eCommerce stores on Shopify or custom stacks. Internal dashboards that put a business's own data — often the data from a scraper built alongside it — in front of the people who need to act on it. SaaS front ends, admin panels, and the client portals that sit between the two.
+
+The common thread is that these are built rather than assembled. A page-builder template gets you something that looks fine and carries three hundred kilobytes of JavaScript you did not ask for; written code gets you something that scores well on Core Web Vitals because there is nothing extra in it.
+### Built for search from the first commit
+
+SEO retrofitted onto a finished site is expensive and half-effective. Doing it during the build costs nothing extra and works properly: server rendering or static generation so crawlers get real HTML rather than an empty div, a heading structure that maps to how people search, structured data that matches what is actually on the page, canonical URLs and a sitemap that maintains itself, and image handling that does not sink the largest-contentful-paint score.
+
+This is the same work described across the rest of this site, applied to the site itself. It is why these pages exist as separate URLs with their own titles instead of as tabs on a homepage.
+### Dashboards and internal tools
+
+The most useful thing many businesses can build is not public at all. If a scraper is delivering data daily, somebody has to look at it — and a spreadsheet stops scaling around the point where three people need it at once and one of them keeps sorting the wrong column.
+
+A small internal dashboard fixes that: live data, the filters your team actually uses, alerts on the conditions that matter, exports where people still want Excel, and access control so the right people see the right rows. These are usually week-long builds, not quarter-long ones.
+### The stack and why
+
+React and Next.js for anything with interactivity, because static generation and server rendering are built in rather than bolted on. Node and FastAPI for back ends. Postgres for data. Vercel or a plain VPS for hosting, depending on whether you want zero-maintenance or full control.
+
+None of that is a religious position — if you already run WordPress and need it maintained rather than replaced, that is the honest answer and I will say so instead of quoting a rebuild.
+
+### What you get
+
+- Marketing sites and landing pages that convert
+- eCommerce stores — Shopify or custom
+- Internal dashboards over your own data
+- SaaS front ends, admin panels and client portals
+- Technical SEO built in, not bolted on
+- Core Web Vitals tuned before handover
+- Deployed, documented and yours to keep
+
+### Questions
+
+**How much does a website cost?**
+
+A focused marketing site is typically $800 to $2,500 depending on page count and how much custom design is involved. eCommerce and dashboard builds run higher because there is real logic behind them. You get a fixed price and a delivery date within 24 hours of describing what you need.
+
+**How long does a build take?**
+
+A landing page or small marketing site is usually under a week. A store or a dashboard is typically two to four weeks. You see working pages as they are built rather than a reveal at the end.
+
+**Do you do the design as well as the code?**
+
+Yes. If you have brand assets or a design, I build to it. If you do not, you get something clean and current that is designed around what the page is meant to make a visitor do.
+
+**Will the site actually rank?**
+
+It will be built so nothing technical stands in the way — real HTML for crawlers, correct structure, valid schema, fast loading. Rankings themselves come from content and from other sites linking to yours, and no honest developer will promise you a position. What I can promise is that the site will not be the reason you are invisible.
+
+**Can you connect the site to a scraper or automation?**
+
+That is the most common version of this job — a dashboard or portal sitting on top of a data pipeline built at the same time. Having one person write both ends means the handoff between them is not a negotiation.
+
+**Do I own the code?**
+
+Entirely. It is deployed to your accounts, the repository is yours, and there is no licence, retainer or hosting arrangement you have to keep paying me for in order to keep your own website.
+
+
+---
+
+## AutoTrader Scraper
+
+URL: https://www.autosmartcode.com/autotrader-scraper
+Keywords: autotrader scraper, autotrader data extraction, scrape autotrader listings, autotrader api alternative, autotrader inventory data
+
+Every AutoTrader listing that matches your criteria, in a spreadsheet, refreshed while you sleep.
+
+### What AutoTrader is, and why the data matters
+
+AutoTrader is the largest used-vehicle marketplace in the United States, carrying millions of listings from franchise dealers, independents and private sellers. It publishes asking prices, mileage, trim, dealer identity and photos on every listing page — which makes it the single richest public source of what the US used-car market is actually asking for a given car today.
+
+Dealers use it to price their own inventory against genuine local comps instead of a gut feel. Wholesalers use it to work out which trims are thin in which markets before they bid at auction. Lenders and analysts use it to track residual values across a segment. All three need the same thing: the whole comparable set as rows, not as forty browser tabs.
+
+### Fields extracted
+
+- VIN, year, make, model and trim
+- Asking price, plus every price change seen since first capture
+- Mileage, exterior and interior colour, drivetrain
+- Dealer name, dealer ID, city, state and ZIP
+- Days listed and first-seen date
+- Full option and feature list where published
+- All photo URLs
+- Listing URL and stock number
+- New / used / certified pre-owned status
+
+### Getting past AutoTrader's defences
+
+AutoTrader runs bot detection and rate limiting, renders significant parts of the listing through JavaScript, and paginates search results in a way that quietly caps how deep an unauthenticated session can go. The build handles this with a real browser engine, paced requests, rotating residential exits, and search segmentation — slicing by ZIP radius, price band and model year so no single query ever hits the depth cap and nothing gets silently dropped from the middle of a result set.
+
+### Uses
+
+- Price your inventory against live local comps every morning
+- Track a named competitor's whole lot and get alerted on every price cut
+- Measure days-on-market by trim to decide what to stock
+- Find markets where a model is scarce and margins are wider
+- Feed a valuation model with real asking prices rather than book values
+- Reconcile against auction data to spot cars worth buying
+
+### Questions
+
+**Does AutoTrader have a public API?**
+
+Not one that is open to buy for general market research — their data feeds are commercial arrangements aimed at partners and syndication, and most dealers cannot get access. A scraper reading the public listing pages is what fills that gap for the majority of people who ask.
+
+**How many AutoTrader listings can you pull?**
+
+Tens of thousands per run is routine. The practical constraint is search depth rather than volume, which is why the build slices the market into overlapping segments by geography, price band and model year — that reaches the full matching set instead of the first few hundred results per query.
+
+**How often can it refresh?**
+
+Daily overnight is the usual choice and suits pricing work. Hourly is possible for a narrow watch list — a specific competitor, a specific model — and costs more because it means more requests and more infrastructure.
+
+**Is scraping AutoTrader legal?**
+
+Collecting publicly visible listing data is generally lawful in the United States, and US appellate courts have repeatedly held that reading public pages is not unauthorised access. I keep request rates civil, stay off anything behind a login, and avoid personal seller data. If a specific request looks like a problem I will say so before you pay.
+
+**What does an AutoTrader scraper cost?**
+
+A single-market daily feed typically lands between $300 and $700. Nationwide coverage with price history and competitor roll-ups runs higher. You get a fixed quote within 24 hours of telling me the filters and fields you want.
+
+
+---
+
+## AutoScout24 Scraper
+
+URL: https://www.autosmartcode.com/autoscout24-scraper
+Keywords: autoscout24 scraper, autoscout24 data extraction, scrape autoscout24, european car listing data, autoscout24 api
+
+Every AutoScout24 market in one dataset — normalised, deduplicated and refreshed daily.
+
+### What AutoScout24 is, and why the data matters
+
+AutoScout24 is Europe's largest online car marketplace, operating separate country sites across Germany, Austria, Belgium, Italy, the Netherlands, Spain and more. Each market has its own domain, its own language and its own field conventions — which is exactly why traders working across borders find it so hard to compare, and why the data is worth having in one table.
+
+Cross-border traders live on price differences between markets. A car that sits in Germany moves quickly in Italy; a spec that carries a premium in the Netherlands is ordinary in Spain. Seeing all of it in one normalised dataset turns that from folklore into arithmetic. Dealers importing into the UK or the US use the same feed to source stock at the point where the arbitrage is real.
+
+### Fields extracted
+
+- Make, model, variant and body type
+- Price in listing currency plus a normalised comparison currency
+- Mileage in km, with miles computed alongside
+- First registration date and vehicle age
+- Fuel type, gearbox, power in kW and PS
+- Emissions class, CO₂ figure and efficiency rating
+- Seller type — dealer or private — with dealer name and location
+- Country, region and postcode
+- Full equipment list and photo URLs
+
+### Getting past AutoScout24's defences
+
+AutoScout24 renders listings client-side, rate-limits aggressively, and geo-varies both markup and content — the same query returns a different page shape depending on which country domain you hit and where the request appears to come from. The build runs a real browser engine with per-country residential exits so each market returns its native results, then normalises every field into one schema so German kW and Italian trim labels end up in comparable columns.
+
+### Uses
+
+- Compare the same model across every European market at once
+- Find cross-border arbitrage before it closes
+- Source import stock at the right price point
+- Track how quickly a spec moves in each country
+- Build residual-value curves per market and per fuel type
+- Monitor named dealers across borders
+
+### Questions
+
+**Can you scrape all AutoScout24 country sites at once?**
+
+Yes — that is usually the point. Germany, Austria, Belgium, Italy, the Netherlands, Spain, France and the rest can run as one job, with every field normalised into a single schema so a Dutch listing and an Italian listing sit in comparable columns.
+
+**How do you handle different languages and units?**
+
+Field names, fuel types, gearbox types and body styles are mapped to one controlled vocabulary during extraction. Mileage arrives in both km and miles, prices in the listing currency and in whichever comparison currency you nominate, converted at the rate on the day of capture.
+
+**Does it include Mobile.de as well?**
+
+It can. Mobile.de is a separate build but the same job, and most German-market clients want both in one table — the overlap between the two is smaller than people expect, and cars listed on only one of them are often the interesting ones.
+
+**How fresh is the data?**
+
+Daily overnight refresh is standard, which is enough for pricing and sourcing work. Because the system remembers what it saw yesterday, you get price-change history accumulating from day one at no extra cost.
+
+**What does an AutoScout24 scraper cost?**
+
+A single country with daily delivery is typically $350 to $700. Multi-country with normalisation and cross-market comparison runs higher. Fixed quote within 24 hours of describing the markets and filters you need.
+
+
+---
+
+## CarMax Scraper
+
+URL: https://www.autosmartcode.com/carmax-scraper
+Keywords: carmax scraper, carmax inventory data, scrape carmax listings, carmax pricing data, carmax api
+
+CarMax posts one price and never moves it. That makes their inventory the cleanest pricing benchmark in the country.
+
+### What CarMax is, and why the data matters
+
+CarMax is the largest used-car retailer in the United States, running a no-haggle model across roughly 250 stores with nationwide inventory transfer. Because the posted price is the actual transaction price, their listings are unusually clean as a benchmark — there is no negotiation gap to guess at, which is not true of almost any other source.
+
+Independent dealers price against CarMax whether they admit it or not, because their customers do. Having the whole national inventory as data means you can see the real retail ceiling for any VIN-adjacent spec, watch how fast CarMax moves a trim, and spot where their price is high enough that you can undercut it and still make money.
+
+### Fields extracted
+
+- Stock number and VIN
+- Posted price — the actual transaction price under their model
+- Year, make, model, trim and body style
+- Mileage, exterior and interior colour
+- Store location, city, state and transfer eligibility
+- Transfer fee and estimated availability date
+- Features, packages and option list
+- Photo URLs and 360 view availability
+- Days on site and price-change history once tracking begins
+
+### Getting past CarMax's defences
+
+CarMax serves inventory through a JavaScript-driven search backed by an internal API with request signing and rate limiting, and it geo-personalises results by store proximity so a naïve scrape returns whatever is near the exit IP rather than the national picture. The build works store by store with matched geography so coverage is genuinely nationwide, and paces requests so the pipeline lasts rather than getting cut off in week two.
+
+### Uses
+
+- Establish the real retail ceiling for a spec before you buy it
+- Track how fast CarMax turns a given trim
+- Find regional price spreads across their own store network
+- Price your lot against the benchmark customers are comparing you to
+- Spot models where their pricing leaves room underneath
+- Feed a valuation model with no-haggle prices rather than asking prices
+
+### Questions
+
+**Does CarMax have a public API?**
+
+No public API is offered for market research. Their site is powered by an internal API that is not documented or licensed for outside use, so a scraper reading what the site publicly renders is the practical route — and it is what this build does.
+
+**Can you get nationwide inventory, not just my local store?**
+
+Yes, and this is the part most naïve scrapes get wrong. CarMax personalises results by proximity, so a single scraping session only ever sees a slice. The build iterates store by store with matched geography, which is what produces genuine national coverage.
+
+**Does it capture price changes?**
+
+Once it has run for more than a day, yes. Each run is compared against the last, so price movements and days-on-site accumulate automatically — you do not need to do anything to start collecting price history.
+
+**Can this be combined with auction data?**
+
+That is the highest-value version of it. CarMax retail prices joined against Manheim or ADESA auction prices on the same spec gives you the spread directly, which is the number that decides whether a car is worth bidding on.
+
+**What does a CarMax scraper cost?**
+
+A filtered daily feed typically runs $350 to $700. Full nationwide capture with price history and store-level breakdowns is higher. You get a fixed price within 24 hours of describing what you want tracked.
+
+
+---
+
+## Carsales Scraper
+
+URL: https://www.autosmartcode.com/carsales-scraper
+Keywords: carsales scraper, carsales.com.au data, scrape carsales listings, australian car listing data, carsales api
+
+The Australian market in one table — every state, every dealer, every price change.
+
+### What Carsales is, and why the data matters
+
+Carsales.com.au is Australia's dominant vehicle marketplace, carrying dealer and private listings across every state and territory. Because the Australian market is geographically fragmented and thin in specific segments, national visibility is worth considerably more there than the same view is worth in a dense market like the US.
+
+Australian dealers and traders use it to price against genuine state-level comps, to find stock in a state where a model is cheap and move it to one where it is scarce, and to watch how long specific specs take to move in each capital city. Interstate arbitrage is a real business in Australia in a way it is not in most markets, and it runs on exactly this data.
+
+### Fields extracted
+
+- Make, model, badge, series and body type
+- Price — advertised, drive-away, and excluding on-road costs where distinguished
+- Odometer in kilometres
+- Build year and compliance year
+- Transmission, engine, fuel type and drive type
+- Rego status and expiry where published
+- Seller type, dealer name, suburb and state
+- Days listed and price-change history
+- Photo URLs and full feature list
+
+### Getting past Carsales's defences
+
+Carsales renders through a JavaScript front end, rate-limits, and geo-gates some results — a request from outside Australia sees a different and thinner set than one from inside it. The build runs Australian residential exits so results match what a local buyer sees, then paginates by state and price band so no segment silently truncates.
+
+### Uses
+
+- Price stock against real comps in your own state
+- Find interstate arbitrage on scarce specs
+- Track days-to-sell by badge and by capital city
+- Monitor named dealers across every state at once
+- Spot which specs are thin nationally before you buy
+- Build state-level residual curves from advertised prices
+
+### Questions
+
+**Can you scrape Carsales from outside Australia?**
+
+Yes, but it has to be done properly. Carsales geo-varies its results, so a request from a US or European exit returns a thinner and different set than a local one. The build routes through Australian residential exits, which is what makes the data match what an actual buyer sees.
+
+**Does it cover private listings as well as dealers?**
+
+Both, and the seller type is a column so you can filter either way. Private listings matter for sourcing; dealer listings matter for pricing. Most clients want them separated rather than mixed.
+
+**Can you also cover Drive, Gumtree or CarsGuide?**
+
+Yes. They are separate builds but the same job, and the fields normalise into one schema so all sources sit in comparable columns. Most Australian clients end up wanting at least Carsales plus one other.
+
+**How current is the data?**
+
+Daily overnight refresh is standard and suits pricing and sourcing. Price history builds up automatically from the first run, since each run is diffed against the last.
+
+**What does a Carsales scraper cost?**
+
+A filtered daily feed typically runs $350 to $700 depending on breadth. National coverage with price history and state roll-ups is higher. Fixed quote within 24 hours.
+
+
+---
+
+## Cars.com Scraper
+
+URL: https://www.autosmartcode.com/cars-com-scraper
+Keywords: cars.com scraper, cars com data extraction, scrape cars.com listings, cars.com inventory data, cars.com api
+
+Cars.com publishes a deal rating on every listing. Captured at scale, that becomes a map of who is mispriced.
+
+### What Cars.com is, and why the data matters
+
+Cars.com is one of the largest US vehicle marketplaces, carrying franchise, independent and private listings nationwide. Its distinguishing feature for data work is the deal rating it attaches to listings — great, good, fair, above market — computed against its own view of local comparables and published openly on the page.
+
+That rating is a competitor's opinion of who is mispriced, given away for free on every listing. Captured across a whole market, it tells you where the soft spots are: which dealers are consistently above market and losing time, which segments are being underpriced, and where your own listings sit in a buyer's eyes before they ever call you.
+
+### Fields extracted
+
+- VIN, year, make, model and trim
+- Listing price and price-change history
+- Deal rating — great / good / fair / above market
+- Mileage, colour, drivetrain and fuel type
+- Dealer name, dealer rating, review count and location
+- Days on site
+- Certified pre-owned status and warranty details
+- Full feature list and photo URLs
+- Free vehicle history report availability flag
+
+### Getting past Cars.com's defences
+
+Cars.com uses bot detection with JavaScript challenges, rate-limits by IP, and serves search results through a client-rendered layer with a depth cap per query. The build drives a real browser, paces requests, rotates residential exits, and segments the market by ZIP radius and price band so the full result set is reachable without ever pushing a single query past its cap.
+
+### Uses
+
+- See which dealers in your market are consistently above market
+- Check how your own inventory is rated before a buyer does
+- Track deal-rating distribution by segment to find soft spots
+- Correlate dealer rating and review count with pricing power
+- Pull local comps for any spec on demand
+- Watch days-on-site to time your own price cuts
+
+### Questions
+
+**Can you capture the Cars.com deal rating?**
+
+Yes — it is published on the listing page and it is one of the more useful columns in the output. Across a whole market it effectively gives you a free second opinion on who is mispriced, computed by someone else's model.
+
+**How does this differ from an AutoTrader scrape?**
+
+Overlapping inventory, different extras. Cars.com gives you the deal rating and dealer review data; AutoTrader gives broader private-seller coverage and different geographic strengths. Most dealers doing serious pricing work run both and reconcile them on VIN.
+
+**Can it monitor just my competitors?**
+
+Yes, and that is the cheapest useful version of this. A named-dealer watch list is a much smaller job than full market capture, and you get alerted the same morning any of them changes a price.
+
+**Is scraping Cars.com legal?**
+
+Collecting publicly visible listing data is generally lawful in the US, and courts have consistently held that reading public pages is not unauthorised access. The build stays off anything behind a login, avoids personal seller data, and keeps request rates civil.
+
+**What does a Cars.com scraper cost?**
+
+A competitor watch list starts around $250. A filtered daily market feed is typically $400 to $800. Fixed quote within 24 hours of describing the filters and fields.
+
+
+---
+
+## CarGurus Scraper
+
+URL: https://www.autosmartcode.com/cargurus-scraper
+Keywords: cargurus scraper, cargurus data extraction, scrape cargurus listings, cargurus imv data, cargurus deal rating
+
+CarGurus publishes its own market valuation next to every price. That comparison is the whole reason to scrape it.
+
+### What CarGurus is, and why the data matters
+
+CarGurus is a major US vehicle marketplace built around its Instant Market Value estimate — a computed fair price shown alongside every listing, with the deal labelled relative to it. Where other sites publish an asking price, CarGurus publishes an asking price and an opinion about it, on every single car.
+
+Having both numbers at scale means you can measure the gap rather than guess at it. Which dealers price above IMV and get away with it, which segments are systematically overvalued by the model, and where your own inventory falls relative to a benchmark that your customers are seeing. It is competitive intelligence that the site does the hard part of for you.
+
+### Fields extracted
+
+- VIN, year, make, model and trim
+- Listing price and Instant Market Value estimate
+- Deal rating — great / good / fair / high / overpriced
+- Price-drop history as published, plus what we observe
+- Mileage, colour, drivetrain and accident-free flag
+- Dealer name, dealer rating, review count and location
+- Days on market
+- Full feature list and photo URLs
+
+### Getting past CarGurus's defences
+
+CarGurus runs strong bot detection with fingerprinting, JavaScript challenges and aggressive rate limits, and personalises results by location. The build uses a properly driven browser engine with consistent fingerprints, residential exits matched to the target market, deliberate pacing, and market segmentation so nothing is lost to a per-query result cap.
+
+### Uses
+
+- Measure the gap between asking price and published market value
+- Find segments the market model systematically over- or under-values
+- Benchmark your own listings against what buyers are shown
+- Track competitor price-drop cadence
+- Correlate deal rating with days on market to see what actually moves
+- Feed real market values into your own pricing tool
+
+### Questions
+
+**Can you capture Instant Market Value?**
+
+Yes — IMV is rendered on the listing page and is captured as its own column alongside the asking price. Having both is what makes a CarGurus scrape more useful than a plain listing scrape.
+
+**CarGurus blocks a lot of tools. Will this work?**
+
+It is one of the harder sites in this category and it does defeat off-the-shelf scrapers. It is handled with a real browser engine, consistent fingerprinting, residential exits and honest pacing. Slower than a naive scraper, and unlike a naive scraper it is still running next month.
+
+**How often can it run?**
+
+Daily is the sensible default given how defended the site is. Higher frequency on a narrow watch list is possible; hammering the whole market hourly is not, and anyone who tells you otherwise is selling you a pipeline that dies in a fortnight.
+
+**Can I combine CarGurus with Cars.com and AutoTrader?**
+
+Yes, and reconciling them on VIN is where it gets genuinely valuable — three independent opinions on the same car, in the same row. That is a multi-source build rather than a single scrape, quoted accordingly.
+
+**What does a CarGurus scraper cost?**
+
+Typically $450 to $900 for a filtered daily feed, higher than the easier sites because the anti-bot work is real. Fixed quote within 24 hours.
+
+
+---
+
+## Manheim MMR Scraper
+
+URL: https://www.autosmartcode.com/manheim-mmr-scraper
+Keywords: manheim mmr scraper, manheim automation, mmr lookup automation, manheim run list data, auction price automation
+
+Four hundred VINs against MMR, before your first coffee, using the account you already pay for.
+
+### What Manheim MMR is, and why the data matters
+
+Manheim Market Report is the wholesale valuation benchmark for the US used-car trade — the number the whole industry prices against. It is available through a Manheim dealer account, one VIN at a time, which is fine for one car and hopeless for a four-hundred-car run list.
+
+The value is not in any single lookup, it is in doing all of them before the sale starts. When every car on a run list has been scored against MMR overnight, your buyer walks in with a ranked shortlist instead of a browser full of tabs, and the cars that clear your margin threshold are already at the top.
+
+### Fields extracted
+
+- VIN with full decode
+- MMR value — wholesale average, above, below
+- Adjusted MMR for mileage and condition grade
+- Regional MMR variance
+- Recent comparable sales and volume
+- Auction listing price and lane details
+- Computed landed cost with your transport, recon and fee assumptions
+- Margin against MMR and against your retail comps
+
+### Getting past Manheim MMR's defences
+
+Manheim requires an authenticated dealer session, uses short-lived tokens, and enforces rate limits per account. The build drives your own licensed session with proper cookie and token lifecycle handling, refreshes credentials cleanly rather than re-logging in constantly, and paces lookups to stay within what a normal heavy user would generate.
+
+### Uses
+
+- Score an entire run list against MMR overnight
+- Rank tomorrow's sale by margin before anyone opens a browser
+- Reconcile MMR against live retail comps from AutoTrader or CarMax
+- Track how MMR moves on a segment week over week
+- Filter out branded-title cars automatically before they reach a buyer
+- Send a ranked deal email at 6 AM every trading day
+
+### Questions
+
+**Do I need my own Manheim account?**
+
+Yes, and there is no version of this that does not. The automation drives the licensed dealer session you already pay for. I do not share credentials between clients or resell MMR data — that is both against Manheim's terms and a fast route to losing your account.
+
+**Will this get my account flagged?**
+
+Not if it is built properly. The lookup volume is paced to look like a heavy human user rather than a scraper, because a system that gets your account suspended has negative value no matter how fast it runs. That pacing is a design constraint, not an afterthought.
+
+**Can it also read the run lists?**
+
+Yes, and that is the usual shape of the build — read the sale's run list, decode and score every VIN against MMR, apply your buy box, and deliver a ranked shortlist. The MMR lookup on its own is the smaller half of the job.
+
+**Can it bid for me?**
+
+No. I do not build automated bidding — most platforms prohibit it and the downside of a bug is that you own a car you never wanted. The system finds and ranks; a person decides.
+
+**What does Manheim automation cost?**
+
+MMR lookup automation on its own typically runs $500 to $1,000. A full pipeline with run lists, buy-box scoring and a daily ranked email is usually $900 to $1,800 plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## Google Maps Scraper
+
+URL: https://www.autosmartcode.com/google-maps-scraper
+Keywords: google maps scraper, google maps lead scraping, business leads data, google maps data extraction, b2b lead list building
+
+Every business of a given type, in a given place, with a verified way to reach them.
+
+### What Google Maps is, and why the data matters
+
+Google Maps is the most complete public directory of operating businesses that exists — better maintained than any purchased database, because the businesses maintain it themselves to be found. Category, location, phone, website, hours, rating and review count are all published, and the ones that are actually trading are the ones that keep it current.
+
+It is the fastest route from an ideal-customer definition to a list of real companies that match it. Every HVAC contractor in three metros rated above 4.0 with more than 25 reviews and no online booking — that is a query against Maps plus a pass over each website, and it is a far better list than anything you can buy, because it was built this week to your criteria rather than two years ago to somebody else's.
+
+### Fields extracted
+
+- Business name, category and subcategory
+- Full address, plus latitude and longitude
+- Phone number, format-validated and line-type checked
+- Website URL
+- Email addresses found on the site, fully verified
+- Star rating and total review count
+- Opening hours and current status
+- Price level and service attributes
+- Social profiles linked from the site
+- Technology signals — booking system, chat, eCommerce platform
+
+### Getting past Google Maps's defences
+
+Maps results are rendered dynamically, capped per query, and localised to the requesting location, so a naïve scrape returns a few dozen results and stops. The build tiles the target area into overlapping geographic cells and queries each one, which reaches the full set rather than the first page — then deduplicates across cells so a business sitting on a boundary appears exactly once.
+
+### Uses
+
+- Build an outreach list for any category in any market
+- Find businesses with a specific weakness — no website, no booking, poor rating
+- Map competitor density before opening a location
+- Enrich an existing CRM with phone, hours and rating
+- Track review counts on a competitor set over time
+- Segment by technology signals to personalise your first line
+
+### Questions
+
+**How many leads can you get from Google Maps?**
+
+Five thousand verified businesses in about 24 to 48 hours is a normal run. The real ceiling is how many businesses actually match your criteria — if a niche only contains 800 genuine targets, you get 800 real ones rather than 5,000 padded with junk.
+
+**Do I get email addresses?**
+
+Maps itself rarely publishes them, so the build visits each business website and extracts contact addresses from there, then verifies each one against syntax, domain, MX and mailbox checks. Typical outcome is a verified email on 40 to 70 percent of the list depending on the industry — trades are lower, professional services are higher.
+
+**Why not just use the official Google Places API?**
+
+For some jobs that is the right answer and I will tell you so. The API is clean but it caps results per query, omits fields the map itself shows, and gets expensive at volume. Most builds use the API where it is sufficient and page extraction where it is not.
+
+**Is this legal under GDPR and CCPA?**
+
+This is B2B data from public listings — business names, addresses, published phone numbers and business email addresses. I do not touch consumer PII or anything behind a login. What you may lawfully do with the list once you have it depends on where your targets are; if the list includes EU or UK businesses I will flag it, though your sending practice is a question for your lawyer rather than for me.
+
+**What does a Google Maps lead list cost?**
+
+Most one-off lists land between $200 and $700 depending on the number of cities, categories, the depth of enrichment and whether verification is included. Recurring monthly builds are cheaper per run. Fixed price up front.
+
+
+---
+
+## MediaMarkt Scraper
+
+URL: https://www.autosmartcode.com/mediamarkt-scraper
+Keywords: mediamarkt scraper, mediamarkt price monitoring, scrape mediamarkt products, mediamarkt product data, european electronics price data
+
+Europe's biggest electronics retailer, priced and tracked across every country it trades in.
+
+### What MediaMarkt is, and why the data matters
+
+MediaMarkt — with Saturn, part of the same group — is Europe's largest consumer electronics retailer, running separate country sites across Germany, Spain, Italy, the Netherlands, Belgium, Austria, Poland and more. Each market prices independently, which makes them a benchmark for anyone selling electronics in Europe and a puzzle for anyone trying to see the whole picture.
+
+If you sell electronics in Europe, MediaMarkt is the price your customers check. Brands use this feed for MAP compliance monitoring; resellers use it to price against the market leader; cross-border sellers use it to find the country where a SKU is cheapest. All three need the same table, and none of them can get it by opening seven websites.
+
+### Fields extracted
+
+- Product name, brand, EAN and manufacturer part number
+- Current price, previous price and discount percentage
+- Promotional flags — bundle, cashback, clearance
+- Stock status per country and per store where published
+- Full technical specification set
+- Category path and product URL
+- Customer rating and review count
+- Photo URLs
+- Country and currency, with a normalised comparison price
+
+### Getting past MediaMarkt's defences
+
+MediaMarkt runs bot detection, rate-limits, renders prices client-side, and varies both markup and pricing by country domain. The build uses a real browser engine with per-country residential exits, paces requests per domain, and matches products across markets on EAN so the same SKU lines up in one row regardless of how each country names it.
+
+### Uses
+
+- Monitor competitor prices daily across every European market
+- Enforce MAP compliance as a brand
+- Find the cheapest country for a SKU before sourcing
+- Track promotion cadence to time your own
+- Pull full catalogue data with specs for your own listings
+- Get alerted the moment a watched SKU drops or restocks
+
+### Questions
+
+**Can you cover all MediaMarkt country sites?**
+
+Yes. Germany, Spain, Italy, the Netherlands, Belgium, Austria, Poland, Hungary and the rest can run as one job, matched on EAN so the same product appears as one row with a price column per country.
+
+**Does it include Saturn?**
+
+Yes — Saturn is part of the same group and works the same way, and most clients who want one want both. It runs in the same job rather than as a separate build.
+
+**How often can prices be checked?**
+
+Daily is standard and covers most price-monitoring needs. Hourly on a defined watch list is possible and is the usual choice for MAP enforcement, where the lag between a violation and finding out is the whole point.
+
+**Can I get alerted on price changes?**
+
+Yes — email, Slack or Telegram alerts fire when a watched product crosses a threshold, drops below your floor, or comes back into stock. Most clients take a daily digest plus instant alerts on a shorter critical list.
+
+**What does a MediaMarkt scraper cost?**
+
+A single-country price monitor on a defined product set typically runs $250 to $600. Multi-country full-catalogue extraction with EAN matching runs higher. Fixed quote within 24 hours.
+
+
+---
+
+## ADESA Scraper
+
+URL: https://www.autosmartcode.com/adesa-scraper
+Keywords: adesa scraper, adesa auction data, adesa run list automation, adesa condition report data, car auction data extraction
+
+The whole sale calendar read overnight, every lot graded and scored, before anyone opens a browser.
+
+### What ADESA is, and why the data matters
+
+ADESA is one of the two dominant wholesale auto auction networks in North America, running physical and digital sales with published run lists, condition grades and sale calendars. Everything a buyer needs to decide is on the platform — the problem is that it is spread across sales, lanes and separate condition reports, and it is only useful before the sale, not after.
+
+Buyers work to a deadline that does not move. If a run list takes two hours to review by hand, the lots at the bottom get less attention than the lots at the top, and that is where money quietly leaks. Reading the whole calendar overnight and scoring every lot against your buy box means the shortlist is ready before the sale, ranked by margin rather than by lane order.
+
+### Fields extracted
+
+- Sale, lane, run number and scheduled time
+- VIN with full decode
+- Year, make, model, trim and mileage
+- Condition grade and announced defects
+- Condition report detail — damage items and estimated recon
+- Title status and any brand announcement
+- Seller type and consignor where published
+- Starting bid, buy-now price and reserve indication
+- Photo URLs from the condition report
+
+### Getting past ADESA's defences
+
+ADESA requires an authenticated dealer session, expires tokens quickly, and delivers run lists and condition reports through separate internal endpoints that rate-limit independently. The build drives your own licensed session with proper token lifecycle handling, fetches condition reports in a paced second pass rather than hammering them alongside the list, and resumes cleanly if a sale is large enough to span a refresh.
+
+### Uses
+
+- Score an entire sale calendar against your buy box overnight
+- Rank lots by margin instead of by lane order
+- Filter out branded titles and heavy recon before a buyer sees them
+- Reconcile ADESA lots against Manheim MMR on the same VIN
+- Track which consignors reliably bring clean cars
+- Get a ranked deal email before the first lane opens
+
+### Questions
+
+**Do I need my own ADESA dealer account?**
+
+Yes. The automation drives the licensed session you already hold — it does not create access you do not have, and I do not share credentials between clients. Without a dealer login there is no version of this that works or that would survive an audit.
+
+**Can it pull condition reports as well as run lists?**
+
+Yes, and the condition report is where most of the value is — announced defects and estimated recon are what turn an asking price into a landed cost. They are fetched in a paced second pass so the volume does not trip rate limits.
+
+**Can it score lots against MMR?**
+
+That is the usual build. ADESA run lists joined against Manheim MMR on VIN gives you the spread per lot directly, which is the number that decides whether to bid. Both sides run on your own accounts.
+
+**Will this get my account suspended?**
+
+Not if it is paced properly, which is a design constraint here rather than an afterthought. The lookup rate is set to look like a heavy human user, because a system that costs you your dealer account has negative value regardless of how fast it runs.
+
+**What does ADESA automation cost?**
+
+Run-list extraction with scoring typically runs $600 to $1,200. Adding condition reports and MMR reconciliation pushes it higher. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## BacklotCars Scraper
+
+URL: https://www.autosmartcode.com/backlotcars-scraper
+Keywords: backlotcars scraper, backlotcars data extraction, backlotcars inventory automation, digital wholesale auction data, car wholesale scraper
+
+A 24/7 marketplace needs a 24/7 watcher. Cars appear and sell between your morning checks.
+
+### What BacklotCars is, and why the data matters
+
+BacklotCars is a digital-only wholesale marketplace where dealers buy and sell without a physical lane. Inventory is continuous rather than scheduled, with buy-now pricing and an offer mechanism, which makes it fundamentally different from a timed auction — there is no sale calendar to check, just a pool that changes all day.
+
+Continuous inventory punishes periodic attention. A car that fits your buy box perfectly can appear at 11am and be gone by 2pm, and no amount of discipline about checking twice a day catches it. A watcher that reads the pool every few minutes and alerts on a match is the only way to compete with dealers who are doing exactly that.
+
+### Fields extracted
+
+- VIN with full decode
+- Year, make, model, trim and mileage
+- Buy-now price and current offer level
+- Condition grade and inspection report detail
+- Announced damage and estimated recon
+- Title status and brand announcements
+- Seller dealer and location
+- Time listed and time remaining where applicable
+- Photo and inspection image URLs
+
+### Getting past BacklotCars's defences
+
+BacklotCars runs on an authenticated internal API with short-lived tokens and per-account rate limits, and its inventory changes continuously rather than in batches. The build drives your own session with clean token refresh, polls at a rate the platform tolerates, and diffs each poll against the last so it alerts on genuinely new inventory instead of re-notifying you about cars you already declined.
+
+### Uses
+
+- Get alerted within minutes when a matching car appears
+- Score every listing against MMR and your recon assumptions automatically
+- Filter out branded titles and heavy damage before you see them
+- Track how quickly specific specs clear the platform
+- Watch named sellers whose cars have been good to you
+- Feed matches straight into Slack or Telegram for the buying desk
+
+### Questions
+
+**Do I need a BacklotCars account?**
+
+Yes — the automation runs your own licensed dealer session. I do not share credentials between clients or resell platform data, both because it breaches their terms and because it is the fastest way to lose the account the whole system depends on.
+
+**How quickly will I hear about a new car?**
+
+Within minutes on a defined watch list. The polling rate is set as high as the platform comfortably tolerates — fast enough to matter on a continuous marketplace, paced enough that the pipeline is still running in six months.
+
+**Can it make offers automatically?**
+
+No. I do not build automated bidding or automated offers — most platforms prohibit it, and the downside of a bug is that you own a car you never wanted. The system finds, scores and alerts; a person decides.
+
+**Can it run alongside ADESA and Manheim?**
+
+Yes, and that is the common shape. One pipeline reading every platform you hold an account on, scoring everything against the same buy box, and delivering one ranked list — rather than three separate feeds you have to reconcile yourself.
+
+**What does it cost?**
+
+A single-platform watcher with alerting typically runs $600 to $1,200. Multi-platform pipelines with MMR reconciliation run higher, plus a small monthly amount covering hosting and fixes.
+
+
+---
+
+## OpenLane Scraper
+
+URL: https://www.autosmartcode.com/openlane-scraper
+Keywords: openlane scraper, openlane auction data, openlane inventory automation, openlane data extraction, digital auction scraper
+
+Off-lease, off-rental and fleet inventory, read and scored before the buyers who check by hand.
+
+### What OpenLane is, and why the data matters
+
+OpenLane is a major digital wholesale auction platform, now the umbrella brand covering ADESA's digital operation. Its inventory skews heavily toward off-lease, off-rental and fleet cars coming out of institutional consignors — which means known histories, predictable condition and a lot of volume in specific specs.
+
+Institutional inventory is attractive precisely because it is predictable, which means everyone wants it and the good lots clear fast. The advantage goes to whoever evaluates the whole pool first. Reading every listing overnight and ranking by margin turns a volume problem into a shortlist, and it is the difference between bidding on what you found and bidding on what was left.
+
+### Fields extracted
+
+- VIN with full decode
+- Year, make, model, trim and mileage
+- Current bid, buy-now price and reserve indication
+- Condition grade and full inspection detail
+- Announced damage items and estimated recon cost
+- Title status and brand announcements
+- Consignor type — lease, rental, fleet, dealer
+- Sale end time and location
+- Photo and inspection image URLs
+
+### Getting past OpenLane's defences
+
+OpenLane serves inventory through an authenticated single-page application backed by an internal API with token expiry and rate limiting, and results are personalised to your account's buying permissions. The build drives your own session with proper token lifecycle handling, paginates within the platform's limits, and pulls condition detail in a paced second pass rather than alongside the listing sweep.
+
+### Uses
+
+- Evaluate the entire pool overnight instead of sampling it
+- Rank every lot by margin against MMR and your recon assumptions
+- Filter to specific consignor types — lease returns, fleet, rental
+- Get alerted when a spec you want appears with time still on the clock
+- Reconcile against retail comps to size the spread before bidding
+- Deliver one ranked list across OpenLane, ADESA and Manheim together
+
+### Questions
+
+**Is OpenLane the same as ADESA?**
+
+They are the same group — OpenLane is the brand covering the digital auction operation that ADESA's physical business sits alongside. In practice the platforms present differently and need separate builds, and most dealers who want one end up wanting both in the same pipeline.
+
+**Do I need my own OpenLane account?**
+
+Yes. The automation drives your own licensed dealer session. Results are personalised to your buying permissions, so there is no meaningful version of this that runs on anyone else's access.
+
+**Can it capture condition reports?**
+
+Yes, and it should — announced damage and estimated recon are what convert a bid price into a landed cost. They are fetched in a paced second pass so the extra volume does not trip the platform's rate limits.
+
+**Can it alert me before a sale ends?**
+
+Yes. A matching lot with time still on the clock triggers an alert by email, Slack or Telegram, with the scoring already attached so the decision is a yes or no rather than a research task.
+
+**What does OpenLane automation cost?**
+
+Listing extraction with scoring typically runs $600 to $1,200. Adding condition reports and cross-platform MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## eBay Scraper
+
+URL: https://www.autosmartcode.com/ebay-scraper
+Keywords: ebay scraper, ebay scraper python, ebay sold listings data, scrape ebay prices, ebay product research tool
+
+Active listings tell you what people are asking. Sold listings tell you what people are paying.
+
+### What eBay is, and why the data matters
+
+eBay is the largest open marketplace where both active and completed listings are publicly visible. That second half is the unusual part — almost no other marketplace publishes what things actually sold for, at what price, in what condition, and how many bids it took to get there.
+
+Asking prices are opinions; sold prices are facts. Resellers use sold-listing data to work out what a category genuinely clears at before buying inventory. Brands use it to see how their products move on the secondary market and where grey-market sellers are undercutting them. Both need the sold half, and both need it as a table rather than as a search results page.
+
+### Fields extracted
+
+- Title, item number and category path
+- Current price, Buy It Now price and best-offer status
+- Sold price and sale date for completed listings
+- Bid count and watcher count where shown
+- Condition — new, used, refurbished, for parts
+- Seller username, feedback score and percentage
+- Shipping cost, location and handling time
+- Item specifics, brand, model and MPN
+- Photo URLs and listing URL
+
+### Getting past eBay's defences
+
+eBay rate-limits aggressively, serves search through a JavaScript layer, caps result depth per query, and treats rapid pagination as a signal worth blocking. The build paces requests, rotates residential exits, and segments searches by category, price band and condition so the full matching set is reachable without pushing any single query past its depth cap. Where the official Browse API covers what you need, the build uses that instead — it is cleaner and does not break on a redesign.
+
+### Uses
+
+- Find what a category actually sells for, not what it is listed at
+- Size demand before committing to inventory
+- Track a competitor seller's whole catalogue and pricing
+- Monitor grey-market listings of your own brand
+- Spot arbitrage between eBay and another marketplace
+- Build sell-through rate by category and condition
+
+### Questions
+
+**Can you scrape eBay sold listings?**
+
+Yes, and for most people that is the entire reason to do this. Completed and sold listings are publicly visible, and captured at scale they give you real transaction prices rather than asking prices — which is a fundamentally better input to any buying decision.
+
+**Why not just use the official eBay API?**
+
+Where it covers your need, that is exactly what the build uses — it is faster, cleaner and does not break when a page changes. The gaps are where the API restricts or omits what you want, particularly around historical sold data at volume, and that is where page extraction fills in.
+
+**How many listings can it handle?**
+
+Tens of thousands per run comfortably. The constraint is eBay's per-query depth cap rather than total volume, which is why searches get segmented by category, price band and condition instead of run as one broad query.
+
+**Can it monitor prices continuously?**
+
+Yes. Daily is standard; a defined watch list can run hourly with alerts by email, Slack or Telegram when something crosses a threshold or a competitor repricing event happens.
+
+**What does an eBay scraper cost?**
+
+A one-off category extract typically runs $200 to $500. An ongoing monitor with sold-price tracking and alerts is usually $400 to $900 plus a small monthly amount. Fixed quote within 24 hours.
+
+
+---
+
+## Amazon Product Scraper
+
+URL: https://www.autosmartcode.com/amazon-product-scraper
+Keywords: amazon product scraper, amazon price scraper, scrape amazon reviews, amazon bsr data, product hunting tool, dropshipping product finder
+
+Price, rank, Buy Box and review sentiment on every ASIN you care about — as data, every day.
+
+### What Amazon is, and why the data matters
+
+Amazon publishes an enormous amount on every product page: price, Best Sellers Rank, Buy Box winner, seller count, review distribution, A+ content and variation structure. Individually these are a page; captured across a category every day, they are the closest thing to a live feed of what is actually selling.
+
+Product research, repricing and brand protection are all the same data problem wearing different hats. A reseller wants to know which ASINs in a category have demand and thin competition. A brand wants to know who is on their listings and whether they are holding the Buy Box. A private-label seller wants review text at volume because that is where the next product's feature list is hiding.
+
+### Fields extracted
+
+- ASIN, title, brand and category path
+- Current price, list price and discount
+- Best Sellers Rank, overall and per subcategory
+- Buy Box owner and total offer count
+- Seller names, ratings and fulfilment type
+- Star rating and review count over time
+- Full review text, rating, date and verified status
+- Bullet points, description and A+ content
+- Variation family — sizes, colours and their individual data
+- Image URLs and video presence
+
+### Getting past Amazon's defences
+
+Amazon is among the most defended sites on the open web: fingerprinting, CAPTCHA challenges, aggressive rate limits, geo and session personalisation, and page structures that differ by category and by which experiment bucket you land in. The build uses a properly driven browser engine with consistent fingerprints, residential exits matched to the target marketplace, deliberate pacing, and per-category parsers rather than one selector set that silently returns empty on half the catalogue.
+
+### Uses
+
+- Product research — find demand with thin competition
+- Track BSR movement across a category to spot what is rising
+- Monitor Buy Box ownership on your own listings
+- Detect unauthorised sellers on your brand's ASINs
+- Mine review text for feature gaps and complaint patterns
+- Reprice against real competitor movement rather than a schedule
+
+### Questions
+
+**Can you scrape Amazon reviews at scale?**
+
+Yes — full review text, rating, date and verified-purchase status, across as many ASINs as you need. Running the text through sentiment and topic analysis afterwards is a common add-on, and is usually where the actual insight comes from rather than the raw text.
+
+**Is this a product hunting tool?**
+
+It is the data layer under one. BSR, price, offer count, review velocity and category position across a whole category is exactly what the paid research tools are selling you — the difference is you get the raw data, on your criteria, and you own it.
+
+**Amazon blocks everything. Does this actually work?**
+
+It does, and it is genuinely the hardest site in this list. What makes it work is a real browser engine with consistent fingerprinting, residential exits, honest pacing and per-category parsers. It is slower than a naive scraper, and unlike a naive scraper it is still returning data next month.
+
+**Which Amazon marketplaces are covered?**
+
+Any of them — US, UK, DE, FR, IT, ES, CA, JP and the rest. Multi-marketplace runs match on ASIN so the same product lines up across countries in one row, which is what makes cross-border price comparison possible.
+
+**What does an Amazon scraper cost?**
+
+A one-off category or ASIN-list extract typically runs $300 to $700. An ongoing daily monitor with Buy Box and BSR tracking is usually $600 to $1,200 plus a small monthly amount, reflecting the real infrastructure cost of staying unblocked.
+
+
+---
+
+## Walmart Scraper
+
+URL: https://www.autosmartcode.com/walmart-scraper
+Keywords: walmart scraper, walmart price scraper, scrape walmart products, walmart marketplace data, walmart product research
+
+Thousands of products across hundreds of keywords, run in parallel, into one clean file.
+
+### What Walmart is, and why the data matters
+
+Walmart runs both first-party retail and a growing third-party marketplace, which means its product pages carry two different kinds of signal: Walmart's own pricing, and independent sellers competing on the same items. It is the second-largest US eCommerce destination and consistently the most useful cross-check against Amazon pricing.
+
+Sellers listing on both marketplaces need to know where they sit on each. Brands need to see who is selling their products through Walmart's marketplace and at what price. And for anyone doing product research, Walmart is a useful independent read on demand — a product selling well in both places is a much stronger signal than one selling well in either.
+
+### Fields extracted
+
+- Item ID, title, brand and category path
+- Current price, was-price and rollback status
+- Seller name and whether it is sold by Walmart or a marketplace seller
+- Stock status and store-level availability where published
+- Star rating and review count
+- Shipping and pickup options
+- Specifications and product attributes
+- Variation family — sizes, colours and their pricing
+- Image URLs and product URL
+
+### Getting past Walmart's defences
+
+Walmart uses bot detection with JavaScript challenges, rate-limits by IP, and renders search results client-side with a per-query depth cap. The build drives a real browser, runs keyword searches in controlled parallel rather than sequentially — which is what makes hundreds of keywords practical in one run — rotates residential exits, and paces each worker so parallelism does not turn into a block.
+
+### Uses
+
+- Monitor competitor pricing across the marketplace daily
+- Cross-check Amazon demand signals against an independent source
+- Find products where Walmart pricing leaves room underneath
+- Detect unauthorised marketplace sellers of your brand
+- Track rollback cadence to time your own promotions
+- Pull full catalogue data with specs for your own listings
+
+### Questions
+
+**Can it handle hundreds of keywords at once?**
+
+Yes, and that is the usual shape of the job. Keyword searches run in controlled parallel with each worker paced independently, which is what makes a few hundred keywords a single overnight run rather than a week of sequential scraping.
+
+**Does it distinguish Walmart's own items from marketplace sellers?**
+
+Yes — seller identity is its own column, and for most use cases it is the important one. First-party pricing and third-party pricing behave completely differently and mixing them produces conclusions that are not true of either.
+
+**How often can it run?**
+
+Daily is standard and covers price monitoring. A defined watch list can run more frequently with alerts when a product crosses a price threshold or comes back into stock.
+
+**Can I combine this with Amazon and eBay data?**
+
+Yes, and matched on UPC or brand plus model, that is the most useful version — one row per product with a price column per marketplace. That is a multi-source build rather than a single scrape, quoted accordingly.
+
+**What does a Walmart scraper cost?**
+
+A one-off multi-keyword extract typically runs $250 to $600. An ongoing daily monitor with alerts is usually $400 to $900 plus a small monthly amount. Fixed quote within 24 hours.
+
+
+---
+
+## Small Business Website Design
+
+URL: https://www.autosmartcode.com/small-business-website-design
+Keywords: small business website design, affordable website for small business, website for local business, small business web developer, cheap professional website design
+
+Most small business websites were built once, years ago, by someone who has since stopped answering emails.
+
+### The problem
+
+The usual story is some version of this: the site was built five years ago by a relative or a cheap agency, it has never been updated, it takes six seconds to load, it looks broken on a phone, and nobody can edit it because the person who made it is gone and no one knows where it is hosted. Meanwhile it is the first thing every prospective customer sees, and roughly half of them leave before it finishes loading.
+
+### Signals
+
+- It takes more than three seconds to load
+- It looks wrong or requires pinching to read on a phone
+- You cannot update your own opening hours or prices
+- It still shows a phone number or address you no longer use
+- You do not appear on Google for your own business type in your own town
+- There is no clear way for a visitor to contact you without scrolling
+- You are not sure who owns the domain or where it is hosted
+
+### What gets built
+
+What replaces it is a small, fast, modern site that says clearly what you do, who you do it for, and how to get in touch — built to load in under two seconds on a phone on mobile data, structured so Google can actually read it, and handed over with everything in your own accounts. No page builder subscription, no proprietary platform, no monthly fee to keep your own website online.
+
+### Included
+
+- A fast, mobile-first site — typically 4 to 8 pages
+- Copy written or tightened up, not left as placeholder text
+- Contact form that reaches your actual inbox reliably
+- Google Business Profile connected and local SEO set up
+- Google Analytics so you can see what visitors do
+- SSL, hosting and domain configured in your own accounts
+- A simple way for you to edit text yourself afterwards
+- Everything handed over — code, accounts, domain, all yours
+
+### Questions
+
+**How much does a small business website cost?**
+
+Most small business sites land between $800 and $2,000 depending on page count and whether copy and photography need work. You get a fixed price before anything starts, and it does not move unless you add pages.
+
+**How long does it take?**
+
+Usually under two weeks from the first conversation to going live. The part that slows projects down is almost never the building — it is waiting on text and photos from the business, so having those ready makes it faster.
+
+**Do I have to pay a monthly fee?**
+
+Not to me. Hosting for a site this size is typically free to a few dollars a month on your own account, and your domain renews annually as it always has. There is no retainer and no licence — if you never speak to me again, your website keeps working.
+
+**Can I edit it myself afterwards?**
+
+Yes. Text and images are editable without touching code, and you get a short walkthrough at handover. Structural changes — new page types, new sections — are worth asking me about, but changing your opening hours is not.
+
+**Will it help me show up on Google?**
+
+It removes the technical reasons you are invisible: it loads fast, it is readable by crawlers, it has proper page structure and local business markup, and your Google Business Profile gets connected properly. Ranking beyond that comes from reviews and from other local sites linking to you — which I will point you at, but cannot manufacture.
+
+**What if I already have a website?**
+
+Then this is a redesign, which is usually easier — the content exists and the domain has history worth keeping. What matters is doing the redirects properly so you do not lose whatever ranking you already have.
+
+
+---
+
+## Website Redesign Services
+
+URL: https://www.autosmartcode.com/website-redesign-services
+Keywords: website redesign services, redesign my website, fix slow website, modernise old website, website makeover small business
+
+A redesign that loses your existing Google ranking is not a redesign, it is a reset. Most of them do exactly that.
+
+### The problem
+
+A site that has been running for years has something genuinely valuable attached to it: history. Google knows the URLs, other sites link to some of them, and a few pages quietly bring in traffic that nobody has ever looked at. The standard redesign throws all of that away — new URLs, no redirects, and three months later the enquiries have not come back and nobody can work out why.
+
+### Signals
+
+- The site loads slowly and visitors leave before it finishes
+- It looks dated next to competitors in the same search results
+- It breaks or needs pinching on a phone
+- Enquiries have dropped without an obvious cause
+- It runs on a platform or theme that is no longer supported
+- You have been quoted for a rebuild and nobody mentioned redirects
+- It has security warnings, or no SSL at all
+
+### What gets built
+
+The rebuild is the easy half. The half that decides whether it works is the migration: every existing URL mapped to its replacement, 301 redirects in place before launch, the pages that already earn traffic identified and kept rather than quietly dropped, and the whole thing checked in Search Console afterwards. Done properly, a redesign holds its rankings through the change and improves from there because the new site is faster.
+
+### Included
+
+- Full crawl of the existing site before anything changes
+- Every URL mapped and 301-redirected to its replacement
+- Existing traffic and ranking pages identified and preserved
+- Rebuild on a fast modern stack with the content intact
+- Core Web Vitals tuned before launch, not after
+- Search Console checked post-launch for crawl and index errors
+- Analytics carried across so history is not lost
+- All accounts, code and domain in your own name
+
+### Questions
+
+**Will a redesign lose my Google rankings?**
+
+It will if the redirects are not done, which is why most redesigns cost traffic. Every old URL gets a 301 to its replacement before launch, and Search Console gets checked afterwards. Done that way, rankings carry across and usually improve, because the new site is faster.
+
+**How much does a website redesign cost?**
+
+Most small business redesigns land between $900 and $2,500 depending on how many pages carry across and how much of the content needs rewriting. The migration work is included rather than being an add-on you find out about later.
+
+**Can you keep my existing design?**
+
+If it still works, yes — sometimes the problem is speed and mobile behaviour rather than looks, and rebuilding the same design on a better foundation is the cheaper and less disruptive answer. I will tell you which situation you are in honestly.
+
+**What if I do not have Analytics or Search Console?**
+
+Then we set both up as step one and work from a crawl of the existing site instead. It is less information than I would like, but it is still enough to map URLs properly and avoid the damage.
+
+**How long will my site be down?**
+
+It is not. The new site is built and tested on a separate address, and the switch happens once everything is ready — redirects included. The changeover is a few minutes, not a few days.
+
+
+---
+
+## Salon & Barbershop Website Design
+
+URL: https://www.autosmartcode.com/salon-website-design
+Keywords: salon website design, barbershop website design, salon website developer, hair salon website with booking, spa website design
+
+Half your bookings are attempted after 8pm, when nobody is there to answer the phone.
+
+### The problem
+
+Salons lose bookings in a specific and measurable way: someone decides at nine in the evening that they want a cut on Saturday, they find you on their phone, and the only way to book is a phone number that nobody will answer for twelve hours. By morning they have booked with whoever had a button. The website is not failing because it is ugly — it is failing because it asks the customer to wait.
+
+### Signals
+
+- Bookings only happen by phone, during opening hours
+- Your gallery is stock photography, not your own work
+- Prices are not on the site, so people call to ask and you lose the time
+- You do not appear on Google Maps for your area
+- Your Instagram is more current than your website
+- The site does not show which stylist does what
+- Customers say they could not find your opening hours
+
+### What gets built
+
+A salon site is a short list of things done properly: a booking system that works on a phone at midnight, a gallery of your actual work rather than stock photos of someone else's, prices where people can find them, and a Google Business Profile set up so you turn up on Maps when someone searches for a salon near them. Everything else is decoration.
+
+### Included
+
+- Online booking that works on a phone, integrated with your system
+- Gallery built for your own photos, easy to add to
+- Service and price list that you can update yourself
+- Stylist or barber profiles with individual specialisms
+- Google Business Profile set up and connected to the site
+- Google Maps, directions and parking information
+- Instagram feed pulled in so the site stays current on its own
+- Reviews displayed where new customers will see them
+
+### Questions
+
+**Can you connect my existing booking system?**
+
+Yes. Fresha, Booksy, Square Appointments, Vagaro, Treatwell and most others integrate directly, so you keep the system your team already knows and the website just becomes a better front door to it.
+
+**What if I do not have a booking system yet?**
+
+Then one gets set up as part of the build. Which one depends on your size and whether you need per-stylist calendars — there is a sensible free or cheap option for most salons, and I will recommend the one that fits rather than the one that pays a referral.
+
+**How much does a salon website cost?**
+
+Most salon sites land between $800 and $1,800 depending on page count, how many stylists need profiles and whether booking needs migrating. Fixed price up front, no monthly fee to me.
+
+**Will it help me show up on Google Maps?**
+
+Getting your Google Business Profile properly set up, verified and connected to the site is part of the build, and for a local salon that matters more than almost anything else on the website. Reviews do the rest, and those you have to earn.
+
+**Can I add my own photos afterwards?**
+
+Yes — the gallery is built to be added to without touching code, and you get a walkthrough at handover. Most salons update it monthly, and the ones that do get noticeably more enquiries than the ones that do not.
+
+
+---
+
+## Restaurant & Cafe Website Design
+
+URL: https://www.autosmartcode.com/restaurant-website-design
+Keywords: restaurant website design, cafe website design, restaurant website with online menu, restaurant web developer, takeaway website design
+
+A menu as a PDF is a menu nobody reads on a phone — which is where almost everyone is reading it.
+
+### The problem
+
+The single most common failure in restaurant websites is the menu being a PDF. Someone standing on the street decides where to eat, taps your menu, waits for a download, gets a document they have to pinch and drag around, and gives up. Google cannot read it either, so you do not appear when someone searches for the dish you are known for. That one decision costs more covers than any design choice on the site.
+
+### Signals
+
+- Your menu is a PDF, or an image of a printed menu
+- Prices on the site are out of date because updating it is a hassle
+- Booking is phone-only during service, when nobody can answer
+- You do not appear on Google Maps for food searches nearby
+- The photos are stock images of food you do not serve
+- Opening hours differ between your site, Google and the door
+- The site does not work properly on a phone
+
+### What gets built
+
+The menu becomes part of the page — readable on a phone at arm's length, updatable by you when a price changes or a dish comes off, and readable by Google so your dishes can appear in search. Around that: table booking that works on a phone, real photographs of your own food, opening hours that are correct, and a Google Business Profile set up so you turn up on Maps when someone nearby is hungry.
+
+### Included
+
+- Menu as real text — readable on a phone, readable by Google
+- You can update dishes and prices yourself in minutes
+- Table booking integrated with OpenTable, Resy or your own system
+- Gallery for your own food and room photography
+- Google Business Profile set up, verified and connected
+- Opening hours in one place, synced to Google
+- Directions, parking and accessibility information
+- Restaurant and menu structured data so dishes can show in search
+
+### Questions
+
+**Why is a PDF menu a problem?**
+
+Two reasons, and both cost covers. Phones handle PDFs badly, so a hungry person on the street gives up before reading it. And Google cannot index the dishes inside it, so you never appear when someone searches for the thing you are best at. A text menu fixes both at once.
+
+**Can I update the menu myself?**
+
+Yes, and you should — that is the whole point of moving off a PDF. Changing a price or removing a dish takes a minute from a phone, without calling anyone.
+
+**Can you set up online table booking?**
+
+Yes. OpenTable, Resy, SevenRooms and Google's own reservation system all integrate, or a simple built-in form works if you are not on a platform yet and do not want the monthly cost.
+
+**How much does a restaurant website cost?**
+
+Most restaurant sites land between $900 and $2,000 depending on menu size, booking integration and how many pages you need. Fixed price up front, no monthly fee to me.
+
+**Will this help me show up when people search for food nearby?**
+
+It removes the technical reasons you do not: readable menu text, correct structured data, fast mobile loading, and a properly verified Google Business Profile with hours that match. Beyond that, local search is driven by reviews and proximity, and neither of those is something a website can manufacture.
+
+
+---
+
+## What Is Web Scraping? A Complete Beginner's Guide
+
+URL: https://www.autosmartcode.com/blog/what-is-web-scraping
+Published: June 10, 2025
+
+Everything you need to know about web scraping — what it is, how it works, and how businesses use it to get a competitive edge.
+
+## What Is Web Scraping?
+
+Web scraping is the automated process of extracting data from websites. Instead of manually copying information from a webpage, a web scraper (a program or script) visits the page automatically, reads the HTML content, and pulls out the specific data you need — prices, names, emails, listings, reviews, and more.
+
+Think of it like this: if you wanted to track the price of a product on Amazon every day, you could either visit the page manually every day and write the price down — or you could build a scraper that does it automatically and sends you an email when the price drops.
+
+## How Does Web Scraping Work?
+
+The process has three basic steps:
+
+**1. Send a request to the website**
+The scraper acts like a browser and visits the URL you want to scrape.
+
+**2. Parse the HTML**
+The scraper reads the page's HTML code and identifies the elements that contain the data you want (prices, titles, emails, etc.).
+
+**3. Extract and save the data**
+The scraper pulls out the data and saves it as a structured file — Excel, CSV, JSON, or directly into a database.
+
+## What Can Be Scraped?
+
+Almost anything on a public webpage can be scraped:
+
+- **Product prices and listings** — Amazon, eBay, Walmart
+- **Business leads** — Google Maps, Yelp, LinkedIn
+- **Real estate data** — Zillow, Redfin, Airbnb
+- **Job listings** — Indeed, LinkedIn, Glassdoor
+- **News and articles** — Any news website
+- **Car auction data** — Manheim, BacklotCars, Autoniq
+- **Social media data** — Public posts and profiles
+
+## Why Do Businesses Use Web Scraping?
+
+### Competitor Price Monitoring
+eCommerce businesses scrape competitor websites to see their pricing in real time, then adjust their own prices to stay competitive automatically.
+
+### Lead Generation
+Marketing agencies scrape Google Maps and LinkedIn to build lists of potential customers — business names, phone numbers, emails — all structured and ready for outreach.
+
+### Market Research
+Investors and analysts scrape financial data, property listings, and market trends to make smarter decisions faster than their competitors.
+
+### Car Dealer Automation
+Used car dealers scrape auction platforms like Manheim MMR and BacklotCars to find vehicles priced below market value — then get instant email alerts so they can bid first.
+
+## Is Web Scraping Legal?
+
+Scraping publicly available data is generally legal in most countries. However, there are important rules:
+
+- Never scrape data behind a login without permission
+- Always respect a website's robots.txt file
+- Don't use scraped data to harm individuals
+- Check the website's Terms of Service
+
+## Tools Used for Web Scraping
+
+Professional scrapers use tools like:
+- **Python + BeautifulSoup** — for simple static pages
+- **Selenium or Playwright** — for pages that load with JavaScript
+- **Scrapy** — for large-scale scraping projects
+- **undetected-chromedriver** — for bypassing anti-bot systems
+
+## How AutoSmartCode Can Help You
+
+I've built 1000+ scraping projects for US businesses across Amazon, eBay, Walmart, Zillow, Airbnb, Google Maps, and 50+ other platforms. Whether you need 1,000 leads or 1 million product prices — I can build it, test it, and deliver clean data on time.
+
+**Ready to automate your data collection?** Contact me and describe what you need — I'll give you a free quote within 24 hours.
+
+
+---
+
+## Is Web Scraping Legal in 2025? What US Businesses Need to Know
+
+URL: https://www.autosmartcode.com/blog/is-web-scraping-legal
+Published: July 2, 2025
+
+A plain-English guide to the rules around scraping — what courts have actually decided, what's clearly safe, what's risky, and how to stay on the right side of the line.
+
+## The Short Answer
+
+Scraping **publicly available data** — information any visitor can see without logging in — is generally legal in the United States. Scraping data behind a login, ignoring explicit legal notices, or collecting personal data without a lawful basis is where businesses get into trouble.
+
+This article is a practical guide, not legal advice. For a specific project with real money on the line, talk to an attorney. But after 1000+ scraping projects for US clients, I can tell you where the lines usually sit.
+
+## What the Courts Have Actually Said
+
+### hiQ Labs v. LinkedIn
+
+This is the case everyone cites. hiQ scraped public LinkedIn profiles; LinkedIn tried to block them under the Computer Fraud and Abuse Act (CFAA), the US anti-hacking law.
+
+The courts sided largely with hiQ: scraping data that is **publicly visible without authentication** does not count as "unauthorized access" under the CFAA. You cannot hack into something that has no lock on it.
+
+### Van Buren v. United States
+
+The Supreme Court narrowed the CFAA further, holding that the law targets people who access areas of a system they are not entitled to enter — not people who misuse data they were allowed to see.
+
+**The practical takeaway:** no login wall, no CFAA problem in most cases.
+
+## The Four Things That Actually Create Risk
+
+### 1. Scraping behind a login
+
+The moment you create an account, accept Terms of Service, and then scrape, you have entered a contract and may be breaching it. This shifts the analysis from "hacking law" to "contract law" — and contract claims are much easier to win.
+
+### 2. Personal data
+
+Names, emails, phone numbers, and addresses of **individuals** are regulated by GDPR (if any EU residents are involved), CCPA/CPRA (California), and a growing list of US state laws. Business contact data is treated more leniently than consumer data, but "publicly available" does not automatically mean "free to process however you like."
+
+### 3. Copyrighted content
+
+Facts are not copyrightable. Prices, addresses, ratings, specifications — these are facts. But republishing whole articles, photos, or creative descriptions verbatim is a copyright issue regardless of how you obtained them.
+
+### 4. Server load
+
+Hammering a site with thousands of requests per second can cause real damage, and damage is what turns a civil dispute into something worse. Responsible scrapers rate-limit.
+
+## What Responsible Scraping Looks Like
+
+- **Respect robots.txt** — it is not legally binding in most jurisdictions, but ignoring it undermines any good-faith argument you might need later
+- **Rate limit every request** — a few requests per second, not a few hundred
+- **Identify your scraper** where practical, with a real user agent
+- **Only collect what you need** — do not hoover up personal fields you have no use for
+- **Store data securely** and delete it when the project ends
+- **Never scrape behind a paywall or login** without written permission from the site owner
+- **Do not resell scraped personal data** without a compliance review
+
+## Industry-by-Industry Reality Check
+
+**eCommerce price monitoring** — Very well established. Competitor prices are public facts. Low risk.
+
+**Google Maps / business directory leads** — Business names, phones and addresses are business data, not consumer data. Common practice, moderate risk, and outreach must still follow CAN-SPAM and TCPA rules.
+
+**Real estate listings** — Public listing data is widely scraped. Photos and agent-written descriptions are the copyrighted parts; stick to the facts.
+
+**Auction and wholesale platforms** — Almost always behind a login. This is the one area where you genuinely need your own credentials and, ideally, permission. Many dealers scrape platforms they personally pay for, which is a very different posture from scraping someone else's account.
+
+**Social media** — Highest risk category. Aggressive Terms of Service, heavy personal data, active enforcement.
+
+## How I Handle This With Clients
+
+Every project I take on starts with three questions:
+
+1. Is this data publicly accessible without a login? If not, do you have your own authorized account?
+2. Does the data include personal information about individuals, or only businesses?
+3. What will the data actually be used for?
+
+If the answers point somewhere uncomfortable, I say so before we start rather than after. A scraper that gets you sued is not a good scraper, no matter how clean the output.
+
+## Get a Straight Answer About Your Project
+
+Describe what you want to collect and what you plan to do with it. I will tell you honestly whether it is a straightforward build, whether it needs care, or whether you should not do it at all.
+
+**Contact me at sam@autosmartcode.com** for a free assessment within 24 hours.
+
+
+---
+
+## How Much Does Web Scraping Cost? Real 2025 Pricing Breakdown
+
+URL: https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost
+Published: June 24, 2025
+
+What a scraping project actually costs — by complexity, volume, and delivery model — plus the hidden costs nobody quotes you upfront.
+
+## Why Nobody Gives You a Straight Price
+
+Ask five developers what a scraper costs and you will get five wildly different answers, because "web scraping" covers everything from a 40-line script that pulls one table to a distributed system that processes millions of pages a day behind rotating proxies.
+
+So instead of a single number, here is the honest breakdown of what drives cost — and realistic ranges for each tier.
+
+## The Four Things That Set the Price
+
+### 1. How hard is the site to access?
+
+This is the single biggest cost driver.
+
+- **Static HTML, no protection** — cheapest. The data is right there in the page source.
+- **JavaScript-rendered** — needs a real browser (Selenium/Playwright), which is slower and heavier.
+- **Anti-bot protected** — Cloudflare, PerimeterX, DataDome. Needs stealth browsers, proxy rotation, and ongoing maintenance.
+- **Login required** — needs session and cookie management, plus a plan for when sessions expire.
+
+### 2. How much data?
+
+Scraping 500 products is a script. Scraping 5 million is an architecture — concurrency, retry queues, deduplication, storage, and error recovery all become real engineering problems.
+
+### 3. One-time or ongoing?
+
+A one-time data pull is a fixed deliverable. An ongoing system needs hosting, scheduling, monitoring, and repair whenever the target site changes its layout — which it will.
+
+### 4. What shape does the output need to be in?
+
+A raw CSV dump is free. A cleaned, deduplicated, validated Excel file with calculated fields, or a live API your team can query, is real additional work.
+
+## Realistic Price Ranges
+
+### Tier 1 — Simple one-time scrape: $80 – $300
+A single site, static or lightly dynamic, a few thousand records, delivered as Excel or CSV. Turnaround: 1–2 days.
+
+*Example: 3,000 product listings with title, price, rating and URL from a single category.*
+
+### Tier 2 — Standard project: $300 – $1,000
+Multiple pages or categories, JavaScript rendering, moderate anti-bot handling, cleaning and deduplication included. Turnaround: 2–5 days.
+
+*Example: 5,000 Google Maps business leads across 6 cities, with emails found from each business website.*
+
+### Tier 3 — Complex or automated system: $1,000 – $5,000
+Heavy anti-bot protection, login sessions, large volumes, scheduled runs, email or dashboard delivery, error alerting. Turnaround: 1–3 weeks.
+
+*Example: a daily car auction pipeline that scrapes four platforms, looks up MMR values, calculates margins, and emails a ranked deal list every morning.*
+
+### Tier 4 — Enterprise scale: $5,000+
+Millions of records, distributed infrastructure, proxy budgets, database integration, SLAs. Scoped individually.
+
+### Ongoing maintenance: $50 – $400 / month
+Websites change. A scraper that worked perfectly in March breaks in June because a class name changed. Maintenance covers monitoring, fixes, and hosting.
+
+## The Costs Nobody Mentions Upfront
+
+**Proxies.** Serious scraping at volume needs residential proxies, which are billed per gigabyte. This can quietly become the largest line item on a large project — budget $50–$500/month depending on scale.
+
+**CAPTCHA solving.** Automated solving services cost roughly $1–$3 per thousand solves. Small on a small job, meaningful at scale.
+
+**Hosting.** A scheduled scraper needs to run somewhere. A small VPS is $5–$20/month; heavier browser-based jobs need more.
+
+**Re-runs.** If the data needs to be fresh weekly, that is 52 runs a year, not one.
+
+## Buy vs Build vs Hire
+
+**No-code tools** ($50–$200/month) work well for simple, unprotected sites and small volumes. They fall over on anti-bot systems and awkward pagination, and you are still the one operating them.
+
+**Hiring in-house** costs a US developer salary and only makes sense if scraping is core to your product.
+
+**Hiring a specialist** gets you a working system for a fixed price, without hiring, and without you learning Selenium. This is the right answer for most small and mid-sized businesses.
+
+## How to Get an Accurate Quote Fast
+
+Send these four things and any competent developer can price your job in a day:
+
+1. The exact URLs you want scraped
+2. The specific fields you need from each page
+3. Roughly how many records
+4. One-time, or how often it should re-run
+
+Vague requests get vague quotes. Specific requests get accurate ones.
+
+## Get Your Free Quote
+
+Send me your URLs and field list. I will tell you which tier your project falls into, what it will cost, and how long it will take — usually within 24 hours, with no obligation.
+
+**Contact me at sam@autosmartcode.com** to get started.
+
+
+---
+
+## How Car Dealers Can Automate Manheim MMR Price Checks
+
+URL: https://www.autosmartcode.com/blog/automate-manheim-mmr
+Published: May 22, 2025
+
+Stop checking MMR prices manually. Here's how to build an automated system that pulls live auction data and emails you profitable deals every morning.
+
+## The Problem Every Used Car Dealer Faces
+
+If you're a used car dealer, you know the pain: checking Manheim MMR prices manually for dozens of vehicles every day is exhausting, time-consuming, and means you're always reacting instead of getting ahead of deals.
+
+The dealers making the most money right now are the ones who find profitable vehicles **before** their competitors — and that requires automation.
+
+## What Is Manheim MMR?
+
+Manheim Market Report (MMR) is the industry standard for wholesale vehicle valuation. It shows you what similar vehicles are actually selling for at auction right now — not what the sticker price says, but the real transaction price.
+
+When you find a vehicle at auction priced **below** its MMR value, that's a profit opportunity. The challenge is finding those deals fast, across hundreds of listings, every single day.
+
+## What Automation Looks Like
+
+An automated car dealer system does the following every morning without any manual work:
+
+1. **Scrapes active auction listings** from BacklotCars, Autoniq, ADESA, and other platforms
+2. **Looks up the MMR value** for each vehicle automatically
+3. **Calculates the profit margin** (MMR value minus auction price)
+4. **Filters out low-margin vehicles** based on your minimum threshold
+5. **Sends you an email** with only the profitable vehicles, sorted by highest margin first
+
+By the time you drink your morning coffee, your inbox has a clean list of today's best deals — ready to bid on.
+
+## Real Results From a Client
+
+I built this exact system for a used car dealer in New York. Before automation, their team spent 3–4 hours every morning manually checking prices on multiple platforms. They were constantly missing deals because competitors were faster.
+
+After the automation:
+- **Time saved: 8+ hours per week**
+- **Deals found: 3x more profitable vehicles spotted**
+- **Response time: From hours to minutes**
+- **ROI: Paid for itself in the first week**
+
+## What Platforms Can Be Automated?
+
+- **Manheim MMR** — live market valuations
+- **BacklotCars** — active auction listings
+- **Autoniq** — vehicle history and pricing
+- **ADESA** — auction inventory
+- **EdgePipeline** — dealer-to-dealer marketplace
+- **CarMax** — retail pricing reference
+- **Facebook Marketplace** — private seller vehicles
+
+## A Note on Accounts and Access
+
+These platforms sit behind a login, which means automation runs on **your own dealer credentials** — the same account you already pay for and log into by hand today. The system simply does the clicking for you. It does not create accounts, share access, or reach anything you are not already entitled to see.
+
+## How to Get Started
+
+You don't need to know how to code. You just need to tell me:
+
+1. Which platforms you use
+2. What vehicle types you focus on (year, make, model ranges)
+3. Your minimum profit margin threshold
+4. How you want to receive alerts (email, text, dashboard)
+
+I build the system, test it, and hand it to you running. Most setups take 3–5 days.
+
+**Contact me at sam@autosmartcode.com** and let's talk about automating your dealership's sourcing process.
+
+
+---
+
+## How to Scrape 5,000 Business Leads from Google Maps
+
+URL: https://www.autosmartcode.com/blog/scrape-google-maps-leads
+Published: April 15, 2025
+
+A practical guide to extracting business names, phone numbers, emails, and addresses from Google Maps for any niche and location.
+
+## Why Google Maps Is a Goldmine for Leads
+
+Google Maps has over 200 million business listings. For any niche — plumbers, dentists, car dealers, restaurants, law firms — you can find thousands of potential customers in any US city, complete with their name, phone number, website, address, and reviews.
+
+This makes Google Maps one of the most powerful and underused lead generation tools available.
+
+## What Data Can You Extract?
+
+For each business listing on Google Maps, you can extract:
+
+- **Business name**
+- **Phone number**
+- **Website URL**
+- **Physical address**
+- **Star rating and review count**
+- **Business category**
+- **Hours of operation**
+- **Email address** (from their website)
+
+## The Process: How It Works
+
+**Step 1: Define your search**
+You start with a search term and location. For example: "used car dealer New York" or "plumber Los Angeles" or "real estate agent Texas".
+
+**Step 2: Scraper collects all listings**
+The scraper automatically scrolls through all search results, collecting every business listing that matches your search — not just the first 20 results, but all of them.
+
+**Step 3: Visit each business profile**
+For each listing, the scraper visits the full business profile and extracts all available contact information.
+
+**Step 4: Find emails**
+The scraper then visits each business's website and looks for email addresses in the contact page, footer, or about page.
+
+**Step 5: Clean and deliver**
+All data is cleaned, deduplicated, and delivered as a clean Excel or CSV file — ready for your sales team.
+
+## Real Campaign Results
+
+A marketing agency I worked with used this system to target HVAC companies across 5 US states. Results:
+
+- **5,200 verified business contacts** extracted in under 2 hours
+- **3,800 had valid phone numbers**
+- **2,100 had business email addresses**
+- **Campaign response rate: 4.2%** (industry average is 1-2%)
+
+## What Niches Work Best?
+
+Google Maps lead scraping works for virtually any local business niche:
+
+- Car dealerships
+- Law firms
+- Medical practices
+- Real estate agencies
+- Restaurants and food businesses
+- Home services (plumbers, electricians, HVAC)
+- Gyms and fitness studios
+- eCommerce suppliers and wholesalers
+
+## Before You Send: Outreach Rules That Matter
+
+Collecting business contact data is the easy part. Contacting people legally is where campaigns get into trouble.
+
+- **CAN-SPAM** requires a real physical address, a working unsubscribe link, and honest subject lines on every commercial email
+- **TCPA** governs cold calling and texting — check numbers against the National Do Not Call Registry before dialling
+- **Business contacts only** — target the company, not an individual's personal mobile or private inbox
+
+A clean list plus compliant outreach beats a huge list plus a complaint every time.
+
+## Getting Your Lead List
+
+Tell me your target niche, locations, and how many leads you need. I'll build the scraper, run it, clean the data, and deliver your lead list. Most orders are delivered within 24–48 hours.
+
+**Contact me at sam@autosmartcode.com** to get started.
+
+
+---
+
+## 5 Python Automations Every Small Business Should Have
+
+URL: https://www.autosmartcode.com/blog/python-automation-small-business
+Published: March 8, 2025
+
+The most impactful automation projects for US small businesses — each one saves at least 5 hours per week and pays for itself quickly.
+
+## Why Automation Is the Biggest ROI for Small Businesses
+
+The biggest advantage large companies have over small businesses isn't money — it's that they automate everything. Their pricing updates automatically. Their email campaigns trigger automatically. Their reports generate automatically.
+
+The good news: the same automation is now accessible to small businesses for a fraction of the cost. Here are the 5 automations I build most often for US clients — and the time each one saves.
+
+## 1. Automated Price Monitoring
+
+**What it does:** Watches competitor websites, Amazon, or supplier sites 24/7 and alerts you when prices change.
+
+**Who needs it:** eCommerce sellers, retailers, wholesale buyers
+
+**Time saved:** 5–10 hours per week
+
+Instead of manually checking competitor prices daily, a price monitor runs in the background and emails you the moment a price drops or a competitor changes their pricing. You react in minutes instead of days.
+
+## 2. Automated Lead Extraction
+
+**What it does:** Automatically collects business leads from Google Maps, Yelp, or LinkedIn on a schedule.
+
+**Who needs it:** Sales teams, marketing agencies, B2B businesses
+
+**Time saved:** 8–15 hours per week
+
+Instead of manually searching for prospects and copying their details into a spreadsheet, the system runs a search every week and adds fresh leads to your list automatically — sorted, cleaned, and ready to contact.
+
+## 3. Automated Email Reporting
+
+**What it does:** Pulls data from multiple sources and sends a formatted summary email on a schedule.
+
+**Who needs it:** Any business owner who needs regular reports
+
+**Time saved:** 3–5 hours per week
+
+Instead of manually compiling weekly or daily reports from spreadsheets and platforms, the automation collects all your data, formats it into a clean HTML email, and sends it to your team automatically every Monday morning.
+
+## 4. Automated Inventory Alerts
+
+**What it does:** Monitors your inventory or supplier stock levels and alerts you when items are running low or become available.
+
+**Who needs it:** eCommerce stores, retailers, Amazon sellers
+
+**Time saved:** 4–6 hours per week
+
+Never run out of stock unexpectedly again, and never miss a restocking opportunity. The system watches stock levels and sends alerts before you run out — or when a supplier finally restocks an item you've been waiting for.
+
+## 5. Automated Data Cleaning & Processing
+
+**What it does:** Takes raw data files (from exports, forms, or scrapers) and automatically cleans, formats, and organizes them.
+
+**Who needs it:** Any business that deals with data in spreadsheets
+
+**Time saved:** 5–12 hours per week
+
+If your team spends hours fixing formatting issues, removing duplicates, filling in missing data, or reformatting exports — this automation handles all of it automatically. Drop a raw file in, get a clean file out.
+
+## How to Choose Which One to Build First
+
+Pick the task that is **repetitive, rule-based, and currently done by a person you are paying**. Those three conditions together are what make automation pay for itself quickly.
+
+A useful test: if you can write down the steps someone follows, and those steps do not change based on judgement, it can almost certainly be automated.
+
+## How to Get Started
+
+You don't need to hire a full-time developer. Most of these automations can be built in 1–3 days and maintained for a small monthly fee.
+
+**Contact me at sam@autosmartcode.com** and describe which of these would help your business most. I'll give you a free quote within 24 hours.
+
+
+---
+
+## How to Use AI to Analyze Amazon Reviews and Beat Competitors
+
+URL: https://www.autosmartcode.com/blog/amazon-product-analysis-ai
+Published: February 20, 2025
+
+Use AI-powered review analysis to find exactly what customers hate about competitor products — then fix those things in yours.
+
+## The Competitive Intelligence Hidden in Reviews
+
+Every Amazon product has thousands of customer reviews. Inside those reviews is a goldmine of intelligence: what customers love, what they hate, what features they wish existed, and what problems they keep experiencing.
+
+Most sellers read a few reviews manually and make guesses. The sellers crushing their competition are using AI to analyze thousands of reviews at once and get precise, actionable insights in minutes.
+
+## What AI Review Analysis Finds
+
+When you run 5,000 Amazon reviews through an AI analysis system, you discover:
+
+**The exact language customers use** to describe problems — which you can use in your own listing copy to speak directly to their pain points.
+
+**The top 10 complaints** about competitor products — which tells you exactly what to fix or avoid in your own product.
+
+**The top 10 praise points** — so you know what features actually matter to buyers and should be highlighted in your listing.
+
+**Sentiment trends over time** — if a product's reviews are getting worse recently, that's your window to capture market share.
+
+**Feature gaps** — things multiple reviewers wish the product had but doesn't. Build those features and you have a differentiated product.
+
+## A Real Example: Kitchen Products
+
+I ran this analysis for a client selling kitchen storage containers. After analyzing 8,000 competitor reviews across 12 products, we found:
+
+- **847 reviews** mentioned lids that don't seal properly
+- **632 reviews** complained about staining from tomato-based foods
+- **1,240 reviews** praised airtight seals on competing products
+
+The client redesigned their lid mechanism, used stain-resistant materials, and led their listing with "guaranteed airtight seal." Their conversion rate increased by 28% in the first month.
+
+## How the AI Analysis Works
+
+**Step 1: Scrape the reviews**
+I scrape all reviews for your target products — competitor products, your own product, or both. Thousands of reviews, collected automatically.
+
+**Step 2: Clean and structure the data**
+Reviews are cleaned, deduplicated, and organized by date, rating, and product.
+
+**Step 3: AI sentiment analysis**
+Each review is processed through an AI model that categorizes it as positive, negative, or neutral, and extracts the specific topics mentioned.
+
+**Step 4: Pattern identification**
+The AI finds the most common complaints and praises across all reviews, ranked by frequency.
+
+**Step 5: Competitive intelligence report**
+You receive a clean report showing exactly what to fix, what to highlight, and what opportunities exist in the market.
+
+## Why AI Beats Manual Reading
+
+A person can read maybe 200 reviews before their judgement blurs and they start pattern-matching on whatever they read most recently. An AI pipeline processes 8,000 reviews with the same criteria applied to review number 8,000 as to review number one.
+
+More importantly, it **counts**. "A lot of people mention the lid" is an impression. "847 of 8,000 reviews mention lid sealing, and 61% of those are 1- or 2-star" is a decision you can act on.
+
+## What You Get
+
+- Full sentiment breakdown (positive / neutral / negative percentages)
+- Top 10 complaints (ranked by frequency)
+- Top 10 praise points (ranked by frequency)
+- Direct customer quotes for each finding
+- Recommended listing copy changes
+- Market opportunity gaps
+
+## Get Your Competitive Analysis
+
+Send me the Amazon URLs of your top 3–5 competitors and your own product page. I'll run the full AI analysis and deliver your competitive intelligence report within 48 hours.
+
+**Contact me at sam@autosmartcode.com** to get started.
+
+
+---
+
+## How Real Estate Investors Use Scraping to Find Better Deals
+
+URL: https://www.autosmartcode.com/blog/zillow-airbnb-real-estate-scraping
+Published: January 12, 2025
+
+Scraping Zillow, Redfin, and Airbnb gives real estate investors data their competitors don't have — here's how it works.
+
+## Data Is the Real Estate Investor's Biggest Advantage
+
+The difference between a good real estate investor and a great one is data. Knowing which markets are heating up, which neighborhoods are undervalued, and what rental income a property can realistically generate — that's what separates profitable investments from average ones.
+
+The problem: most of this data is sitting on Zillow, Redfin, and Airbnb — and manually collecting it is impossible at scale.
+
+## What Real Estate Scrapers Collect
+
+**From Zillow:**
+- Property listings with prices, square footage, beds/baths
+- Price history (when the price was reduced and by how much)
+- Days on market (longer = more negotiating power)
+- Zestimate (Zillow's estimated value)
+- Neighborhood price trends over 1, 3, and 5 years
+
+**From Airbnb:**
+- Active rental listings by neighborhood
+- Nightly rates by property type and size
+- Occupancy rates (estimated from availability calendars)
+- Host revenue estimates
+- Review counts and ratings
+
+**From Redfin:**
+- Sold prices vs listing prices
+- How quickly homes are selling
+- Price per square foot by neighborhood
+- School ratings and walkability scores
+
+## How Investors Use This Data
+
+### Finding Undervalued Markets
+By scraping price trends across hundreds of zip codes, investors can spot neighborhoods where prices are rising faster than average — before the mainstream media covers it.
+
+### Calculating Real Rental Income
+Instead of guessing what rent an Airbnb could generate, investors scrape active listings in the same neighborhood with similar specs and calculate actual revenue potential based on real listings.
+
+### Negotiation Leverage
+When you know that 73 similar properties in the area have reduced their price by an average of 8% after 45 days on market — you have real negotiating power backed by data.
+
+### Market Timing
+By tracking how quickly inventory is selling over time, investors can identify when a market is shifting from a seller's market to a buyer's market — and time their purchases accordingly.
+
+## A Client Example
+
+I built a weekly Zillow and Airbnb analysis tool for a real estate investor in Arizona. Every Monday morning, they receive an Excel report showing:
+
+- New price reductions in their target zip codes
+- Estimated Airbnb revenue for any property they're considering
+- Comparison of listing price vs estimated actual value
+- Days on market trends by neighborhood
+
+**Result:** They identified an undervalued neighborhood 4 months before prices jumped 18%. That single data insight generated significant returns on two properties they purchased.
+
+## One Important Caveat
+
+Listing facts — price, beds, square footage, days on market — are data. Listing **photos and agent-written descriptions** are copyrighted work belonging to the brokerage or photographer.
+
+Collect the numbers, build your analysis on the numbers, and do not republish someone else's photos or listing copy. Every system I build is designed around this distinction from day one.
+
+## What I Can Build for You
+
+Whether you need a one-time data pull or a weekly automated report — I can build the right solution for your real estate research needs.
+
+**Contact me at sam@autosmartcode.com** and describe what markets and data you need. I'll respond with a plan and quote within 24 hours.
+
+
+---
+
+## Why Your Scraper Keeps Getting Blocked (And How to Fix It)
+
+URL: https://www.autosmartcode.com/blog/bypass-captcha-anti-bot-scraping
+Published: May 5, 2025
+
+The real reasons sites detect scrapers — browser fingerprints, request patterns, TLS signatures — and the practical fixes that actually work.
+
+## Your Scraper Worked on Monday. It's Blocked on Thursday.
+
+This is the single most common message I get. Someone builds a scraper with Requests or Selenium, it runs beautifully for a few days, and then it starts returning CAPTCHAs, empty pages, or 403 errors.
+
+The site did not necessarily change. Your scraper simply accumulated enough signals for the detection system to make up its mind.
+
+Here is what those signals actually are, in rough order of how often they cause the problem.
+
+## 1. Request Rate and Rhythm
+
+Humans browse irregularly. They read a page for eleven seconds, then four, then ninety. A default scraper fires requests every 0.4 seconds, forever, with machine precision.
+
+**The fix:** randomised delays with a realistic distribution — not "sleep(1)" but "sleep(uniform(2, 7))", plus occasional longer pauses. Slower scraping that finishes is infinitely faster than aggressive scraping that gets banned on page 300.
+
+## 2. Browser Fingerprinting
+
+Modern anti-bot systems run JavaScript in your browser and collect dozens of properties: canvas rendering output, WebGL vendor strings, installed fonts, screen dimensions, timezone, hardware concurrency, and audio context behaviour.
+
+Plain Selenium leaks its identity immediately — most notably through the "navigator.webdriver" flag, which is set to "true" by default and is the first thing every detection script checks.
+
+**The fix:** stealth-patched browsers. "undetected-chromedriver" for Python, or "playwright-stealth", patch the most obvious tells. They are not magic, but they clear the low bar that catches 80% of naive scrapers.
+
+## 3. TLS Fingerprinting (the one nobody expects)
+
+Before a single byte of HTTP is exchanged, your client performs a TLS handshake — and the exact order of cipher suites and extensions it offers forms a fingerprint (often called a JA3 hash).
+
+Python's "requests" library has a JA3 signature that looks nothing like Chrome's. You can set a perfect Chrome User-Agent header and still be identified as a Python script before the server even reads your headers.
+
+**The fix:** use "curl_cffi" or a similar library that impersonates real browser TLS stacks, or drive an actual browser.
+
+## 4. IP Reputation
+
+Datacenter IP ranges — AWS, DigitalOcean, Hetzner — are catalogued and scored. Some sites block them outright regardless of behaviour.
+
+**The fix, in ascending order of cost:**
+- **Datacenter proxies** — cheap, easily detected, fine for unprotected sites
+- **Residential proxies** — real consumer IPs, billed per GB, the standard for serious work
+- **Mobile proxies** — highest trust, highest cost, reserved for the hardest targets
+
+Rotate sensibly. A single IP making 10,000 requests is obvious; so is an IP that changes on every single request while carrying the same session cookie.
+
+## 5. Header Consistency
+
+Real browsers send a specific, ordered set of headers: "Accept", "Accept-Language", "Accept-Encoding", "Sec-Fetch-*", and "sec-ch-ua" client hints. They are internally consistent — a Chrome 120 User-Agent comes with Chrome 120's exact header set.
+
+Scrapers frequently send a Chrome User-Agent with three headers and no client hints. That mismatch is trivially detectable.
+
+**The fix:** copy the complete header set from real browser DevTools, and keep it consistent with the User-Agent you claim.
+
+## 6. Behavioural Signals
+
+Advanced systems watch what happens *after* the page loads. Did the mouse move? Was there any scrolling? Did focus events fire? Did the visitor request the CSS and images, or only the HTML?
+
+**The fix:** for the hardest targets, simulate movement and scroll before interacting, and let the page load its resources rather than blocking them all for speed.
+
+## What About Solving CAPTCHAs?
+
+Solving services exist and cost roughly $1–$3 per thousand solves. They work.
+
+But a CAPTCHA is a **symptom**, not the disease. If you are solving thousands of them, your scraper has already been flagged and you are paying a tax on bad fingerprinting. Fix the signals above and the CAPTCHAs largely stop appearing.
+
+## The Practical Escalation Ladder
+
+Start cheap and only climb when you have to:
+
+1. Plain HTTP requests with realistic headers and rate limiting
+2. Add "curl_cffi" for TLS impersonation
+3. Add rotating residential proxies
+4. Switch to a stealth-patched real browser
+5. Add behavioural simulation
+6. Add CAPTCHA solving as a last resort
+
+Most projects never need to go past step three. Teams get into trouble by starting at step four, burning money on browser infrastructure for a site that would have accepted plain requests with a two-second delay.
+
+## Build It Right the First Time
+
+Anti-bot work is not a one-time fix — protections update, and a scraper that is unmaintained is a scraper that will eventually break. Every system I build includes failure alerting, so you find out from an email rather than from a silently empty spreadsheet.
+
+**Contact me at sam@autosmartcode.com** and tell me which site is blocking you. I'll tell you what it will take to get through it reliably.
+
+
+---
+
+## Competitor Price Monitoring: The Complete Setup Guide
+
+URL: https://www.autosmartcode.com/blog/ecommerce-price-monitoring-automation
+Published: April 2, 2025
+
+How online sellers track competitor pricing automatically, react within minutes instead of days, and stop leaving margin on the table.
+
+## Pricing Is the Fastest Lever You Have
+
+You can spend months improving a product, weeks building a campaign, or five minutes changing a price. Of those three, the price change hits your margin immediately.
+
+The problem is knowing **when** to change it. Most sellers find out a competitor undercut them when their sales drop — which is days late and thousands of dollars into the mistake.
+
+Automated price monitoring closes that gap from days to minutes.
+
+## What a Price Monitoring System Actually Does
+
+A complete system runs continuously and handles four jobs:
+
+**1. Tracks** a defined list of competitor product URLs, or matches products automatically by title, brand, UPC or model number.
+
+**2. Records** price, shipping cost, stock status, seller name, and Buy Box ownership at fixed intervals.
+
+**3. Compares** each reading against your own price and against the previous reading.
+
+**4. Alerts** you — or updates your prices directly — when a rule you defined is triggered.
+
+## The Metrics Worth Tracking
+
+Price alone is not enough. The readings that actually drive decisions:
+
+- **Landed price** — item price plus shipping. A $2 cheaper item with $8 shipping is not cheaper.
+- **Stock status** — a competitor going out of stock is a window to raise your price, not lower it
+- **Buy Box ownership** — on Amazon, who holds the Buy Box matters more than the listed price
+- **Price velocity** — how often a competitor changes price tells you whether they are running a repricer
+- **Promotion flags** — a temporary coupon is not a structural price cut and should not trigger a permanent response
+
+## Setting Rules That Do Not Destroy Your Margin
+
+The classic mistake is "always be $0.01 cheaper than the lowest competitor." Two sellers running that rule will race each other to zero within a day.
+
+Better rule structures:
+
+**Floor-protected matching** — match the lowest competitor, but never below your minimum acceptable margin. This single constraint prevents almost all repricing disasters.
+
+**Tiered response** — undercut by 2% when you are out of the Buy Box, hold price when you already have it.
+
+**Stock-aware pricing** — when the two cheapest competitors are out of stock, raise price rather than matching the third.
+
+**Alert-only for big moves** — if a competitor drops more than 15%, notify a human instead of matching automatically. That size of move is usually a pricing error, a clearance, or a trap.
+
+## Realistic Check Frequencies
+
+More frequent is not automatically better — it costs proxy bandwidth and increases block risk.
+
+- **Fast-moving marketplaces** (Amazon, eBay top listings): every 15–30 minutes
+- **Standard eCommerce competitors**: every 2–6 hours
+- **Wholesale and supplier catalogues**: daily
+- **Long-tail catalogue items**: weekly
+
+Match the interval to how fast the price actually moves. Checking a slow supplier catalogue every 15 minutes is pure cost with no signal.
+
+## How Alerts Should Reach You
+
+The best system in the world is useless if the alert lands in an inbox nobody reads.
+
+- **Email digest** for daily summaries and trend reports
+- **Telegram or Slack** for instant, high-priority alerts — these get read in minutes
+- **Dashboard** for the weekly review, where you look at trends rather than events
+- **Direct API push** into your store when you trust the rules enough to skip the human
+
+I usually recommend starting alert-only for the first two weeks. Watch what the system would have done before you let it do it.
+
+## A Real Client Setup
+
+An eCommerce business in Michigan monitors competitor and supplier pages across Amazon, eBay, and four direct competitor sites. The system checks every 15 minutes, logs every reading to a database, and fires a Telegram alert when a tracked price crosses a threshold.
+
+**Results:** alerts arrive under five minutes after a price change. In the first month they caught three restocking opportunities that would have been missed entirely, and stopped two products from being undercut for a full weekend.
+
+## What It Takes to Build
+
+For most sellers this is a Tier 2 or Tier 3 project — a few days of work, a small monthly hosting and proxy cost, and ongoing maintenance when a target site changes its layout.
+
+The build includes the scraper, the comparison rules, the alert channel, price history storage, and monitoring so you know when something breaks.
+
+## Get Your Price Monitor Built
+
+Send me the products or competitors you want to track and how fast you need to know about changes. I'll scope it, quote it, and have you receiving alerts within a week.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## Free VIN Decoding: What NHTSA's vPIC API Actually Gives You
+
+URL: https://www.autosmartcode.com/blog/free-vin-decoder-nhtsa-api
+Published: February 12, 2026
+
+There is a US government API that decodes any VIN for free, with no key, no rate limit and no licensing. Most dealers are paying for data they could get from it.
+
+## The most underused free data source in the car business
+
+The US National Highway Traffic Safety Administration runs a database called vPIC — Vehicle Product Information Catalog. It decodes any VIN sold in the United States, it is free, it requires no API key, it has no published rate limit, and because it is a US government work it carries no licensing restriction on what you do with the output.
+
+Almost every dealer I have built for was paying a vendor for at least part of what vPIC returns for nothing.
+
+## What a VIN decode actually returns
+
+Feed vPIC a 17-character VIN and it gives you back the manufacturer's own declaration of what that vehicle is. Not an estimate, not a lookup against a third-party table — the decoded content of the VIN itself plus the manufacturer's filing.
+
+- Make, model, model year and series
+- Trim level and body class
+- Engine — displacement, cylinder count, configuration, fuel type, horsepower
+- Drive type, transmission style and speed count
+- Plant city, state and country of manufacture
+- Gross vehicle weight rating class
+- Restraint system type and airbag locations
+- Number of doors and seat rows
+- Electrification level for hybrids and EVs
+
+For a dealer, the useful part is trim and engine. Two cars with the same year, make and model can differ by several thousand dollars on trim alone, and auction run lists are notoriously vague about it. Decoding the VIN settles it.
+
+## What it does not give you
+
+This is the part vendors are actually selling, and it is worth being clear about.
+
+vPIC tells you **what the car is**. It does not tell you **what happened to it**. No accident history, no title brands, no odometer readings, no ownership count, no service records. That information comes from Carfax, AutoCheck, or an NMVTIS-approved provider, and it is licensed data you pay for.
+
+So the honest framing is not "vPIC replaces Carfax". It is: decode everything for free, then spend your paid report credits only on the cars where history actually changes the decision.
+
+## The other free NHTSA endpoints
+
+vPIC is the best known but not the only one.
+
+- **Recalls by VIN** — open safety recalls that have not been remedied. Worth checking before any car hits your lot.
+- **Recalls by make, model and year** — the broader campaign data.
+- **Safety ratings** — NHTSA's own crash test results, which are a genuine selling point on a listing.
+- **Complaints** — owner-filed complaints by model, useful for spotting a trim with a known transmission problem before you buy fifteen of them.
+
+## Doing it at volume
+
+One VIN in a browser is easy. The reason this becomes a build rather than a bookmark is volume and shape.
+
+vPIC has a batch endpoint that accepts multiple VINs in a single POST, which is how you decode a four-hundred-car run list without four hundred requests. The response is verbose — well over a hundred fields per vehicle, most of them empty for any given car — so the real work is selecting the twelve fields you care about, normalising the values, and joining the result onto whatever you already have.
+
+That last part is where the value is. A decoded VIN sitting on its own is trivia. A decoded VIN joined onto an auction run list, so every lot on tomorrow's sale arrives with its true trim and engine attached, changes what you bid on.
+
+## What I build with it
+
+The typical shape: a pipeline reads your run lists or inventory feed, batch-decodes every VIN through vPIC, checks each one for open recalls, and writes the enriched rows into a sheet or database. Paid history reports are pulled afterwards, through your own dealer account, only for the cars that survived the first filter.
+
+The dealers who run this stop paying for reports on cars they were never going to buy.
+
+## Get it built
+
+Send me where your VINs come from — an auction platform, a DMS export, a spreadsheet — and what you want on each row. Free decoding plus recall checks is usually a two to three day build.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## How to Price Used Cars Against the Live Market, Not a Book Value
+
+URL: https://www.autosmartcode.com/blog/price-used-cars-market-data
+Published: March 18, 2026
+
+Book values tell you what a car was worth. Live listing data tells you what buyers in your market are being asked to pay for it today. Here is how to build the second one.
+
+## Book value versus asking price
+
+Every dealer has a book value source — MMR, Black Book, J.D. Power, Galves. They are good at what they do, which is telling you roughly what a car is worth wholesale, nationally, on average.
+
+None of those three qualifiers matches how you actually sell a car. You sell retail, in one market, today. And the number your customer is comparing you against is not a book value they have never heard of — it is the twenty listings they just scrolled through on their phone.
+
+Pricing against live listings closes that gap. It is not a replacement for book value; it is the other half of the picture.
+
+## What the comparable set should contain
+
+A comp is not "same year, make, model". That is how you end up pricing a base trim against a loaded one and wondering why the car sat for ninety days.
+
+A usable comparable set matches on:
+
+- Year, make, model **and trim** — decoded from the VIN, not read off the listing title
+- Mileage within a sensible band, not an arbitrary one
+- Drivetrain and transmission
+- Geography — a radius that reflects how far your buyers actually travel
+- Condition signals where published — accident-free flags, owner count, certified status
+
+Then it records, per listing: asking price, days on market, dealer identity, and every price change observed since first capture.
+
+## Days on market is the number nobody tracks
+
+Asking price alone is half the story, and it is the half that lies. A car listed at 24,000 dollars that has sat for eighty days is not telling you the market value is 24,000. It is telling you the market value is somewhere below that, and the dealer has not worked it out yet.
+
+Once you are capturing listings daily, days-on-market comes for free — you know when each listing first appeared because you were there. Pair it with price-change history and the picture sharpens considerably:
+
+- Trims that clear in under three weeks at asking price are under-supplied. Buy more, price at the top of the range.
+- Trims sitting past sixty days with two price cuts are over-supplied. Either skip them or buy at a price that assumes you will be cutting too.
+- A competitor who cuts price on day fourteen every single time has a floorplan problem you can plan around.
+
+## Where the data comes from
+
+The listing sites your buyers actually use — AutoTrader, Cars.com, CarGurus, CarMax, and increasingly Facebook Marketplace for private-party. Individual dealer websites matter more than people expect, because they update the moment a car is repriced, often days before the aggregators catch up.
+
+Each of those has its own defences and its own quirks, which is why this tends to be a build rather than a subscription. I have written separately about the individual sites — the [AutoTrader](/autotrader-scraper), [CarMax](/carmax-scraper) and [Cars.com](/cars-com-scraper) pages go into what each one publishes and what gets in the way.
+
+## Turning listings into a price
+
+The output that actually gets used is not a spreadsheet of every comp. It is a single recommendation per car with the workings attached:
+
+- The comparable set size, so you know whether to trust it
+- Median and percentile asking prices across that set
+- Your position within the range if you list at a given number
+- Estimated days to sell at each price point, from observed history
+- The spread against MMR or your landed cost
+
+Twelve comps says something. Three comps says almost nothing, and the system should tell you that rather than quietly averaging them into a confident-looking number.
+
+## What changes when you have it
+
+The dealers I have built this for describe the same shift. Pricing meetings stop being arguments about instinct and start being five-minute reviews of a list. Cars stop sitting because somebody priced from memory. And the reprice decision — the one that actually costs money when it comes late — gets made on day twenty instead of day fifty.
+
+## Get it built
+
+Tell me your market, the segments you stock, and which sites your buyers shop. Most pricing feeds are running within a week.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## Using AI to Clean Up Messy Scraped Data (And When Not To)
+
+URL: https://www.autosmartcode.com/blog/ai-parsing-scraped-data
+Published: April 9, 2026
+
+Language models are very good at the parsing problems that used to need a hundred regexes — and a bad, expensive choice for the ones a regex already solves.
+
+## The problem regex was always bad at
+
+Extraction gets you the raw text. The work that decides whether the dataset is usable is what happens next, and it is usually messier than the scraping.
+
+Consider a single field — the price — as it actually appears across a few hundred sites:
+
+- 1,299.00 and 1.299,00 and 1 299 kr
+- From 49 dollars a month
+- Was 89, now 59
+- Call for pricing
+- 24.99 per unit, minimum order 12
+
+A regex handles the first two variants. By the fifth you are writing special cases, and by the fiftieth you have a thousand lines of parsing code that nobody can safely change.
+
+This is exactly the shape of problem language models are good at: high variety, low volume per variant, and a clear notion of what the right answer looks like.
+
+## What to hand to a model
+
+The rule I use: **if you can write the rule down, write the rule.** Use a model where the rule would be "you know it when you see it".
+
+Good candidates:
+
+- Splitting an address blob into components across inconsistent international formats
+- Deciding whether two differently-spelled business names are the same company
+- Classifying free-text product descriptions into your own category tree
+- Extracting structured attributes from prose specs — "brushed stainless, 18 inch, dishwasher safe"
+- Normalising job titles into levels so "VP Eng" and "Vice President of Engineering" collapse together
+- Reading sentiment and specific complaints out of review text at volume
+
+Bad candidates, where a model is slower, costlier and less reliable than five lines of code:
+
+- Anything with a fixed format — ISO dates, phone numbers in one country, currency with a known symbol
+- Deduplication on an exact key
+- Arithmetic
+- Validation you can express as a rule
+
+## Structure the output, do not parse it
+
+The mistake I see most often is asking a model for JSON in the prompt and then parsing whatever comes back. That works until it does not, and it fails silently in the middle of a large batch.
+
+Every current Claude model supports structured outputs — you supply a JSON Schema and the response is constrained to match it. That turns "usually valid JSON" into "valid JSON or an explicit error", which is the difference between a pipeline you can leave running and one you have to babysit.
+
+Define the schema tightly. Enumerate the values you will accept for a category field rather than leaving it as a free string, and include an explicit "unknown" option — a model given no way to say it does not know will invent something.
+
+## Cost, honestly
+
+This is where people either overspend badly or dismiss the approach on bad arithmetic.
+
+The current Claude lineup, priced per million tokens of input and output:
+
+- **Claude Haiku 4.5** — 1 dollar in, 5 dollars out
+- **Claude Sonnet 5** — 3 dollars in, 15 dollars out
+- **Claude Opus 4.8** — 5 dollars in, 25 dollars out
+
+A short parsing task — a messy product record in, a clean structured record out — runs somewhere around 400 tokens in and 150 out. On Haiku that is roughly 0.0011 dollars per record, so about 1.10 dollars for a thousand records. Ten thousand product records cleaned for around eleven dollars is cheap against any amount of engineering time.
+
+Two things make the difference between that number and a bill ten times larger:
+
+**Use the smallest model that passes your evaluation.** Parsing and classification are exactly the tasks the cheaper models handle well. Reach for a larger model when the task needs genuine reasoning, not when it needs careful pattern matching. Test the cheap one first; if it passes, you are done.
+
+**Batch, and cache the instructions.** If you send the same long system prompt with every record, you pay for it every time. Prompt caching makes repeated prefixes read at roughly a tenth of the input price, which matters enormously when the instructions are long and the records are short. Send records in batches rather than one at a time and the per-record overhead collapses.
+
+## Always validate the output
+
+A model that returns a confidently wrong answer is worse than one that errors, because you will not notice.
+
+Every AI parsing step I build ships with deterministic checks behind it:
+
+- Does the parsed price fall within a plausible range for this category?
+- Does the extracted date exist, and is it not in 1970 or 2087?
+- Does the normalised category appear in the allowed list?
+- What percentage of this batch came back as unknown, and is that percentage stable against yesterday?
+
+That last one is the alarm that matters. A parsing step that quietly starts returning unknown for a third of records has broken, and the null rate catches it long before anyone notices the numbers look odd.
+
+## Where this sits in a real pipeline
+
+Deterministic first, model second, validation third. Extract the raw values with code. Handle everything with a knowable rule using that code. Route only the leftovers — the genuinely ambiguous ones — to a model. Then validate everything that comes back with rules again.
+
+Done that way, the AI step usually touches ten to twenty percent of records, which keeps both the cost and the blast radius small.
+
+## Get it built
+
+If you have a dataset that is technically complete and practically unusable, that is the job. Send me a sample of the mess and what you want the clean version to look like.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## Self-Healing Scrapers: What AI Fixes When a Site Changes, and What It Doesn't
+
+URL: https://www.autosmartcode.com/blog/self-healing-scrapers-ai
+Published: May 21, 2026
+
+Every scraper eventually breaks because a site redesigns. AI can genuinely repair some of those breaks automatically — and pretending it fixes all of them is how you end up with silently wrong data.
+
+## Why scrapers break
+
+Not because they were written badly. Because the site changed, and it was always going to.
+
+A scraper is a contract with a page structure that the other party never agreed to and can rewrite whenever they like. A class name goes from product-price to price-display. A value that was in the HTML moves into a JavaScript payload. A single-column layout becomes a grid. None of that is malicious and none of it is unusual — it is just what shipping a website looks like from the other side.
+
+The question is not whether your scraper breaks. It is how long it takes you to find out, and how much wrong data you acted on in the meantime.
+
+## The two failure modes, and only one is obvious
+
+**Loud failures** are fine. The selector matches nothing, the parser throws, the run exits non-zero, an alert fires. You know within minutes.
+
+**Silent failures** are the expensive ones. The selector still matches something — just the wrong thing. Now your price column contains the shipping cost. The run succeeds. The row count looks normal. The alert never fires, and you make decisions on that data for three weeks before somebody notices the margins look strange.
+
+Everything below is really about catching the second kind.
+
+## Where AI genuinely helps
+
+Give a model the old page structure, the field definitions, and the new page HTML, and ask it to locate the same fields again. This works well, and it works because it is a recognition problem rather than a rule-following one — the price still looks like a price, it has just moved.
+
+A repair loop I have had good results with:
+
+1. The run fails validation — nulls spike, or a value falls outside its expected range
+2. The system snapshots the page that failed
+3. A model is given that snapshot, the field list, and examples of previously-correct values
+4. It proposes new selectors
+5. **The proposal is tested against a stored set of pages with known-correct answers**
+6. If it passes, the selectors are updated and the run retries; a human is notified either way
+
+Step five is the entire load-bearing part. Without it you have replaced a broken scraper with a confidently wrong one.
+
+## Where it does not help
+
+Be clear-eyed about the limits.
+
+- **A login flow that changed** — this is a sequence of actions, not a structure to recognise. It needs a person.
+- **New anti-bot defences** — if the site deployed a challenge, no amount of selector repair gets you past it, and you should not want a system that tries to route around a defence automatically.
+- **Data that genuinely moved behind a paywall** — the field is gone. That is a business decision, not a bug.
+- **Semantic changes** — the site now shows price excluding tax where it used to include it. The scraper works perfectly and your dataset is wrong. No structural check catches this; only a human who knows the domain will.
+
+That last one is worth sitting with. It is the failure mode that no amount of automation addresses, and it is the reason I do not sell "set and forget".
+
+## Validation is what makes any of this work
+
+The repair loop only ever triggers because validation caught something. So the validation is the real system:
+
+- **Null rate per field**, compared against the rolling average rather than against zero
+- **Range checks** — a used car priced at 40 dollars or 4 million is a parse error, not a bargain
+- **Type checks** — a price field returning text
+- **Row count** against expectation, catching pagination that silently stopped early
+- **Cross-field consistency** — a sale price above the list price
+- **Distribution drift** — the shape of today's values against last week's, which catches the subtle ones
+
+A pipeline with these checks and no AI at all is far more trustworthy than one with automatic repair and no checks.
+
+## What I actually ship
+
+Honest version: most systems I build do not repair themselves. They detect and they shout.
+
+The reason is that on a well-scoped pipeline, breakages are rare enough that a same-morning alert plus a fix from me is faster and safer than an automated repair I have to verify anyway. Automated repair earns its place when you are running against many sites at once and manual response does not scale.
+
+What every delivered system does have: validation on every run, alerting the moment a check fails, a stored snapshot of the page that broke so diagnosis does not start from scratch, and fixes from the person who wrote it.
+
+Sites change and scrapers break. Anyone who tells you otherwise is selling something. The measure of a good build is not that it never breaks — it is that you find out from the system rather than from a bad decision three weeks later.
+
+## Get it built
+
+If you have a scraper that keeps failing quietly, or you are about to build something you need to trust for months, that is the conversation.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## Why Your Cold Email List Bounces (And What It Costs You)
+
+URL: https://www.autosmartcode.com/blog/why-cold-email-lists-bounce
+Published: June 16, 2026
+
+A 30% bounce rate does not just waste 30% of your list. It damages your sending domain in ways that outlast the campaign — often permanently.
+
+## The damage is not the wasted sends
+
+Most people think of a bad list as a volume problem. You bought 10,000 contacts, 3,000 bounced, so you got 7,000 sends. Annoying, but survivable.
+
+That is not what happened. What happened is that mailbox providers watched your domain send thousands of messages to addresses that do not exist, concluded you are either buying lists or guessing addresses, and adjusted how they treat everything you send from now on.
+
+The 7,000 that did not bounce increasingly land in spam. Then your invoices start landing in spam. Then your password resets. Recovering a burned sending domain takes months of careful low-volume sending, and sometimes the practical answer is to buy a new one.
+
+## Where the bad addresses come from
+
+Four sources, in rough order of how much damage they do.
+
+**Guessed patterns.** A tool takes a name and a domain and generates firstname@, f.lastname@, firstname.lastname@ and sends to all of them hoping one lands. This is the worst thing you can do. It is what spam filters are specifically built to detect, and hitting a spam trap this way can get you blocklisted outright.
+
+**Stale databases.** Someone scraped a directory in 2023 and has been reselling it since. Business email churn runs somewhere around a quarter to a third per year — people leave, companies rebrand, domains lapse. A three-year-old list is mostly fiction.
+
+**Role addresses.** info@, sales@, contact@. These are real addresses, so they do not bounce, which makes them look like list quality. In practice they go to a shared inbox nobody reads, they convert at close to nothing, and a high proportion of complaints come from them.
+
+**Spam traps.** Addresses that were real, went dead, and were then reactivated by a provider specifically to catch senders using old data. Hitting one is a strong negative signal, and you cannot tell them apart from ordinary addresses by looking.
+
+## What verification actually checks
+
+Four layers, each catching something the previous one cannot.
+
+- **Syntax** — is it a structurally valid address. Catches typos and junk.
+- **Domain** — does the domain resolve. Catches dead companies and misspelled domains.
+- **MX record** — does the domain accept mail at all. A domain with no mail server cannot receive anything.
+- **Mailbox** — does this specific address exist on that server, checked without sending anything.
+
+Only the fourth catches the individual dead address at a live company, which is the majority of the problem. Anything sold as "verified" that stops at the first three is not verified in the sense that matters.
+
+**Catch-all domains** are the honest complication. Some mail servers accept every address at the domain rather than revealing which exist, so mailbox verification cannot return a definitive answer. A good list marks these as risky rather than pretending they passed. What you do with them is a judgement call — send at low volume, or set them aside.
+
+## Fresh beats big, every time
+
+The single most reliable way to avoid all of this is not to buy a list at all.
+
+A list built the week you need it, from live public sources, against your actual criteria, does not have the stale-data problem because there is no elapsed time for the data to go stale in. Every business on it was trading when it was collected. Every address was verified against a live server days ago rather than years ago.
+
+That is what I build. Google Maps and industry directories for the businesses, a pass over each company website for the contact details, then full verification before anything is delivered. Typical outcome is a verified email on somewhere between 40 and 70 percent of a list — lower for trades, higher for professional services.
+
+## The number that matters
+
+When someone quotes you a list size, ask what the verified count is, and ask what happened to the difference.
+
+I would rather hand over 600 verified contacts and tell you the other 400 could not be confirmed than hand over 1,000 and let you find out through your bounce rate. A smaller honest list outperforms a bigger dirty one on every measure that matters, and it does not cost you your domain.
+
+## Get it built
+
+Tell me who you sell to — industry, geography, size, whatever else defines a good fit — and I will build the list against those criteria and verify it before you see it.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## What a Slow Website Actually Costs a Small Business
+
+URL: https://www.autosmartcode.com/blog/slow-website-cost-small-business
+Published: July 14, 2026
+
+Every second your site takes to load, a share of your visitors leave — and they never tell you they were there. Here is where the time goes and what it is worth fixing.
+
+## The customers you never hear about
+
+When a website is slow, nobody complains. They just leave, go back to the search results, and click the next business down. You never see the enquiry, you never get the call, and nothing in your inbox tells you it happened.
+
+That is what makes site speed easy to ignore for years. The cost is entirely invisible, and it is entirely real.
+
+## Where the seconds actually go
+
+Almost always the same handful of causes, roughly in order of how much time they waste.
+
+**Unoptimised images.** Someone uploaded a 4 MB photo straight off a phone and the page displays it at 400 pixels wide. The browser downloads all 4 MB anyway. On a phone on mobile data this alone can be five seconds. It is also the single easiest thing to fix.
+
+**Page builder bloat.** A drag-and-drop theme that loads a full animation library, three icon fonts and a slider script on a page with no animations, icons or sliders. Very common, and largely invisible because the page looks fine on the desktop it was built on.
+
+**Too many plugins.** Every plugin adds its own scripts and styles to every page, whether that page uses it or not. Twenty plugins is twenty sets of overhead on your contact page.
+
+**Cheap shared hosting.** The server itself takes a second or more to respond before anything else can begin. Nothing you do on the page fixes a slow server.
+
+**No caching.** Every visitor triggers a full rebuild of a page whose content has not changed in eight months.
+
+## What "fast" means in practice
+
+Google measures three things and uses them in ranking. Stripped of the jargon:
+
+- **How long until the main content appears** — target is under 2.5 seconds
+- **How quickly the page responds when someone taps** — target is under 200 milliseconds
+- **How much the layout jumps around while loading** — the thing that makes you tap the wrong link when an ad loads late
+
+The layout-shift one is worth calling out because it is a conversion problem more than a speed one. If your call button moves 300 milliseconds after it appears, a real share of people tap the wrong thing and give up.
+
+## The compounding part
+
+Speed does not just cost you the visitors who leave. It costs you the visitors who never arrive.
+
+Slow sites rank lower. Ranking lower means fewer people see you. Fewer visitors means less of the engagement that search engines read as a positive signal. It is a slow spiral, and it is why a site that was fine five years ago can quietly stop producing enquiries without anything visibly breaking.
+
+## What actually fixes it
+
+In descending order of value per hour spent:
+
+1. **Compress and resize every image**, and serve modern formats. Often halves page weight on its own.
+2. **Remove what you are not using** — plugins, scripts, fonts, entire libraries loaded for one component.
+3. **Get real caching in place** so returning visitors and repeat pages are near-instant.
+4. **Move off oversold shared hosting.** Modern hosting for a small business site is usually cheaper than what you are on.
+5. **Reserve space for images and embeds** so nothing jumps as the page loads.
+6. **Rebuild if the foundation is the problem.** Past a certain amount of page-builder overhead, optimising is more work than replacing.
+
+## How to know where you stand
+
+Run your site through Google's PageSpeed Insights. It is free, it takes thirty seconds, and it gives you both scores and a specific list of what is costing you time. Test the mobile score, not the desktop one — that is where most of your visitors are and where the gap is widest.
+
+If mobile comes back under 50, you are losing enquiries you do not know about.
+
+## Get it fixed
+
+I build [small business websites](/small-business-website-design) that load fast because there is nothing extra in them, and I do [redesigns](/website-redesign-services) that keep the Google ranking you already have rather than resetting it. Either way you own everything at the end, and there is no monthly fee to me.
+
+**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+
+
+---
+
+## Car Auction Intelligence System (case study)
+
+URL: https://www.autosmartcode.com/projects/1
+Client: Used Car Dealership, New York
+
+Full automation pipeline that scrapes live auction listings from Manheim MMR, BacklotCars, Autoniq, and ADESA daily. Compares each vehicle's auction price against its MMR market value, filters by profit margin, and sends formatted HTML email alerts to the dealer team every morning.
+
+**Challenge:** The dealer's team was spending 3–4 hours every morning manually checking prices across multiple platforms and still missing profitable deals because competitors were faster.
+
+**Solution:** Built a fully automated Python pipeline with cookie management, proxy rotation, and scheduled execution. The system runs at 6 AM daily, processes hundreds of listings, and delivers a prioritized deal list by email before the team starts work.
+
+**Result:** Saves 8+ hours per week. Client finds 3x more profitable vehicles. Deals are spotted within minutes instead of hours.
+
+**Stack:** Python, Selenium, Pandas, Gmail SMTP, Cookie Management, Scheduling
+
+
+---
+
+## Walmart Multi-Keyword Parallel Scraper (case study)
+
+URL: https://www.autosmartcode.com/projects/2
+Client: eCommerce Seller, California
+
+Multi-window parallel scraper for Walmart seller data across hundreds of keywords simultaneously. Handles CAPTCHA challenges, deduplicates against existing CSV files, and outputs clean structured Excel files per keyword category.
+
+**Challenge:** Client needed product data for 200+ keyword categories from Walmart but manual collection was impossible. Single-threaded scrapers were too slow and kept getting blocked.
+
+**Solution:** Built a multi-threaded architecture using undetected-chromedriver with separate browser windows per keyword group. Added intelligent deduplication, CAPTCHA detection and retry logic, and column-preserving CSV merging.
+
+**Result:** 10,000+ products scraped daily across 200+ keywords. Zero duplicates. Clean Excel output ready for analysis.
+
+**Stack:** Python, undetected-chromedriver, Threading, Pandas, Excel, CAPTCHA handling
+
+
+---
+
+## Google Maps Business Lead Scraper (case study)
+
+URL: https://www.autosmartcode.com/projects/3
+Client: Marketing Agency, Texas
+
+Automated lead extraction from Google Maps for any niche and US location. Scrapes business name, phone, website, address, rating, and review count. Then visits each website to find contact email addresses.
+
+**Challenge:** Agency needed thousands of verified business contacts across multiple US cities for cold outreach campaigns. Manual research was costing 20+ hours per campaign.
+
+**Solution:** Built a two-stage scraper: first stage collects all business listings from Maps results, second stage visits each business website to extract emails. Results cleaned and delivered as structured Excel.
+
+**Result:** 5,000+ verified leads extracted per campaign. Agencies report 4x return on investment from outreach using these lists.
+
+**Stack:** Python, Selenium, BeautifulSoup, Requests, Excel, Email extraction
+
+
+---
+
+## Zillow & Airbnb Market Analysis Tool (case study)
+
+URL: https://www.autosmartcode.com/projects/4
+Client: Real Estate Investor, Arizona
+
+Weekly automated report pulling property listings, price reductions, days-on-market data from Zillow and estimated rental income from Airbnb. Generates formatted Excel reports with charts for investment decision making.
+
+**Challenge:** Investor was manually checking multiple zip codes on Zillow and Airbnb — a 6-hour weekly process that still produced incomplete data.
+
+**Solution:** Built an automated pipeline that runs every Sunday night, scrapes all relevant data, calculates rental yield estimates using Airbnb comparable listings, and emails a complete investment analysis report by Monday morning.
+
+**Result:** Client identified an undervalued market 4 months early. Properties purchased performed 18% above average market return.
+
+**Stack:** Python, BeautifulSoup, Pandas, Matplotlib, Excel, Scheduling
+
+
+---
+
+## Amazon Review AI Sentiment Analyzer (case study)
+
+URL: https://www.autosmartcode.com/projects/5
+Client: Amazon Seller, Ohio
+
+Scrapes thousands of Amazon product reviews for any ASIN, processes them through a large language model for sentiment analysis, and extracts the top complaints, praises, and feature requests. Delivers a competitive intelligence report for sellers.
+
+**Challenge:** Client needed to understand why competitor products had mixed reviews and what changes would make their own product more competitive — but reading thousands of reviews manually was impossible.
+
+**Solution:** Built a two-part system: a review scraper that collects all reviews for target ASINs, and an AI analysis pipeline that categorizes sentiment, extracts recurring themes, and generates a structured report with actionable recommendations.
+
+**Result:** Client improved product based on top complaints found. Amazon listing conversion rate increased 34%. Sales grew significantly in 60 days.
+
+**Stack:** Python, LLM API, Selenium, Pandas, NLP, Excel reports
+
+
+---
+
+## 50+ eCommerce Stores & Portfolio Sites (case study)
+
+URL: https://www.autosmartcode.com/projects/6
+Client: Multiple US Clients
+
+Full-stack web development for US businesses — Shopify stores, React portfolio sites, Next.js web apps with admin dashboards, payment integrations, and complete SEO setup. From design to deployment.
+
+**Challenge:** Each client needed a professional online presence that converts visitors to customers, is fast on mobile, and ranks on Google — without a bloated agency budget.
+
+**Solution:** Built clean, conversion-focused websites using React and Next.js. Each site includes SEO optimization, mobile responsiveness, fast load times via Vercel CDN, and integration with payment or booking systems as needed.
+
+**Result:** 50+ live stores actively generating revenue. Average site load time under 2 seconds. Multiple clients ranking on Google page 1 within 3 months.
+
+**Stack:** React, Next.js, Tailwind CSS, Node.js, Shopify, Vercel
+
+
+---
+
+## Facebook Marketplace Vehicle Scraper (case study)
+
+URL: https://www.autosmartcode.com/projects/7
+Client: Car Dealer, Florida
+
+Automated scraper collecting vehicle listings from Facebook Marketplace across multiple US cities — make, model, year, price, mileage, seller contact info, and photos. Built for dealer private-party sourcing.
+
+**Challenge:** Dealer wanted to source vehicles from private sellers on Facebook Marketplace but browsing manually across 10+ cities was taking hours with inconsistent results.
+
+**Solution:** Built a cookie-authenticated Selenium scraper that navigates Facebook Marketplace, applies filters (vehicle category, location radius, price range), and extracts all listing data including seller contact information.
+
+**Result:** Dealers find and contact private sellers 5x faster. Found vehicles priced 15–30% below retail value consistently.
+
+**Stack:** Python, Selenium, Cookie management, JSON, Excel, Multi-city
+
+
+---
+
+## Real-Time Price Monitor & Alert Bot (case study)
+
+URL: https://www.autosmartcode.com/projects/8
+Client: eCommerce Business, Michigan
+
+Real-time price monitoring bot that watches Amazon, eBay, and competitor websites 24/7. Sends instant Telegram and email alerts when prices drop below a set threshold or when competitor prices change.
+
+**Challenge:** Client was missing price drops and restocking opportunities on key products because manual checking was only possible a few times per day.
+
+**Solution:** Built a lightweight monitoring service that checks target URLs every 15 minutes, compares prices against stored baselines, and fires instant alerts via Telegram bot and email when thresholds are crossed.
+
+**Result:** Sub-5 minute alert delivery on all price changes. Client captured 3 major restocking opportunities in first month that would have been missed manually.
+
+**Stack:** Python, Telegram Bot API, SMTP, Scheduling, SQLite, BeautifulSoup
+
+
+---
+
+## ACCA Global Firm Directory Scraper (case study)
+
+URL: https://www.autosmartcode.com/projects/9
+Client: Financial Research Firm
+
+Complete scrape of ACCA's global professional firm directory using letter-based navigation and multi-page pagination. Extracted firm names, locations, contact details, and specializations for all countries.
+
+**Challenge:** Client needed a complete database of ACCA-registered firms worldwide for market research. The directory had complex pagination with letter-based navigation that standard scrapers couldn't handle.
+
+**Solution:** Built a custom scraper that navigates through A–Z letter tabs, handles multi-page pagination within each letter, and extracts structured contact data. Added retry logic for failed requests and progress tracking.
+
+**Result:** 10,000+ firms extracted across all countries in one automated run. Clean structured CSV delivered in 24 hours.
+
+**Stack:** Python, Requests, BeautifulSoup, CSV, Retry logic, Progress tracking

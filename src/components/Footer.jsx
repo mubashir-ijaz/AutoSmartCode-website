@@ -1,26 +1,11 @@
 import { Link } from "react-router-dom";
+import { services } from "../data/services";
+import { scrapers } from "../data/scrapers";
+import { webdesign } from "../data/webdesign";
 import { useFeedback } from "./FeedbackModal";
 import "./Footer.css";
 
 const YEAR = new Date().getFullYear();
-
-const SERVICES = [
-  "Web Scraping",
-  "Process Automation",
-  "Web Development",
-  "AI & Data Analysis",
-  "Lead Generation",
-  "Monitoring Bots",
-];
-
-const PLATFORMS = [
-  "Amazon & eBay",
-  "Walmart & Etsy",
-  "Zillow & Airbnb",
-  "Google Maps",
-  "Manheim & ADESA",
-  "Facebook & LinkedIn",
-];
 
 export default function Footer() {
   const { open: openRate } = useFeedback();
@@ -66,20 +51,32 @@ export default function Footer() {
               </div>
             </div>
 
+            {/* Every service and every scraper page is reachable from every
+                page on the site — that's the crawl path Google needs before it
+                will index and trust a new URL. */}
             <div className="footer-col">
               <h4>Services</h4>
               <ul>
-                {SERVICES.map(s => (
-                  <li key={s}><Link to="/#services">{s}</Link></li>
+                {services.map(s => (
+                  <li key={s.slug}><Link to={`/services/${s.slug}`}>{s.nav}</Link></li>
                 ))}
               </ul>
             </div>
 
             <div className="footer-col">
-              <h4>Platforms</h4>
+              <h4>Scrapers</h4>
               <ul>
-                {PLATFORMS.map(p => (
-                  <li key={p}><Link to="/projects">{p}</Link></li>
+                {scrapers.map(s => (
+                  <li key={s.slug}><Link to={`/${s.slug}`}>{s.site} Scraper</Link></li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="footer-col">
+              <h4>Websites</h4>
+              <ul>
+                {webdesign.map(w => (
+                  <li key={w.slug}><Link to={`/${w.slug}`}>{w.nav}</Link></li>
                 ))}
               </ul>
             </div>
@@ -88,8 +85,10 @@ export default function Footer() {
               <h4>Company</h4>
               <ul>
                 <li><Link to="/">Home</Link></li>
+                <li><Link to="/services">All Services</Link></li>
                 <li><Link to="/projects">All Projects</Link></li>
                 <li><Link to="/blog">Blog & Guides</Link></li>
+                <li><Link to="/about">About Sam</Link></li>
                 <li><button className="footer-link-btn" onClick={openRate}>Leave Feedback</button></li>
                 <li><Link to="/#contact">Contact</Link></li>
                 <li><a href="/sitemap.xml">Sitemap</a></li>

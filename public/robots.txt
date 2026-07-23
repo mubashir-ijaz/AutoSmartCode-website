@@ -102,3 +102,7 @@ Allow: /
 Crawl-delay: 10
 
 Sitemap: https://www.autosmartcode.com/sitemap.xml
+
+# Plain-Markdown site map for AI assistants (the llms.txt convention).
+# /llms.txt is the index; /llms-full.txt is every page in full, one document.
+# Both are generated at build time from the same data as the site itself.

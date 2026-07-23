@@ -1,0 +1,33 @@
+/* Top progress bar — sits above the navbar, below nothing. */
+.route-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; z-index: 10000;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.05);
+}
+.route-progress-bar {
+  display: block; height: 100%;
+  background: linear-gradient(90deg, #10b981, #34d399, #06b6d4);
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.55);
+  transform-origin: 0 50%;
+}
+/* Fast to 70%, then snaps home — the shape of a load that's already finished. */
+.route-progress-bar.running { animation: route-bar-run 240ms cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.route-progress-bar.done    { animation: route-bar-done 380ms cubic-bezier(0.65, 0, 0.35, 1) forwards; }
+
+@keyframes route-bar-run  { from { transform: scaleX(0); } to { transform: scaleX(0.7); } }
+@keyframes route-bar-done { 0% { transform: scaleX(0.7); opacity: 1; } 55% { transform: scaleX(1); opacity: 1; } 100% { transform: scaleX(1); opacity: 0; } }
+
+/* Incoming page: a short rise. Long enough to register, short enough that
+   nobody waiting on it notices they waited. */
+.route-fade { animation: route-in 380ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+@keyframes route-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .route-fade { animation: none; opacity: 1; transform: none; }
+  .route-progress { display: none; }
+}

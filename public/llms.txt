@@ -1,0 +1,80 @@
+# AutoSmartCode
+
+> Web scraping, automation, data pipelines and web development for US
+> businesses. Run by Sam. Fixed prices quoted within 24 hours, most projects
+> delivered in 2–5 days. Contact: sam@autosmartcode.com
+
+AutoSmartCode builds custom software rather than selling a product: scrapers
+written against specific target sites, automation pipelines for car dealers and
+wholesalers, verified B2B lead lists, and websites for small businesses. Every
+build is quoted at a fixed price before work starts.
+
+## Services
+
+- [Car Auction Automation for Dealers and Wholesalers](https://www.autosmartcode.com/services/car-auction-automation): Automated car auction data pipelines for US dealers. Pull live listings from Manheim, ADESA, BacklotCars and Autoniq, score them against MMR, and get the profitable ones emailed before the lane opens.
+- [Vehicle History Report Automation — Carfax, AutoCheck and VIN Data](https://www.autosmartcode.com/services/vehicle-history-reports): Stop pulling car history reports one VIN at a time. Bulk VIN decoding, automated report retrieval through your own Carfax or AutoCheck dealer account, and every result parsed into one spreadsheet.
+- [Car Dealer Inventory Scraping — AutoTrader, CarMax, Cars.com and More](https://www.autosmartcode.com/services/dealer-inventory-scraping): Scrape live dealer inventory and vehicle listings from AutoTrader, CarMax, Cars.com, CarGurus, AutoScout24 and Carsales. Every listing, price, VIN and photo in one clean spreadsheet, refreshed daily.
+- [Business Leads Data & B2B Lead Scraping Services](https://www.autosmartcode.com/services/business-leads-data): Custom B2B lead lists built to your exact criteria from Google Maps, LinkedIn, Yelp and industry directories. Verified emails and phones, no recycled databases, delivered in days.
+- [Web Scraping Services for US Businesses](https://www.autosmartcode.com/services/web-scraping): Custom web scraping and data extraction for any website. Products, prices, listings, leads and reviews delivered as clean Excel, CSV or database rows. Fixed price, quoted in 24 hours.
+- [Web Development Services — Sites, Stores and Dashboards](https://www.autosmartcode.com/services/web-development): Fast, modern websites, eCommerce stores and internal dashboards built with React and Next.js. Built to load quickly, rank well and convert — by the developer who writes the code.
+
+## Sites scraped (one page per platform)
+
+- [AutoTrader Scraper](https://www.autosmartcode.com/autotrader-scraper): Custom AutoTrader scraper that pulls every matching listing daily — VIN, price, mileage, trim, dealer and photos — into one clean spreadsheet. Built in days, fixed price.
+- [AutoScout24 Scraper](https://www.autosmartcode.com/autoscout24-scraper): AutoScout24 scraper for dealers and traders. Extract listings, prices, mileage and dealer details across Germany, Italy, Netherlands and every AutoScout24 market into one dataset.
+- [CarMax Scraper](https://www.autosmartcode.com/carmax-scraper): CarMax scraper pulling live nationwide inventory — VIN, no-haggle price, mileage, trim, store location and transfer availability — into a clean daily dataset.
+- [Carsales Scraper](https://www.autosmartcode.com/carsales-scraper): Carsales.com.au scraper for Australian dealers and traders. Pull listings, prices, kilometres, dealer details and state-level market data into one refreshed dataset.
+- [Cars.com Scraper](https://www.autosmartcode.com/cars-com-scraper): Cars.com scraper that captures every matching listing — VIN, price, deal rating, mileage, dealer and photos — refreshed daily into Excel, Sheets or your database.
+- [CarGurus Scraper](https://www.autosmartcode.com/cargurus-scraper): CarGurus scraper capturing listings, instant market value, deal ratings, price history and dealer reputation data across any US market, refreshed on your schedule.
+- [Manheim MMR Scraper](https://www.autosmartcode.com/manheim-mmr-scraper): Automate Manheim MMR lookups against your own dealer account. Bulk VIN valuations, run-list scoring and a ranked deal email before the lane opens.
+- [Google Maps Scraper](https://www.autosmartcode.com/google-maps-scraper): Google Maps scraper that builds verified B2B lead lists — name, phone, email, website, rating and reviews — for any category in any city. 5,000 leads in about 24 hours.
+- [MediaMarkt Scraper](https://www.autosmartcode.com/mediamarkt-scraper): MediaMarkt scraper for price monitoring and catalogue data across Germany, Spain, Italy and every MediaMarkt market. Prices, stock, specs and promotions, refreshed daily.
+- [ADESA Scraper](https://www.autosmartcode.com/adesa-scraper): Automate ADESA run lists, condition grades and sale calendars through your own dealer account. Every lot scored against MMR and delivered before the sale starts.
+- [BacklotCars Scraper](https://www.autosmartcode.com/backlotcars-scraper): Automate BacklotCars inventory, buy-now pricing and offer data through your own account. Every listing scored against market value and delivered as a ranked daily shortlist.
+- [OpenLane Scraper](https://www.autosmartcode.com/openlane-scraper): Automate OpenLane listings, condition reports and pricing through your own dealer account. Every lot scored against market value in one ranked daily shortlist.
+- [eBay Scraper](https://www.autosmartcode.com/ebay-scraper): eBay scraper for resellers and brands. Extract active listings, sold prices, seller data and category trends into one dataset. Sold-listing history is the real prize.
+- [Amazon Product Scraper](https://www.autosmartcode.com/amazon-product-scraper): Amazon scraper pulling product data, prices, BSR, Buy Box ownership, reviews and seller info at scale. For product research, repricing and brand monitoring.
+- [Walmart Scraper](https://www.autosmartcode.com/walmart-scraper): Walmart scraper for price monitoring and product research. Multi-keyword parallel extraction of prices, stock, seller and rating data into one clean daily dataset.
+
+## Web design
+
+- [Small Business Website Design](https://www.autosmartcode.com/small-business-website-design): Websites for small businesses that load fast, work on phones and actually bring in enquiries. Fixed price, live in under two weeks, and you own everything.
+- [Website Redesign Services](https://www.autosmartcode.com/website-redesign-services): Redesign for websites that are slow, dated or broken on mobile — without losing the Google ranking you already have. Fixed price, live in two weeks.
+- [Salon & Barbershop Website Design](https://www.autosmartcode.com/salon-website-design): Websites for salons, barbershops and spas with online booking, a real gallery and Google Maps set up properly. Live in two weeks, fixed price, no monthly fee.
+- [Restaurant & Cafe Website Design](https://www.autosmartcode.com/restaurant-website-design): Websites for restaurants and cafes with a readable menu, table booking, and Google set up properly so you appear when someone searches for food nearby.
+
+## Guides
+
+- [What Is Web Scraping? A Complete Beginner's Guide](https://www.autosmartcode.com/blog/what-is-web-scraping): Everything you need to know about web scraping — what it is, how it works, and how businesses use it to get a competitive edge.
+- [Is Web Scraping Legal in 2025? What US Businesses Need to Know](https://www.autosmartcode.com/blog/is-web-scraping-legal): A plain-English guide to the rules around scraping — what courts have actually decided, what's clearly safe, what's risky, and how to stay on the right side of the line.
+- [How Much Does Web Scraping Cost? Real 2025 Pricing Breakdown](https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost): What a scraping project actually costs — by complexity, volume, and delivery model — plus the hidden costs nobody quotes you upfront.
+- [How Car Dealers Can Automate Manheim MMR Price Checks](https://www.autosmartcode.com/blog/automate-manheim-mmr): Stop checking MMR prices manually. Here's how to build an automated system that pulls live auction data and emails you profitable deals every morning.
+- [How to Scrape 5,000 Business Leads from Google Maps](https://www.autosmartcode.com/blog/scrape-google-maps-leads): A practical guide to extracting business names, phone numbers, emails, and addresses from Google Maps for any niche and location.
+- [5 Python Automations Every Small Business Should Have](https://www.autosmartcode.com/blog/python-automation-small-business): The most impactful automation projects for US small businesses — each one saves at least 5 hours per week and pays for itself quickly.
+- [How to Use AI to Analyze Amazon Reviews and Beat Competitors](https://www.autosmartcode.com/blog/amazon-product-analysis-ai): Use AI-powered review analysis to find exactly what customers hate about competitor products — then fix those things in yours.
+- [How Real Estate Investors Use Scraping to Find Better Deals](https://www.autosmartcode.com/blog/zillow-airbnb-real-estate-scraping): Scraping Zillow, Redfin, and Airbnb gives real estate investors data their competitors don't have — here's how it works.
+- [Why Your Scraper Keeps Getting Blocked (And How to Fix It)](https://www.autosmartcode.com/blog/bypass-captcha-anti-bot-scraping): The real reasons sites detect scrapers — browser fingerprints, request patterns, TLS signatures — and the practical fixes that actually work.
+- [Competitor Price Monitoring: The Complete Setup Guide](https://www.autosmartcode.com/blog/ecommerce-price-monitoring-automation): How online sellers track competitor pricing automatically, react within minutes instead of days, and stop leaving margin on the table.
+- [Free VIN Decoding: What NHTSA's vPIC API Actually Gives You](https://www.autosmartcode.com/blog/free-vin-decoder-nhtsa-api): There is a US government API that decodes any VIN for free, with no key, no rate limit and no licensing. Most dealers are paying for data they could get from it.
+- [How to Price Used Cars Against the Live Market, Not a Book Value](https://www.autosmartcode.com/blog/price-used-cars-market-data): Book values tell you what a car was worth. Live listing data tells you what buyers in your market are being asked to pay for it today. Here is how to build the second one.
+- [Using AI to Clean Up Messy Scraped Data (And When Not To)](https://www.autosmartcode.com/blog/ai-parsing-scraped-data): Language models are very good at the parsing problems that used to need a hundred regexes — and a bad, expensive choice for the ones a regex already solves.
+- [Self-Healing Scrapers: What AI Fixes When a Site Changes, and What It Doesn't](https://www.autosmartcode.com/blog/self-healing-scrapers-ai): Every scraper eventually breaks because a site redesigns. AI can genuinely repair some of those breaks automatically — and pretending it fixes all of them is how you end up with silently wrong data.
+- [Why Your Cold Email List Bounces (And What It Costs You)](https://www.autosmartcode.com/blog/why-cold-email-lists-bounce): A 30% bounce rate does not just waste 30% of your list. It damages your sending domain in ways that outlast the campaign — often permanently.
+- [What a Slow Website Actually Costs a Small Business](https://www.autosmartcode.com/blog/slow-website-cost-small-business): Every second your site takes to load, a share of your visitors leave — and they never tell you they were there. Here is where the time goes and what it is worth fixing.
+
+## Case studies
+
+- [Car Auction Intelligence System](https://www.autosmartcode.com/projects/1): Full automation pipeline that scrapes live auction listings from Manheim MMR, BacklotCars, Autoniq, and ADESA daily. Compares each vehicle's
+- [Walmart Multi-Keyword Parallel Scraper](https://www.autosmartcode.com/projects/2): Multi-window parallel scraper for Walmart seller data across hundreds of keywords simultaneously. Handles CAPTCHA challenges, deduplicates a
+- [Google Maps Business Lead Scraper](https://www.autosmartcode.com/projects/3): Automated lead extraction from Google Maps for any niche and US location. Scrapes business name, phone, website, address, rating, and review
+- [Zillow & Airbnb Market Analysis Tool](https://www.autosmartcode.com/projects/4): Weekly automated report pulling property listings, price reductions, days-on-market data from Zillow and estimated rental income from Airbnb
+- [Amazon Review AI Sentiment Analyzer](https://www.autosmartcode.com/projects/5): Scrapes thousands of Amazon product reviews for any ASIN, processes them through a large language model for sentiment analysis, and extracts
+- [50+ eCommerce Stores & Portfolio Sites](https://www.autosmartcode.com/projects/6): Full-stack web development for US businesses — Shopify stores, React portfolio sites, Next.js web apps with admin dashboards, payment integr
+- [Facebook Marketplace Vehicle Scraper](https://www.autosmartcode.com/projects/7): Automated scraper collecting vehicle listings from Facebook Marketplace across multiple US cities — make, model, year, price, mileage, selle
+- [Real-Time Price Monitor & Alert Bot](https://www.autosmartcode.com/projects/8): Real-time price monitoring bot that watches Amazon, eBay, and competitor websites 24/7. Sends instant Telegram and email alerts when prices 
+- [ACCA Global Firm Directory Scraper](https://www.autosmartcode.com/projects/9): Complete scrape of ACCA's global professional firm directory using letter-based navigation and multi-page pagination. Extracted firm names, 
+
+## Optional
+
+- [Full site content as one document](https://www.autosmartcode.com/llms-full.txt): every page above, in full
+- [Sitemap](https://www.autosmartcode.com/sitemap.xml)

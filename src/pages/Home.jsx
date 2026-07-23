@@ -1,17 +1,50 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { projects } from "../data/content";
+import { projects, FAQS } from "../data/content";
 import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
 import { useSeo, ORIGIN } from "../useSeo";
 import { FlipCoin } from "../components/Founder";
 import "./Home.css";
 
+/* Rows with a `to` link out to their own landing page — a homepage can't rank
+   for six different services at once, so each one gets its own URL. The rest
+   still route to the contact form. */
 const SERVICES = [
   {
-    icon: "🕷️", accent: "blue",
+    icon: "🕷️", accent: "blue", to: "/services/web-scraping",
     title: "Web Scraping & Data Extraction",
     desc: "Pull any data from any website at scale — products, prices, leads, listings, reviews. Delivered clean and structured as Excel, CSV, JSON, or straight into your database.",
     tags: ["Python", "Selenium", "Playwright", "Anti-bot bypass"]
+  },
+  {
+    icon: "🔨", accent: "green", to: "/services/car-auction-automation",
+    title: "Car Auction Automation",
+    desc: "Manheim, ADESA, BacklotCars and Autoniq read every morning, every car scored against MMR, and the ones that clear your margin emailed before the lane opens.",
+    tags: ["Manheim MMR", "ADESA", "BacklotCars", "Daily alerts"]
+  },
+  {
+    icon: "📄", accent: "violet", to: "/services/vehicle-history-reports",
+    title: "Vehicle History Reports",
+    desc: "Carfax and AutoCheck pulled through your own dealer account, bulk VIN decoding from NHTSA, every report parsed into one sortable table instead of a folder of PDFs.",
+    tags: ["Carfax", "AutoCheck", "VIN decode", "NHTSA"]
+  },
+  {
+    icon: "🚘", accent: "cyan", to: "/services/dealer-inventory-scraping",
+    title: "Dealer Inventory Data",
+    desc: "Live listings from AutoTrader, CarMax, Cars.com, CarGurus, AutoScout24 and Carsales — every price, VIN and photo in one sheet, with price history building daily.",
+    tags: ["AutoTrader", "CarMax", "CarGurus", "AutoScout24"]
+  },
+  {
+    icon: "📋", accent: "amber", to: "/services/business-leads-data",
+    title: "Business Leads Data",
+    desc: "B2B lead lists built to your exact criteria from Google Maps, LinkedIn, Yelp and industry directories. Verified emails and phones — not a recycled database.",
+    tags: ["Google Maps", "LinkedIn", "Email verification", "CRM sync"]
+  },
+  {
+    icon: "🌐", accent: "rose", to: "/services/web-development",
+    title: "Web Development",
+    desc: "Fast, modern websites and web apps that convert — eCommerce stores, portfolios, SaaS dashboards and admin panels built with React and Next.js.",
+    tags: ["React", "Next.js", "Node.js", "Vercel"]
   },
   {
     icon: "⚙️", accent: "green",
@@ -20,22 +53,10 @@ const SERVICES = [
     tags: ["Python", "Scheduling", "Email/SMTP", "Workflows"]
   },
   {
-    icon: "🌐", accent: "cyan",
-    title: "Web Development",
-    desc: "Fast, modern websites and web apps that convert — eCommerce stores, portfolios, SaaS dashboards and admin panels built with React and Next.js.",
-    tags: ["React", "Next.js", "Node.js", "Vercel"]
-  },
-  {
     icon: "🤖", accent: "violet",
     title: "AI & Data Analysis",
     desc: "AI-powered analysis of your business data — market intelligence, review sentiment, pricing trends and competitor research, delivered as reports you can act on.",
     tags: ["LLM APIs", "Pandas", "NLP", "Reports"]
-  },
-  {
-    icon: "📋", accent: "amber",
-    title: "Lead Generation",
-    desc: "Targeted lead lists built from Google Maps, LinkedIn, Facebook, Yelp and industry directories. Name, email, phone, address — verified and ready to contact.",
-    tags: ["Google Maps", "LinkedIn", "Email finder", "Verification"]
   },
   {
     icon: "🔔", accent: "rose",
@@ -56,43 +77,6 @@ const TESTIMONIALS = [
   { initials: "JR", color: "#3b82f6", name: "James R.", role: "Used Car Dealer, New York", text: "Built our entire auction automation system from scratch. Pulls live data from Manheim, BacklotCars, and Autoniq every morning and emails us the best deals. Saves 10+ hours a week." },
   { initials: "SM", color: "#10b981", name: "Sarah M.", role: "Marketing Agency, Texas", text: "The Google Maps lead scraper paid for itself 10x over. Generated 5,000 verified business leads for our outreach campaign in under 24 hours." },
   { initials: "MT", color: "#8b5cf6", name: "Mike T.", role: "eCommerce Seller, California", text: "Incredible Walmart scraper — handles thousands of products across hundreds of keywords, avoids detection completely, and outputs perfect Excel files. Delivered in 3 days." },
-];
-
-/* Answers real prospects ask. Rendered on the page AND emitted as FAQPage
-   structured data — schema without matching visible content is a violation. */
-const FAQS = [
-  {
-    q: "How much does a web scraper cost?",
-    a: "Most one-off scraping jobs land between $150 and $800 depending on how many sites, how many fields and how much anti-bot protection is involved. Recurring systems that run daily are quoted as a build fee plus a small monthly amount. You get a fixed price up front — never an hourly meter.",
-  },
-  {
-    q: "How long does it take?",
-    a: "Most projects are built and delivered in 2 to 5 days. You get a scope, a fixed price and a delivery date within 24 hours of describing what you need, and you see sample output early so nothing is a surprise at the end.",
-  },
-  {
-    q: "Is web scraping legal?",
-    a: "Scraping publicly accessible data is generally legal in the United States, and US courts have repeatedly upheld that. What matters is what you collect and how you use it — I avoid personal data behind logins, respect terms where they bind, and will tell you plainly if a request looks like a problem rather than take the money.",
-  },
-  {
-    q: "What format do I get the data in?",
-    a: "Excel (.xlsx), CSV, JSON, Google Sheets, a direct database write (MySQL or Postgres), or a REST API endpoint — whatever slots into what you already use. Most clients take Excel or a Google Sheet that refreshes on a schedule.",
-  },
-  {
-    q: "Can you scrape sites that block bots or need a login?",
-    a: "Yes. Sites with rate limiting, fingerprinting, JavaScript rendering or an account wall are routine work here. Where a login is involved I use credentials you own and are entitled to use.",
-  },
-  {
-    q: "Do I need to know how to code?",
-    a: "No. You describe the website and the details you want in plain English. You get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal or touch a line of code.",
-  },
-  {
-    q: "What happens if the website changes and the scraper breaks?",
-    a: "Sites do change, and scrapers do break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than finding out from stale data, and I fix breakages on systems I built.",
-  },
-  {
-    q: "Who will I actually be working with?",
-    a: "Me. AutoSmartCode is one developer, not an agency — the person who writes your code is the person who answers your emails. No account managers, no handoffs.",
-  },
 ];
 
 /* ---------------- Live demos (typed terminal + output) ---------------- */
@@ -678,25 +662,32 @@ export default function Home() {
           </div>
 
           <div className="svc-list">
-            {SERVICES.map((s, i) => (
-              <a href="#contact" key={s.title} className={"svc-row accent-" + s.accent}>
-                <span className="svc-num">{String(i + 1).padStart(2, "0")}</span>
-                <span className="svc-icon">{s.icon}</span>
-                <div className="svc-main">
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                </div>
-                <div className="svc-tags">
-                  {s.tags.map(t => <span key={t} className="tag">{t}</span>)}
-                </div>
-                <span className="svc-arrow">→</span>
-              </a>
-            ))}
+            {SERVICES.map((s, i) => {
+              const inner = (
+                <>
+                  <span className="svc-num">{String(i + 1).padStart(2, "0")}</span>
+                  <span className="svc-icon">{s.icon}</span>
+                  <div className="svc-main">
+                    <h3>{s.title}</h3>
+                    <p>{s.desc}</p>
+                  </div>
+                  <div className="svc-tags">
+                    {s.tags.map(t => <span key={t} className="tag">{t}</span>)}
+                  </div>
+                  <span className="svc-arrow">→</span>
+                </>
+              );
+              const cls = "svc-row accent-" + s.accent;
+              return s.to
+                ? <Link to={s.to} key={s.title} className={cls}>{inner}</Link>
+                : <a href="#contact" key={s.title} className={cls}>{inner}</a>;
+            })}
           </div>
 
           <div className="svc-footnote">
-            Need something that isn't on this list? It probably still fits —{" "}
-            <a href="#contact">just ask</a>.
+            Every service above has <Link to="/services">its own page</Link> with what it
+            covers, what it costs and what you get back. Need something that isn't on this
+            list? It probably still fits — <a href="#contact">just ask</a>.
           </div>
         </div>
       </section>

@@ -1,0 +1,151 @@
+/* Service landing pages. Layout primitives (.inner-page, .detail-block,
+   .sidebar-card, .faq-item, .cta-strip) are shared with Projects.css and
+   Home.css — only what's new to these pages lives here. */
+
+/* ------------------------------- Index ------------------------------- */
+
+.svc-index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+}
+
+.svc-index-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.8rem;
+  background: rgba(255, 255, 255, 0.032);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  text-decoration: none;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+.svc-index-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-line);
+  background: rgba(16, 185, 129, 0.05);
+}
+.svc-index-icon {
+  width: 46px; height: 46px;
+  display: grid; place-items: center;
+  font-size: 1.3rem;
+  border: 1px solid;
+  border-radius: 13px;
+}
+.svc-index-card h2 { font-size: 1.15rem; font-weight: 700; line-height: 1.35; }
+.svc-index-card p { font-size: 0.9rem; color: var(--body); line-height: 1.75; flex: 1; }
+.svc-index-more { font-size: 0.85rem; font-weight: 600; color: var(--accent-bright); }
+
+/* ------------------------------ Detail ------------------------------- */
+
+.svc-detail-type {
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.svc-detail-title {
+  font-size: clamp(1.9rem, 4.2vw, 2.9rem); font-weight: 800;
+  line-height: 1.15; margin-bottom: 0.9rem; color: #fff;
+  max-width: 20ch;
+}
+.svc-detail-hero {
+  color: var(--ink2); font-size: 1.05rem; line-height: 1.8;
+  max-width: 62ch; margin-bottom: 1.6rem;
+}
+.svc-detail-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+
+.svc-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 330px;
+  gap: 3.5rem;
+  align-items: start;
+}
+.svc-side {
+  display: flex; flex-direction: column; gap: 1.2rem;
+  position: sticky; top: 96px;
+}
+
+.svc-main .detail-p + .detail-p { margin-top: 1rem; }
+
+.svc-bullets {
+  list-style: none;
+  margin-top: 1.2rem;
+  display: flex; flex-direction: column; gap: 0.65rem;
+}
+.svc-bullets li {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  font-size: 0.95rem; color: var(--body); line-height: 1.7;
+}
+.svc-bullets .check { font-weight: 800; flex-shrink: 0; }
+
+/* Case-study proof block — the claim on this page, backed by a real build. */
+.svc-proof {
+  padding: 1.8rem;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgba(16, 185, 129, 0.08), rgba(34, 211, 238, 0.03));
+  border: 1px solid var(--accent-line);
+}
+.svc-proof-eyebrow {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--accent-bright);
+}
+.svc-proof h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0.6rem 0 0.8rem; }
+.svc-proof p { font-size: 0.93rem; color: var(--body); line-height: 1.8; }
+.svc-proof-result { color: var(--ink2) !important; margin-top: 0.9rem; font-weight: 500; }
+.svc-proof-link {
+  display: inline-block; margin-top: 1.1rem;
+  font-size: 0.88rem; font-weight: 600; color: var(--accent-bright);
+}
+
+/* ------------------------ Web design process ------------------------- */
+
+.wd-step {
+  display: flex; gap: 1.1rem; align-items: flex-start;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.wd-step:last-child { border-bottom: none; }
+.wd-step-n {
+  font-family: var(--font-mono);
+  font-size: 0.95rem; font-weight: 700;
+  flex-shrink: 0; padding-top: 0.15rem;
+}
+.wd-step h3 { font-size: 1.02rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
+.wd-step p { font-size: 0.93rem; color: var(--body); line-height: 1.75; }
+
+/* --------------------------- Related links --------------------------- */
+
+.svc-related { padding-top: 2.5rem; border-top: 1px solid var(--border); }
+.svc-related h3 { font-size: 1.35rem; font-weight: 700; margin-bottom: 1.4rem; color: #fff; }
+.svc-related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.svc-related-card {
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.032);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform .2s, border-color .2s, background .2s;
+}
+.svc-related-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-line);
+  background: rgba(16, 185, 129, 0.05);
+}
+.svc-related-card > span { font-size: 0.9rem; font-weight: 700; display: block; margin-bottom: 0.5rem; }
+.svc-related-card p { font-size: 0.85rem; color: var(--body); line-height: 1.65; }
+
+/* ----------------------------- Responsive ---------------------------- */
+
+@media (max-width: 1000px) {
+  .svc-index-grid { grid-template-columns: repeat(2, 1fr); }
+  .svc-body { grid-template-columns: 1fr; gap: 2.5rem; }
+  .svc-side { position: static; }
+  .svc-related-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 640px) {
+  .svc-index-grid,
+  .svc-related-grid { grid-template-columns: 1fr; }
+  .svc-detail-title { max-width: none; }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "AutoSmartCode — Web Scraping & Automation",
+  "short_name": "AutoSmartCode",
+  "description": "Web scraping, automation and web development for US businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060a09",
+  "theme_color": "#060a09",
+  "icons": [
+    { "src": "/logo.svg", "type": "image/svg+xml", "sizes": "any" }
+  ]
+}
