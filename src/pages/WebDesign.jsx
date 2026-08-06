@@ -27,7 +27,14 @@ export function WebDesignPage() {
           url: ORIGIN + "/" + w.slug,
           serviceType: "Web design and development",
           keywords: w.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
         },
         {

@@ -14,7 +14,7 @@ export function BlogPage() {
       "@type": "Blog",
       name: "AutoSmartCode Blog",
       url: ORIGIN + "/blog",
-      description: "Guides on web scraping, automation and data for US businesses.",
+      description: "Guides on web scraping, automation and data for businesses in the US, UK and worldwide.",
       blogPost: blogs.map(b => ({
         "@type": "BlogPosting",
         headline: b.title,
@@ -31,7 +31,7 @@ export function BlogPage() {
         <div className="container">
           <FounderHeader
             title="Guides That Actually Help"
-            sub="Practical tutorials on web scraping, automation, AI, and tools for US businesses — written from real project experience."
+            sub="Practical tutorials on web scraping, automation, AI, and tools for businesses in the US, UK and worldwide — written from real project experience."
             line="written by me, from paid client work"
           />
         </div>

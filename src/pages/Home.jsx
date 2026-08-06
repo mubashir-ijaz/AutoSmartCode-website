@@ -507,7 +507,7 @@ function ContactForm() {
 
 export default function Home() {
   useSeo({
-    title: "Web Scraping & Automation Services for US Businesses | AutoSmartCode",
+    title: "Web Scraping & Automation Services — US, UK & Worldwide | AutoSmartCode",
     description:
       "We turn any website into clean, structured data. Custom scrapers, lead lists, " +
       "price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours.",
@@ -771,7 +771,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">Trusted by 100+ US businesses</h2>
+            <h2 className="s-title">Trusted by 100+ businesses across the US, UK & beyond</h2>
           </div>
           <div className="testi-grid">
             {TESTIMONIALS.map(t => (
@@ -829,7 +829,7 @@ export default function Home() {
               <div className="contact-details">
                 {[
                   { icon: "📧", label: "Email — replies within 24hrs", val: "sam@autosmartcode.com" },
-                  { icon: "🌍", label: "Serving US clients worldwide", val: "Available Mon–Sat, all US time zones" },
+                  { icon: "🌍", label: "Serving clients worldwide", val: "US, UK, Europe & Australia — Mon–Sat" },
                   { icon: "⚡", label: "Fast turnaround", val: "Most projects start within 24 hours" },
                   { icon: "🔒", label: "Confidentiality", val: "NDA available on request" },
                 ].map(d => (

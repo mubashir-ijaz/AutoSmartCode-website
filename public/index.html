@@ -8,7 +8,7 @@
 
   <!-- Defaults for the homepage and for any crawler that reads raw HTML.
        Every route overwrites these at runtime via src/useSeo.js. -->
-  <title>Web Scraping &amp; Automation Services for US Businesses | AutoSmartCode</title>
+  <title>Web Scraping &amp; Automation Services — US, UK &amp; Worldwide | AutoSmartCode</title>
   <meta name="description" content="We turn any website into clean, structured data. Custom scrapers, lead lists, price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours." />
   <meta name="author" content="Sam — AutoSmartCode" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
@@ -28,13 +28,15 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AutoSmartCode" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:title" content="Web Scraping &amp; Automation Services for US Businesses | AutoSmartCode" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:locale:alternate" content="en_AU" />
+  <meta property="og:title" content="Web Scraping &amp; Automation Services — US, UK &amp; Worldwide | AutoSmartCode" />
   <meta property="og:description" content="Turn any website into clean, structured data. Scrapers, lead lists and price monitors — built in 2–5 days, quoted in 24 hours." />
   <meta property="og:url" content="https://www.autosmartcode.com/" />
   <meta property="og:image" content="https://www.autosmartcode.com/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="AutoSmartCode — web scraping and automation for US businesses" />
+  <meta property="og:image:alt" content="AutoSmartCode — web scraping and automation for US, UK and global businesses" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
@@ -163,7 +165,7 @@
           "email": "sam@autosmartcode.com",
           "contactType": "sales",
           "availableLanguage": "English",
-          "areaServed": "US"
+          "areaServed": ["US", "GB", "IT", "DE", "AU", "CA"]
         }
       },
       {
@@ -178,10 +180,17 @@
         "@type": "ProfessionalService",
         "@id": "https://www.autosmartcode.com/#service",
         "name": "AutoSmartCode",
-        "description": "Web scraping, process automation, AI data analysis and web development for US businesses.",
+        "description": "Web scraping, process automation, AI data analysis and web development for businesses in the US, UK, Europe and Australia.",
         "url": "https://www.autosmartcode.com/",
         "parentOrganization": { "@id": "https://www.autosmartcode.com/#org" },
-        "areaServed": { "@type": "Country", "name": "United States" },
+        "areaServed": [
+          { "@type": "Country", "name": "United States" },
+          { "@type": "Country", "name": "United Kingdom" },
+          { "@type": "Country", "name": "Italy" },
+          { "@type": "Country", "name": "Germany" },
+          { "@type": "Country", "name": "Australia" },
+          { "@type": "Country", "name": "Canada" }
+        ],
         "priceRange": "$$",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",

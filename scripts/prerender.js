@@ -98,7 +98,7 @@ const routes = [];
 
 routes.push({
   path: "/",
-  title: "Web Scraping & Automation Services for US Businesses | AutoSmartCode",
+  title: "Web Scraping & Automation Services — US, UK & Worldwide | AutoSmartCode",
   description:
     "We turn any website into clean, structured data. Custom scrapers, lead lists, " +
     "price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours.",
@@ -139,7 +139,7 @@ routes.push({
   path: "/services",
   title: "Services — Web Scraping, Automation & Web Development | AutoSmartCode",
   description:
-    "Six things I build for US businesses: car auction automation, vehicle history report pipelines, " +
+    "Six things I build for businesses in the US, UK and beyond: car auction automation, vehicle history report pipelines, " +
     "dealer inventory data, B2B lead lists, custom web scrapers and web development.",
   schema: crumbs([["Services", "/services"]]),
   body:
@@ -186,7 +186,7 @@ routes.push({
     "@type": "Blog",
     name: "AutoSmartCode Blog",
     url: ORIGIN + "/blog",
-    description: "Guides on web scraping, automation and data for US businesses.",
+    description: "Guides on web scraping, automation and data for businesses in the US, UK and worldwide.",
     blogPost: blogs.map(b => ({
       "@type": "BlogPosting",
       headline: b.title,
@@ -221,7 +221,7 @@ routes.push({
   },
   body:
     h1("About AutoSmartCode") +
-    p("AutoSmartCode builds web scrapers, automation systems, data pipelines and websites for US businesses. Fixed prices, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
+    p("AutoSmartCode builds web scrapers, automation systems, data pipelines and websites for businesses across the US, UK, Europe and Australia. Fixed prices, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
     h2("What I do") +
     ul([
       "Scraping engineering — Python, Scrapy, Playwright, Selenium, rotating proxies, session and cookie handling, fingerprint and Cloudflare defences",
@@ -251,7 +251,14 @@ for (const s of services) {
           url: ORIGIN + "/services/" + s.slug,
           serviceType: s.nav,
           keywords: s.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
         },
         {
@@ -298,7 +305,14 @@ for (const s of scrapers) {
           url: ORIGIN + "/" + s.slug,
           serviceType: "Web scraping and data extraction",
           keywords: s.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
         },
         {
@@ -343,7 +357,14 @@ for (const w of webdesign) {
           url: ORIGIN + "/" + w.slug,
           serviceType: "Web design and development",
           keywords: w.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
         },
         {

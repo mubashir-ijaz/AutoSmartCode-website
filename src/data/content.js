@@ -1683,6 +1683,10 @@ export const FAQS = [
     a: "Sites do change, and scrapers do break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than finding out from stale data, and I fix breakages on systems I built.",
   },
   {
+    q: "Do you work with clients outside the US?",
+    a: "Yes. Most of my clients are in the United States, but I work regularly with businesses in the UK, Italy, across Europe and Australia — the work is remote, priced in USD, and delivered the same way wherever you are. Because I scrape international marketplaces like AutoScout24, Carsales, Otomoto and MediaMarkt, non-US projects are routine rather than the exception. Time zones are not a problem; I reply within 24 hours regardless of where you are.",
+  },
+  {
     q: "Who will I actually be working with?",
     a: "Me. AutoSmartCode is one developer, not an agency — the person who writes your code is the person who answers your emails. No account managers, no handoffs.",
   },

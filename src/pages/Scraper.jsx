@@ -30,7 +30,14 @@ export function ScraperPage() {
           url: ORIGIN + "/" + s.slug,
           serviceType: "Web scraping and data extraction",
           keywords: s.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
         },
         {

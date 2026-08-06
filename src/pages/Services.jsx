@@ -13,7 +13,7 @@ export function ServicesPage() {
   useSeo({
     title: "Services — Web Scraping, Automation & Web Development | AutoSmartCode",
     description:
-      "Six things I build for US businesses: car auction automation, vehicle history report pipelines, " +
+      "Six things I build for businesses in the US, UK and beyond: car auction automation, vehicle history report pipelines, " +
       "dealer inventory data, B2B lead lists, custom web scrapers and web development.",
     path: "/services",
     schema: {
@@ -155,7 +155,14 @@ export function ServiceDetailPage() {
           url: ORIGIN + "/services/" + service.slug,
           serviceType: service.nav,
           keywords: service.keywords.join(", "),
-          areaServed: { "@type": "Country", name: "United States" },
+          areaServed: [
+            { "@type": "Country", name: "United States" },
+            { "@type": "Country", name: "United Kingdom" },
+            { "@type": "Country", name: "Italy" },
+            { "@type": "Country", name: "Germany" },
+            { "@type": "Country", name: "Australia" },
+            { "@type": "Country", name: "Canada" },
+          ],
           provider: { "@id": ORIGIN + "/#org" },
           hasOfferCatalog: {
             "@type": "OfferCatalog",

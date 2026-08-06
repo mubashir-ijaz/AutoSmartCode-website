@@ -79,7 +79,7 @@ const PRINCIPLES = [
 ];
 
 const STATS = [
-  { n: "100+", l: "US businesses served" },
+  { n: "100+", l: "businesses served worldwide" },
   { n: "5+ yrs", l: "building automation" },
   { n: "2–5 days", l: "typical delivery" },
   { n: "24 hrs", l: "reply guaranteed" },
@@ -232,7 +232,7 @@ export default function About() {
               <h3>At a glance</h3>
               <ul>
                 <li><strong>Role</strong> Founder, CEO and sole developer</li>
-                <li><strong>Based</strong> Working with US clients across all time zones</li>
+                <li><strong>Based</strong> Working with clients across the US, UK, Europe and Australia</li>
                 <li><strong>Hours</strong> Monday–Saturday, replies within 24 hours</li>
                 <li><strong>Engagements</strong> One-off builds and ongoing systems</li>
                 <li><strong>Pricing</strong> Fixed price, quoted before work starts</li>

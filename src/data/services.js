@@ -439,7 +439,7 @@ export const services = [
     emoji: "🕷️",
     accent: "blue",
     color: "#60a5fa",
-    h1: "Web Scraping Services for US Businesses",
+    h1: "Web Scraping Services for US, UK & International Businesses",
     metaTitle: "Web Scraping Services — Custom Data Extraction, Built in Days",
     metaDesc:
       "Custom web scraping and data extraction for any website. Products, prices, listings, leads and reviews delivered as clean Excel, CSV or database rows. Fixed price, quoted in 24 hours.",
