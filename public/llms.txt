@@ -61,6 +61,9 @@ build is quoted at a fixed price before work starts.
 - [Self-Healing Scrapers: What AI Fixes When a Site Changes, and What It Doesn't](https://www.autosmartcode.com/blog/self-healing-scrapers-ai): Every scraper eventually breaks because a site redesigns. AI can genuinely repair some of those breaks automatically — and pretending it fixes all of them is how you end up with silently wrong data.
 - [Why Your Cold Email List Bounces (And What It Costs You)](https://www.autosmartcode.com/blog/why-cold-email-lists-bounce): A 30% bounce rate does not just waste 30% of your list. It damages your sending domain in ways that outlast the campaign — often permanently.
 - [What a Slow Website Actually Costs a Small Business](https://www.autosmartcode.com/blog/slow-website-cost-small-business): Every second your site takes to load, a share of your visitors leave — and they never tell you they were there. Here is where the time goes and what it is worth fixing.
+- [What Is MMR? The Manheim Market Report Explained for Dealers](https://www.autosmartcode.com/blog/what-is-mmr-manheim-market-report): MMR is the number the whole wholesale market quietly agrees a car is worth. Here is what it actually measures, how to read it, and where it stops being enough on its own.
+- [How to Automate Your Used-Car Merchandising Workflow](https://www.autosmartcode.com/blog/automate-car-merchandising-workflow): From auction win to a live, priced, photographed listing is a dozen manual steps most dealers still do by hand. Here is which parts genuinely automate, which do not, and where tools like Spyne fit.
+- [AutoCheck vs Carfax: Which History Report, and How to Automate Both](https://www.autosmartcode.com/blog/autocheck-vs-carfax-vehicle-history): Two reports, two different pictures of the same car, and dealers who run at volume usually need both. What each one is actually better at — and how to pull them without a person doing it VIN by VIN.
 
 ## Case studies
 

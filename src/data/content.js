@@ -1310,6 +1310,193 @@ I build [small business websites](/small-business-website-design) that load fast
 
 **Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
     `
+  },
+  {
+    id: 17,
+    slug: "what-is-mmr-manheim-market-report",
+    tag: "Car Auctions",
+    emoji: "📊",
+    color: "linear-gradient(135deg, #14183a 0%, #101c33 100%)",
+    title: "What Is MMR? The Manheim Market Report Explained for Dealers",
+    summary: "MMR is the number the whole wholesale market quietly agrees a car is worth. Here is what it actually measures, how to read it, and where it stops being enough on its own.",
+    date: "July 21, 2026",
+    readTime: "7 min read",
+    content: `
+## What MMR stands for
+
+MMR is the **Manheim Market Report** — Manheim's estimate of what a specific vehicle is worth at wholesale, right now, based on what cars just like it have actually sold for at auction.
+
+That last part is what makes it different from a book value. Kelley Blue Book and NADA/J.D. Power are built partly on retail asking prices and surveys. MMR is built on **completed wholesale transactions** — real hammer prices from real lanes, both physical and online, updated as new sales land. When a dealer says "what's the MMR on it," they mean: what is the market paying for this car among people who buy and sell for a living.
+
+## What the number actually measures
+
+An MMR value is tied to a precise configuration, not a vague "2019 Camry." It reflects:
+
+- **Year, make, model and trim** — an SE and an XLE are different cars with different numbers
+- **Mileage** — MMR adjusts up or down from the base for odometer
+- **Region** — the same truck is worth more in one part of the country than another
+- **Condition** — expressed as a grade, because a clean unit and a rough one are not the same asset
+- **Recency** — it is a rolling figure, weighted toward the most recent sales, so it moves with the market instead of lagging it
+
+So "the MMR" is really a base value plus a set of adjustments. Two cars that look identical on paper can carry different MMRs once mileage, region and condition are applied.
+
+## MMR value vs the adjusted number
+
+This trips people up. When you look a car up, you will often see a base MMR **and** an adjusted MMR. The base is the raw model-level figure; the adjusted figure accounts for that specific car's mileage and condition grade. The adjusted number is the one that actually matters for a buy or sell decision — it is the like-for-like comparison to the unit in front of you.
+
+You will also see a range and an average, not a single point. Wholesale is a spread, not a fixed price, and the report shows you where the middle sits and how wide the band is.
+
+## How dealers use it
+
+Three jobs, mostly:
+
+**Buying.** Before bidding, you check MMR to know your ceiling. Buy meaningfully under MMR and you have built-in margin before the car ever hits your lot. This is the whole game at auction — knowing the market number faster and more accurately than the person bidding against you.
+
+**Appraising trade-ins.** MMR gives you a defensible wholesale floor. Whatever you cannot retail, you can move at auction near that number, so it anchors what you can safely put into a trade.
+
+**Pricing to sell.** If you need to wholesale a unit, MMR tells you what it will realistically bring and whether it is worth running through the lane this week or holding.
+
+## Where MMR stops being enough
+
+MMR is a wholesale number. It is not a retail price, and it is not a substitute for the two things that sit either side of it:
+
+- **What the car actually is.** MMR assumes the trim and equipment are what the listing claims. Decode the VIN and you price the real car, not the one somebody typed in. (More on that in [pricing used cars against the live market](/blog/price-used-cars-market-data) and [free VIN decoding with NHTSA](/blog/free-vin-decoder-nhtsa-api).)
+- **What happened to the car.** MMR does not know about the accident, the branded title or the odometer discrepancy. That comes from a [history report](/services/vehicle-history-reports), and it can move a car's real value by thousands versus its clean MMR.
+
+MMR tells you what the market pays for a clean example of this car. History and an accurate spec tell you whether the car in front of you is that car.
+
+## The speed problem
+
+None of this is hard to look up once. The problem is doing it across a whole run — hundreds of units across multiple sales — before the cars sell. By the time a person has checked MMR on the fiftieth vehicle by hand, the good ones from the top of the list are gone.
+
+That is exactly the work I automate. A pipeline pulls each unit's [MMR from Manheim](/manheim-mmr-scraper) using your own dealer login, compares it against the auction ask, decodes the VIN for the true trim, filters by the margin you set, and emails you a ranked short-list before the lane opens — the full [car-auction automation](/services/car-auction-automation) loop. It reads exactly what you would read; it just does it to the whole run in minutes instead of hours. I wrote up the mechanics in [automating Manheim MMR checks](/blog/automate-manheim-mmr).
+
+## The honest caveat
+
+MMR is licensed data behind your Manheim account. Automating it means running on **credentials you already pay for and are entitled to use** — the system does the clicking you would do anyway. It does not create accounts, share access, or reach anything you could not open yourself. Anyone offering you "free MMR data" scraped from someone else's account is selling you a liability, not a tool.
+
+**Contact me at sam@autosmartcode.com** and tell me which platforms you buy on. I will tell you honestly what a same-morning deal-finder would take to build.
+    `
+  },
+  {
+    id: 18,
+    slug: "automate-car-merchandising-workflow",
+    tag: "Dealer Automation",
+    emoji: "🚗",
+    color: "linear-gradient(135deg, #06262e 0%, #0a1f33 100%)",
+    title: "How to Automate Your Used-Car Merchandising Workflow",
+    summary: "From auction win to a live, priced, photographed listing is a dozen manual steps most dealers still do by hand. Here is which parts genuinely automate, which do not, and where tools like Spyne fit.",
+    date: "July 28, 2026",
+    readTime: "8 min read",
+    content: `
+## What "merchandising" actually covers
+
+Merchandising is everything between winning a car and having it live, findable and priced across every place a buyer might look. For most used-car operations that is a surprisingly long chain:
+
+1. Pull the VIN and decode the real trim and equipment
+2. Pull a history report and note anything that affects value or disclosure
+3. Photograph the car, clean up the images, apply a consistent background
+4. Write the description and equipment list
+5. Set a price against the live market
+6. Publish to your DMS, your own site, and every marketplace — AutoTrader, Cars.com, CarGurus, Facebook
+7. Keep all of that in sync as the price changes or the car sells
+
+Every one of those steps is where a car can sit for an extra day. Multiply an extra day across a whole lot and that is real floor-plan cost and real lost first-page time on the marketplaces, where freshness matters.
+
+## What genuinely automates, and what does not
+
+Be honest about this up front, because the tools that overpromise here are the ones that disappoint.
+
+**Photography and image editing — partly.** This is what a tool like **Spyne** does: you shoot the car, and AI handles background replacement, cleanup and a consistent studio look at scale. That solves the *editing* bottleneck. It does not hold the camera — someone still has to walk the car and shoot it. Treat image AI as removing the edit step, not the shoot step.
+
+**The data steps — almost entirely.** VIN decoding, history-report pulls, market pricing, and pushing listings to multiple channels are structured, repeatable, rule-based tasks. This is the part most lots are still doing by hand and the part that automates cleanest.
+
+**The description — mostly, with a human check.** Equipment lists and factual blurbs generate reliably from decoded VIN data. The one line that actually sells the car is still worth a human touch.
+
+**The judgement calls — no.** What to recondition, when to drop a price, which unit to wholesale. Automation should hand a person a clean decision, not make it for them.
+
+## The pipeline I build
+
+The merchandising work that pays back fastest is the data spine that every other step hangs off. A single pipeline that, for each new unit:
+
+- **Decodes the VIN** to the true year/make/model/trim and factory equipment, so the listing describes the real car rather than what someone typed
+- **Pulls the [history report](/services/vehicle-history-reports)** and flags anything that needs disclosure or changes the price
+- **Prices it against the live market** — comparable listings and the wholesale [MMR number](/blog/what-is-mmr-manheim-market-report), not a stale book value ([how that pricing works](/blog/price-used-cars-market-data))
+- **Assembles a complete, structured listing** — specs, equipment, price, photo set — in one record
+- **Publishes and syncs** that record to your site and the marketplaces, and updates or removes it automatically when the price moves or the car sells
+
+Image editing from a tool like Spyne slots straight into step four: it produces the photo set, the pipeline attaches it. The pieces cooperate — you do not have to choose one tool for everything.
+
+## Where the time actually comes back
+
+The saving is not really the minutes on any one task. It is **consistency and speed across the whole lot.** Every car gets the full treatment — decoded, history-checked, priced, fully photographed, live on every channel — within hours of hitting the ground, without depending on which staff member had time that day. Cars go live faster, listings are complete instead of half-filled, and nothing sits in a half-merchandised limbo because someone got busy.
+
+Faster to live means more days on the first page of the marketplaces, where freshness is a ranking signal, and fewer days of floor-plan interest on a car that is technically in stock but not yet findable.
+
+## Start with the bottleneck, not the whole thing
+
+You do not automate all of this at once. You find the step where cars actually pile up — for most lots it is the data-and-publish work, not the photos — and you automate that first. The [inventory and listing side](/services/dealer-inventory-scraping) usually pays for itself before you touch anything else.
+
+Then the pipeline connects to whatever you already use — your DMS, your photo tool, your marketplace accounts — using **your own logins and your own accounts.** It removes the manual clicking between systems; it does not replace the systems you have chosen.
+
+**Contact me at sam@autosmartcode.com.** Tell me where cars get stuck between winning them and having them live, and I will map out what part of that chain is worth automating first and what it would take.
+    `
+  },
+  {
+    id: 19,
+    slug: "autocheck-vs-carfax-vehicle-history",
+    tag: "Vehicle History",
+    emoji: "📋",
+    color: "linear-gradient(135deg, #2b1e08 0%, #2a1608 100%)",
+    title: "AutoCheck vs Carfax: Which History Report, and How to Automate Both",
+    summary: "Two reports, two different pictures of the same car, and dealers who run at volume usually need both. What each one is actually better at — and how to pull them without a person doing it VIN by VIN.",
+    date: "August 4, 2026",
+    readTime: "8 min read",
+    content: `
+## Why there are two at all
+
+AutoCheck and Carfax both sell vehicle history reports, and they do not always agree, because they pull from **overlapping but different sources.** A record that appears on one can be missing from the other. That is not a bug — it is why dealers who run at any volume tend to check both rather than trusting either alone.
+
+They also frame the same information differently, and each has a genuine strength.
+
+## What AutoCheck is better at
+
+AutoCheck is owned by Experian and is the report built into the auction world — it is what you see inside Manheim and ADESA. Two things stand out:
+
+- **Auction and title-history depth.** Because it is wired into the auction ecosystem, its coverage of auction announcements, title events and prior wholesale history is strong. If you buy at auction, this is the report already in front of you.
+- **The AutoCheck Score.** It condenses a car's history into a single number and a range for comparable vehicles, which makes it fast to sort a run of cars by relative risk. It is a triage tool — good for "which of these fifty do I look at harder."
+
+## What Carfax is better at
+
+Carfax has the stronger consumer brand and, often, deeper **service-record and dealer-maintenance history** — the routine dealer and shop records that tell you a car was actually looked after. Buyers know the name and ask for it, so a clean Carfax also carries retail weight that a clean AutoCheck does not, simply because the public recognises it.
+
+## The practical answer
+
+For most dealers it is not "which one" — it is **AutoCheck to buy, Carfax to sell.** AutoCheck (usually already in the auction platform) to screen and appraise at acquisition; Carfax to reassure the retail buyer and back your listing. At volume, cross-checking both catches records one missed, and a discrepancy between them is itself a signal worth a closer look.
+
+Whichever you rely on, remember what neither replaces: a history report tells you **what happened to the car**, not **what the car is.** For the exact spec you still decode the VIN — the [free NHTSA vPIC decoder](/blog/free-vin-decoder-nhtsa-api) gives you the factory build — and for what it is worth you still price it against the [live market and MMR](/blog/what-is-mmr-manheim-market-report). History, spec and value are three separate questions.
+
+## Where the manual pain is
+
+Both reports live behind your paid subscription, and both are built for pulling **one VIN at a time.** That is fine for a single car. It falls apart across a whole acquisition run or a full lot, where someone ends up copy-pasting VINs into a portal for an hour and then hand-copying the flags into a spreadsheet — slow, and easy to fumble on the fiftieth car.
+
+## What automating it looks like
+
+Run on **your own AutoCheck and/or Carfax subscription** — the account you already pay for — a pipeline can:
+
+- Take a batch of VINs from your DMS export, an auction run, or a spreadsheet
+- Pull the report for each one through your authorised access
+- Extract the fields that actually drive a decision — accident count, title brands, odometer flags, owner count, the score
+- Drop it all into one clean sheet, ranked so the cars that need a human look sort to the top
+
+An hour of copy-paste becomes a batch that runs while you do something else, and the output is consistent instead of depending on who ran it. It reads exactly what you would read in the portal — it just does it to the whole list. This is the core of the [vehicle-history-reports service](/services/vehicle-history-reports), and it drops straight into the [dealer inventory and merchandising](/services/dealer-inventory-scraping) flow.
+
+## The line that matters
+
+This only works on **credentials you own and are entitled to use.** History data is licensed, and automating access you pay for is a different thing entirely from scraping someone else's account or reselling report data — which the providers' terms forbid and which I will not build. The point is to save your team the manual clicking on data you already have the right to pull, nothing more.
+
+**Contact me at sam@autosmartcode.com.** Tell me which report you subscribe to and where your VINs come from, and I will scope a batch puller for you — usually a two-to-three-day build.
+    `
   }
 ];
 
