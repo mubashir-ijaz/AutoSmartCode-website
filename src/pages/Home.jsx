@@ -829,7 +829,7 @@ export default function Home() {
               <div className="contact-details">
                 {[
                   { icon: "📧", label: "Email — replies within 24hrs", val: "sam@autosmartcode.com" },
-                  { icon: "🌍", label: "Serving clients worldwide", val: "US, UK, Europe & Australia — Mon–Sat" },
+                  { icon: "🌍", label: "Serving clients worldwide", val: "US, UK, Gulf, Europe & Australia — Mon–Sat" },
                   { icon: "⚡", label: "Fast turnaround", val: "Most projects start within 24 hours" },
                   { icon: "🔒", label: "Confidentiality", val: "NDA available on request" },
                 ].map(d => (

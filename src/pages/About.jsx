@@ -232,7 +232,7 @@ export default function About() {
               <h3>At a glance</h3>
               <ul>
                 <li><strong>Role</strong> Founder, CEO and sole developer</li>
-                <li><strong>Based</strong> Working with clients across the US, UK, Europe and Australia</li>
+                <li><strong>Based</strong> Working with clients across the US, UK, the Gulf, Europe and Australia</li>
                 <li><strong>Hours</strong> Monday–Saturday, replies within 24 hours</li>
                 <li><strong>Engagements</strong> One-off builds and ongoing systems</li>
                 <li><strong>Pricing</strong> Fixed price, quoted before work starts</li>

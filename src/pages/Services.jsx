@@ -3,6 +3,7 @@ import { services, serviceBySlug } from "../data/services";
 import { scrapers } from "../data/scrapers";
 import { webdesign } from "../data/webdesign";
 import { projects } from "../data/content";
+import { AREAS_SERVED } from "../data/geo";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Services.css";
@@ -155,14 +156,7 @@ export function ServiceDetailPage() {
           url: ORIGIN + "/services/" + service.slug,
           serviceType: service.nav,
           keywords: service.keywords.join(", "),
-          areaServed: [
-            { "@type": "Country", name: "United States" },
-            { "@type": "Country", name: "United Kingdom" },
-            { "@type": "Country", name: "Italy" },
-            { "@type": "Country", name: "Germany" },
-            { "@type": "Country", name: "Australia" },
-            { "@type": "Country", name: "Canada" },
-          ],
+          areaServed: AREAS_SERVED,
           provider: { "@id": ORIGIN + "/#org" },
           hasOfferCatalog: {
             "@type": "OfferCatalog",

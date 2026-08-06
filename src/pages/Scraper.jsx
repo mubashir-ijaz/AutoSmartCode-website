@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { scrapers, scraperBySlug } from "../data/scrapers";
 import { serviceBySlug } from "../data/services";
+import { AREAS_SERVED } from "../data/geo";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import "./Services.css";
 
@@ -30,14 +31,7 @@ export function ScraperPage() {
           url: ORIGIN + "/" + s.slug,
           serviceType: "Web scraping and data extraction",
           keywords: s.keywords.join(", "),
-          areaServed: [
-            { "@type": "Country", name: "United States" },
-            { "@type": "Country", name: "United Kingdom" },
-            { "@type": "Country", name: "Italy" },
-            { "@type": "Country", name: "Germany" },
-            { "@type": "Country", name: "Australia" },
-            { "@type": "Country", name: "Canada" },
-          ],
+          areaServed: AREAS_SERVED,
           provider: { "@id": ORIGIN + "/#org" },
         },
         {

@@ -39,7 +39,7 @@ export default function Footer() {
               <p>
                 We turn any website into clean, structured, and usable data — plus the
                 automation and web development that puts it to work. 1000+ projects
-                delivered for businesses across the US, UK, Europe and Australia.
+                delivered for businesses across the US, UK, the Gulf, Europe and Australia.
               </p>
               <a href="mailto:sam@autosmartcode.com" className="footer-email">
                 ✉ sam@autosmartcode.com

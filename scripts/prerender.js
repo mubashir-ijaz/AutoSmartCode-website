@@ -38,6 +38,7 @@ function loadData(relPath, names) {
 
 const { blogs, projects, FAQS } = loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
 const { services } = loadData("src/data/services.js", ["services"]);
+const { AREAS_SERVED } = loadData("src/data/geo.js", ["AREAS_SERVED"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
 const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
 
@@ -221,7 +222,7 @@ routes.push({
   },
   body:
     h1("About AutoSmartCode") +
-    p("AutoSmartCode builds web scrapers, automation systems, data pipelines and websites for businesses across the US, UK, Europe and Australia. Fixed prices, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
+    p("AutoSmartCode builds web scrapers, automation systems, data pipelines and websites for businesses across the US, UK, the Gulf, Europe and Australia. Fixed prices, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
     h2("What I do") +
     ul([
       "Scraping engineering — Python, Scrapy, Playwright, Selenium, rotating proxies, session and cookie handling, fingerprint and Cloudflare defences",
@@ -251,14 +252,7 @@ for (const s of services) {
           url: ORIGIN + "/services/" + s.slug,
           serviceType: s.nav,
           keywords: s.keywords.join(", "),
-          areaServed: [
-            { "@type": "Country", name: "United States" },
-            { "@type": "Country", name: "United Kingdom" },
-            { "@type": "Country", name: "Italy" },
-            { "@type": "Country", name: "Germany" },
-            { "@type": "Country", name: "Australia" },
-            { "@type": "Country", name: "Canada" },
-          ],
+          areaServed: AREAS_SERVED,
           provider: { "@id": ORIGIN + "/#org" },
         },
         {
@@ -305,14 +299,7 @@ for (const s of scrapers) {
           url: ORIGIN + "/" + s.slug,
           serviceType: "Web scraping and data extraction",
           keywords: s.keywords.join(", "),
-          areaServed: [
-            { "@type": "Country", name: "United States" },
-            { "@type": "Country", name: "United Kingdom" },
-            { "@type": "Country", name: "Italy" },
-            { "@type": "Country", name: "Germany" },
-            { "@type": "Country", name: "Australia" },
-            { "@type": "Country", name: "Canada" },
-          ],
+          areaServed: AREAS_SERVED,
           provider: { "@id": ORIGIN + "/#org" },
         },
         {
@@ -357,14 +344,7 @@ for (const w of webdesign) {
           url: ORIGIN + "/" + w.slug,
           serviceType: "Web design and development",
           keywords: w.keywords.join(", "),
-          areaServed: [
-            { "@type": "Country", name: "United States" },
-            { "@type": "Country", name: "United Kingdom" },
-            { "@type": "Country", name: "Italy" },
-            { "@type": "Country", name: "Germany" },
-            { "@type": "Country", name: "Australia" },
-            { "@type": "Country", name: "Canada" },
-          ],
+          areaServed: AREAS_SERVED,
           provider: { "@id": ORIGIN + "/#org" },
         },
         {
