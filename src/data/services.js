@@ -33,18 +33,21 @@ export const services = [
     h1: "Car Auction Automation for Dealers and Wholesalers",
     metaTitle: "Car Auction Automation — Manheim, ADESA & BacklotCars Data",
     metaDesc:
-      "Automated car auction data pipelines for US dealers. Pull live listings from Manheim, ADESA, BacklotCars and Autoniq, score them against MMR, and get the profitable ones emailed before the lane opens.",
+      "Automated auction data for dealers and wholesalers. Pull run lists from Manheim, ADESA, ACV or the private dealer portal you actually buy on, scored against MMR daily.",
     keywords: [
       "car auction automation",
       "manheim mmr automation",
       "adesa auction data",
+      "acv auctions data",
       "backlotcars scraper",
       "autoniq automation",
+      "dealer marketplace automation",
+      "private auction portal scraper",
       "wholesale car buying software",
       "auction deal finder",
     ],
     hero:
-      "Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it.",
+      "Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it — whichever platforms those six tabs happen to be.",
     sections: [
       {
         h: "What car auction automation actually does",
@@ -56,16 +59,25 @@ export const services = [
       {
         h: "Auction platforms this covers",
         p: [
-          "Every platform below is one I have built against for a paying dealer, using the dealer's own licensed account. Anything not on this list is usually still doable — the pattern is the same, only the login and the page structure change.",
+          "The platforms below are ones I have built against for a paying dealer, using the dealer's own licensed account. Treat the list as examples rather than as a menu — the mechanics do not change with the logo, only the login and the page structure do.",
         ],
         list: [
           "Manheim and Manheim MMR — run lists, live pricing, MMR market values",
           "ADESA — listings, condition grades, sale calendars",
-          "BacklotCars — inventory, buy-now pricing, offer history",
+          "ACV Auctions — live lots, inspection reports, announced damage",
+          "BacklotCars and OPENLANE — inventory, buy-now pricing, offer history",
+          "SmartAuction — off-lease and repossessed remarketing inventory",
+          "EDGE Pipeline and Simulcast — the independent auctions in your region",
           "Autoniq — VIN scan data and valuation lookups",
-          "EdgePipeline and ACV — listings and condition reports",
           "Copart and IAA — salvage and total-loss listings",
           "Facebook Marketplace, Craigslist and OfferUp — private-party sourcing",
+        ],
+      },
+      {
+        h: "The platform you actually buy on",
+        p: [
+          "Most of the trade does not live on the platforms that get written about. Every dealer group, wholesaler, rental remarketer, fleet operator and captive lender runs its own portal, and a working buyer's day is usually spent inside two or three of them that no article has ever mentioned — a closed dealer-only marketplace, a lender's repo portal, a manufacturer's closed sale, a wholesaler's private inventory board, an in-house system with a listings module bolted on.",
+          "The most common reason a dealer decides this is not for them is looking at a supported-platform list, not seeing theirs, and assuming it cannot be done. That assumption is nearly always wrong, and an obscure portal is usually easier to work with than a famous one, because nobody has ever bothered to defend it. Send me the name and a couple of screenshots of the screens you use, and you will know within a day whether it is straightforward, awkward, or genuinely not worth doing.",
         ],
       },
       {
@@ -99,12 +111,20 @@ export const services = [
       "Slack, Telegram or SMS alerts for instant matches",
       "Failure alerting so silence never means 'no deals'",
     ],
-    platforms: ["Manheim MMR", "ADESA", "BacklotCars", "Autoniq", "EdgePipeline", "ACV", "Copart", "IAA"],
+    platforms: ["Manheim MMR", "ADESA", "ACV Auctions", "BacklotCars", "OPENLANE", "SmartAuction", "EDGE Pipeline", "Autoniq", "Copart", "IAA", "Your own dealer portal"],
     stack: ["Python", "Selenium", "Playwright", "Pandas", "Cookie management", "Proxy rotation", "Cron / scheduling", "SMTP"],
     faqs: [
       {
         q: "Do I need my own Manheim or ADESA account?",
         a: "Yes. The system automates the account you already hold and are licensed to use — it does not create access you do not have, and I do not share credentials between clients. If you have a dealer login, that is all it needs.",
+      },
+      {
+        q: "My auction platform is not on your list. Can you still automate it?",
+        a: "Almost certainly. Most dealers and wholesalers buy on a portal nobody outside their region has heard of — a private marketplace, a regional auction's own site, a lender's repo portal, an in-house system. If you can log into it, it can usually be automated, and obscure portals are typically easier than the big ones. Send me the name and a screenshot or two and you will have a straight answer within a day.",
+      },
+      {
+        q: "Can it read several platforms into one list?",
+        a: "That is the shape of most builds. Two or three platforms, one normalised schema, one ranked email with a platform column, and the same VIN appearing on two sources reconciled rather than duplicated — so you are comparing cars instead of comparing tabs.",
       },
       {
         q: "How much does a car auction automation system cost?",
@@ -138,14 +158,19 @@ export const services = [
     metaTitle: "Vehicle History Report Automation — Carfax & AutoCheck at Scale",
     metaDesc:
       "Stop pulling car history reports one VIN at a time. Bulk VIN decoding, automated report retrieval through your own Carfax or AutoCheck dealer account, and every result parsed into one spreadsheet.",
+    /* Deliberately capability terms only. The brand-specific queries —
+       "carfax scraper", "carfax report by vin", "autocheck scraper",
+       "autocheck vin report" — belong to /carfax-scraper and
+       /autocheck-scraper now. Two pages chasing one query beat each other;
+       see the note at the top of scrapers.js. */
     keywords: [
-      "carfax report automation",
-      "autocheck report",
+      "vehicle history report automation",
       "car history report",
       "vehicle history report api",
       "bulk vin decoder",
       "vin lookup automation",
       "vin history data",
+      "vin decoding at scale",
     ],
     hero:
       "One VIN at a time is fine for one car. For a 400-car run list it is a lost afternoon — and the reports end up as 400 PDFs nobody can sort.",
@@ -440,10 +465,11 @@ export const services = [
     accent: "blue",
     color: "#60a5fa",
     h1: "Web Scraping Services for US, UK & International Businesses",
-    metaTitle: "Web Scraping Services — Custom Data Extraction, Built in Days",
+    metaTitle: "Custom Web Scraping Services — Data Extraction Built in Days",
     metaDesc:
       "Custom web scraping and data extraction for any website. Products, prices, listings, leads and reviews delivered as clean Excel, CSV or database rows. Fixed price, quoted in 24 hours.",
     keywords: [
+      "custom web scraping services",
       "web scraping services",
       "data extraction services",
       "custom web scraper development",
@@ -451,6 +477,7 @@ export const services = [
       "price monitoring scraper",
       "ecommerce data scraping",
       "web scraping company usa",
+      "web scraping service cost",
     ],
     hero:
       "If the data is on a website, it can be in your spreadsheet. Usually within the week, always for a price agreed before anything starts.",

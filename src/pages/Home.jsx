@@ -19,8 +19,8 @@ const SERVICES = [
   {
     icon: "🔨", accent: "green", to: "/services/car-auction-automation",
     title: "Car Auction Automation",
-    desc: "Manheim, ADESA, BacklotCars and Autoniq read every morning, every car scored against MMR, and the ones that clear your margin emailed before the lane opens.",
-    tags: ["Manheim MMR", "ADESA", "BacklotCars", "Daily alerts"]
+    desc: "Manheim, ADESA, ACV — or the private dealer portal you actually buy on — read every morning, every car scored against MMR, and the ones that clear your margin emailed before the lane opens.",
+    tags: ["Manheim MMR", "ADESA", "ACV", "Your own portal"]
   },
   {
     icon: "📄", accent: "violet", to: "/services/vehicle-history-reports",
@@ -771,7 +771,7 @@ export default function Home() {
       <section className="section">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">Trusted by 100+ businesses across the US, UK & beyond</h2>
+            <h2 className="s-title">1000+ projects delivered for 100+ businesses across the US, UK &amp; beyond</h2>
           </div>
           <div className="testi-grid">
             {TESTIMONIALS.map(t => (

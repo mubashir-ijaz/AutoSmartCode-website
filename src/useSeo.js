@@ -32,13 +32,20 @@ function setLink(rel, href) {
  * the homepage's <head> — identical titles and canonicals across 22 pages,
  * which search engines treat as duplicates.
  *
- * @param {{title:string, description:string, path:string,
- *          type?:string, image?:string, schema?:object, noindex?:boolean}} seo
+ * `image` is a site-root path ("/img/blog/x.png"), not a full URL — og:image
+ * has to be absolute, so it is resolved against ORIGIN here rather than at
+ * every call site. `imageAlt` matters more than it looks: it is what a screen
+ * reader announces for a shared link, and Twitter drops the card entirely if
+ * the image is unreachable, so both travel together.
+ *
+ * @param {{title:string, description:string, path:string, type?:string,
+ *          image?:string, imageAlt?:string, schema?:object, noindex?:boolean}} seo
  */
-export function useSeo({ title, description, path, type = "website", image, schema, noindex }) {
+export function useSeo({ title, description, path, type = "website", image, imageAlt, schema, noindex }) {
   useEffect(() => {
     const url = ORIGIN + path;
-    const img = image || ORIGIN + "/og-image.png";
+    const img = image ? (image.startsWith("http") ? image : ORIGIN + image)
+                      : ORIGIN + "/og-image.png";
 
     document.title = title;
     setMeta('meta[name="description"]', "content", description);
@@ -51,10 +58,14 @@ export function useSeo({ title, description, path, type = "website", image, sche
     setMeta('meta[property="og:url"]', "content", url);
     setMeta('meta[property="og:type"]', "content", type);
     setMeta('meta[property="og:image"]', "content", img);
+    setMeta('meta[property="og:image:alt"]', "content",
+      imageAlt || "AutoSmartCode — web scraping and automation for US, UK and global businesses");
 
     setMeta('meta[name="twitter:title"]', "content", title);
     setMeta('meta[name="twitter:description"]', "content", description);
     setMeta('meta[name="twitter:image"]', "content", img);
+    setMeta('meta[name="twitter:image:alt"]', "content",
+      imageAlt || "AutoSmartCode — web scraping and automation for US, UK and global businesses");
 
     // Page-level structured data, replaced (not stacked) on each navigation.
     const prev = document.getElementById("route-schema");
@@ -66,7 +77,7 @@ export function useSeo({ title, description, path, type = "website", image, sche
       tag.textContent = JSON.stringify(schema);
       document.head.appendChild(tag);
     }
-  }, [title, description, path, type, image, schema, noindex]);
+  }, [title, description, path, type, image, imageAlt, schema, noindex]);
 }
 
 /** Breadcrumb trail, e.g. crumbs([["Blog","/blog"], ["Article","/blog/x"]]) */

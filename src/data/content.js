@@ -85,7 +85,7 @@ I've built 1000+ scraping projects for US businesses across Amazon, eBay, Walmar
     tag: "Legal Guide",
     emoji: "⚖️",
     color: "linear-gradient(135deg, #14183a 0%, #101c33 100%)",
-    title: "Is Web Scraping Legal in 2025? What US Businesses Need to Know",
+    title: "Is Web Scraping Legal? What US Businesses Need to Know",
     summary: "A plain-English guide to the rules around scraping — what courts have actually decided, what's clearly safe, what's risky, and how to stay on the right side of the line.",
     date: "July 2, 2025",
     readTime: "9 min read",
@@ -173,8 +173,8 @@ Describe what you want to collect and what you plan to do with it. I will tell y
     tag: "Pricing",
     emoji: "💰",
     color: "linear-gradient(135deg, #2b1e08 0%, #2a1608 100%)",
-    title: "How Much Does Web Scraping Cost? Real 2025 Pricing Breakdown",
-    summary: "What a scraping project actually costs — by complexity, volume, and delivery model — plus the hidden costs nobody quotes you upfront.",
+    title: "How Much Does Web Scraping Cost? Real Prices for Custom Scrapers",
+    summary: "What a web scraping service actually costs — by complexity, volume and delivery model — with real price bands, plus the hidden costs nobody quotes you upfront.",
     date: "June 24, 2025",
     readTime: "8 min read",
     content: `
@@ -1491,13 +1491,202 @@ Run on **your own AutoCheck and/or Carfax subscription** — the account you alr
 
 An hour of copy-paste becomes a batch that runs while you do something else, and the output is consistent instead of depending on who ran it. It reads exactly what you would read in the portal — it just does it to the whole list. This is the core of the [vehicle-history-reports service](/services/vehicle-history-reports), and it drops straight into the [dealer inventory and merchandising](/services/dealer-inventory-scraping) flow.
 
+There is a page for each half of it: [AutoCheck report automation](/autocheck-scraper) and [Carfax report automation](/carfax-scraper), with the fields each one returns and what the build costs. If you want the report itself explained before any of that — what the Score means, what the comparison range is for, where the coverage stops — start with [what an AutoCheck report actually is](/blog/what-is-an-autocheck-report).
+
 ## The line that matters
 
 This only works on **credentials you own and are entitled to use.** History data is licensed, and automating access you pay for is a different thing entirely from scraping someone else's account or reselling report data — which the providers' terms forbid and which I will not build. The point is to save your team the manual clicking on data you already have the right to pull, nothing more.
 
 **Contact me at sam@autosmartcode.com.** Tell me which report you subscribe to and where your VINs come from, and I will scope a batch puller for you — usually a two-to-three-day build.
     `
-  }
+  },
+  {
+    id: 20,
+    slug: "what-is-an-autocheck-report",
+    tag: "Vehicle History",
+    emoji: "🔎",
+    color: "linear-gradient(135deg, #2b1e08 0%, #2a1608 100%)",
+    title: "What Is an AutoCheck Report? The Score, the History, and How to Read One",
+    summary: "AutoCheck is the vehicle history report built into the auction lanes — and the only one that gives a car a single comparable number. What is actually in it, what the AutoCheck Score does and does not mean, and where it goes quiet.",
+    date: "August 23, 2026",
+    readTime: "9 min read",
+    content: `
+## The short answer
+
+**An AutoCheck report is a vehicle history report sold by Experian.** You give it a VIN, it gives you back everything it has recorded against that VIN over the car's life: title events, odometer readings, auction announcements, reported accidents, use type, and how many owners it has passed through.
+
+Its distinguishing feature is the **AutoCheck Score** — a single number, with a comparison range for similar vehicles. No other mainstream history report condenses a car's past into one comparable figure, and that is the whole reason the auction world uses it.
+
+If you have ever bought a car through Manheim or ADESA, you have already read one. AutoCheck is the report embedded in those platforms.
+
+## What is actually in the report
+
+An AutoCheck report is organised around the events it has managed to collect against a VIN. In practice that means:
+
+- **Title records** — each state title issued, with date and state, so you can see the car's path across the country
+- **Title brands** — salvage, flood, junk, lemon, rebuilt, odometer discrepancy. This is the section that kills deals, and rightly
+- **Odometer readings** — captured at recorded events, which is what lets a rollback show up as an impossible sequence
+- **Accident records** — where an accident was reported to a source AutoCheck receives data from
+- **Use type** — personal, lease, rental, fleet, taxi, police or government
+- **Auction announcements** — what was declared in the lane when the car ran, including structural and frame announcements
+- **Number of owners** — inferred from title transfers, not from a register of people
+- **The AutoCheck Score** — the summary number, plus the range for comparable vehicles
+
+The auction announcements section is the part dealers care about most, and it is where Experian's ownership shows: its data relationships run deep into the wholesale market.
+
+## What the AutoCheck Score actually means
+
+This is the most misread number in the used car business, so it is worth being precise.
+
+**The Score is a relative risk indicator, not a condition grade.** It estimates how this vehicle compares with others of the same class, age and mileage, computed from the events in its history — brands, accidents, use type, ownership pattern. It comes with a **comparison range**, which is the band most similar vehicles fall into.
+
+The range is the important half, and it is the half people skip. A score of 82 means nothing on its own. A score of 82 where similar cars run 79 to 89 is unremarkable. A score of 82 where similar cars run 90 to 96 is a car with something in its history worth finding.
+
+What the Score is **not**:
+
+- It is not a mechanical inspection. It knows nothing about the transmission
+- It is not a value or a price. It does not tell you what to bid
+- It is not a guarantee. Events that were never reported to anyone cannot be in it
+- It is not a pass or fail. There is no threshold at which a car becomes a good buy
+
+Treat it as triage. It is very good at telling you which ten cars out of a hundred deserve a closer look, and it is not designed to make the final call on any one of them.
+
+## How to get an AutoCheck report on a VIN
+
+Three routes, suiting very different people.
+
+**Buy a single report or a short-term package** from AutoCheck directly. This is the right answer for someone buying one car — a bundle valid for a limited period covers a whole shopping trip.
+
+**Use the one already in front of you.** If you are bidding at Manheim, ADESA or most other wholesale platforms, the AutoCheck report is included in the listing. You are already paying for it in your auction fees. Dealers routinely buy a separate subscription without realising they get it in the lane.
+
+**Hold a dealer subscription** if you run volume. Experian sells dealer plans with a report allowance, which is what makes checking a whole run list affordable rather than punitive at retail rates.
+
+## Where AutoCheck goes quiet
+
+Every history report has blind spots, and being straight about them is more useful than a feature list.
+
+**It only knows what was reported.** An accident repaired privately, paid in cash, never claimed on insurance and never taken to a shop that reports data, does not exist as far as any history report is concerned. This is common, and it is the biggest limitation of the entire category.
+
+**Service history is thin.** AutoCheck's coverage of routine maintenance records is weaker than Carfax's. If a documented service history is what you are trying to verify, this is the wrong report to lean on.
+
+**Reporting lags.** An event from three weeks ago may not have reached the file yet. On a fresh trade or a recent auction run, a clean report is weaker evidence than it looks.
+
+**Imported vehicles are poorly covered.** AutoCheck is built on North American data — US and Canadian title systems, US insurance and auction feeds. A car that spent part of its life outside that system has a gap in its record, and a gap is not the same thing as a clean record. If you are looking at an import, the report cannot tell you about the years it was elsewhere, and reading it harder will not fix that.
+
+## AutoCheck or Carfax?
+
+The honest answer for anyone buying one car is: whichever one the seller has not already shown you.
+
+They pull from **overlapping but different sources**, so a record on one can be missing from the other. That is precisely why running both is standard practice at volume, and why "it has a clean Carfax" is a weaker statement than it sounds.
+
+Roughly:
+
+- **AutoCheck** is stronger on auction announcements, title history depth and cross-state title movement, and it is the only one with a single comparable score
+- **Carfax** is stronger on service and maintenance records, and its consumer branding carries more weight with retail buyers
+
+There is a longer breakdown in [AutoCheck vs Carfax](/blog/autocheck-vs-carfax-vehicle-history), including which one to show a customer and which one to buy on.
+
+## Reading a hundred of them
+
+Everything above assumes one car. The moment you are appraising a run list, the format works against you.
+
+A report is designed to be read by a person, one at a time, as prose. There is no view that puts four hundred VINs in a table with a title-brand column, a score column and a comparison-range column, sorted so the outliers rise to the top. So buyers do the obvious thing — check the ten cars they already liked and skip the rest. The cars nobody checked are where the surprises live.
+
+That is a data-shape problem, not a report problem. What fixes it is pulling the reports **through your own AutoCheck dealer account, within the allowance you already pay for**, parsing each one into fields, and writing the whole run list into one sheet. One row per VIN. Score, comparison range, brand flags, owner count, announcement text and odometer sequence as columns you can sort and filter, joined against the auction data you are already pulling.
+
+The account is yours and the credits get spent on the same cars they would have been spent on anyway. What changes is that the answer arrives as a table before the sale rather than as forty browser tabs during it. That is what [AutoCheck report automation](/autocheck-scraper) is.
+
+**Tell me how many VINs you run in a typical week and which platforms you buy on**, at sam@autosmartcode.com, and I will tell you what it would take. Free VIN data comes first in every build — [the NHTSA vPIC decoder](/blog/free-vin-decoder-nhtsa-api) covers a surprising amount at no cost, so paid report credits only get spent where they add something.
+    `
+  },
+  {
+    id: 21,
+    slug: "autoscraper-python-library-vs-custom-scraper",
+    tag: "Technical",
+    emoji: "🐍",
+    color: "linear-gradient(135deg, #14183a 0%, #101c33 100%)",
+    title: "AutoScraper: What the Python Library Does, and When It Is Not Enough",
+    summary: "AutoScraper learns a page's structure from an example instead of a selector, and for the right job it is genuinely the fastest way to get data out of a site. Here is what it does well, the four things that break it, and how to tell which side of that line you are on.",
+    date: "August 23, 2026",
+    readTime: "9 min read",
+    content: `
+## What AutoScraper actually is
+
+**AutoScraper is an open-source Python library that builds a scraper from an example rather than from a CSS selector.** You give it a URL and a sample of what you want — a price, a product name — and it works out the rule that finds that value, then applies the same rule to any similar page.
+
+The appeal is obvious. There is no selector to write, no DevTools inspection, and it will find the *other* items on the page that match the same pattern, which is often exactly the list you wanted. For a static page with a repeating structure, you can go from nothing to a working extractor in a handful of lines and about two minutes.
+
+It is worth being clear about what the "auto" means. It is automatic **rule inference** — the library figures out where your example sits in the HTML tree and generalises from it. It is not an AI that understands the page, and it is not a service. It is a small, focused library with no browser, no proxy layer, no scheduler and no anti-bot handling.
+
+## Where it genuinely wins
+
+Be fair to it, because for a real set of jobs it is the correct tool:
+
+- **A one-off extract from a static site.** You need this data once, the page is server-rendered HTML, and writing selectors would take longer than the scrape saves
+- **Pages whose markup you do not want to learn.** Auto-generated class names, deeply nested wrappers, a structure that would take twenty minutes to read
+- **Prototyping.** Finding out whether a site's data is shaped the way you assumed, before committing to a real build
+- **Similar pages across one site.** Learn from one product page, run across a thousand of the same template
+
+If that describes your problem, use it. It is free, it is quick, and paying someone to write what you can do in ten lines is a waste of your money.
+
+## The four things that break it
+
+Every one of these is the same underlying issue: AutoScraper solves extraction, and extraction is usually the easy part.
+
+### 1. JavaScript-rendered pages
+
+AutoScraper fetches HTML over HTTP. It does not run a browser and it does not execute JavaScript. Anything a modern site loads *after* the initial document — infinite-scroll listings, prices fetched from an internal API, anything rendered client-side — is simply not in the HTML it receives.
+
+This is the single most common reason it "does not work" on a site. The library is fine; the data was never in the document. Most vehicle marketplaces, most large retailers and most listing sites fall into this category, and that is precisely why [a real browser engine is the baseline for those builds](/blog/what-is-web-scraping).
+
+### 2. Anything that blocks you
+
+There is no proxy rotation, no session management, no TLS fingerprint handling, no CAPTCHA path and no retry-with-backoff. A site with serious bot detection will start returning challenges or blocks after a modest number of requests, and the library has no answer to that because answering it was never its job. [Getting past anti-bot systems](/blog/bypass-captcha-anti-bot-scraping) is a separate discipline from parsing.
+
+### 3. Structural drift
+
+The learned rules are tied to the structure of the page at the moment you taught it. A redesign, an A/B test, or a component moved one level up the tree, and the rule stops matching — usually silently, returning an empty list rather than an error. That is the failure mode that costs the most, because a scraper that returns nothing looks the same as a market with nothing in it until someone checks. Production pipelines need [validation and self-healing](/blog/self-healing-scrapers-ai) around whatever does the extracting.
+
+### 4. Everything after extraction
+
+This is the part people underestimate most. A working extractor is maybe a fifth of a production data pipeline. The rest is: scheduling and reliable re-runs, deduplication across runs, change detection so you know what moved, normalisation so fields are joinable, storage, alerting when a run comes back wrong, and delivery into whatever your team actually opens. None of that is in scope for a parsing library, nor should it be.
+
+## Which side of the line are you on?
+
+A short and fairly reliable test. **If you can answer yes to all of these, use the library:**
+
+- Is the data present in the raw HTML — view-source, not DevTools Elements?
+- Do you need this once, or rarely, rather than on a schedule?
+- Does it matter little if a run silently returns nothing one day?
+- Is the volume low enough that nobody will rate-limit you?
+
+**If any answer is no, the library is the wrong shape** — not because it is bad, but because the thing that is hard about your job is not the thing it solves. You would spend your time rebuilding a browser layer, a proxy layer and a monitoring layer around it, which is a much larger project than it looks from the outside.
+
+## What "auto scraping" usually means in practice
+
+A lot of people searching for an automatic web scraper are not really after a Python library. They want the *outcome*: data arriving on its own, in a spreadsheet, without anyone opening a browser. That is a pipeline, and the extractor inside it — AutoScraper, BeautifulSoup, a Playwright routine, an API where one exists — is an implementation detail that matters far less than the parts around it.
+
+What that pipeline actually needs is roughly:
+
+- A fetch layer that can render JavaScript when the page requires it
+- Request pacing and session handling that keep you welcome on the site
+- Extraction, whichever way is most robust for that page
+- Validation, so an empty or malformed run is caught instead of shipped
+- Normalisation, so today's rows join to yesterday's and to your other sources
+- A schedule, storage and a delivery format someone will actually open
+- An alert when something breaks, because eventually something breaks
+
+AutoScraper is a good answer to exactly one of those seven lines.
+
+## The honest summary
+
+Use AutoScraper when the page is static, the job is small, and a silent failure would cost you nothing. It is a genuinely clever library and for that job it is faster than anything you would commission.
+
+When the data is rendered by JavaScript, when the site pushes back, when the result has to be trustworthy on a schedule, or when the output has to join cleanly to something else — the library is not the bottleneck you are trying to remove, and building the other six layers around it yourself is the actual project.
+
+**That is the part I get hired for.** If you are not sure which side of the line you are on, email sam@autosmartcode.com with the URL and what you want out of it, and I will tell you straight — including telling you to use the free library, which happens often enough that it is worth asking. If it does need a build, you get a fixed price within 24 hours; [what these projects typically cost](/blog/how-much-does-web-scraping-cost) is written up in full, and [the custom scraping service](/services/web-scraping) covers what a build includes.
+    `
+  },
 ];
 
 export const projects = [
@@ -1673,6 +1862,10 @@ export const FAQS = [
   {
     q: "Can you scrape sites that block bots or need a login?",
     a: "Yes. Sites with rate limiting, fingerprinting, JavaScript rendering or an account wall are routine work here. Where a login is involved I use credentials you own and are entitled to use.",
+  },
+  {
+    q: "The auction or marketplace I use isn't one you list. Can you still do it?",
+    a: "Almost certainly. Manheim, ADESA and ACV are the platforms that get written about, but most dealers and wholesalers buy on a portal nobody outside their region has heard of — a private dealer-only marketplace, a regional auction's own site, a lender's repo portal, an in-house system with a listings module bolted on. The mechanics do not change with the logo, and an obscure portal is usually easier to work with than a famous one because nobody has ever bothered to defend it. Send me the name and a screenshot or two of the screens you use, and you will have a straight answer within a day — including if the answer is that it is not worth doing.",
   },
   {
     q: "Do I need to know how to code?",

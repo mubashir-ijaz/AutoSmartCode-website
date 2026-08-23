@@ -4,6 +4,7 @@ import { scrapers } from "../data/scrapers";
 import { webdesign } from "../data/webdesign";
 import { projects } from "../data/content";
 import { AREAS_SERVED } from "../data/geo";
+import { serviceImage, socialFor } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Services.css";
@@ -140,11 +141,22 @@ export function ServiceDetailPage() {
   const { slug } = useParams();
   const service = serviceBySlug(slug);
   const proof = service && projects.find(p => p.id === service.caseStudy);
+  const hero = service && serviceImage(service);
+  /* The per-site pages that roll up to this pillar. Web development's spokes
+     live in webdesign.js rather than scrapers.js, so both are checked. */
+  const spokes = service
+    ? [
+        ...scrapers.filter(sp => sp.pillar === service.slug),
+        ...(service.slug === "web-development" ? webdesign : []),
+      ]
+    : [];
 
   useSeo(service ? {
     title: service.metaTitle + " | AutoSmartCode",
     description: service.metaDesc,
     path: "/services/" + service.slug,
+    image: socialFor(hero),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -207,6 +219,10 @@ export function ServiceDetailPage() {
           </div>
           <h1 className="svc-detail-title">{service.h1}</h1>
           <p className="svc-detail-hero">{service.hero}</p>
+          <figure className="svc-hero-figure">
+            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}
+                 fetchpriority="high" decoding="async" />
+          </figure>
           <div className="svc-detail-actions">
             <Link to="/#contact" className="btn btn-blue">Get a Free Quote →</Link>
             <Link to="/projects" className="btn btn-outline">See the work</Link>
@@ -294,6 +310,32 @@ export function ServiceDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* The cluster's downward link. Every scraper page points up at its
+          pillar, but until this existed the pillar pointed at none of them, so
+          a crawler arriving at /services/<pillar> had no path to the twenty
+          exact-match pages underneath it. A cluster needs both directions. */}
+      {spokes.length > 0 && (
+        <section className="section">
+          <div className="container">
+            <div className="svc-related">
+              <h3>{service.nav} — the individual pages</h3>
+              <p className="svc-related-lead">
+                This page covers the capability. These cover the specific sites and
+                reports, one page each, with the fields, the obstacles and the price.
+              </p>
+              <div className="svc-related-grid">
+                {spokes.map(sp => (
+                  <Link to={`/${sp.slug}`} key={sp.slug} className="svc-related-card">
+                    <span style={{ color: sp.color }}>{sp.emoji} {sp.h1 || sp.site + " Scraper"}</span>
+                    <p>{sp.tagline}</p>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container">

@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { scrapers, scraperBySlug } from "../data/scrapers";
 import { serviceBySlug } from "../data/services";
 import { AREAS_SERVED } from "../data/geo";
+import { scraperImage, socialFor } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import "./Services.css";
 
@@ -14,11 +15,14 @@ export function ScraperPage() {
   const { slug } = useParams();
   const s = scraperBySlug(slug);
   const pillar = s && serviceBySlug(s.pillar);
+  const hero = s && scraperImage(s);
 
   useSeo(s ? {
     title: s.metaTitle + " | AutoSmartCode",
     description: s.metaDesc,
     path: "/" + s.slug,
+    image: socialFor(hero),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -74,6 +78,10 @@ export function ScraperPage() {
           </div>
           <h1 className="svc-detail-title">{s.h1 || s.site + " Scraper"}</h1>
           <p className="svc-detail-hero">{s.tagline}</p>
+          <figure className="svc-hero-figure">
+            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}
+                 fetchpriority="high" decoding="async" />
+          </figure>
           <div className="svc-detail-actions">
             <Link to="/#contact" className="btn btn-blue">Get a Free Quote →</Link>
             <Link to={`/services/${s.pillar}`} className="btn btn-outline">

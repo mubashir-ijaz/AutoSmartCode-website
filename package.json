@@ -12,14 +12,23 @@
     "start": "react-scripts start",
     "sitemap": "node scripts/generate-sitemap.js",
     "llms": "node scripts/generate-llms.js",
-    "prebuild": "node scripts/generate-sitemap.js && node scripts/generate-llms.js",
+    "images": "node scripts/generate-images.js",
+    "prebuild": "node scripts/generate-images.js && node scripts/generate-sitemap.js && node scripts/generate-llms.js",
     "build": "react-scripts build",
     "postbuild": "node scripts/prerender.js",
     "prerender": "node scripts/prerender.js",
     "test": "react-scripts test"
   },
   "browserslist": {
-    "production": [">0.2%", "not dead"],
-    "development": ["last 1 chrome version"]
+    "production": [
+      ">0.2%",
+      "not dead"
+    ],
+    "development": [
+      "last 1 chrome version"
+    ]
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2"
   }
 }

@@ -452,7 +452,7 @@ export const scrapers = [
       },
     ],
     pillar: "car-auction-automation",
-    siblings: ["carmax-scraper", "autotrader-scraper", "cars-com-scraper"],
+    siblings: ["dealer-marketplace-scraper", "acv-auctions-scraper", "edge-pipeline-scraper"],
   },
 
   {
@@ -638,7 +638,7 @@ export const scrapers = [
       },
     ],
     pillar: "car-auction-automation",
-    siblings: ["manheim-mmr-scraper", "backlotcars-scraper", "openlane-scraper"],
+    siblings: ["manheim-mmr-scraper", "acv-auctions-scraper", "dealer-marketplace-scraper"],
   },
 
   {
@@ -699,7 +699,7 @@ export const scrapers = [
       },
     ],
     pillar: "car-auction-automation",
-    siblings: ["adesa-scraper", "manheim-mmr-scraper", "openlane-scraper"],
+    siblings: ["adesa-scraper", "acv-auctions-scraper", "dealer-marketplace-scraper"],
   },
 
   {
@@ -760,7 +760,317 @@ export const scrapers = [
       },
     ],
     pillar: "car-auction-automation",
-    siblings: ["adesa-scraper", "backlotcars-scraper", "manheim-mmr-scraper"],
+    siblings: ["smartauction-scraper", "dealer-marketplace-scraper", "manheim-mmr-scraper"],
+  },
+
+  {
+    slug: "acv-auctions-scraper",
+    site: "ACV Auctions",
+    emoji: "📱",
+    color: "#34d399",
+    metaTitle: "ACV Auctions Scraper — Listing & Condition Report Data",
+    metaDesc:
+      "Automate ACV Auctions listings, condition reports and inspection data through your own dealer account. Every lot scored against your buy box before the timer runs down.",
+    keywords: ["acv auctions scraper", "acv auction data", "acv condition report data", "acv auctions automation", "wholesale auction data extraction"],
+    tagline: "Twenty-minute auctions do not wait for a buyer to finish scrolling. This has the shortlist ready before the first one opens.",
+    what:
+      "ACV Auctions is a dealer-only digital wholesale marketplace that runs short live auctions on cars inspected by its own field team. The inspection is the product — a structured condition report with tyre depths, paint meter readings, announced damage, an engine audio recording and undercarriage photos — which makes ACV one of the few wholesale sources where the condition data is consistent enough to compute recon from directly.",
+    why:
+      "The format is the problem. An ACV auction runs for about twenty minutes, and there are hundreds of them a day. A buyer who works the app by hand sees whatever happened to be on screen when they looked, not the cars that best fit the buy box. Reading the full listing set on a schedule and scoring it against your numbers turns a reaction game into a plan.",
+    fields: [
+      "VIN with full decode, year, make, model and trim",
+      "Mileage, exterior and interior colour, drivetrain",
+      "Condition report score and every announced defect",
+      "Tyre tread depths and paint meter readings where captured",
+      "Damage items with estimated recon cost",
+      "Title status and brand announcements",
+      "Seller name, seller type and location",
+      "Current bid, buy-now price, floor indication and time remaining",
+      "All inspection photo URLs and the engine audio link",
+    ],
+    defenses:
+      "ACV is app-first. Most of what a buyer sees is delivered through an authenticated JSON API rather than rendered HTML, sessions are short-lived, and listings appear and disappear inside a twenty-minute window. The build drives your own licensed dealer session against the same endpoints the app uses, refreshes tokens cleanly rather than re-authenticating in a loop, and polls on a cadence tuned to the auction length so nothing closes between two reads.",
+    uses: [
+      "Score every live ACV lot against your buy box automatically",
+      "Turn condition report defects into an estimated recon figure per car",
+      "Get alerted the moment a matching car opens, with the numbers attached",
+      "Reconcile ACV lots against Manheim MMR on the same VIN",
+      "Track which sellers consistently bring clean cars",
+      "Build a history of what actually sold and at what spread",
+    ],
+    faqs: [
+      {
+        q: "Do I need my own ACV dealer account?",
+        a: "Yes. The automation drives the licensed dealer session you already hold — it does not create access you do not have, and I do not share credentials between clients. Without a dealer login there is no version of this that works.",
+      },
+      {
+        q: "Can it read the full condition report, not just the listing?",
+        a: "Yes, and that is where the value sits. Announced damage, tyre depths and paint readings are what turn a bid price into a landed cost. They are pulled in a paced second pass so the volume does not trip rate limits.",
+      },
+      {
+        q: "Can it alert me during a live auction?",
+        a: "Yes. A matching car that opens with time still on the clock triggers an email, Slack or Telegram alert with the scoring already attached, so the decision is a yes or no rather than a research task.",
+      },
+      {
+        q: "Can it bid for me?",
+        a: "No. I do not build automated bidding — most platforms prohibit it outright and the downside of a bug is that you own a car you never wanted. The system finds and ranks; a person decides.",
+      },
+      {
+        q: "What does ACV automation cost?",
+        a: "Listing extraction with buy-box scoring typically runs $600 to $1,200. Adding full condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["manheim-mmr-scraper", "backlotcars-scraper", "dealer-marketplace-scraper"],
+  },
+
+  {
+    slug: "copart-scraper",
+    site: "Copart",
+    emoji: "🔧",
+    color: "#f87171",
+    metaTitle: "Copart Scraper — Salvage Auction Lot & Bid Data",
+    metaDesc:
+      "Copart scraper for rebuilders, exporters and parts buyers. Pull lot details, damage type, run-and-drive status, estimated retail value and sale dates into one dataset.",
+    keywords: ["copart scraper", "copart data extraction", "salvage auction data", "copart api alternative", "copart lot data"],
+    tagline: "Every lot in every yard that matches your criteria, with damage and title status, hours before the sale.",
+    what:
+      "Copart is the largest online salvage and clean-title vehicle auction in the world, running yards across the US, Canada, the UK, Germany, Spain, the UAE and beyond. Each lot page publishes damage type, run-and-drive status, primary and secondary damage, title brand, odometer status, estimated retail value and the yard it sits in — the exact fields a rebuilder or exporter needs before deciding whether a car is worth a bid.",
+    why:
+      "Salvage buying is a volume game played against a clock. Sales run daily across dozens of yards, and the cars worth having are decided by a combination of damage type, title brand and transport distance that no search filter expresses properly. Pulling every matching lot into one table lets you sort by the thing that actually decides the bid — landed cost against parts or resale value — instead of by lot number.",
+    fields: [
+      "Lot number, VIN and full decode",
+      "Year, make, model, trim, body style and engine",
+      "Primary and secondary damage",
+      "Run-and-drive status and keys present",
+      "Title type, brand and issuing state",
+      "Odometer reading and whether it is actual or not actual",
+      "Estimated retail value and repair cost estimate where published",
+      "Yard location, sale date, lane and item number",
+      "Current bid, buy-it-now price and all photo URLs",
+    ],
+    defenses:
+      "Copart serves its search results through an internal JSON endpoint behind aggressive bot detection, caps how deep a single filtered search will page, and varies both markup and available fields by country site. The build runs a real browser session to establish trust, then reads the same endpoints the site uses, and slices searches by yard, sale date and damage type so no single query hits the depth cap and nothing goes missing from the middle of a result set.",
+    uses: [
+      "Find every rebuildable lot in a transport radius, ranked by margin",
+      "Filter to run-and-drive cars with clean titles across all yards at once",
+      "Feed an export pipeline with lots that meet a destination market's rules",
+      "Track what a given model actually sells for at salvage over time",
+      "Spot parts cars where the component you need is undamaged",
+      "Get a daily email of matching lots before the sale opens",
+    ],
+    faqs: [
+      {
+        q: "Do I need a Copart membership?",
+        a: "For the public lot data, no — a great deal of it is visible without an account. For member-only pricing, bidding history and restricted lots, yes, and the automation would drive your own licensed session rather than create access you do not have.",
+      },
+      {
+        q: "Can it cover more than one country?",
+        a: "Yes. Copart's country sites differ in markup, currency and available fields, so each one is handled with its own parser and the output is normalised into a single schema — one table with a country column rather than six separate exports.",
+      },
+      {
+        q: "Can it track what lots actually sold for?",
+        a: "Where sold prices are published to your account level, yes, and building that history is usually the highest-value part of the job. Knowing what a damage type on a given model really fetches is what makes the next bid a calculation instead of a guess.",
+      },
+      {
+        q: "Is scraping Copart legal?",
+        a: "Reading publicly visible lot data is generally lawful, and US appellate courts have repeatedly held that reading public pages is not unauthorised access. I keep request rates civil and stay off anything behind a login unless it is your own account. If a specific request looks like a problem I will say so before you pay.",
+      },
+      {
+        q: "What does a Copart scraper cost?",
+        a: "A filtered daily feed across selected yards typically runs $400 to $900. Full multi-country coverage with sold-price history runs higher. You get a fixed quote within 24 hours of telling me the filters and fields you want.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["adesa-scraper", "manheim-mmr-scraper", "dealer-marketplace-scraper"],
+  },
+
+  {
+    slug: "edge-pipeline-scraper",
+    site: "EDGE Pipeline",
+    emoji: "🛣️",
+    color: "#a78bfa",
+    metaTitle: "EDGE Pipeline Scraper — Independent Auction Run Lists",
+    metaDesc:
+      "Automate EDGE Pipeline and Simulcast run lists from the independent auctions you buy at. Every sale, every lane, scored against your buy box in one overnight pass.",
+    keywords: ["edge pipeline scraper", "auction edge data", "independent auction run list", "edge simulcast automation", "auctionedge scraper"],
+    tagline: "The independent auctions you actually buy at, read together, in one list, ranked by margin.",
+    what:
+      "EDGE Pipeline is the platform a large share of North America's independent auto auctions run their pre-sale listings and simulcast bidding on. Each auction keeps its own identity, its own sale calendar and its own consignors, but the underlying run lists, condition notes and lane data are published through a common system — which is why one build can cover a dozen independent houses that would otherwise each need their own.",
+    why:
+      "Not every dealer buys at Manheim. Plenty of the best margin sits at regional independents, where the competition is thinner and the cars are local. The catch is that following six independent auctions means six logins, six sale calendars and six run lists in six different formats every week. Reading them through one pipeline collapses that into a single ranked list, and makes the small auction as easy to work as the national one.",
+    fields: [
+      "Auction house, sale name, sale date, lane and run number",
+      "VIN with full decode",
+      "Year, make, model, trim, mileage and colour",
+      "Announcements, condition notes and grade where published",
+      "Title status and brand announcements",
+      "Consignor and seller type",
+      "Starting bid, reserve indication and buy-now price where offered",
+      "Simulcast timing so you know when a lot actually runs",
+      "Photo URLs and listing link back to the auction",
+    ],
+    defenses:
+      "Each auction house configures its own EDGE instance, so field names, optional columns and sale-calendar structure vary between houses even though the platform is shared. Sessions are authenticated per auction and expire quickly. The build handles one session per auction account you hold, maps each house's local field naming into a single normalised schema, and reconciles the same VIN appearing at two houses so a car is not counted twice in your shortlist.",
+    uses: [
+      "Work six independent auctions from one ranked email",
+      "Compare a regional sale against Manheim MMR before you drive there",
+      "Spot lanes where a model consistently runs under market",
+      "Catch the small houses your competitors never bother to check",
+      "Track which consignors bring cars worth bidding on",
+      "Plan the week's buying from one calendar instead of six",
+    ],
+    faqs: [
+      {
+        q: "Does this work for my local auction specifically?",
+        a: "If your auction publishes run lists through EDGE Pipeline or Simulcast, yes. If it runs its own in-house site instead, it is still almost always doable — the pattern is identical, only the login and page structure change. Send me the auction and I will tell you straight away.",
+      },
+      {
+        q: "Can it cover several auction houses at once?",
+        a: "That is the usual reason people ask. One build, one session per auction account you hold, and one normalised output where the auction house is just a column. Same VIN appearing at two houses gets reconciled rather than duplicated.",
+      },
+      {
+        q: "Do I need an account at each auction?",
+        a: "Yes. The automation drives licensed sessions you already hold at each house — it does not create access you do not have, and I do not share credentials between clients.",
+      },
+      {
+        q: "Can it score independent auction lots against MMR?",
+        a: "Yes, and it is the point of the exercise. Regional run lists joined against Manheim MMR on VIN gives you the spread per lot directly, which is what tells you whether the drive to a smaller sale is worth making.",
+      },
+      {
+        q: "What does this cost?",
+        a: "One auction house with run-list extraction and scoring typically runs $600 to $1,200. Each additional house on the same platform is a fraction of that, because the parser is already built. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["dealer-marketplace-scraper", "adesa-scraper", "manheim-mmr-scraper"],
+  },
+
+  {
+    slug: "smartauction-scraper",
+    site: "SmartAuction",
+    emoji: "🏷️",
+    color: "#60a5fa",
+    metaTitle: "SmartAuction Scraper — Off-Lease & Remarketing Listing Data",
+    metaDesc:
+      "Automate Ally SmartAuction listings, condition reports and buy-now pricing through your own dealer account. Off-lease inventory scored against your buy box daily.",
+    keywords: ["smartauction scraper", "ally smartauction data", "off lease vehicle data", "remarketing platform scraper", "smartauction automation"],
+    tagline: "Off-lease cars come back on a schedule. Knowing which ones fit your lot should not take an hour a day.",
+    what:
+      "SmartAuction is Ally's online wholesale marketplace, used to remarket off-lease and repossessed vehicles to franchise and independent dealers. Its inventory has a character the open auctions do not: single-owner lease returns with known service history and predictable equipment, listed with condition reports and buy-now pricing rather than sold through a live lane.",
+    why:
+      "Off-lease supply is the cleanest wholesale inventory most dealers can get, and it is priced to move rather than bid up. The difficulty is that listings appear continuously rather than on a sale calendar, so the good ones are found by whoever checks most often. A system that reads the whole listing set several times a day and applies your buy box removes the checking, and the cars that fit arrive in your inbox instead.",
+    fields: [
+      "VIN with full decode, year, make, model and trim",
+      "Mileage, colour, drivetrain and full equipment list",
+      "Condition report grade and announced damage items",
+      "Estimated reconditioning cost where published",
+      "Title status and any brand announcement",
+      "Buy-now price, current offer and time remaining",
+      "Vehicle location, transport distance from your rooftop",
+      "Grounding dealer and lease return context where shown",
+      "Condition report photo URLs",
+    ],
+    defenses:
+      "SmartAuction runs behind an authenticated dealer session with short token lifetimes and serves listings through internal endpoints that rate-limit separately from the condition reports. The build drives your own licensed session with proper token lifecycle handling, pulls condition reports in a paced second pass, and polls listings on a cadence frequent enough to catch new inventory without generating traffic that looks unlike a heavy human user.",
+    uses: [
+      "Catch matching off-lease cars within minutes of them listing",
+      "Rank buy-now inventory by margin after transport and recon",
+      "Compare SmartAuction pricing against MMR on the same VIN",
+      "Filter to single-owner lease returns inside a transport radius",
+      "Track how long particular models sit before the price moves",
+      "Feed matching stock straight into your DMS or inventory sheet",
+    ],
+    faqs: [
+      {
+        q: "Do I need my own SmartAuction dealer account?",
+        a: "Yes. The automation drives the licensed session you already hold — it does not create access you do not have, and I do not share credentials between clients.",
+      },
+      {
+        q: "How quickly can it spot new listings?",
+        a: "Polling every fifteen to thirty minutes is typical and catches almost everything worth catching. Tighter than that is possible for a narrow watch list, and costs more because it means more requests and more infrastructure.",
+      },
+      {
+        q: "Can it work alongside my other auction platforms?",
+        a: "Yes, and most builds do. SmartAuction, Manheim, ADESA and whatever regional houses you use all land in one ranked list with a platform column, so you are comparing cars rather than comparing tabs.",
+      },
+      {
+        q: "Can it buy automatically at the buy-now price?",
+        a: "No. I do not build automated purchasing or bidding — the platforms generally prohibit it and the downside of a bug is that you own a car you never wanted. The system finds and ranks; a person clicks buy.",
+      },
+      {
+        q: "What does SmartAuction automation cost?",
+        a: "Listing extraction with buy-box scoring and alerting typically runs $600 to $1,200. Adding condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["dealer-marketplace-scraper", "openlane-scraper", "manheim-mmr-scraper"],
+  },
+
+  {
+    slug: "dealer-marketplace-scraper",
+    site: "Dealer Marketplace",
+    h1: "Private Dealer Marketplace & Auction Portal Scraping",
+    emoji: "🔐",
+    color: "#f472b6",
+    metaTitle: "Dealer Marketplace Scraper — Any Private Auction Portal",
+    metaDesc:
+      "Most dealers and wholesalers buy on a platform nobody else has heard of. If you can log into it, it can be automated — run lists, pricing and condition data, scored daily.",
+    keywords: ["dealer marketplace scraper", "private auction portal scraper", "dealer only marketplace data", "custom auction site scraper", "wholesale marketplace automation", "closed dealer portal automation"],
+    tagline: "If you can log into it, it can be automated — even if I have never heard of it before today.",
+    what:
+      "Manheim, ADESA and ACV are the platforms that get written about. They are not the platforms most of the trade actually lives on. Every dealer group, wholesaler, rental remarketer, fleet operator, captive lender and regional auction house runs its own portal, and a working buyer's day is usually spent inside two or three of them that no article has ever mentioned — a closed dealer-only marketplace, a lender's repo portal, a manufacturer's closed sale, a wholesaler's private inventory board, an in-house DMS with a listings module bolted on.",
+    why:
+      "The single most common reason a dealer decides automation is not for them is that they look at a list of supported platforms, do not see theirs, and assume it cannot be done. That assumption is almost always wrong. The mechanics do not change with the logo: authenticate, read the listing set, pull the detail pages, normalise the fields, score against your numbers, deliver. A platform being obscure makes it easier to work with, not harder — obscure portals rarely carry serious bot defences, because nobody has ever tried.",
+    fields: [
+      "Whatever the platform publishes — the field list is taken from your screens, not from a template",
+      "VIN and full decode, added even where the platform does not show it",
+      "Year, make, model, trim, mileage and colour",
+      "Asking, buy-now, current bid or floor price, whichever the platform uses",
+      "Condition grades, announcements and damage detail as published",
+      "Title status and brand announcements",
+      "Seller, consignor, location and transport distance",
+      "Sale timing — calendar, lane and run order, or listing age for open marketplaces",
+      "Photos, documents and condition report attachments",
+    ],
+    defenses:
+      "Private portals vary far more than public sites. Some are modern single-page apps with a clean internal API; some are fifteen-year-old server-rendered systems with session cookies that expire on a timer and no stable element IDs. A few sit behind IP allowlists or two-factor. Each one gets looked at before anything is quoted, so you are told what is straightforward, what is awkward and what is genuinely not worth doing — before you pay rather than after.",
+    uses: [
+      "Automate the portal your business actually runs on, not the famous one",
+      "Merge a private marketplace with Manheim or ADESA into one ranked list",
+      "Score a wholesaler's private inventory board against MMR every morning",
+      "Pull a lender's repo listings into your buy-box pipeline",
+      "Read a manufacturer's closed sale before your competitors open the email",
+      "Get an in-house DMS to hand over its data without waiting on a vendor",
+    ],
+    faqs: [
+      {
+        q: "My platform is not on your list. Can you still do it?",
+        a: "Almost certainly. Send me the name and, if you are comfortable, a couple of screenshots of the screens you use. I will tell you within a day whether it is straightforward, awkward or not worth doing — and I will say the third one out loud when it is true, because a build that fights the platform every week is not worth your money or my time.",
+      },
+      {
+        q: "It is behind a login. Does that make it impossible?",
+        a: "No, it makes it normal. Most of the auction and wholesale work I do runs on authenticated sessions using the client's own licensed account. What matters is that the access is yours and you are entitled to use it — the automation drives the same session your buyer would have opened anyway.",
+      },
+      {
+        q: "How do you handle two-factor authentication?",
+        a: "Several ways, depending on the platform. Long-lived sessions that only re-authenticate occasionally, an app-based TOTP secret held on your infrastructure, or a one-time morning approval that unlocks the day's run. If a platform enforces per-request 2FA there is no honest way around it and I will tell you so.",
+      },
+      {
+        q: "Can it combine several platforms into one output?",
+        a: "That is the shape of most builds. Two or three portals, one normalised schema, one ranked list with a platform column, same VIN across sources reconciled instead of duplicated. Comparing cars rather than comparing tabs is the entire point.",
+      },
+      {
+        q: "How much does automating a private portal cost?",
+        a: "A single portal with listing extraction, buy-box scoring and daily delivery typically runs $600 to $1,500 depending on how awkward the platform is. Additional platforms on the same pipeline cost less than the first. You get a fixed quote within 24 hours of showing me the screens.",
+      },
+      {
+        q: "What if the platform changes and it breaks?",
+        a: "It will eventually, like every scraper does — the difference is you find out from an alert the same morning rather than from three quiet days of no deals. Fixes on systems I built are part of the arrangement, not a new project.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["edge-pipeline-scraper", "acv-auctions-scraper", "manheim-mmr-scraper"],
   },
 
   /* ------------------ eCommerce cluster ------------------ */
@@ -949,6 +1259,288 @@ export const scrapers = [
     pillar: "web-scraping",
     siblings: ["amazon-product-scraper", "ebay-scraper", "mediamarkt-scraper"],
   },
+
+  /* ------------------------------------------------------------------ */
+  /* Vehicle history spokes.                                            */
+  /* Search Console shows an AutoCheck cluster the site had no page for  */
+  /* at all — "autocheck" (49 impressions), "autocheck history reports"  */
+  /* (23), "what is an autocheck report" (13), "global autocheck report" */
+  /* (10), "autocheck vin report" (4) — and a Carfax one alongside it:   */
+  /* "vin carfax report" (10), "carfax report by vin" (8), "carfax       */
+  /* scraper" (6). All of it was landing on the homepage or the pillar.  */
+  /*                                                                     */
+  /* The purely informational half of that cluster is answered by        */
+  /* /blog/what-is-an-autocheck-report. These two pages take the         */
+  /* commercial half. The pillar keeps the capability terms — "vehicle   */
+  /* history report automation", "bulk vin decoder" — so the three do    */
+  /* not compete.                                                        */
+
+  {
+    slug: "autocheck-scraper",
+    site: "AutoCheck",
+    emoji: "🔎",
+    color: "#fbbf24",
+    h1: "AutoCheck Report Automation — Bulk VIN History Pulls",
+    metaTitle: "AutoCheck Scraper — Bulk AutoCheck Reports by VIN, Automated",
+    metaDesc:
+      "Pull AutoCheck history reports for a whole run list through your own dealer account. Score, comparison range, title brands and announcements as columns, not 400 PDFs.",
+    keywords: ["autocheck scraper", "autocheck report automation", "bulk autocheck reports", "autocheck vin report", "autocheck history reports", "autocheck api alternative", "automate autocheck lookups"],
+    tagline: "Four hundred AutoCheck reports, parsed into four hundred rows, before the sale starts.",
+    what:
+      "AutoCheck is Experian's vehicle history report, and it is the one built into the auction platforms — if you buy at Manheim or ADESA it is already in front of you on every listing. It carries title records and brands, odometer readings, reported accidents, use type, auction announcements and owner count, plus the AutoCheck Score: a single comparable number with a range for similar vehicles, which no other mainstream report provides.",
+    why:
+      "The Score is what makes AutoCheck worth automating rather than reading. One number per car, with the peer range beside it, is exactly the shape that sorts — which means a run list can be ranked by relative risk before a buyer opens anything. Read one at a time as prose, that property is wasted; buyers check the ten cars they already liked and skip the rest, and the cars nobody checked are where the surprises are. There is a fuller explanation of what the Score does and does not mean in the guide to AutoCheck reports.",
+    fields: [
+      "VIN, year, make, model and trim as reported",
+      "AutoCheck Score and the comparison range for similar vehicles",
+      "Every title record — state, date and type — in sequence",
+      "Title brands: salvage, flood, junk, lemon, rebuilt, odometer discrepancy",
+      "Odometer readings at each recorded event, with rollback flags",
+      "Reported accident and damage events with dates",
+      "Use type — personal, lease, rental, fleet, taxi, police, government",
+      "Auction announcement text, including structural and frame declarations",
+      "Owner count and estimated length of each ownership period",
+      "Report pull date, so a stale row is visible as stale",
+    ],
+    defenses:
+      "This is not an anti-bot problem, and pretending otherwise would be the wrong build. AutoCheck reports sit behind a paid account, so the work is session handling rather than evasion: driving your own authenticated dealer session reliably, staying inside the report allowance you pay for, pacing requests so the account is never flagged for unusual behaviour, and parsing a report layout that changes shape depending on how much history a vehicle has. The parsing is the hard part — a car with two owners and a car with nine render differently, and a parser that assumes the first will silently drop rows on the second.",
+    uses: [
+      "Rank a whole run list by Score against its peer range before the sale",
+      "Flag every branded title in an inventory in one pass",
+      "Spot odometer sequences that cannot be true across title events",
+      "Reconcile auction announcements against the history on file",
+      "Attach history fields to your appraisal sheet automatically",
+      "Track how a segment's history profile shifts over a buying season",
+    ],
+    faqs: [
+      {
+        q: "Do I need my own AutoCheck subscription?",
+        a: "Yes, and that is the point. This drives a dealer account you already hold and spends the report allowance you already pay for — it does not obtain reports any other way. If you do not have a subscription, Experian sells dealer plans with a report allowance, and that is the first thing to sort out. Worth checking first whether you already get AutoCheck inside your auction platform; a lot of dealers pay twice without realising.",
+      },
+      {
+        q: "Is automating my own AutoCheck account allowed?",
+        a: "It depends on your agreement, and you should read it rather than take my word for it. Provider terms generally cover how many reports you may pull, what you may do with them, and explicitly forbid reselling or redistributing report data. Automating retrieval of reports you are entitled to and are paying for, for your own internal use, is a different thing from reselling data — but the specifics are in your contract. If yours prohibits automated access, I will tell you that instead of building it.",
+      },
+      {
+        q: "Can you pull reports without an account?",
+        a: "No. Bypassing paid access or reselling report data is not something I will build, whatever the offer. If someone tells you they can, what they are describing is either a licence violation or a service that will stop working the first time it is noticed.",
+      },
+      {
+        q: "How many VINs can it process in a run?",
+        a: "The real limit is your report allowance, not the software. Several hundred in an overnight run is routine and well within what a dealer plan typically permits. The build paces itself to stay inside your allowance and stops rather than overrunning it, and tells you how many credits a run consumed.",
+      },
+      {
+        q: "Can it use the AutoCheck API instead of the browser?",
+        a: "If you hold an API or enterprise-tier agreement with Experian, yes, and it is the better build — faster, cleaner and it does not break when a page is redesigned. Say so up front and the shape of the job changes. Most dealer subscriptions are not API tier, which is why the browser-session build exists.",
+      },
+      {
+        q: "Can you pull Carfax at the same time?",
+        a: "Yes, and for anyone running volume that is the version worth having, because the two draw on overlapping but different sources and a record on one can be missing from the other. One row per VIN with both sets of fields side by side is the most useful output this produces. See the Carfax page for that half.",
+      },
+      {
+        q: "What does AutoCheck automation cost?",
+        a: "A batch puller against your own account, delivering a parsed spreadsheet, typically lands between $400 and $900 depending on how many fields you want extracted and whether it runs on a schedule. Adding Carfax alongside it, or joining the output to auction data, runs higher. Fixed quote within 24 hours of you describing the run.",
+      },
+    ],
+    pillar: "vehicle-history-reports",
+    siblings: ["carfax-scraper", "manheim-mmr-scraper", "adesa-scraper"],
+  },
+
+  {
+    slug: "carfax-scraper",
+    site: "Carfax",
+    emoji: "📑",
+    color: "#fb7185",
+    h1: "Carfax Report Automation — Bulk Vehicle History by VIN",
+    metaTitle: "Carfax Scraper — Bulk Carfax Reports by VIN, Automated",
+    metaDesc:
+      "Run a whole VIN list through your own Carfax dealer account and get accidents, service records, owner count and title brands as spreadsheet columns instead of PDFs.",
+    keywords: ["carfax scraper", "carfax report by vin", "vin carfax report", "carfax report automation", "bulk carfax reports", "carfax api alternative", "automate carfax lookups"],
+    tagline: "The service history is the reason you buy Carfax. It is also the reason nobody reads all of them.",
+    what:
+      "Carfax is the vehicle history report most US consumers have heard of, and the one a retail buyer is most likely to ask for by name. It covers title records and brands, reported accidents with severity and damage location, odometer readings, owner count and use type — and, its real differentiator, a deep record of routine service and maintenance events reported by dealerships and service chains.",
+    why:
+      "Service history is the field that changes an appraisal, and it is the field that is worst suited to being read one report at a time. Whether a car has a documented maintenance record or a five-year gap is a genuine value difference, and it is buried in prose halfway down a document. As columns it sorts; as PDFs it does not. Dealers also need Carfax at the retail end, because a customer who asks for one and is shown an AutoCheck instead reads it as evasion, whatever the reports actually say.",
+    fields: [
+      "VIN, year, make, model and trim as reported",
+      "Accident and damage records with date, severity and damage location",
+      "Service and maintenance events with date, mileage and servicing dealer",
+      "Every title record with state, date and type",
+      "Title brands: salvage, flood, lemon, rebuilt, odometer problem",
+      "Odometer readings at each event, with rollback indicators",
+      "Owner count and length of each ownership period",
+      "Use type — personal, lease, rental, fleet, commercial",
+      "Open recall status where reported",
+      "Report pull date, so a stale row is visible as stale",
+    ],
+    defenses:
+      "Same shape as AutoCheck: this is session and parsing work rather than an anti-bot fight, because the reports sit behind an account you pay for. The build drives your own authenticated dealer session, paces itself inside your report allowance, and handles the layout properly — Carfax reports vary a lot in length, since a car with sixty service events and a car with two produce very different documents. The service-record section is the fiddly one and the one most worth getting right, because that is the data you are paying Carfax for.",
+    uses: [
+      "Sort an inventory by documented service history before pricing it",
+      "Flag every branded title and reported accident in a run list at once",
+      "Find the cars with a multi-year gap in maintenance records",
+      "Attach accident severity and damage location to your appraisal sheet",
+      "Cross-check Carfax against AutoCheck and surface only the disagreements",
+      "Keep a dated history snapshot per VIN alongside your inventory feed",
+    ],
+    faqs: [
+      {
+        q: "Do I need my own Carfax dealer account?",
+        a: "Yes. This automates a subscription you already hold and spends the report allowance you already pay for. It is not a way to obtain Carfax reports without a subscription, and there is no version of this that is.",
+      },
+      {
+        q: "Is automating my own Carfax account allowed?",
+        a: "Read your agreement — that is the honest answer, and it is worth ten minutes. Provider terms cover pull volumes, permitted use, and they explicitly forbid redistributing or reselling report data. Automating retrieval for your own internal use, within an allowance you pay for, is a different thing from reselling. If your specific contract prohibits automated access, I will say so rather than build it.",
+      },
+      {
+        q: "Does Carfax have an API?",
+        a: "Carfax offers data integrations to partners and to dealers on the right tier, and where you have one it is the better route by a distance — faster, more stable, and it does not care when a page is redesigned. Most standard dealer subscriptions do not include it, which is why the browser-session build is what most people end up with. Tell me which tier you are on before anything gets quoted.",
+      },
+      {
+        q: "Carfax or AutoCheck — which should I automate?",
+        a: "Both, if you run volume, and the reason is that they draw on overlapping but different sources, so a record present on one can be genuinely missing from the other. If you have to pick one: AutoCheck if you buy at auction and want the Score for triage, Carfax if service history and retail-facing credibility matter more. There is a fuller comparison in the AutoCheck vs Carfax guide.",
+      },
+      {
+        q: "How many VINs per run?",
+        a: "Bounded by your report allowance rather than by the software. Several hundred overnight is normal. The build stays inside your allowance, stops rather than overrunning it, and reports how many credits each run used.",
+      },
+      {
+        q: "What does Carfax automation cost?",
+        a: "A batch puller against your own account with a parsed spreadsheet out typically runs $400 to $900, depending on field depth and whether it runs on a schedule. Running Carfax and AutoCheck together and reconciling them is a larger build. Fixed quote within 24 hours.",
+      },
+    ],
+    pillar: "vehicle-history-reports",
+    siblings: ["autocheck-scraper", "autotrader-scraper", "carmax-scraper"],
+  },
+
+  {
+    slug: "autonation-scraper",
+    site: "AutoNation",
+    emoji: "🏢",
+    color: "#60a5fa",
+    h1: "AutoNation Inventory Scraper — Dealer Group Listing Data",
+    metaTitle: "AutoNation Scraper — Dealer Group Inventory Data Extraction",
+    metaDesc:
+      "Track AutoNation's published inventory across every rooftop — VIN, price, mileage, trim, store and days listed — in one refreshed spreadsheet. Works for any dealer group.",
+    keywords: ["autonation scraper", "autonation inventory data", "dealer group inventory scraper", "dealer group scraping", "scrape dealership website inventory", "multi rooftop inventory data", "automotive group listing data"],
+    tagline: "A national group's whole lot, every rooftop, in one sheet that updates while you sleep.",
+    what:
+      "AutoNation is one of the largest automotive retailers in the United States, running hundreds of rooftops under a single group and publishing its used and new inventory online, store by store. The same is true of every large group — Penske, Lithia, Group 1, Sonic, Hendrick and the rest. Each publishes VIN, asking price, mileage, trim, options and photos on public listing pages, and each is the clearest available picture of what a major retailer is asking, where, today.",
+    why:
+      "Group inventory is the sharpest competitive signal in retail automotive, because a national group prices deliberately and adjusts fast. Independent dealers watch it to price against a competitor who has already done the analysis. Wholesalers watch it to see which trims a group is loading up on before those cars hit the lanes as trades. Vendors and analysts watch it to size a market. The problem is always the same: the data is public but it is spread across hundreds of store pages with no way to see it as one table.",
+    fields: [
+      "VIN, year, make, model and trim",
+      "Asking price, plus every price change seen since first capture",
+      "Mileage, exterior and interior colour, drivetrain and transmission",
+      "Rooftop or store name, city, state and ZIP",
+      "Stock number and listing URL",
+      "New, used or certified pre-owned status",
+      "Days listed and first-seen date",
+      "Full option and package list where published",
+      "All photo URLs",
+      "Disappearance date, which is the closest public proxy for a sale",
+    ],
+    defenses:
+      "Dealer group sites are usually built on one of a handful of website platforms — Dealer.com, DealerOn, Dealer Inspire, Sincro and a few others — which is genuinely good news, because a build that handles the platform handles every rooftop on it and every other group using it. The practical obstacles are pagination that caps result depth per store, inventory loaded through JavaScript after the page renders, and rate limiting on rapid paging. The build works store by store rather than group-wide, segments deep result sets so nothing is silently dropped past the cap, and paces requests to stay civil.",
+    uses: [
+      "Price your inventory against a national group's live asking prices",
+      "Watch a competitor's rooftop and get alerted on every price cut",
+      "Measure days-to-turn by trim from listing appearance and disappearance",
+      "See which trims a group is stocking heavily before those trades reach auction",
+      "Compare the same vehicle's price across a group's stores in different states",
+      "Feed a valuation model with retail asking prices as well as wholesale data",
+    ],
+    faqs: [
+      {
+        q: "Does this work for dealer groups other than AutoNation?",
+        a: "Yes, and that is usually how the job actually gets specified. Most large groups run on the same handful of dealer website platforms, so a build that reads one group reads the others with configuration rather than a rewrite. Name the groups you care about and they get covered together — this page is titled for AutoNation because that is what people search for.",
+      },
+      {
+        q: "Can it cover a single rooftop instead of a whole group?",
+        a: "Yes, and it is cheaper. One competitor's store, refreshed daily with alerts on price changes, is one of the most common versions of this job and one of the most useful for an independent dealer.",
+      },
+      {
+        q: "Is scraping dealer inventory legal?",
+        a: "Collecting publicly visible listing data is generally lawful in the United States, and US appellate courts have repeatedly held that reading public pages is not unauthorised access. I keep request rates civil, stay off anything behind a login, and do not collect personal data about private sellers or staff. If a specific request looks like a problem I will say so before you pay.",
+      },
+      {
+        q: "How do I know when a car sold?",
+        a: "You do not, precisely — no public source publishes that. What you get is the date the listing stopped appearing, which is the standard proxy and is good enough for days-to-turn analysis in aggregate. It cannot distinguish a sale from a transfer to another rooftop or a listing pulled for reconditioning, and any tool that claims otherwise is guessing.",
+      },
+      {
+        q: "How often does it refresh?",
+        a: "Daily overnight is standard and is what pricing work needs. More frequent runs make sense for a narrow watch list — a specific competitor, a specific model — and cost more because they mean more requests and more infrastructure.",
+      },
+      {
+        q: "What does a dealer group scraper cost?",
+        a: "A single rooftop or a small group with a daily refresh typically runs $300 to $700. Full national coverage across hundreds of rooftops with price history and roll-ups by region runs higher. Fixed quote within 24 hours of you naming the groups and the fields.",
+      },
+    ],
+    pillar: "dealer-inventory-scraping",
+    siblings: ["carmax-scraper", "autotrader-scraper", "cars-com-scraper"],
+  },
+
+  {
+    slug: "otomoto-scraper",
+    site: "Otomoto",
+    emoji: "🇵🇱",
+    color: "#34d399",
+    metaTitle: "Otomoto Scraper — Polish Car Listing Data Extraction",
+    metaDesc:
+      "Custom Otomoto scraper pulling every matching Polish and Central European listing — price, mileage, VIN where shown, dealer and photos — into one clean spreadsheet.",
+    keywords: ["otomoto scraper", "otomoto data extraction", "scrape otomoto listings", "polish car listings data", "otomoto api alternative", "central europe car market data"],
+    tagline: "The Polish market as rows — which is where a lot of Western European used stock quietly comes from.",
+    what:
+      "Otomoto is Poland's dominant vehicle marketplace and one of the largest in Central Europe, carrying listings from dealers, importers and private sellers. It publishes asking price, mileage, first registration date, fuel type, transmission, damage declarations and seller identity, and for a sizeable share of listings the VIN as well.",
+    why:
+      "Poland is a major source and transit market for used vehicles moving across Europe, so Otomoto pricing is a leading indicator for stock that later surfaces in Germany, the Netherlands and the UK. Traders use it to find arbitrage against their home market. Importers use it to size supply of a specific model before committing. Analysts use it because Central European price data is thin elsewhere and Otomoto is the deepest public source of it.",
+    fields: [
+      "Make, model, generation, version and trim",
+      "Asking price and currency, plus price changes since first capture",
+      "Mileage, first registration date and model year",
+      "Fuel type, engine capacity, power and transmission",
+      "VIN where the seller has published it",
+      "Damage and accident declarations as stated by the seller",
+      "Seller type — dealer, importer or private — plus location and region",
+      "Listing age, listing URL and all photo URLs",
+      "Imported-vehicle and first-owner flags where declared",
+    ],
+    defenses:
+      "Otomoto renders search results through JavaScript, rate-limits fast paging, and caps how deep a single search can go — the usual set. The build uses a real browser engine, paces requests, and slices searches by make, model, price band and region so the cap is never the thing that decides what you receive. One genuine extra: listings are in Polish, and the field values need normalising to be joinable against anything else, so fuel types, transmission types and damage declarations get mapped to consistent English values rather than handed over raw.",
+    uses: [
+      "Compare Polish asking prices against your home market for arbitrage",
+      "Size available supply of a specific model before committing to import",
+      "Track how quickly a model's price moves across Central Europe",
+      "Identify dealers and importers who consistently list the stock you want",
+      "Feed a valuation model with a market most competitors have no data on",
+      "Watch declared-damage listings as a separate segment with its own pricing",
+    ],
+    faqs: [
+      {
+        q: "Can it handle Polish-language fields?",
+        a: "Yes, and it should — raw Polish values are not joinable against anything else you hold. Fuel types, transmission types, body styles and damage declarations are normalised to consistent English values, with the original preserved in its own column so nothing is lost in translation.",
+      },
+      {
+        q: "Does every listing have a VIN?",
+        a: "No. A good share do, mostly dealer listings, but plenty do not and there is no way to recover one that was never published. VIN is a column that is populated where it exists and empty where it does not, rather than guessed.",
+      },
+      {
+        q: "Can you scrape other European marketplaces at the same time?",
+        a: "Yes, and cross-market comparison is usually the actual goal. AutoScout24, Mobile.de and the national marketplaces can be pulled alongside Otomoto and normalised into one schema, which is a multi-source build rather than a single scrape and is quoted accordingly.",
+      },
+      {
+        q: "How often can it refresh?",
+        a: "Daily is standard for market tracking. A defined watch list — one model, one price band — can run more frequently with alerts when something is listed below your threshold.",
+      },
+      {
+        q: "What does an Otomoto scraper cost?",
+        a: "A one-off extract across defined filters typically runs $250 to $600. An ongoing daily feed with price history and normalisation is usually $400 to $900. Adding other European marketplaces to the same schema runs higher. Fixed quote within 24 hours.",
+      },
+    ],
+    pillar: "dealer-inventory-scraping",
+    siblings: ["autoscout24-scraper", "carsales-scraper", "cargurus-scraper"],
+  },
+
 ];
 
 export const scraperBySlug = slug => scrapers.find(s => s.slug === slug);

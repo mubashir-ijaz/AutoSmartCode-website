@@ -1,7 +1,7 @@
 # AutoSmartCode — full site content
 
 Source: https://www.autosmartcode.com
-Generated: 2026-08-06
+Generated: 2026-08-23
 
 Web scraping, automation, data pipelines and web development for US
 businesses. One developer-led studio. Contact: sam@autosmartcode.com
@@ -28,6 +28,10 @@ Excel (.xlsx), CSV, JSON, Google Sheets, a direct database write (MySQL or Postg
 
 Yes. Sites with rate limiting, fingerprinting, JavaScript rendering or an account wall are routine work here. Where a login is involved I use credentials you own and are entitled to use.
 
+### The auction or marketplace I use isn't one you list. Can you still do it?
+
+Almost certainly. Manheim, ADESA and ACV are the platforms that get written about, but most dealers and wholesalers buy on a portal nobody outside their region has heard of — a private dealer-only marketplace, a regional auction's own site, a lender's repo portal, an in-house system with a listings module bolted on. The mechanics do not change with the logo, and an obscure portal is usually easier to work with than a famous one because nobody has ever bothered to defend it. Send me the name and a screenshot or two of the screens you use, and you will have a straight answer within a day — including if the answer is that it is not worth doing.
+
 ### Do I need to know how to code?
 
 No. You describe the website and the details you want in plain English. You get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal or touch a line of code.
@@ -51,9 +55,9 @@ Me. AutoSmartCode is one developer, not an agency — the person who writes your
 ## Car Auction Automation for Dealers and Wholesalers
 
 URL: https://www.autosmartcode.com/services/car-auction-automation
-Keywords: car auction automation, manheim mmr automation, adesa auction data, backlotcars scraper, autoniq automation, wholesale car buying software, auction deal finder
+Keywords: car auction automation, manheim mmr automation, adesa auction data, acv auctions data, backlotcars scraper, autoniq automation, dealer marketplace automation, private auction portal scraper, wholesale car buying software, auction deal finder
 
-Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it.
+Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it — whichever platforms those six tabs happen to be.
 
 ### What car auction automation actually does
 
@@ -62,15 +66,22 @@ A car auction automation system logs into the auction platforms you already have
 The work it removes is the work nobody wants: opening Manheim, then ADESA, then BacklotCars, then Autoniq, filtering each one by hand, copying VINs into a spreadsheet, and pulling condition reports one at a time. That routine takes a buyer three to four hours a day and it still misses cars, because the profitable ones move before anyone gets to the fourth tab.
 ### Auction platforms this covers
 
-Every platform below is one I have built against for a paying dealer, using the dealer's own licensed account. Anything not on this list is usually still doable — the pattern is the same, only the login and the page structure change.
+The platforms below are ones I have built against for a paying dealer, using the dealer's own licensed account. Treat the list as examples rather than as a menu — the mechanics do not change with the logo, only the login and the page structure do.
 
 - Manheim and Manheim MMR — run lists, live pricing, MMR market values
 - ADESA — listings, condition grades, sale calendars
-- BacklotCars — inventory, buy-now pricing, offer history
+- ACV Auctions — live lots, inspection reports, announced damage
+- BacklotCars and OPENLANE — inventory, buy-now pricing, offer history
+- SmartAuction — off-lease and repossessed remarketing inventory
+- EDGE Pipeline and Simulcast — the independent auctions in your region
 - Autoniq — VIN scan data and valuation lookups
-- EdgePipeline and ACV — listings and condition reports
 - Copart and IAA — salvage and total-loss listings
 - Facebook Marketplace, Craigslist and OfferUp — private-party sourcing
+### The platform you actually buy on
+
+Most of the trade does not live on the platforms that get written about. Every dealer group, wholesaler, rental remarketer, fleet operator and captive lender runs its own portal, and a working buyer's day is usually spent inside two or three of them that no article has ever mentioned — a closed dealer-only marketplace, a lender's repo portal, a manufacturer's closed sale, a wholesaler's private inventory board, an in-house system with a listings module bolted on.
+
+The most common reason a dealer decides this is not for them is looking at a supported-platform list, not seeing theirs, and assuming it cannot be done. That assumption is nearly always wrong, and an obscure portal is usually easier to work with than a famous one, because nobody has ever bothered to defend it. Send me the name and a couple of screenshots of the screens you use, and you will know within a day whether it is straightforward, awkward, or genuinely not worth doing.
 ### The arithmetic it does for you
 
 Pulling the listings is the easy half. The half that makes money is the scoring: for each vehicle, the system takes the auction price, adds your transport, recon and fee assumptions, compares that landed cost against MMR or your own retail comps, and drops anything that does not clear the margin you set.
@@ -103,6 +114,14 @@ Where a platform publishes an official API or data feed, that is what the build 
 
 Yes. The system automates the account you already hold and are licensed to use — it does not create access you do not have, and I do not share credentials between clients. If you have a dealer login, that is all it needs.
 
+**My auction platform is not on your list. Can you still automate it?**
+
+Almost certainly. Most dealers and wholesalers buy on a portal nobody outside their region has heard of — a private marketplace, a regional auction's own site, a lender's repo portal, an in-house system. If you can log into it, it can usually be automated, and obscure portals are typically easier than the big ones. Send me the name and a screenshot or two and you will have a straight answer within a day.
+
+**Can it read several platforms into one list?**
+
+That is the shape of most builds. Two or three platforms, one normalised schema, one ranked email with a platform column, and the same VIN appearing on two sources reconciled rather than duplicated — so you are comparing cars instead of comparing tabs.
+
 **How much does a car auction automation system cost?**
 
 A single-platform build with daily email delivery typically lands between $600 and $1,500 depending on how many sites and how much scoring logic is involved. Multi-platform pipelines with MMR reconciliation run higher. Recurring systems are quoted as a build fee plus a small monthly amount that covers hosting and fixes.
@@ -125,7 +144,7 @@ I do not build automated bidding. Most auction platforms prohibit it outright, a
 ## Vehicle History Report Automation — Carfax, AutoCheck and VIN Data
 
 URL: https://www.autosmartcode.com/services/vehicle-history-reports
-Keywords: carfax report automation, autocheck report, car history report, vehicle history report api, bulk vin decoder, vin lookup automation, vin history data
+Keywords: vehicle history report automation, car history report, vehicle history report api, bulk vin decoder, vin lookup automation, vin history data, vin decoding at scale
 
 One VIN at a time is fine for one car. For a 400-car run list it is a lost afternoon — and the reports end up as 400 PDFs nobody can sort.
 
@@ -340,7 +359,7 @@ Yes. HubSpot, Pipedrive, Salesforce, Close, Airtable and Notion are all straight
 ## Web Scraping Services for US, UK & International Businesses
 
 URL: https://www.autosmartcode.com/services/web-scraping
-Keywords: web scraping services, data extraction services, custom web scraper development, hire a web scraping developer, price monitoring scraper, ecommerce data scraping, web scraping company usa
+Keywords: custom web scraping services, web scraping services, data extraction services, custom web scraper development, hire a web scraping developer, price monitoring scraper, ecommerce data scraping, web scraping company usa, web scraping service cost
 
 If the data is on a website, it can be in your spreadsheet. Usually within the week, always for a price agreed before anything starts.
 
@@ -1237,6 +1256,325 @@ Listing extraction with scoring typically runs $600 to $1,200. Adding condition 
 
 ---
 
+## ACV Auctions Scraper
+
+URL: https://www.autosmartcode.com/acv-auctions-scraper
+Keywords: acv auctions scraper, acv auction data, acv condition report data, acv auctions automation, wholesale auction data extraction
+
+Twenty-minute auctions do not wait for a buyer to finish scrolling. This has the shortlist ready before the first one opens.
+
+### What ACV Auctions is, and why the data matters
+
+ACV Auctions is a dealer-only digital wholesale marketplace that runs short live auctions on cars inspected by its own field team. The inspection is the product — a structured condition report with tyre depths, paint meter readings, announced damage, an engine audio recording and undercarriage photos — which makes ACV one of the few wholesale sources where the condition data is consistent enough to compute recon from directly.
+
+The format is the problem. An ACV auction runs for about twenty minutes, and there are hundreds of them a day. A buyer who works the app by hand sees whatever happened to be on screen when they looked, not the cars that best fit the buy box. Reading the full listing set on a schedule and scoring it against your numbers turns a reaction game into a plan.
+
+### Fields extracted
+
+- VIN with full decode, year, make, model and trim
+- Mileage, exterior and interior colour, drivetrain
+- Condition report score and every announced defect
+- Tyre tread depths and paint meter readings where captured
+- Damage items with estimated recon cost
+- Title status and brand announcements
+- Seller name, seller type and location
+- Current bid, buy-now price, floor indication and time remaining
+- All inspection photo URLs and the engine audio link
+
+### Getting past ACV Auctions's defences
+
+ACV is app-first. Most of what a buyer sees is delivered through an authenticated JSON API rather than rendered HTML, sessions are short-lived, and listings appear and disappear inside a twenty-minute window. The build drives your own licensed dealer session against the same endpoints the app uses, refreshes tokens cleanly rather than re-authenticating in a loop, and polls on a cadence tuned to the auction length so nothing closes between two reads.
+
+### Uses
+
+- Score every live ACV lot against your buy box automatically
+- Turn condition report defects into an estimated recon figure per car
+- Get alerted the moment a matching car opens, with the numbers attached
+- Reconcile ACV lots against Manheim MMR on the same VIN
+- Track which sellers consistently bring clean cars
+- Build a history of what actually sold and at what spread
+
+### Questions
+
+**Do I need my own ACV dealer account?**
+
+Yes. The automation drives the licensed dealer session you already hold — it does not create access you do not have, and I do not share credentials between clients. Without a dealer login there is no version of this that works.
+
+**Can it read the full condition report, not just the listing?**
+
+Yes, and that is where the value sits. Announced damage, tyre depths and paint readings are what turn a bid price into a landed cost. They are pulled in a paced second pass so the volume does not trip rate limits.
+
+**Can it alert me during a live auction?**
+
+Yes. A matching car that opens with time still on the clock triggers an email, Slack or Telegram alert with the scoring already attached, so the decision is a yes or no rather than a research task.
+
+**Can it bid for me?**
+
+No. I do not build automated bidding — most platforms prohibit it outright and the downside of a bug is that you own a car you never wanted. The system finds and ranks; a person decides.
+
+**What does ACV automation cost?**
+
+Listing extraction with buy-box scoring typically runs $600 to $1,200. Adding full condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## Copart Scraper
+
+URL: https://www.autosmartcode.com/copart-scraper
+Keywords: copart scraper, copart data extraction, salvage auction data, copart api alternative, copart lot data
+
+Every lot in every yard that matches your criteria, with damage and title status, hours before the sale.
+
+### What Copart is, and why the data matters
+
+Copart is the largest online salvage and clean-title vehicle auction in the world, running yards across the US, Canada, the UK, Germany, Spain, the UAE and beyond. Each lot page publishes damage type, run-and-drive status, primary and secondary damage, title brand, odometer status, estimated retail value and the yard it sits in — the exact fields a rebuilder or exporter needs before deciding whether a car is worth a bid.
+
+Salvage buying is a volume game played against a clock. Sales run daily across dozens of yards, and the cars worth having are decided by a combination of damage type, title brand and transport distance that no search filter expresses properly. Pulling every matching lot into one table lets you sort by the thing that actually decides the bid — landed cost against parts or resale value — instead of by lot number.
+
+### Fields extracted
+
+- Lot number, VIN and full decode
+- Year, make, model, trim, body style and engine
+- Primary and secondary damage
+- Run-and-drive status and keys present
+- Title type, brand and issuing state
+- Odometer reading and whether it is actual or not actual
+- Estimated retail value and repair cost estimate where published
+- Yard location, sale date, lane and item number
+- Current bid, buy-it-now price and all photo URLs
+
+### Getting past Copart's defences
+
+Copart serves its search results through an internal JSON endpoint behind aggressive bot detection, caps how deep a single filtered search will page, and varies both markup and available fields by country site. The build runs a real browser session to establish trust, then reads the same endpoints the site uses, and slices searches by yard, sale date and damage type so no single query hits the depth cap and nothing goes missing from the middle of a result set.
+
+### Uses
+
+- Find every rebuildable lot in a transport radius, ranked by margin
+- Filter to run-and-drive cars with clean titles across all yards at once
+- Feed an export pipeline with lots that meet a destination market's rules
+- Track what a given model actually sells for at salvage over time
+- Spot parts cars where the component you need is undamaged
+- Get a daily email of matching lots before the sale opens
+
+### Questions
+
+**Do I need a Copart membership?**
+
+For the public lot data, no — a great deal of it is visible without an account. For member-only pricing, bidding history and restricted lots, yes, and the automation would drive your own licensed session rather than create access you do not have.
+
+**Can it cover more than one country?**
+
+Yes. Copart's country sites differ in markup, currency and available fields, so each one is handled with its own parser and the output is normalised into a single schema — one table with a country column rather than six separate exports.
+
+**Can it track what lots actually sold for?**
+
+Where sold prices are published to your account level, yes, and building that history is usually the highest-value part of the job. Knowing what a damage type on a given model really fetches is what makes the next bid a calculation instead of a guess.
+
+**Is scraping Copart legal?**
+
+Reading publicly visible lot data is generally lawful, and US appellate courts have repeatedly held that reading public pages is not unauthorised access. I keep request rates civil and stay off anything behind a login unless it is your own account. If a specific request looks like a problem I will say so before you pay.
+
+**What does a Copart scraper cost?**
+
+A filtered daily feed across selected yards typically runs $400 to $900. Full multi-country coverage with sold-price history runs higher. You get a fixed quote within 24 hours of telling me the filters and fields you want.
+
+
+---
+
+## EDGE Pipeline Scraper
+
+URL: https://www.autosmartcode.com/edge-pipeline-scraper
+Keywords: edge pipeline scraper, auction edge data, independent auction run list, edge simulcast automation, auctionedge scraper
+
+The independent auctions you actually buy at, read together, in one list, ranked by margin.
+
+### What EDGE Pipeline is, and why the data matters
+
+EDGE Pipeline is the platform a large share of North America's independent auto auctions run their pre-sale listings and simulcast bidding on. Each auction keeps its own identity, its own sale calendar and its own consignors, but the underlying run lists, condition notes and lane data are published through a common system — which is why one build can cover a dozen independent houses that would otherwise each need their own.
+
+Not every dealer buys at Manheim. Plenty of the best margin sits at regional independents, where the competition is thinner and the cars are local. The catch is that following six independent auctions means six logins, six sale calendars and six run lists in six different formats every week. Reading them through one pipeline collapses that into a single ranked list, and makes the small auction as easy to work as the national one.
+
+### Fields extracted
+
+- Auction house, sale name, sale date, lane and run number
+- VIN with full decode
+- Year, make, model, trim, mileage and colour
+- Announcements, condition notes and grade where published
+- Title status and brand announcements
+- Consignor and seller type
+- Starting bid, reserve indication and buy-now price where offered
+- Simulcast timing so you know when a lot actually runs
+- Photo URLs and listing link back to the auction
+
+### Getting past EDGE Pipeline's defences
+
+Each auction house configures its own EDGE instance, so field names, optional columns and sale-calendar structure vary between houses even though the platform is shared. Sessions are authenticated per auction and expire quickly. The build handles one session per auction account you hold, maps each house's local field naming into a single normalised schema, and reconciles the same VIN appearing at two houses so a car is not counted twice in your shortlist.
+
+### Uses
+
+- Work six independent auctions from one ranked email
+- Compare a regional sale against Manheim MMR before you drive there
+- Spot lanes where a model consistently runs under market
+- Catch the small houses your competitors never bother to check
+- Track which consignors bring cars worth bidding on
+- Plan the week's buying from one calendar instead of six
+
+### Questions
+
+**Does this work for my local auction specifically?**
+
+If your auction publishes run lists through EDGE Pipeline or Simulcast, yes. If it runs its own in-house site instead, it is still almost always doable — the pattern is identical, only the login and page structure change. Send me the auction and I will tell you straight away.
+
+**Can it cover several auction houses at once?**
+
+That is the usual reason people ask. One build, one session per auction account you hold, and one normalised output where the auction house is just a column. Same VIN appearing at two houses gets reconciled rather than duplicated.
+
+**Do I need an account at each auction?**
+
+Yes. The automation drives licensed sessions you already hold at each house — it does not create access you do not have, and I do not share credentials between clients.
+
+**Can it score independent auction lots against MMR?**
+
+Yes, and it is the point of the exercise. Regional run lists joined against Manheim MMR on VIN gives you the spread per lot directly, which is what tells you whether the drive to a smaller sale is worth making.
+
+**What does this cost?**
+
+One auction house with run-list extraction and scoring typically runs $600 to $1,200. Each additional house on the same platform is a fraction of that, because the parser is already built. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## SmartAuction Scraper
+
+URL: https://www.autosmartcode.com/smartauction-scraper
+Keywords: smartauction scraper, ally smartauction data, off lease vehicle data, remarketing platform scraper, smartauction automation
+
+Off-lease cars come back on a schedule. Knowing which ones fit your lot should not take an hour a day.
+
+### What SmartAuction is, and why the data matters
+
+SmartAuction is Ally's online wholesale marketplace, used to remarket off-lease and repossessed vehicles to franchise and independent dealers. Its inventory has a character the open auctions do not: single-owner lease returns with known service history and predictable equipment, listed with condition reports and buy-now pricing rather than sold through a live lane.
+
+Off-lease supply is the cleanest wholesale inventory most dealers can get, and it is priced to move rather than bid up. The difficulty is that listings appear continuously rather than on a sale calendar, so the good ones are found by whoever checks most often. A system that reads the whole listing set several times a day and applies your buy box removes the checking, and the cars that fit arrive in your inbox instead.
+
+### Fields extracted
+
+- VIN with full decode, year, make, model and trim
+- Mileage, colour, drivetrain and full equipment list
+- Condition report grade and announced damage items
+- Estimated reconditioning cost where published
+- Title status and any brand announcement
+- Buy-now price, current offer and time remaining
+- Vehicle location, transport distance from your rooftop
+- Grounding dealer and lease return context where shown
+- Condition report photo URLs
+
+### Getting past SmartAuction's defences
+
+SmartAuction runs behind an authenticated dealer session with short token lifetimes and serves listings through internal endpoints that rate-limit separately from the condition reports. The build drives your own licensed session with proper token lifecycle handling, pulls condition reports in a paced second pass, and polls listings on a cadence frequent enough to catch new inventory without generating traffic that looks unlike a heavy human user.
+
+### Uses
+
+- Catch matching off-lease cars within minutes of them listing
+- Rank buy-now inventory by margin after transport and recon
+- Compare SmartAuction pricing against MMR on the same VIN
+- Filter to single-owner lease returns inside a transport radius
+- Track how long particular models sit before the price moves
+- Feed matching stock straight into your DMS or inventory sheet
+
+### Questions
+
+**Do I need my own SmartAuction dealer account?**
+
+Yes. The automation drives the licensed session you already hold — it does not create access you do not have, and I do not share credentials between clients.
+
+**How quickly can it spot new listings?**
+
+Polling every fifteen to thirty minutes is typical and catches almost everything worth catching. Tighter than that is possible for a narrow watch list, and costs more because it means more requests and more infrastructure.
+
+**Can it work alongside my other auction platforms?**
+
+Yes, and most builds do. SmartAuction, Manheim, ADESA and whatever regional houses you use all land in one ranked list with a platform column, so you are comparing cars rather than comparing tabs.
+
+**Can it buy automatically at the buy-now price?**
+
+No. I do not build automated purchasing or bidding — the platforms generally prohibit it and the downside of a bug is that you own a car you never wanted. The system finds and ranks; a person clicks buy.
+
+**What does SmartAuction automation cost?**
+
+Listing extraction with buy-box scoring and alerting typically runs $600 to $1,200. Adding condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+
+
+---
+
+## Private Dealer Marketplace & Auction Portal Scraping
+
+URL: https://www.autosmartcode.com/dealer-marketplace-scraper
+Keywords: dealer marketplace scraper, private auction portal scraper, dealer only marketplace data, custom auction site scraper, wholesale marketplace automation, closed dealer portal automation
+
+If you can log into it, it can be automated — even if I have never heard of it before today.
+
+### What Dealer Marketplace is, and why the data matters
+
+Manheim, ADESA and ACV are the platforms that get written about. They are not the platforms most of the trade actually lives on. Every dealer group, wholesaler, rental remarketer, fleet operator, captive lender and regional auction house runs its own portal, and a working buyer's day is usually spent inside two or three of them that no article has ever mentioned — a closed dealer-only marketplace, a lender's repo portal, a manufacturer's closed sale, a wholesaler's private inventory board, an in-house DMS with a listings module bolted on.
+
+The single most common reason a dealer decides automation is not for them is that they look at a list of supported platforms, do not see theirs, and assume it cannot be done. That assumption is almost always wrong. The mechanics do not change with the logo: authenticate, read the listing set, pull the detail pages, normalise the fields, score against your numbers, deliver. A platform being obscure makes it easier to work with, not harder — obscure portals rarely carry serious bot defences, because nobody has ever tried.
+
+### Fields extracted
+
+- Whatever the platform publishes — the field list is taken from your screens, not from a template
+- VIN and full decode, added even where the platform does not show it
+- Year, make, model, trim, mileage and colour
+- Asking, buy-now, current bid or floor price, whichever the platform uses
+- Condition grades, announcements and damage detail as published
+- Title status and brand announcements
+- Seller, consignor, location and transport distance
+- Sale timing — calendar, lane and run order, or listing age for open marketplaces
+- Photos, documents and condition report attachments
+
+### Getting past Dealer Marketplace's defences
+
+Private portals vary far more than public sites. Some are modern single-page apps with a clean internal API; some are fifteen-year-old server-rendered systems with session cookies that expire on a timer and no stable element IDs. A few sit behind IP allowlists or two-factor. Each one gets looked at before anything is quoted, so you are told what is straightforward, what is awkward and what is genuinely not worth doing — before you pay rather than after.
+
+### Uses
+
+- Automate the portal your business actually runs on, not the famous one
+- Merge a private marketplace with Manheim or ADESA into one ranked list
+- Score a wholesaler's private inventory board against MMR every morning
+- Pull a lender's repo listings into your buy-box pipeline
+- Read a manufacturer's closed sale before your competitors open the email
+- Get an in-house DMS to hand over its data without waiting on a vendor
+
+### Questions
+
+**My platform is not on your list. Can you still do it?**
+
+Almost certainly. Send me the name and, if you are comfortable, a couple of screenshots of the screens you use. I will tell you within a day whether it is straightforward, awkward or not worth doing — and I will say the third one out loud when it is true, because a build that fights the platform every week is not worth your money or my time.
+
+**It is behind a login. Does that make it impossible?**
+
+No, it makes it normal. Most of the auction and wholesale work I do runs on authenticated sessions using the client's own licensed account. What matters is that the access is yours and you are entitled to use it — the automation drives the same session your buyer would have opened anyway.
+
+**How do you handle two-factor authentication?**
+
+Several ways, depending on the platform. Long-lived sessions that only re-authenticate occasionally, an app-based TOTP secret held on your infrastructure, or a one-time morning approval that unlocks the day's run. If a platform enforces per-request 2FA there is no honest way around it and I will tell you so.
+
+**Can it combine several platforms into one output?**
+
+That is the shape of most builds. Two or three portals, one normalised schema, one ranked list with a platform column, same VIN across sources reconciled instead of duplicated. Comparing cars rather than comparing tabs is the entire point.
+
+**How much does automating a private portal cost?**
+
+A single portal with listing extraction, buy-box scoring and daily delivery typically runs $600 to $1,500 depending on how awkward the platform is. Additional platforms on the same pipeline cost less than the first. You get a fixed quote within 24 hours of showing me the screens.
+
+**What if the platform changes and it breaks?**
+
+It will eventually, like every scraper does — the difference is you find out from an alert the same morning rather than from three quiet days of no deals. Fixes on systems I built are part of the arrangement, not a new project.
+
+
+---
+
 ## eBay Scraper
 
 URL: https://www.autosmartcode.com/ebay-scraper
@@ -1423,6 +1761,277 @@ Yes, and matched on UPC or brand plus model, that is the most useful version —
 **What does a Walmart scraper cost?**
 
 A one-off multi-keyword extract typically runs $250 to $600. An ongoing daily monitor with alerts is usually $400 to $900 plus a small monthly amount. Fixed quote within 24 hours.
+
+
+---
+
+## AutoCheck Report Automation — Bulk VIN History Pulls
+
+URL: https://www.autosmartcode.com/autocheck-scraper
+Keywords: autocheck scraper, autocheck report automation, bulk autocheck reports, autocheck vin report, autocheck history reports, autocheck api alternative, automate autocheck lookups
+
+Four hundred AutoCheck reports, parsed into four hundred rows, before the sale starts.
+
+### What AutoCheck is, and why the data matters
+
+AutoCheck is Experian's vehicle history report, and it is the one built into the auction platforms — if you buy at Manheim or ADESA it is already in front of you on every listing. It carries title records and brands, odometer readings, reported accidents, use type, auction announcements and owner count, plus the AutoCheck Score: a single comparable number with a range for similar vehicles, which no other mainstream report provides.
+
+The Score is what makes AutoCheck worth automating rather than reading. One number per car, with the peer range beside it, is exactly the shape that sorts — which means a run list can be ranked by relative risk before a buyer opens anything. Read one at a time as prose, that property is wasted; buyers check the ten cars they already liked and skip the rest, and the cars nobody checked are where the surprises are. There is a fuller explanation of what the Score does and does not mean in the guide to AutoCheck reports.
+
+### Fields extracted
+
+- VIN, year, make, model and trim as reported
+- AutoCheck Score and the comparison range for similar vehicles
+- Every title record — state, date and type — in sequence
+- Title brands: salvage, flood, junk, lemon, rebuilt, odometer discrepancy
+- Odometer readings at each recorded event, with rollback flags
+- Reported accident and damage events with dates
+- Use type — personal, lease, rental, fleet, taxi, police, government
+- Auction announcement text, including structural and frame declarations
+- Owner count and estimated length of each ownership period
+- Report pull date, so a stale row is visible as stale
+
+### Getting past AutoCheck's defences
+
+This is not an anti-bot problem, and pretending otherwise would be the wrong build. AutoCheck reports sit behind a paid account, so the work is session handling rather than evasion: driving your own authenticated dealer session reliably, staying inside the report allowance you pay for, pacing requests so the account is never flagged for unusual behaviour, and parsing a report layout that changes shape depending on how much history a vehicle has. The parsing is the hard part — a car with two owners and a car with nine render differently, and a parser that assumes the first will silently drop rows on the second.
+
+### Uses
+
+- Rank a whole run list by Score against its peer range before the sale
+- Flag every branded title in an inventory in one pass
+- Spot odometer sequences that cannot be true across title events
+- Reconcile auction announcements against the history on file
+- Attach history fields to your appraisal sheet automatically
+- Track how a segment's history profile shifts over a buying season
+
+### Questions
+
+**Do I need my own AutoCheck subscription?**
+
+Yes, and that is the point. This drives a dealer account you already hold and spends the report allowance you already pay for — it does not obtain reports any other way. If you do not have a subscription, Experian sells dealer plans with a report allowance, and that is the first thing to sort out. Worth checking first whether you already get AutoCheck inside your auction platform; a lot of dealers pay twice without realising.
+
+**Is automating my own AutoCheck account allowed?**
+
+It depends on your agreement, and you should read it rather than take my word for it. Provider terms generally cover how many reports you may pull, what you may do with them, and explicitly forbid reselling or redistributing report data. Automating retrieval of reports you are entitled to and are paying for, for your own internal use, is a different thing from reselling data — but the specifics are in your contract. If yours prohibits automated access, I will tell you that instead of building it.
+
+**Can you pull reports without an account?**
+
+No. Bypassing paid access or reselling report data is not something I will build, whatever the offer. If someone tells you they can, what they are describing is either a licence violation or a service that will stop working the first time it is noticed.
+
+**How many VINs can it process in a run?**
+
+The real limit is your report allowance, not the software. Several hundred in an overnight run is routine and well within what a dealer plan typically permits. The build paces itself to stay inside your allowance and stops rather than overrunning it, and tells you how many credits a run consumed.
+
+**Can it use the AutoCheck API instead of the browser?**
+
+If you hold an API or enterprise-tier agreement with Experian, yes, and it is the better build — faster, cleaner and it does not break when a page is redesigned. Say so up front and the shape of the job changes. Most dealer subscriptions are not API tier, which is why the browser-session build exists.
+
+**Can you pull Carfax at the same time?**
+
+Yes, and for anyone running volume that is the version worth having, because the two draw on overlapping but different sources and a record on one can be missing from the other. One row per VIN with both sets of fields side by side is the most useful output this produces. See the Carfax page for that half.
+
+**What does AutoCheck automation cost?**
+
+A batch puller against your own account, delivering a parsed spreadsheet, typically lands between $400 and $900 depending on how many fields you want extracted and whether it runs on a schedule. Adding Carfax alongside it, or joining the output to auction data, runs higher. Fixed quote within 24 hours of you describing the run.
+
+
+---
+
+## Carfax Report Automation — Bulk Vehicle History by VIN
+
+URL: https://www.autosmartcode.com/carfax-scraper
+Keywords: carfax scraper, carfax report by vin, vin carfax report, carfax report automation, bulk carfax reports, carfax api alternative, automate carfax lookups
+
+The service history is the reason you buy Carfax. It is also the reason nobody reads all of them.
+
+### What Carfax is, and why the data matters
+
+Carfax is the vehicle history report most US consumers have heard of, and the one a retail buyer is most likely to ask for by name. It covers title records and brands, reported accidents with severity and damage location, odometer readings, owner count and use type — and, its real differentiator, a deep record of routine service and maintenance events reported by dealerships and service chains.
+
+Service history is the field that changes an appraisal, and it is the field that is worst suited to being read one report at a time. Whether a car has a documented maintenance record or a five-year gap is a genuine value difference, and it is buried in prose halfway down a document. As columns it sorts; as PDFs it does not. Dealers also need Carfax at the retail end, because a customer who asks for one and is shown an AutoCheck instead reads it as evasion, whatever the reports actually say.
+
+### Fields extracted
+
+- VIN, year, make, model and trim as reported
+- Accident and damage records with date, severity and damage location
+- Service and maintenance events with date, mileage and servicing dealer
+- Every title record with state, date and type
+- Title brands: salvage, flood, lemon, rebuilt, odometer problem
+- Odometer readings at each event, with rollback indicators
+- Owner count and length of each ownership period
+- Use type — personal, lease, rental, fleet, commercial
+- Open recall status where reported
+- Report pull date, so a stale row is visible as stale
+
+### Getting past Carfax's defences
+
+Same shape as AutoCheck: this is session and parsing work rather than an anti-bot fight, because the reports sit behind an account you pay for. The build drives your own authenticated dealer session, paces itself inside your report allowance, and handles the layout properly — Carfax reports vary a lot in length, since a car with sixty service events and a car with two produce very different documents. The service-record section is the fiddly one and the one most worth getting right, because that is the data you are paying Carfax for.
+
+### Uses
+
+- Sort an inventory by documented service history before pricing it
+- Flag every branded title and reported accident in a run list at once
+- Find the cars with a multi-year gap in maintenance records
+- Attach accident severity and damage location to your appraisal sheet
+- Cross-check Carfax against AutoCheck and surface only the disagreements
+- Keep a dated history snapshot per VIN alongside your inventory feed
+
+### Questions
+
+**Do I need my own Carfax dealer account?**
+
+Yes. This automates a subscription you already hold and spends the report allowance you already pay for. It is not a way to obtain Carfax reports without a subscription, and there is no version of this that is.
+
+**Is automating my own Carfax account allowed?**
+
+Read your agreement — that is the honest answer, and it is worth ten minutes. Provider terms cover pull volumes, permitted use, and they explicitly forbid redistributing or reselling report data. Automating retrieval for your own internal use, within an allowance you pay for, is a different thing from reselling. If your specific contract prohibits automated access, I will say so rather than build it.
+
+**Does Carfax have an API?**
+
+Carfax offers data integrations to partners and to dealers on the right tier, and where you have one it is the better route by a distance — faster, more stable, and it does not care when a page is redesigned. Most standard dealer subscriptions do not include it, which is why the browser-session build is what most people end up with. Tell me which tier you are on before anything gets quoted.
+
+**Carfax or AutoCheck — which should I automate?**
+
+Both, if you run volume, and the reason is that they draw on overlapping but different sources, so a record present on one can be genuinely missing from the other. If you have to pick one: AutoCheck if you buy at auction and want the Score for triage, Carfax if service history and retail-facing credibility matter more. There is a fuller comparison in the AutoCheck vs Carfax guide.
+
+**How many VINs per run?**
+
+Bounded by your report allowance rather than by the software. Several hundred overnight is normal. The build stays inside your allowance, stops rather than overrunning it, and reports how many credits each run used.
+
+**What does Carfax automation cost?**
+
+A batch puller against your own account with a parsed spreadsheet out typically runs $400 to $900, depending on field depth and whether it runs on a schedule. Running Carfax and AutoCheck together and reconciling them is a larger build. Fixed quote within 24 hours.
+
+
+---
+
+## AutoNation Inventory Scraper — Dealer Group Listing Data
+
+URL: https://www.autosmartcode.com/autonation-scraper
+Keywords: autonation scraper, autonation inventory data, dealer group inventory scraper, dealer group scraping, scrape dealership website inventory, multi rooftop inventory data, automotive group listing data
+
+A national group's whole lot, every rooftop, in one sheet that updates while you sleep.
+
+### What AutoNation is, and why the data matters
+
+AutoNation is one of the largest automotive retailers in the United States, running hundreds of rooftops under a single group and publishing its used and new inventory online, store by store. The same is true of every large group — Penske, Lithia, Group 1, Sonic, Hendrick and the rest. Each publishes VIN, asking price, mileage, trim, options and photos on public listing pages, and each is the clearest available picture of what a major retailer is asking, where, today.
+
+Group inventory is the sharpest competitive signal in retail automotive, because a national group prices deliberately and adjusts fast. Independent dealers watch it to price against a competitor who has already done the analysis. Wholesalers watch it to see which trims a group is loading up on before those cars hit the lanes as trades. Vendors and analysts watch it to size a market. The problem is always the same: the data is public but it is spread across hundreds of store pages with no way to see it as one table.
+
+### Fields extracted
+
+- VIN, year, make, model and trim
+- Asking price, plus every price change seen since first capture
+- Mileage, exterior and interior colour, drivetrain and transmission
+- Rooftop or store name, city, state and ZIP
+- Stock number and listing URL
+- New, used or certified pre-owned status
+- Days listed and first-seen date
+- Full option and package list where published
+- All photo URLs
+- Disappearance date, which is the closest public proxy for a sale
+
+### Getting past AutoNation's defences
+
+Dealer group sites are usually built on one of a handful of website platforms — Dealer.com, DealerOn, Dealer Inspire, Sincro and a few others — which is genuinely good news, because a build that handles the platform handles every rooftop on it and every other group using it. The practical obstacles are pagination that caps result depth per store, inventory loaded through JavaScript after the page renders, and rate limiting on rapid paging. The build works store by store rather than group-wide, segments deep result sets so nothing is silently dropped past the cap, and paces requests to stay civil.
+
+### Uses
+
+- Price your inventory against a national group's live asking prices
+- Watch a competitor's rooftop and get alerted on every price cut
+- Measure days-to-turn by trim from listing appearance and disappearance
+- See which trims a group is stocking heavily before those trades reach auction
+- Compare the same vehicle's price across a group's stores in different states
+- Feed a valuation model with retail asking prices as well as wholesale data
+
+### Questions
+
+**Does this work for dealer groups other than AutoNation?**
+
+Yes, and that is usually how the job actually gets specified. Most large groups run on the same handful of dealer website platforms, so a build that reads one group reads the others with configuration rather than a rewrite. Name the groups you care about and they get covered together — this page is titled for AutoNation because that is what people search for.
+
+**Can it cover a single rooftop instead of a whole group?**
+
+Yes, and it is cheaper. One competitor's store, refreshed daily with alerts on price changes, is one of the most common versions of this job and one of the most useful for an independent dealer.
+
+**Is scraping dealer inventory legal?**
+
+Collecting publicly visible listing data is generally lawful in the United States, and US appellate courts have repeatedly held that reading public pages is not unauthorised access. I keep request rates civil, stay off anything behind a login, and do not collect personal data about private sellers or staff. If a specific request looks like a problem I will say so before you pay.
+
+**How do I know when a car sold?**
+
+You do not, precisely — no public source publishes that. What you get is the date the listing stopped appearing, which is the standard proxy and is good enough for days-to-turn analysis in aggregate. It cannot distinguish a sale from a transfer to another rooftop or a listing pulled for reconditioning, and any tool that claims otherwise is guessing.
+
+**How often does it refresh?**
+
+Daily overnight is standard and is what pricing work needs. More frequent runs make sense for a narrow watch list — a specific competitor, a specific model — and cost more because they mean more requests and more infrastructure.
+
+**What does a dealer group scraper cost?**
+
+A single rooftop or a small group with a daily refresh typically runs $300 to $700. Full national coverage across hundreds of rooftops with price history and roll-ups by region runs higher. Fixed quote within 24 hours of you naming the groups and the fields.
+
+
+---
+
+## Otomoto Scraper
+
+URL: https://www.autosmartcode.com/otomoto-scraper
+Keywords: otomoto scraper, otomoto data extraction, scrape otomoto listings, polish car listings data, otomoto api alternative, central europe car market data
+
+The Polish market as rows — which is where a lot of Western European used stock quietly comes from.
+
+### What Otomoto is, and why the data matters
+
+Otomoto is Poland's dominant vehicle marketplace and one of the largest in Central Europe, carrying listings from dealers, importers and private sellers. It publishes asking price, mileage, first registration date, fuel type, transmission, damage declarations and seller identity, and for a sizeable share of listings the VIN as well.
+
+Poland is a major source and transit market for used vehicles moving across Europe, so Otomoto pricing is a leading indicator for stock that later surfaces in Germany, the Netherlands and the UK. Traders use it to find arbitrage against their home market. Importers use it to size supply of a specific model before committing. Analysts use it because Central European price data is thin elsewhere and Otomoto is the deepest public source of it.
+
+### Fields extracted
+
+- Make, model, generation, version and trim
+- Asking price and currency, plus price changes since first capture
+- Mileage, first registration date and model year
+- Fuel type, engine capacity, power and transmission
+- VIN where the seller has published it
+- Damage and accident declarations as stated by the seller
+- Seller type — dealer, importer or private — plus location and region
+- Listing age, listing URL and all photo URLs
+- Imported-vehicle and first-owner flags where declared
+
+### Getting past Otomoto's defences
+
+Otomoto renders search results through JavaScript, rate-limits fast paging, and caps how deep a single search can go — the usual set. The build uses a real browser engine, paces requests, and slices searches by make, model, price band and region so the cap is never the thing that decides what you receive. One genuine extra: listings are in Polish, and the field values need normalising to be joinable against anything else, so fuel types, transmission types and damage declarations get mapped to consistent English values rather than handed over raw.
+
+### Uses
+
+- Compare Polish asking prices against your home market for arbitrage
+- Size available supply of a specific model before committing to import
+- Track how quickly a model's price moves across Central Europe
+- Identify dealers and importers who consistently list the stock you want
+- Feed a valuation model with a market most competitors have no data on
+- Watch declared-damage listings as a separate segment with its own pricing
+
+### Questions
+
+**Can it handle Polish-language fields?**
+
+Yes, and it should — raw Polish values are not joinable against anything else you hold. Fuel types, transmission types, body styles and damage declarations are normalised to consistent English values, with the original preserved in its own column so nothing is lost in translation.
+
+**Does every listing have a VIN?**
+
+No. A good share do, mostly dealer listings, but plenty do not and there is no way to recover one that was never published. VIN is a column that is populated where it exists and empty where it does not, rather than guessed.
+
+**Can you scrape other European marketplaces at the same time?**
+
+Yes, and cross-market comparison is usually the actual goal. AutoScout24, Mobile.de and the national marketplaces can be pulled alongside Otomoto and normalised into one schema, which is a multi-source build rather than a single scrape and is quoted accordingly.
+
+**How often can it refresh?**
+
+Daily is standard for market tracking. A defined watch list — one model, one price band — can run more frequently with alerts when something is listed below your threshold.
+
+**What does an Otomoto scraper cost?**
+
+A one-off extract across defined filters typically runs $250 to $600. An ongoing daily feed with price history and normalisation is usually $400 to $900. Adding other European marketplaces to the same schema runs higher. Fixed quote within 24 hours.
 
 
 ---
@@ -1753,7 +2362,7 @@ I've built 1000+ scraping projects for US businesses across Amazon, eBay, Walmar
 
 ---
 
-## Is Web Scraping Legal in 2025? What US Businesses Need to Know
+## Is Web Scraping Legal? What US Businesses Need to Know
 
 URL: https://www.autosmartcode.com/blog/is-web-scraping-legal
 Published: July 2, 2025
@@ -1839,12 +2448,12 @@ Describe what you want to collect and what you plan to do with it. I will tell y
 
 ---
 
-## How Much Does Web Scraping Cost? Real 2025 Pricing Breakdown
+## How Much Does Web Scraping Cost? Real Prices for Custom Scrapers
 
 URL: https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost
 Published: June 24, 2025
 
-What a scraping project actually costs — by complexity, volume, and delivery model — plus the hidden costs nobody quotes you upfront.
+What a web scraping service actually costs — by complexity, volume and delivery model — with real price bands, plus the hidden costs nobody quotes you upfront.
 
 ## Why Nobody Gives You a Straight Price
 
@@ -3127,11 +3736,196 @@ Run on **your own AutoCheck and/or Carfax subscription** — the account you alr
 
 An hour of copy-paste becomes a batch that runs while you do something else, and the output is consistent instead of depending on who ran it. It reads exactly what you would read in the portal — it just does it to the whole list. This is the core of the [vehicle-history-reports service](/services/vehicle-history-reports), and it drops straight into the [dealer inventory and merchandising](/services/dealer-inventory-scraping) flow.
 
+There is a page for each half of it: [AutoCheck report automation](/autocheck-scraper) and [Carfax report automation](/carfax-scraper), with the fields each one returns and what the build costs. If you want the report itself explained before any of that — what the Score means, what the comparison range is for, where the coverage stops — start with [what an AutoCheck report actually is](/blog/what-is-an-autocheck-report).
+
 ## The line that matters
 
 This only works on **credentials you own and are entitled to use.** History data is licensed, and automating access you pay for is a different thing entirely from scraping someone else's account or reselling report data — which the providers' terms forbid and which I will not build. The point is to save your team the manual clicking on data you already have the right to pull, nothing more.
 
 **Contact me at sam@autosmartcode.com.** Tell me which report you subscribe to and where your VINs come from, and I will scope a batch puller for you — usually a two-to-three-day build.
+
+
+---
+
+## What Is an AutoCheck Report? The Score, the History, and How to Read One
+
+URL: https://www.autosmartcode.com/blog/what-is-an-autocheck-report
+Published: August 23, 2026
+
+AutoCheck is the vehicle history report built into the auction lanes — and the only one that gives a car a single comparable number. What is actually in it, what the AutoCheck Score does and does not mean, and where it goes quiet.
+
+## The short answer
+
+**An AutoCheck report is a vehicle history report sold by Experian.** You give it a VIN, it gives you back everything it has recorded against that VIN over the car's life: title events, odometer readings, auction announcements, reported accidents, use type, and how many owners it has passed through.
+
+Its distinguishing feature is the **AutoCheck Score** — a single number, with a comparison range for similar vehicles. No other mainstream history report condenses a car's past into one comparable figure, and that is the whole reason the auction world uses it.
+
+If you have ever bought a car through Manheim or ADESA, you have already read one. AutoCheck is the report embedded in those platforms.
+
+## What is actually in the report
+
+An AutoCheck report is organised around the events it has managed to collect against a VIN. In practice that means:
+
+- **Title records** — each state title issued, with date and state, so you can see the car's path across the country
+- **Title brands** — salvage, flood, junk, lemon, rebuilt, odometer discrepancy. This is the section that kills deals, and rightly
+- **Odometer readings** — captured at recorded events, which is what lets a rollback show up as an impossible sequence
+- **Accident records** — where an accident was reported to a source AutoCheck receives data from
+- **Use type** — personal, lease, rental, fleet, taxi, police or government
+- **Auction announcements** — what was declared in the lane when the car ran, including structural and frame announcements
+- **Number of owners** — inferred from title transfers, not from a register of people
+- **The AutoCheck Score** — the summary number, plus the range for comparable vehicles
+
+The auction announcements section is the part dealers care about most, and it is where Experian's ownership shows: its data relationships run deep into the wholesale market.
+
+## What the AutoCheck Score actually means
+
+This is the most misread number in the used car business, so it is worth being precise.
+
+**The Score is a relative risk indicator, not a condition grade.** It estimates how this vehicle compares with others of the same class, age and mileage, computed from the events in its history — brands, accidents, use type, ownership pattern. It comes with a **comparison range**, which is the band most similar vehicles fall into.
+
+The range is the important half, and it is the half people skip. A score of 82 means nothing on its own. A score of 82 where similar cars run 79 to 89 is unremarkable. A score of 82 where similar cars run 90 to 96 is a car with something in its history worth finding.
+
+What the Score is **not**:
+
+- It is not a mechanical inspection. It knows nothing about the transmission
+- It is not a value or a price. It does not tell you what to bid
+- It is not a guarantee. Events that were never reported to anyone cannot be in it
+- It is not a pass or fail. There is no threshold at which a car becomes a good buy
+
+Treat it as triage. It is very good at telling you which ten cars out of a hundred deserve a closer look, and it is not designed to make the final call on any one of them.
+
+## How to get an AutoCheck report on a VIN
+
+Three routes, suiting very different people.
+
+**Buy a single report or a short-term package** from AutoCheck directly. This is the right answer for someone buying one car — a bundle valid for a limited period covers a whole shopping trip.
+
+**Use the one already in front of you.** If you are bidding at Manheim, ADESA or most other wholesale platforms, the AutoCheck report is included in the listing. You are already paying for it in your auction fees. Dealers routinely buy a separate subscription without realising they get it in the lane.
+
+**Hold a dealer subscription** if you run volume. Experian sells dealer plans with a report allowance, which is what makes checking a whole run list affordable rather than punitive at retail rates.
+
+## Where AutoCheck goes quiet
+
+Every history report has blind spots, and being straight about them is more useful than a feature list.
+
+**It only knows what was reported.** An accident repaired privately, paid in cash, never claimed on insurance and never taken to a shop that reports data, does not exist as far as any history report is concerned. This is common, and it is the biggest limitation of the entire category.
+
+**Service history is thin.** AutoCheck's coverage of routine maintenance records is weaker than Carfax's. If a documented service history is what you are trying to verify, this is the wrong report to lean on.
+
+**Reporting lags.** An event from three weeks ago may not have reached the file yet. On a fresh trade or a recent auction run, a clean report is weaker evidence than it looks.
+
+**Imported vehicles are poorly covered.** AutoCheck is built on North American data — US and Canadian title systems, US insurance and auction feeds. A car that spent part of its life outside that system has a gap in its record, and a gap is not the same thing as a clean record. If you are looking at an import, the report cannot tell you about the years it was elsewhere, and reading it harder will not fix that.
+
+## AutoCheck or Carfax?
+
+The honest answer for anyone buying one car is: whichever one the seller has not already shown you.
+
+They pull from **overlapping but different sources**, so a record on one can be missing from the other. That is precisely why running both is standard practice at volume, and why "it has a clean Carfax" is a weaker statement than it sounds.
+
+Roughly:
+
+- **AutoCheck** is stronger on auction announcements, title history depth and cross-state title movement, and it is the only one with a single comparable score
+- **Carfax** is stronger on service and maintenance records, and its consumer branding carries more weight with retail buyers
+
+There is a longer breakdown in [AutoCheck vs Carfax](/blog/autocheck-vs-carfax-vehicle-history), including which one to show a customer and which one to buy on.
+
+## Reading a hundred of them
+
+Everything above assumes one car. The moment you are appraising a run list, the format works against you.
+
+A report is designed to be read by a person, one at a time, as prose. There is no view that puts four hundred VINs in a table with a title-brand column, a score column and a comparison-range column, sorted so the outliers rise to the top. So buyers do the obvious thing — check the ten cars they already liked and skip the rest. The cars nobody checked are where the surprises live.
+
+That is a data-shape problem, not a report problem. What fixes it is pulling the reports **through your own AutoCheck dealer account, within the allowance you already pay for**, parsing each one into fields, and writing the whole run list into one sheet. One row per VIN. Score, comparison range, brand flags, owner count, announcement text and odometer sequence as columns you can sort and filter, joined against the auction data you are already pulling.
+
+The account is yours and the credits get spent on the same cars they would have been spent on anyway. What changes is that the answer arrives as a table before the sale rather than as forty browser tabs during it. That is what [AutoCheck report automation](/autocheck-scraper) is.
+
+**Tell me how many VINs you run in a typical week and which platforms you buy on**, at sam@autosmartcode.com, and I will tell you what it would take. Free VIN data comes first in every build — [the NHTSA vPIC decoder](/blog/free-vin-decoder-nhtsa-api) covers a surprising amount at no cost, so paid report credits only get spent where they add something.
+
+
+---
+
+## AutoScraper: What the Python Library Does, and When It Is Not Enough
+
+URL: https://www.autosmartcode.com/blog/autoscraper-python-library-vs-custom-scraper
+Published: August 23, 2026
+
+AutoScraper learns a page's structure from an example instead of a selector, and for the right job it is genuinely the fastest way to get data out of a site. Here is what it does well, the four things that break it, and how to tell which side of that line you are on.
+
+## What AutoScraper actually is
+
+**AutoScraper is an open-source Python library that builds a scraper from an example rather than from a CSS selector.** You give it a URL and a sample of what you want — a price, a product name — and it works out the rule that finds that value, then applies the same rule to any similar page.
+
+The appeal is obvious. There is no selector to write, no DevTools inspection, and it will find the *other* items on the page that match the same pattern, which is often exactly the list you wanted. For a static page with a repeating structure, you can go from nothing to a working extractor in a handful of lines and about two minutes.
+
+It is worth being clear about what the "auto" means. It is automatic **rule inference** — the library figures out where your example sits in the HTML tree and generalises from it. It is not an AI that understands the page, and it is not a service. It is a small, focused library with no browser, no proxy layer, no scheduler and no anti-bot handling.
+
+## Where it genuinely wins
+
+Be fair to it, because for a real set of jobs it is the correct tool:
+
+- **A one-off extract from a static site.** You need this data once, the page is server-rendered HTML, and writing selectors would take longer than the scrape saves
+- **Pages whose markup you do not want to learn.** Auto-generated class names, deeply nested wrappers, a structure that would take twenty minutes to read
+- **Prototyping.** Finding out whether a site's data is shaped the way you assumed, before committing to a real build
+- **Similar pages across one site.** Learn from one product page, run across a thousand of the same template
+
+If that describes your problem, use it. It is free, it is quick, and paying someone to write what you can do in ten lines is a waste of your money.
+
+## The four things that break it
+
+Every one of these is the same underlying issue: AutoScraper solves extraction, and extraction is usually the easy part.
+
+### 1. JavaScript-rendered pages
+
+AutoScraper fetches HTML over HTTP. It does not run a browser and it does not execute JavaScript. Anything a modern site loads *after* the initial document — infinite-scroll listings, prices fetched from an internal API, anything rendered client-side — is simply not in the HTML it receives.
+
+This is the single most common reason it "does not work" on a site. The library is fine; the data was never in the document. Most vehicle marketplaces, most large retailers and most listing sites fall into this category, and that is precisely why [a real browser engine is the baseline for those builds](/blog/what-is-web-scraping).
+
+### 2. Anything that blocks you
+
+There is no proxy rotation, no session management, no TLS fingerprint handling, no CAPTCHA path and no retry-with-backoff. A site with serious bot detection will start returning challenges or blocks after a modest number of requests, and the library has no answer to that because answering it was never its job. [Getting past anti-bot systems](/blog/bypass-captcha-anti-bot-scraping) is a separate discipline from parsing.
+
+### 3. Structural drift
+
+The learned rules are tied to the structure of the page at the moment you taught it. A redesign, an A/B test, or a component moved one level up the tree, and the rule stops matching — usually silently, returning an empty list rather than an error. That is the failure mode that costs the most, because a scraper that returns nothing looks the same as a market with nothing in it until someone checks. Production pipelines need [validation and self-healing](/blog/self-healing-scrapers-ai) around whatever does the extracting.
+
+### 4. Everything after extraction
+
+This is the part people underestimate most. A working extractor is maybe a fifth of a production data pipeline. The rest is: scheduling and reliable re-runs, deduplication across runs, change detection so you know what moved, normalisation so fields are joinable, storage, alerting when a run comes back wrong, and delivery into whatever your team actually opens. None of that is in scope for a parsing library, nor should it be.
+
+## Which side of the line are you on?
+
+A short and fairly reliable test. **If you can answer yes to all of these, use the library:**
+
+- Is the data present in the raw HTML — view-source, not DevTools Elements?
+- Do you need this once, or rarely, rather than on a schedule?
+- Does it matter little if a run silently returns nothing one day?
+- Is the volume low enough that nobody will rate-limit you?
+
+**If any answer is no, the library is the wrong shape** — not because it is bad, but because the thing that is hard about your job is not the thing it solves. You would spend your time rebuilding a browser layer, a proxy layer and a monitoring layer around it, which is a much larger project than it looks from the outside.
+
+## What "auto scraping" usually means in practice
+
+A lot of people searching for an automatic web scraper are not really after a Python library. They want the *outcome*: data arriving on its own, in a spreadsheet, without anyone opening a browser. That is a pipeline, and the extractor inside it — AutoScraper, BeautifulSoup, a Playwright routine, an API where one exists — is an implementation detail that matters far less than the parts around it.
+
+What that pipeline actually needs is roughly:
+
+- A fetch layer that can render JavaScript when the page requires it
+- Request pacing and session handling that keep you welcome on the site
+- Extraction, whichever way is most robust for that page
+- Validation, so an empty or malformed run is caught instead of shipped
+- Normalisation, so today's rows join to yesterday's and to your other sources
+- A schedule, storage and a delivery format someone will actually open
+- An alert when something breaks, because eventually something breaks
+
+AutoScraper is a good answer to exactly one of those seven lines.
+
+## The honest summary
+
+Use AutoScraper when the page is static, the job is small, and a silent failure would cost you nothing. It is a genuinely clever library and for that job it is faster than anything you would commission.
+
+When the data is rendered by JavaScript, when the site pushes back, when the result has to be trustworthy on a schedule, or when the output has to join cleanly to something else — the library is not the bottleneck you are trying to remove, and building the other six layers around it yourself is the actual project.
+
+**That is the part I get hired for.** If you are not sure which side of the line you are on, email sam@autosmartcode.com with the URL and what you want out of it, and I will tell you straight — including telling you to use the free library, which happens often enough that it is worth asking. If it does need a build, you get a fixed price within 24 hours; [what these projects typically cost](/blog/how-much-does-web-scraping-cost) is written up in full, and [the custom scraping service](/services/web-scraping) covers what a build includes.
 
 
 ---

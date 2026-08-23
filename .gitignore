@@ -36,3 +36,10 @@ Thumbs.db
 
 # original founder photo (compressed into public/sam.webp + sam.jpg)
 /my image.png
+
+# Generated hero images. The SVGs are committed (332 KB, deterministic, and
+# they are what the pages actually render). The PNGs are only there because
+# social platforms refuse SVG — they are 7 MB, they are rebuilt in prebuild by
+# scripts/generate-images.js, and if that step is ever skipped the prerenderer
+# falls back to /og-image.png rather than emitting a broken preview.
+/public/img/**/*.png

@@ -9,10 +9,18 @@
   transition: transform .25s, box-shadow .25s, border-color .25s;
 }
 .blog-card-full:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: var(--border2); }
+/* Holds the generated hero card. object-fit: cover keeps the 1200x630 art
+   filling the tile at whatever aspect the grid gives it, and the explicit
+   width/height on the <img> itself reserves the box so nothing shifts as it
+   loads. */
 .blog-card-img {
   display: flex; align-items: center; justify-content: center;
-  font-size: 2.8rem; min-height: 190px;
+  min-height: 190px; overflow: hidden;
   border-right: 1px solid var(--border);
+}
+.blog-card-img img {
+  width: 100%; height: 100%; min-height: 190px;
+  object-fit: cover; display: block;
 }
 .blog-card-body { padding: 1.75rem; display: flex; flex-direction: column; }
 .blog-meta-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; gap: 0.75rem; }
@@ -143,7 +151,8 @@
   color: inherit; transition: transform .2s, border-color .2s; display: block;
 }
 .related-card:hover { transform: translateY(-4px); border-color: var(--border2); }
-.related-img { height: 108px; display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 1px solid var(--border); }
+.related-img { height: 108px; overflow: hidden; border-bottom: 1px solid var(--border); }
+.related-img img { width: 100%; height: 108px; object-fit: cover; display: block; }
 .related-body { padding: 1.1rem; }
 .related-title { font-size: 0.92rem; font-weight: 600; line-height: 1.45; margin: 0.5rem 0; color: var(--ink2); }
 
@@ -161,4 +170,40 @@
   .related-grid { grid-template-columns: 1fr; }
   .blog-detail-hero { padding: 5.5rem 0 2.5rem; }
   .blog-content-h2 { font-size: 1.4rem; }
+}
+
+/* ---------------- ARTICLE IMAGERY ---------------- */
+
+/* The article's own hero, sitting above the lead paragraph. */
+.blog-hero-figure {
+  margin: 0 0 2rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+.blog-hero-figure img {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 1200 / 630;
+}
+
+/* Inline `![alt](src)` images inside the body copy, with optional caption. */
+.blog-figure {
+  margin: 2rem 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+.blog-figure img { width: 100%; height: auto; display: block; }
+.blog-figure figcaption {
+  padding: 0.85rem 1.1rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  background: var(--bg-tint);
+}
+
+@media (max-width: 640px) {
+  .blog-hero-figure { margin-bottom: 1.4rem; }
 }

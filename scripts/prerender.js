@@ -41,6 +41,23 @@ const { services } = loadData("src/data/services.js", ["services"]);
 const { AREAS_SERVED } = loadData("src/data/geo.js", ["AREAS_SERVED"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
 const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
+const { blogImage, scraperImage, serviceImage, webdesignImage, socialImage, IMG_W, IMG_H } =
+  loadData("src/data/images.js",
+    ["blogImage", "scraperImage", "serviceImage", "webdesignImage", "socialImage", "IMG_W", "IMG_H"]);
+
+/**
+ * Whether scripts/generate-images.js managed to rasterise the SVG heroes to
+ * PNG this build. Social platforms will not render SVG, so when the optional
+ * @resvg/resvg-js step was skipped every route falls back to the site-wide
+ * /og-image.png rather than emitting a preview that renders as nothing.
+ */
+const HAS_RASTER = (() => {
+  try {
+    return JSON.parse(fs.readFileSync(path.join(root, "public/img/manifest.json"), "utf8")).hasRaster === true;
+  } catch {
+    return false;
+  }
+})();
 
 /* ------------------------------- helpers ------------------------------ */
 
@@ -48,8 +65,21 @@ const esc = s => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;");
 
-/** Inline **bold** only — everything else is already plain text. */
-const inline = s => esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+/**
+ * Inline `**bold**` and `[text](/path)`.
+ *
+ * esc() runs first, and it only touches & < > ", so the brackets and
+ * parentheses the link syntax needs survive it intact. Anything not starting
+ * with "/" is treated as an outbound link and gets rel="noopener" — the same
+ * rule src/pages/Blog.jsx applies, because the static HTML and the hydrated
+ * page have to say the same thing.
+ */
+const inline = s => esc(s)
+  .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+  .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, href) =>
+    href.startsWith("/")
+      ? `<a href="${href}">${label}</a>`
+      : `<a href="${href}" target="_blank" rel="noopener noreferrer">${label}</a>`);
 
 const h1 = t => `<h1>${esc(t)}</h1>`;
 const h2 = t => `<h2>${esc(t)}</h2>`;
@@ -57,6 +87,20 @@ const h3 = t => `<h3>${esc(t)}</h3>`;
 const p = t => `<p>${inline(t)}</p>`;
 const ul = items => `<ul>${items.map(i => `<li>${inline(i)}</li>`).join("")}</ul>`;
 const a = (href, text) => `<a href="${esc(href)}">${esc(text)}</a>`;
+
+/** Hero image. width/height are always emitted so the box is reserved before
+ *  the file arrives — a missing pair is the usual cause of layout shift. */
+const img = (src, alt, { width = IMG_W, height = IMG_H, eager = false } = {}) =>
+  `<img src="${esc(src)}" alt="${esc(alt)}" width="${width}" height="${height}"` +
+  (eager ? ` fetchpriority="high"` : ` loading="lazy"`) + ` decoding="async"/>`;
+
+/** `eager` is for the one image above the fold on a page — the hero. Lazy is
+ *  right for everything below it, and wrong for the LCP element. */
+const figure = (src, alt, caption, opts = {}) =>
+  `<figure>${img(src, alt, opts)}` +
+  (caption ? `<figcaption>${inline(caption)}</figcaption>` : "") + `</figure>`;
+
+const heroFigure = (src, alt) => figure(src, alt, null, { eager: true });
 
 /** FAQ rendered as real headings + text, matching the <details> on the page. */
 const faqBlock = faqs =>
@@ -72,6 +116,15 @@ function markdown(md) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) continue;
+    const image = line.match(/^!\[(.*?)\]\((.+?)\)$/);
+    if (image) {
+      const [, alt, src] = image;
+      const next = (lines[i + 1] || "").trim();
+      const caption = /^\*[^*].*\*$/.test(next) ? next.slice(1, -1) : null;
+      if (caption) i++;
+      out.push(figure(src, alt, caption));
+      continue;
+    }
     if (line.startsWith("## ")) out.push(h2(line.slice(3)));
     else if (line.startsWith("### ")) out.push(h3(line.slice(4)));
     else if (line.startsWith("**") && line.endsWith("**")) out.push(p(line.slice(2, -2)));
@@ -194,12 +247,17 @@ routes.push({
       url: ORIGIN + "/blog/" + b.slug,
       datePublished: new Date(b.date).toISOString().slice(0, 10),
       author: { "@type": "Person", name: "Sam" },
+      image: ORIGIN + socialImage(blogImage(b), HAS_RASTER),
     })),
   },
   body:
     h1("Blog & Guides") +
     p("Practical writing on scraping, automation and data — what things cost, what is legal, and how the builds actually work.") +
-    blogs.map(b => h2(b.title) + p(b.summary) + p(a("/blog/" + b.slug, "Read the article"))).join(""),
+    blogs.map(b => {
+      const hero = blogImage(b);
+      return h2(b.title) + img(hero.src, hero.alt) + p(b.summary) +
+             p(a("/blog/" + b.slug, "Read the article"));
+    }).join(""),
 });
 
 routes.push({
@@ -237,10 +295,17 @@ routes.push({
 
 /* Service landing pages */
 for (const s of services) {
+  const hero = serviceImage(s);
+  const spokes = [
+    ...scrapers.filter(sp => sp.pillar === s.slug),
+    ...(s.slug === "web-development" ? webdesign : []),
+  ];
   routes.push({
     path: "/services/" + s.slug,
     title: s.metaTitle + " | AutoSmartCode",
     description: s.metaDesc,
+    image: socialImage(hero, HAS_RASTER),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -267,12 +332,19 @@ for (const s of services) {
       ],
     },
     body:
-      h1(s.h1) + p(s.hero) +
+      h1(s.h1) + heroFigure(hero.src, hero.alt) + p(s.hero) +
       s.sections.map(sec => h2(sec.h) + sec.p.map(p).join("") + (sec.list ? ul(sec.list) : "")).join("") +
       h2("What you get") + ul(s.deliverables) +
       h2("Sites and platforms") + p(s.platforms.join(", ")) +
       h2("Built with") + p(s.stack.join(", ")) +
       faqBlock(s.faqs) +
+      // The cluster's downward links — see the matching block in
+      // src/pages/Services.jsx. Without these a crawler landing on a pillar
+      // has no path to the exact-match pages underneath it.
+      (spokes.length
+        ? linkList(s.nav + " — the individual pages",
+            spokes.map(sp => ["/" + sp.slug, sp.h1 || sp.site + " Scraper"]))
+        : "") +
       linkList("Related services", s.related.map(r => {
         const o = services.find(x => x.slug === r);
         return o ? ["/services/" + o.slug, o.h1] : null;
@@ -283,10 +355,13 @@ for (const s of services) {
 /* Per-site scraper pages */
 for (const s of scrapers) {
   const heading = s.h1 || s.site + " Scraper";
+  const hero = scraperImage(s);
   routes.push({
     path: "/" + s.slug,
     title: s.metaTitle + " | AutoSmartCode",
     description: s.metaDesc,
+    image: socialImage(hero, HAS_RASTER),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -314,7 +389,7 @@ for (const s of scrapers) {
       ],
     },
     body:
-      h1(heading) + p(s.tagline) +
+      h1(heading) + heroFigure(hero.src, hero.alt) + p(s.tagline) +
       h2(`What ${s.site} is, and why the data matters`) + p(s.what) + p(s.why) +
       h2(`What the ${s.site} scraper extracts`) + ul(s.fields) +
       h2(`Getting past ${s.site}'s defences`) + p(s.defenses) +
@@ -329,10 +404,13 @@ for (const s of scrapers) {
 
 /* Web design landing pages */
 for (const w of webdesign) {
+  const hero = webdesignImage(w);
   routes.push({
     path: "/" + w.slug,
     title: w.metaTitle + " | AutoSmartCode",
     description: w.metaDesc,
+    image: socialImage(hero, HAS_RASTER),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -359,7 +437,7 @@ for (const w of webdesign) {
       ],
     },
     body:
-      h1(w.h1) + p(w.tagline) +
+      h1(w.h1) + heroFigure(hero.src, hero.alt) + p(w.tagline) +
       h2("The situation you're probably in") + p(w.problem) +
       h2("Does any of this sound familiar?") + ul(w.signals) +
       h2("What gets built instead") + p(w.answer) +
@@ -373,11 +451,17 @@ for (const w of webdesign) {
 /* Blog articles */
 for (const b of blogs) {
   const published = new Date(b.date);
+  const iso = isNaN(published) ? undefined : published.toISOString().slice(0, 10);
+  const hero = blogImage(b);
+  const social = socialImage(hero, HAS_RASTER);
+
   routes.push({
     path: "/blog/" + b.slug,
     title: b.title + " | AutoSmartCode",
     description: b.summary.slice(0, 155),
     type: "article",
+    image: social,
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -386,15 +470,33 @@ for (const b of blogs) {
           headline: b.title,
           description: b.summary,
           url: ORIGIN + "/blog/" + b.slug,
-          datePublished: isNaN(published) ? undefined : published.toISOString().slice(0, 10),
-          author: { "@type": "Person", name: "Sam" },
+          datePublished: iso,
+          // Was missing here while Blog.jsx emitted it, so the static HTML a
+          // crawler reads carried weaker markup than the hydrated page. These
+          // four now match src/pages/Blog.jsx field for field.
+          dateModified: iso,
+          wordCount: b.content.trim().split(/\s+/).length,
+          articleSection: b.tag,
+          mainEntityOfPage: { "@type": "WebPage", "@id": ORIGIN + "/blog/" + b.slug },
+          image: {
+            "@type": "ImageObject",
+            url: ORIGIN + social,
+            width: IMG_W,
+            height: IMG_H,
+            caption: hero.alt,
+          },
+          author: { "@type": "Person", name: "Sam", url: ORIGIN },
           publisher: { "@id": ORIGIN + "/#org" },
           inLanguage: "en-US",
         },
         crumbs([["Blog", "/blog"], [b.title, "/blog/" + b.slug]]),
       ],
     },
-    body: h1(b.title) + p(b.summary) + markdown(b.content),
+    body:
+      h1(b.title) +
+      heroFigure(hero.src, hero.alt) +
+      p(b.summary) +
+      markdown(b.content),
   });
 }
 
@@ -469,6 +571,16 @@ function render(route) {
   html = swap(html, /<meta property="og:type" content="[^"]*"\s*\/?>/, `<meta property="og:type" content="${route.type || "website"}"/>`);
   html = swap(html, /<meta name="twitter:title" content="[^"]*"\s*\/?>/, `<meta name="twitter:title" content="${title}"/>`);
   html = swap(html, /<meta name="twitter:description" content="[^"]*"\s*\/?>/, `<meta name="twitter:description" content="${desc}"/>`);
+
+  // Before this, all 55 URLs shared one og:image, so every shared link and
+  // every search result thumbnail looked identical regardless of the page.
+  if (route.image) {
+    const abs = esc(ORIGIN + route.image);
+    const alt = esc(route.imageAlt || route.title);
+    html = swap(html, /<meta property="og:image" content="[^"]*"\s*\/?>/, `<meta property="og:image" content="${abs}"/>`);
+    html = swap(html, /<meta property="og:image:alt" content="[^"]*"\s*\/?>/, `<meta property="og:image:alt" content="${alt}"/>`);
+    html = swap(html, /<meta name="twitter:image" content="[^"]*"\s*\/?>/, `<meta name="twitter:image" content="${abs}"/>`);
+  }
 
   if (route.schema) {
     const tag = `<script type="application/ld+json" id="route-schema">${

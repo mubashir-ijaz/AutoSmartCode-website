@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://www.autosmartcode.com/</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/about</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -34,157 +35,381 @@
   <!-- Service landing pages — the commercial-intent pages -->
   <url>
     <loc>https://www.autosmartcode.com/services/car-auction-automation</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/car-auction-automation.svg</image:loc>
+      <image:title>Car Auction Automation for Dealers and Wholesalers</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Car Auction Automation for Dealers and Wholesalers</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services/vehicle-history-reports</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/vehicle-history-reports.svg</image:loc>
+      <image:title>Vehicle History Report Automation — Carfax, AutoCheck and VIN Data</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Vehicle History Report Automation — Carfax, AutoCheck and VIN Data</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services/dealer-inventory-scraping</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/dealer-inventory-scraping.svg</image:loc>
+      <image:title>Car Dealer Inventory Scraping — AutoTrader, CarMax, Cars.com and More</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Car Dealer Inventory Scraping — AutoTrader, CarMax, Cars.com and More</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services/business-leads-data</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/business-leads-data.svg</image:loc>
+      <image:title>Business Leads Data &amp; B2B Lead Scraping Services</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Business Leads Data &amp; B2B Lead Scraping Services</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services/web-scraping</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/web-scraping.svg</image:loc>
+      <image:title>Web Scraping Services for US, UK &amp; International Businesses</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Web Scraping Services for US, UK &amp; International Businesses</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/services/web-development</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/web-development.svg</image:loc>
+      <image:title>Web Development Services — Sites, Stores and Dashboards</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Web Development Services — Sites, Stores and Dashboards</image:caption>
+    </image:image>
   </url>
 
   <!-- Per-site scraper pages — exact-match to search queries -->
   <url>
     <loc>https://www.autosmartcode.com/autotrader-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/autotrader-scraper.svg</image:loc>
+      <image:title>AutoTrader Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode AutoTrader scraper — automated AutoTrader data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/autoscout24-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/autoscout24-scraper.svg</image:loc>
+      <image:title>AutoScout24 Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode AutoScout24 scraper — automated AutoScout24 data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/carmax-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/carmax-scraper.svg</image:loc>
+      <image:title>CarMax Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode CarMax scraper — automated CarMax data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/carsales-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/carsales-scraper.svg</image:loc>
+      <image:title>Carsales Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Carsales scraper — automated Carsales data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/cars-com-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/cars-com-scraper.svg</image:loc>
+      <image:title>Cars.com Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Cars.com scraper — automated Cars.com data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/cargurus-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/cargurus-scraper.svg</image:loc>
+      <image:title>CarGurus Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode CarGurus scraper — automated CarGurus data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/manheim-mmr-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/manheim-mmr-scraper.svg</image:loc>
+      <image:title>Manheim MMR Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Manheim MMR scraper — automated Manheim MMR data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/google-maps-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/google-maps-scraper.svg</image:loc>
+      <image:title>Google Maps Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Google Maps scraper — automated Google Maps data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/mediamarkt-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/mediamarkt-scraper.svg</image:loc>
+      <image:title>MediaMarkt Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode MediaMarkt scraper — automated MediaMarkt data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/adesa-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/adesa-scraper.svg</image:loc>
+      <image:title>ADESA Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode ADESA scraper — automated ADESA data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/backlotcars-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/backlotcars-scraper.svg</image:loc>
+      <image:title>BacklotCars Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode BacklotCars scraper — automated BacklotCars data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/openlane-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/openlane-scraper.svg</image:loc>
+      <image:title>OpenLane Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode OpenLane scraper — automated OpenLane data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/acv-auctions-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/acv-auctions-scraper.svg</image:loc>
+      <image:title>ACV Auctions Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode ACV Auctions scraper — automated ACV Auctions data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/copart-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/copart-scraper.svg</image:loc>
+      <image:title>Copart Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Copart scraper — automated Copart data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/edge-pipeline-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/edge-pipeline-scraper.svg</image:loc>
+      <image:title>EDGE Pipeline Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode EDGE Pipeline scraper — automated EDGE Pipeline data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/smartauction-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/smartauction-scraper.svg</image:loc>
+      <image:title>SmartAuction Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode SmartAuction scraper — automated SmartAuction data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/dealer-marketplace-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/dealer-marketplace-scraper.svg</image:loc>
+      <image:title>Private Dealer Marketplace &amp; Auction Portal Scraping</image:title>
+      <image:caption>Title card for the AutoSmartCode Dealer Marketplace scraper — automated Dealer Marketplace data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/ebay-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/ebay-scraper.svg</image:loc>
+      <image:title>eBay Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode eBay scraper — automated eBay data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/amazon-product-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/amazon-product-scraper.svg</image:loc>
+      <image:title>Amazon Product Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Amazon scraper — automated Amazon data extraction</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/walmart-scraper</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/walmart-scraper.svg</image:loc>
+      <image:title>Walmart Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Walmart scraper — automated Walmart data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/autocheck-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/autocheck-scraper.svg</image:loc>
+      <image:title>AutoCheck Report Automation — Bulk VIN History Pulls</image:title>
+      <image:caption>Title card for the AutoSmartCode AutoCheck scraper — automated AutoCheck data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/carfax-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/carfax-scraper.svg</image:loc>
+      <image:title>Carfax Report Automation — Bulk Vehicle History by VIN</image:title>
+      <image:caption>Title card for the AutoSmartCode Carfax scraper — automated Carfax data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/autonation-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/autonation-scraper.svg</image:loc>
+      <image:title>AutoNation Inventory Scraper — Dealer Group Listing Data</image:title>
+      <image:caption>Title card for the AutoSmartCode AutoNation scraper — automated AutoNation data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/otomoto-scraper</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/otomoto-scraper.svg</image:loc>
+      <image:title>Otomoto Scraper</image:title>
+      <image:caption>Title card for the AutoSmartCode Otomoto scraper — automated Otomoto data extraction</image:caption>
+    </image:image>
   </url>
 
   <!-- Web design landing pages -->
   <url>
     <loc>https://www.autosmartcode.com/small-business-website-design</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/webdesign/small-business-website-design.svg</image:loc>
+      <image:title>Small Business Website Design</image:title>
+      <image:caption>Title card for the AutoSmartCode web development service: Small Business Website Design</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/website-redesign-services</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/webdesign/website-redesign-services.svg</image:loc>
+      <image:title>Website Redesign Services</image:title>
+      <image:caption>Title card for the AutoSmartCode web development service: Website Redesign Services</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/salon-website-design</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/webdesign/salon-website-design.svg</image:loc>
+      <image:title>Salon &amp; Barbershop Website Design</image:title>
+      <image:caption>Title card for the AutoSmartCode web development service: Salon &amp; Barbershop Website Design</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/restaurant-website-design</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/webdesign/restaurant-website-design.svg</image:loc>
+      <image:title>Restaurant &amp; Cafe Website Design</image:title>
+      <image:caption>Title card for the AutoSmartCode web development service: Restaurant &amp; Cafe Website Design</image:caption>
+    </image:image>
   </url>
 
   <!-- Blog articles -->
@@ -193,168 +418,285 @@
     <lastmod>2025-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/what-is-web-scraping.svg</image:loc>
+      <image:title>What Is Web Scraping? A Complete Beginner&apos;s Guide</image:title>
+      <image:caption>Title card for the AutoSmartCode beginner&apos;s guide to web scraping — how automated data extraction works</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/is-web-scraping-legal</loc>
     <lastmod>2025-07-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/is-web-scraping-legal.svg</image:loc>
+      <image:title>Is Web Scraping Legal? What US Businesses Need to Know</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to whether web scraping is legal for US businesses</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost</loc>
     <lastmod>2025-06-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/how-much-does-web-scraping-cost.svg</image:loc>
+      <image:title>How Much Does Web Scraping Cost? Real Prices for Custom Scrapers</image:title>
+      <image:caption>Title card for the AutoSmartCode breakdown of what web scraping costs, by project complexity and volume</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/automate-manheim-mmr</loc>
     <lastmod>2025-05-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/automate-manheim-mmr.svg</image:loc>
+      <image:title>How Car Dealers Can Automate Manheim MMR Price Checks</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to automating Manheim MMR lookups for car dealers</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/scrape-google-maps-leads</loc>
     <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/scrape-google-maps-leads.svg</image:loc>
+      <image:title>How to Scrape 5,000 Business Leads from Google Maps</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to scraping Google Maps for B2B sales leads</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/python-automation-small-business</loc>
     <lastmod>2025-03-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/python-automation-small-business.svg</image:loc>
+      <image:title>5 Python Automations Every Small Business Should Have</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to Python automation for small business owners</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/amazon-product-analysis-ai</loc>
     <lastmod>2025-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/amazon-product-analysis-ai.svg</image:loc>
+      <image:title>How to Use AI to Analyze Amazon Reviews and Beat Competitors</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to analysing Amazon product and review data with AI</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/zillow-airbnb-real-estate-scraping</loc>
     <lastmod>2025-01-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/zillow-airbnb-real-estate-scraping.svg</image:loc>
+      <image:title>How Real Estate Investors Use Scraping to Find Better Deals</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to scraping Zillow and Airbnb real estate data</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/bypass-captcha-anti-bot-scraping</loc>
     <lastmod>2025-05-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/bypass-captcha-anti-bot-scraping.svg</image:loc>
+      <image:title>Why Your Scraper Keeps Getting Blocked (And How to Fix It)</image:title>
+      <image:caption>Title card for the AutoSmartCode technical guide to handling CAPTCHAs and anti-bot systems when scraping</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/ecommerce-price-monitoring-automation</loc>
     <lastmod>2025-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/ecommerce-price-monitoring-automation.svg</image:loc>
+      <image:title>Competitor Price Monitoring: The Complete Setup Guide</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to automated eCommerce competitor price monitoring</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/free-vin-decoder-nhtsa-api</loc>
     <lastmod>2026-02-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/free-vin-decoder-nhtsa-api.svg</image:loc>
+      <image:title>Free VIN Decoding: What NHTSA&apos;s vPIC API Actually Gives You</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to the free NHTSA VIN decoder API for vehicle data</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/price-used-cars-market-data</loc>
     <lastmod>2026-03-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/price-used-cars-market-data.svg</image:loc>
+      <image:title>How to Price Used Cars Against the Live Market, Not a Book Value</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to pricing used cars with live market data</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/ai-parsing-scraped-data</loc>
     <lastmod>2026-04-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/ai-parsing-scraped-data.svg</image:loc>
+      <image:title>Using AI to Clean Up Messy Scraped Data (And When Not To)</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to using AI to parse and clean messy scraped data</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/self-healing-scrapers-ai</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/self-healing-scrapers-ai.svg</image:loc>
+      <image:title>Self-Healing Scrapers: What AI Fixes When a Site Changes, and What It Doesn&apos;t</image:title>
+      <image:caption>Title card for the AutoSmartCode technical guide to building self-healing scrapers with AI</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/why-cold-email-lists-bounce</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/why-cold-email-lists-bounce.svg</image:loc>
+      <image:title>Why Your Cold Email List Bounces (And What It Costs You)</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to why cold email lists bounce and how to verify them</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/slow-website-cost-small-business</loc>
     <lastmod>2026-07-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/slow-website-cost-small-business.svg</image:loc>
+      <image:title>What a Slow Website Actually Costs a Small Business</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to what a slow website costs a small business</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/what-is-mmr-manheim-market-report</loc>
     <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/what-is-mmr-manheim-market-report.svg</image:loc>
+      <image:title>What Is MMR? The Manheim Market Report Explained for Dealers</image:title>
+      <image:caption>Title card for the AutoSmartCode guide explaining MMR, the Manheim Market Report used car value</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/automate-car-merchandising-workflow</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/automate-car-merchandising-workflow.svg</image:loc>
+      <image:title>How to Automate Your Used-Car Merchandising Workflow</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to automating the car merchandising workflow for dealers</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog/autocheck-vs-carfax-vehicle-history</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/autocheck-vs-carfax-vehicle-history.svg</image:loc>
+      <image:title>AutoCheck vs Carfax: Which History Report, and How to Automate Both</image:title>
+      <image:caption>Title card for the AutoSmartCode comparison of AutoCheck and Carfax vehicle history reports</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/what-is-an-autocheck-report</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/what-is-an-autocheck-report.svg</image:loc>
+      <image:title>What Is an AutoCheck Report? The Score, the History, and How to Read One</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to what an AutoCheck report is and how to read the AutoCheck Score</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/autoscraper-python-library-vs-custom-scraper</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/autoscraper-python-library-vs-custom-scraper.svg</image:loc>
+      <image:title>AutoScraper: What the Python Library Does, and When It Is Not Enough</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to the AutoScraper Python library and when a custom scraper is needed instead</image:caption>
+    </image:image>
   </url>
 
   <!-- Project case studies -->
   <url>
     <loc>https://www.autosmartcode.com/projects/1</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/2</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/3</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/4</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/5</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/6</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/7</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/8</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.autosmartcode.com/projects/9</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

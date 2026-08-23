@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { webdesign, webdesignBySlug } from "../data/webdesign";
 import { AREAS_SERVED } from "../data/geo";
+import { webdesignImage, socialFor } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import "./Services.css";
 
@@ -13,10 +14,14 @@ export function WebDesignPage() {
   const { slug } = useParams();
   const w = webdesignBySlug(slug);
 
+  const hero = w && webdesignImage(w);
+
   useSeo(w ? {
     title: w.metaTitle + " | AutoSmartCode",
     description: w.metaDesc,
     path: "/" + w.slug,
+    image: socialFor(hero),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -71,6 +76,10 @@ export function WebDesignPage() {
           </div>
           <h1 className="svc-detail-title">{w.h1}</h1>
           <p className="svc-detail-hero">{w.tagline}</p>
+          <figure className="svc-hero-figure">
+            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}
+                 fetchpriority="high" decoding="async" />
+          </figure>
           <div className="svc-detail-actions">
             <Link to="/#contact" className="btn btn-blue">Get a Free Quote →</Link>
             <Link to="/projects" className="btn btn-outline">See the work</Link>

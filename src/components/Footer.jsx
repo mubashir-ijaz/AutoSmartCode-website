@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="footer-bottom">
             <span>© {YEAR} AutoSmartCode — Sam. All rights reserved.</span>
             <span className="footer-bottom-tags">
-              Web Scraping · Automation · AI · Web Development · Serving the USA
+              Web Scraping · Automation · AI · Web Development · Serving the USA, UK, Europe, the Gulf &amp; Australia
             </span>
           </div>
         </div>

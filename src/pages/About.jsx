@@ -78,11 +78,14 @@ const PRINCIPLES = [
   },
 ];
 
+/* Three tiers of the same story, each labelled for what it actually counts —
+   1000+ projects, 100+ businesses, 15+ direct clients. Stated together they
+   explain each other; stated apart they read as contradictory. */
 const STATS = [
-  { n: "100+", l: "businesses served worldwide" },
+  { n: "1000+", l: "projects delivered" },
+  { n: "15+", l: "direct US & UK clients" },
   { n: "5+ yrs", l: "building automation" },
   { n: "2–5 days", l: "typical delivery" },
-  { n: "24 hrs", l: "reply guaranteed" },
 ];
 
 export default function About() {

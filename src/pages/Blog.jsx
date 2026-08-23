@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/content";
+import { blogImage, socialFor, IMG_W, IMG_H } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Blog.css";
@@ -21,6 +22,7 @@ export function BlogPage() {
         url: ORIGIN + "/blog/" + b.slug,
         datePublished: new Date(b.date).toISOString().slice(0, 10),
         author: { "@type": "Person", name: "Sam" },
+        image: ORIGIN + socialFor(blogImage(b)),
       })),
     },
   });
@@ -39,9 +41,25 @@ export function BlogPage() {
       <section className="section">
         <div className="container">
           <div className="blog-all-grid">
-            {blogs.map(b => (
+            {blogs.map((b, i) => {
+              const img = blogImage(b);
+              return (
               <Link to={`/blog/${b.slug}`} key={b.id} className="blog-card-full">
-                <div className="blog-card-img" style={{ background: b.color }}>{b.emoji}</div>
+                {/* A real <img>, not an emoji on a gradient. The card art is
+                    generated from this post's own title and category, so it is
+                    indexable in Google Images and carries alt text. The first
+                    two are above the fold on most screens, so they load eagerly
+                    and the rest defer. */}
+                <div className="blog-card-img" style={{ background: b.color }}>
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    width={img.width}
+                    height={img.height}
+                    loading={i < 2 ? "eager" : "lazy"}
+                    decoding="async"
+                  />
+                </div>
                 <div className="blog-card-body">
                   <div className="blog-meta-top">
                     <span className="blog-tag-pill">{b.tag}</span>
@@ -55,7 +73,8 @@ export function BlogPage() {
                   </div>
                 </div>
               </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -91,6 +110,43 @@ export function BlogPage() {
   );
 }
 
+/** `![alt](/img/x.svg)`, optionally followed by `*caption text*` on its own
+ *  line. Kept to the same tiny markdown subset the prerenderer understands —
+ *  the two renderers have to agree character for character or the static HTML
+ *  and the hydrated page would differ. */
+const IMAGE_RE = /^!\[(.*?)\]\((.+?)\)$/;
+
+/**
+ * Inline `**bold**` and `[text](/path)` in one pass.
+ *
+ * Links were not supported before, so an article could only point at another
+ * page by naming it and hoping. Internal links are how a topic cluster passes
+ * authority between its pages and how a reader gets from a guide to the page
+ * that sells the thing — both worth more than the twenty lines this costs.
+ *
+ * Site-relative hrefs go through react-router so navigation stays client-side;
+ * anything absolute is treated as external and gets the usual rel guards.
+ */
+const INLINE_RE = /(\*\*.+?\*\*|\[[^\]]+\]\([^)]+\))/g;
+
+function inline(text, keyPrefix) {
+  return text.split(INLINE_RE).map((part, i) => {
+    const key = `${keyPrefix}-${i}`;
+    if (!part) return null;
+    if (part.startsWith("**") && part.endsWith("**")) {
+      return <strong key={key}>{part.slice(2, -2)}</strong>;
+    }
+    const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      return href.startsWith("/")
+        ? <Link key={key} to={href}>{label}</Link>
+        : <a key={key} href={href} target="_blank" rel="noopener noreferrer">{label}</a>;
+    }
+    return part;
+  });
+}
+
 function renderContent(content) {
   const lines = content.trim().split("\n");
   const elements = [];
@@ -99,6 +155,20 @@ function renderContent(content) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i].trim();
     if (!line) { elements.push(<div key={key++} className="blog-spacer" />); continue; }
+    const image = line.match(IMAGE_RE);
+    if (image) {
+      const [, alt, src] = image;
+      const next = (lines[i + 1] || "").trim();
+      const caption = /^\*[^*].*\*$/.test(next) ? next.slice(1, -1) : null;
+      if (caption) i++;
+      elements.push(
+        <figure key={key++} className="blog-figure">
+          <img src={src} alt={alt} loading="lazy" decoding="async" />
+          {caption && <figcaption>{caption}</figcaption>}
+        </figure>
+      );
+      continue;
+    }
     if (line.startsWith("## ")) {
       elements.push(<h2 key={key++} className="blog-content-h2">{line.slice(3)}</h2>);
     } else if (line.startsWith("### ")) {
@@ -113,18 +183,12 @@ function renderContent(content) {
       }
       elements.push(
         <ul key={key++} className="blog-content-list">
-          {items.map((item, idx) => {
-            const parts = item.split(/\*\*(.*?)\*\*/g);
-            return <li key={idx}>{parts.map((p, pi) => pi % 2 === 1 ? <strong key={pi}>{p}</strong> : p)}</li>;
-          })}
+          {items.map((item, idx) => <li key={idx}>{inline(item, `li${idx}`)}</li>)}
         </ul>
       );
     } else {
-      const parts = line.split(/\*\*(.*?)\*\*/g);
       elements.push(
-        <p key={key++} className="blog-content-p">
-          {parts.map((p, pi) => pi % 2 === 1 ? <strong key={pi}>{p}</strong> : p)}
-        </p>
+        <p key={key++} className="blog-content-p">{inline(line, `p${key}`)}</p>
       );
     }
   }
@@ -135,12 +199,15 @@ export function BlogDetailPage() {
   const { slug } = useParams();
   const blog = blogs.find(b => b.slug === slug);
   const published = blog ? new Date(blog.date).toISOString().slice(0, 10) : "";
+  const hero = blog ? blogImage(blog) : null;
 
   useSeo(blog ? {
     title: blog.title + " | AutoSmartCode",
     description: blog.summary.slice(0, 155),
     path: "/blog/" + blog.slug,
     type: "article",
+    image: socialFor(hero),
+    imageAlt: hero.alt,
     schema: {
       "@context": "https://schema.org",
       "@graph": [
@@ -154,6 +221,15 @@ export function BlogDetailPage() {
           wordCount: blog.content.split(/\s+/).length,
           articleSection: blog.tag,
           inLanguage: "en-US",
+          // Google's article rich results want a raster of at least 1200px
+          // wide; ImageObject with explicit dimensions is what qualifies it.
+          image: {
+            "@type": "ImageObject",
+            url: ORIGIN + socialFor(hero),
+            width: hero.width,
+            height: hero.height,
+            caption: hero.alt,
+          },
           author: { "@type": "Person", name: "Sam", url: ORIGIN },
           publisher: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
           mainEntityOfPage: { "@type": "WebPage", "@id": ORIGIN + "/blog/" + blog.slug },
@@ -199,6 +275,19 @@ export function BlogDetailPage() {
       <section className="section">
         <div className="container blog-detail-layout">
           <article className="blog-article">
+            {/* The article's own hero. Eager and high priority because it is
+                the largest element above the fold — lazy-loading it would make
+                it the Largest Contentful Paint and cost the page its score. */}
+            <figure className="blog-hero-figure">
+              <img
+                src={hero.src}
+                alt={hero.alt}
+                width={hero.width}
+                height={hero.height}
+                fetchpriority="high"
+                decoding="async"
+              />
+            </figure>
             <p className="blog-summary-lead">{blog.summary}</p>
             <div className="blog-content">
               {renderContent(blog.content)}
@@ -253,7 +342,16 @@ export function BlogDetailPage() {
             <div className="related-grid">
               {related.map(b => (
                 <Link to={`/blog/${b.slug}`} key={b.id} className="related-card">
-                  <div className="related-img" style={{ background: b.color }}>{b.emoji}</div>
+                  <div className="related-img" style={{ background: b.color }}>
+                    <img
+                      src={blogImage(b).src}
+                      alt={blogImage(b).alt}
+                      width={IMG_W}
+                      height={IMG_H}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
                   <div className="related-body">
                     <div className="blog-tag-pill">{b.tag}</div>
                     <div className="related-title">{b.title}</div>

@@ -149,3 +149,33 @@
   .svc-related-grid { grid-template-columns: 1fr; }
   .svc-detail-title { max-width: none; }
 }
+
+/* ---------------- LANDING PAGE HERO IMAGE ---------------- */
+
+/* The generated hero card, below the h1 and tagline in the hero band. Capped
+   in width so it reads as an illustration rather than a banner, and given a
+   fixed aspect ratio so the box is reserved before the file lands. */
+.svc-hero-figure {
+  margin: 2rem 0 0;
+  max-width: 760px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: var(--shadow-md);
+}
+.svc-hero-figure img {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 1200 / 630;
+}
+
+@media (max-width: 640px) {
+  .svc-hero-figure { margin-top: 1.4rem; }
+}
+
+/* Lead line above the pillar's spoke list. */
+.svc-related-lead {
+  color: var(--body);
+  margin: -0.4rem 0 1.4rem;
+  max-width: 62ch;
+}
