@@ -23,6 +23,29 @@
 export const IMG_W = 1200;
 export const IMG_H = 630;
 
+/**
+ * Intrinsic size of any image an article references inline as
+ * `![alt](/img/...)`. The hero cards are all 1200x630 and need no entry; the
+ * bespoke diagrams in /img/diagrams are whatever shape suits the diagram.
+ *
+ * This exists so `width` and `height` on the tag match the file. Emitting the
+ * wrong pair is worse than emitting none — the browser reserves a box at the
+ * wrong aspect ratio and the page visibly jumps when the real image lands.
+ * Anything not listed here falls back to no dimensions at all and is sized by
+ * CSS, which is safe if not ideal.
+ *
+ * Keep in step with the `diagrams` array in scripts/generate-images.js.
+ */
+export const INLINE_DIMS = {
+  "/img/diagrams/fuel-price-lag.svg": { width: 1200, height: 420 },
+};
+
+/** Intrinsic size for an inline image src, or null when it is not known. */
+export const dimsFor = src =>
+  INLINE_DIMS[src] || (/^\/img\/(blog|scrapers|services|webdesign)\//.test(src)
+    ? { width: IMG_W, height: IMG_H }
+    : null);
+
 /** Hand-written alt for the articles — the pages that carry search traffic. */
 const BLOG_ALT = {
   "what-is-web-scraping":
@@ -67,6 +90,8 @@ const BLOG_ALT = {
     "Title card for the AutoSmartCode guide to what an AutoCheck report is and how to read the AutoCheck Score",
   "autoscraper-python-library-vs-custom-scraper":
     "Title card for the AutoSmartCode guide to the AutoScraper Python library and when a custom scraper is needed instead",
+  "fuel-prices-used-vehicle-values":
+    "Title card for the AutoSmartCode guide to how fuel prices move used vehicle values and how to track it in MMR",
 };
 
 /**

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#080f0d"/><stop offset="100%" stop-color="#0a1512"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="420" fill="url(#bg)"/>
+  <text x="600" y="72" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="30" font-weight="800" fill="#ffffff" letter-spacing="-0.5">A fuel price move reaches your lot last</text>
+  <text x="600" y="108" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="20" font-weight="500" fill="#94a3b8">The gap between the pump and the block is where the money is made or lost</text>
+  
+  <rect x="80" y="150" width="236" height="150" rx="16" fill="#fbbf24" fill-opacity="0.10" stroke="#fbbf24" stroke-opacity="0.45"/>
+  <text x="198" y="208" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">Pump price moves</text>
+  <text x="198" y="274" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="18" font-weight="600" fill="#fbbf24">day 0</text>
+  <path d="M 322 225 L 342 225" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="348" y="150" width="236" height="150" rx="16" fill="#fb923c" fill-opacity="0.10" stroke="#fb923c" stroke-opacity="0.45"/>
+  <text x="466" y="208" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">Retail shopping</text><text x="466" y="238" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">behaviour shifts</text>
+  <text x="466" y="274" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="18" font-weight="600" fill="#fb923c">days</text>
+  <path d="M 590 225 L 610 225" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="616" y="150" width="236" height="150" rx="16" fill="#60a5fa" fill-opacity="0.10" stroke="#60a5fa" stroke-opacity="0.45"/>
+  <text x="734" y="208" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">Auction / MMR</text><text x="734" y="238" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">values follow</text>
+  <text x="734" y="274" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="18" font-weight="600" fill="#60a5fa">2–8 weeks</text>
+  <path d="M 858 225 L 878 225" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="884" y="150" width="236" height="150" rx="16" fill="#34d399" fill-opacity="0.10" stroke="#34d399" stroke-opacity="0.45"/>
+  <text x="1002" y="208" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">Your lot is</text><text x="1002" y="238" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="23" font-weight="700" fill="#ffffff">repriced</text>
+  <text x="1002" y="274" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="18" font-weight="600" fill="#34d399">if you are watching</text>
+  
+  <text x="600" y="382" text-anchor="middle" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="17" font-weight="500" fill="#64748b">Lag varies by segment and by how far and how fast the price moved — measure it, do not assume it</text>
+</svg>

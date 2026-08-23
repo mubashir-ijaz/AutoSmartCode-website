@@ -41,9 +41,9 @@ const { services } = loadData("src/data/services.js", ["services"]);
 const { AREAS_SERVED } = loadData("src/data/geo.js", ["AREAS_SERVED"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
 const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
-const { blogImage, scraperImage, serviceImage, webdesignImage, socialImage, IMG_W, IMG_H } =
+const { blogImage, scraperImage, serviceImage, webdesignImage, socialImage, dimsFor, IMG_W, IMG_H } =
   loadData("src/data/images.js",
-    ["blogImage", "scraperImage", "serviceImage", "webdesignImage", "socialImage", "IMG_W", "IMG_H"]);
+    ["blogImage", "scraperImage", "serviceImage", "webdesignImage", "socialImage", "dimsFor", "IMG_W", "IMG_H"]);
 
 /**
  * Whether scripts/generate-images.js managed to rasterise the SVG heroes to
@@ -90,9 +90,15 @@ const a = (href, text) => `<a href="${esc(href)}">${esc(text)}</a>`;
 
 /** Hero image. width/height are always emitted so the box is reserved before
  *  the file arrives — a missing pair is the usual cause of layout shift. */
-const img = (src, alt, { width = IMG_W, height = IMG_H, eager = false } = {}) =>
-  `<img src="${esc(src)}" alt="${esc(alt)}" width="${width}" height="${height}"` +
-  (eager ? ` fetchpriority="high"` : ` loading="lazy"`) + ` decoding="async"/>`;
+const img = (src, alt, { eager = false } = {}) => {
+  // Emitting a width/height pair that does not match the file is worse than
+  // emitting none — the browser reserves the wrong box and the page jumps when
+  // the real image arrives. dimsFor returns null for anything unrecognised.
+  const d = dimsFor(src);
+  return `<img src="${esc(src)}" alt="${esc(alt)}"` +
+    (d ? ` width="${d.width}" height="${d.height}"` : "") +
+    (eager ? ` fetchpriority="high"` : ` loading="lazy"`) + ` decoding="async"/>`;
+};
 
 /** `eager` is for the one image above the fold on a page — the hero. Lazy is
  *  right for everything below it, and wrong for the LCP element. */
@@ -119,9 +125,13 @@ function markdown(md) {
     const image = line.match(/^!\[(.*?)\]\((.+?)\)$/);
     if (image) {
       const [, alt, src] = image;
-      const next = (lines[i + 1] || "").trim();
+      // Markdown normally separates block elements with a blank line, so the
+      // caption lookahead has to step over them. Matches Blog.jsx.
+      let j = i + 1;
+      while (j < lines.length && !lines[j].trim()) j++;
+      const next = (lines[j] || "").trim();
       const caption = /^\*[^*].*\*$/.test(next) ? next.slice(1, -1) : null;
-      if (caption) i++;
+      if (caption) i = j;
       out.push(figure(src, alt, caption));
       continue;
     }

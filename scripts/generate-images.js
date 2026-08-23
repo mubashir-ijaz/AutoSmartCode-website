@@ -132,6 +132,7 @@ const ACCENTS = {
   "Technical":         ["#94a3b8", "#64748b"],
   "eCommerce":         ["#34d399", "#22d3ee"],
   "Web Development":   ["#60a5fa", "#a78bfa"],
+  "Market Data":       ["#fbbf24", "#f59e0b"],
   _default:            ["#34d399", "#06b6d4"],
 };
 
@@ -227,9 +228,77 @@ function card({ eyebrow, title, kicker, emoji }) {
 `;
 }
 
+/* ------------------------------ diagrams ------------------------------ */
+
+/**
+ * Bespoke explanatory diagrams, referenced from article bodies as
+ * `![alt](/img/diagrams/<name>.svg)`. Unlike the hero cards these are not
+ * generated from a data file — each one says something specific, so each is
+ * written by hand here.
+ *
+ * The rule they follow: a diagram has to carry information the sentence next
+ * to it does not. A picture of the words already on the page is decoration,
+ * and decoration is not worth the bytes or the alt text.
+ */
+
+/** The transmission chain from a pump price move to a repriced lot. */
+function fuelLagDiagram() {
+  const stages = [
+    ["Pump price moves|day 0", "#fbbf24"],
+    ["Retail shopping|behaviour shifts|days", "#fb923c"],
+    ["Auction / MMR|values follow|2–8 weeks", "#60a5fa"],
+    ["Your lot is|repriced|if you are watching", "#34d399"],
+  ].map(([spec, colour]) => {
+    // "line|line|…|when" — pipe-delimited so the source stays on one line.
+    const parts = spec.split("|");
+    return { lines: parts.slice(0, -1), when: parts[parts.length - 1], colour };
+  });
+  const W2 = 1200, H2 = 420, boxW = 236, boxH = 150, gap = 32;
+  const startX = (W2 - (stages.length * boxW + (stages.length - 1) * gap)) / 2;
+  const y = 150;
+
+  const blocks = stages.map(({ lines, when, colour }, i) => {
+    const x = startX + i * (boxW + gap);
+    const arrow = i < stages.length - 1
+      ? `<path d="M ${x + boxW + 6} ${y + boxH / 2} L ${x + boxW + gap - 6} ${y + boxH / 2}" stroke="#475569" stroke-width="2.5" marker-end="url(#arrow)"/>`
+      : "";
+    return `
+  <rect x="${x}" y="${y}" width="${boxW}" height="${boxH}" rx="16" fill="${colour}" fill-opacity="0.10" stroke="${colour}" stroke-opacity="0.45"/>
+  ${lines.map((ln, li) =>
+    `<text x="${x + boxW / 2}" y="${y + 58 + li * 30}" text-anchor="middle" font-family="${FONT}" font-size="23" font-weight="700" fill="#ffffff">${esc(ln)}</text>`
+  ).join("")}
+  <text x="${x + boxW / 2}" y="${y + boxH - 26}" text-anchor="middle" font-family="${FONT}" font-size="18" font-weight="600" fill="${colour}">${esc(when)}</text>
+  ${arrow}`;
+  }).join("");
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W2}" height="${H2}" viewBox="0 0 ${W2} ${H2}" role="img">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="${W2}" y2="${H2}" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#080f0d"/><stop offset="100%" stop-color="#0a1512"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="${W2}" height="${H2}" fill="url(#bg)"/>
+  <text x="${W2 / 2}" y="72" text-anchor="middle" font-family="${FONT}" font-size="30" font-weight="800" fill="#ffffff" letter-spacing="-0.5">A fuel price move reaches your lot last</text>
+  <text x="${W2 / 2}" y="108" text-anchor="middle" font-family="${FONT}" font-size="20" font-weight="500" fill="#94a3b8">The gap between the pump and the block is where the money is made or lost</text>
+  ${blocks}
+  <text x="${W2 / 2}" y="382" text-anchor="middle" font-family="${FONT}" font-size="17" font-weight="500" fill="#64748b">Lag varies by segment and by how far and how fast the price moved — measure it, do not assume it</text>
+</svg>
+`;
+}
+
+const diagrams = [
+  {
+    file: "diagrams/fuel-price-lag.svg",
+    svg: fuelLagDiagram(),
+  },
+];
+
 /* --------------------------- what gets built -------------------------- */
 
-const targets = [];
+const targets = [...diagrams];
 
 for (const b of blogs) {
   targets.push({

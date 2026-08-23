@@ -81,16 +81,16 @@ links, sitemap, schema and prerendering all follow automatically.
 
 ## Prerendering — the fix that mattered most
 
-This is a client-rendered SPA. Before this change, all 69 URLs shipped the
+This is a client-rendered SPA. Before this change, all 70 URLs shipped the
 same `index.html` with an empty `<div id="root">`. Googlebot executes
 JavaScript and gets there eventually. **Bingbot and most AI crawlers do not** —
 GPTBot, ClaudeBot and PerplexityBot read raw HTML, and `robots.txt` was
-inviting them in and then handing them nothing, 69 times over.
+inviting them in and then handing them nothing, 70 times over.
 
 `scripts/prerender.js` runs as `postbuild` and writes
 `build/<route>/index.html` for every route: correct title, description,
 canonical, Open Graph, Twitter tags and JSON-LD in the head, and the page's
-real copy inside `#root`. **47,547 words** now exist in static HTML.
+real copy inside `#root`. **49,300 words** now exist in static HTML.
 
 React replaces that markup on hydration with the identical content, so this is
 a mirror rather than cloaking. It is not full SSR — the contact form, the
@@ -104,7 +104,7 @@ npm run prerender   # re-run prerendering alone
 
 The script is idempotent: it strips its own `<!--prerender-->` markers from
 the shell before reusing it, and exits loudly if `build/index.html` has no
-empty root div to fill, rather than silently emitting 69 blank pages.
+empty root div to fill, rather than silently emitting 70 blank pages.
 
 `vercel.json` rewrites are a *fallback* — Vercel checks the filesystem first,
 so the static per-route files win. Do not switch those rewrites to `routes`,
@@ -168,7 +168,12 @@ an accessibility failure and, to Google, a spam signal.
   the sitemap are discovered on the next crawl of the sitemap
 
 Articles can also carry inline images now: `![alt](/img/x.svg)` with an
-optional `*caption*` on the following line. Both `src/pages/Blog.jsx` and
+optional `*caption*` on the next non-blank line. Bespoke explanatory diagrams
+live in `/img/diagrams` and are written by hand in `generate-images.js` rather
+than generated from a data file, because each says something specific. Their
+intrinsic sizes are registered in `INLINE_DIMS` in `src/data/images.js` —
+a `width`/`height` pair that does not match the file is worse than none,
+because the browser reserves the wrong box and the page jumps. Both `src/pages/Blog.jsx` and
 `scripts/prerender.js` understand the same syntax — **they have to stay in
 lockstep**, because the static HTML and the hydrated page must say the same
 thing.
@@ -244,7 +249,7 @@ gets cited about as often as it gets clicked.
 
 **Titles and descriptions** — every page has its own, exact-match phrasing
 first and the brand last (`AutoTrader Scraper — Automated Vehicle Listing
-Extraction | AutoSmartCode`). Verified against the build: 69 unique titles, 69
+Extraction | AutoSmartCode`). Verified against the build: 70 unique titles, 70
 unique canonicals, zero duplicates, and 55 page-specific `og:image` values.
 
 **Structured data** — site-wide `Organization` + `WebSite` +
@@ -262,7 +267,7 @@ of the site, `/services` is a hub linking to all of them, the homepage service
 rows link to their own pages, and each landing page cross-links to siblings.
 Google needs a crawl path before it will index and trust a new URL.
 
-**Sitemap** — 69 URLs plus 55 image entries, generated from the data files by
+**Sitemap** — 70 URLs plus 56 image entries, generated from the data files by
 `scripts/generate-sitemap.js`. Never edit `public/sitemap.xml` by hand; it is
 overwritten on every build.
 

@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/content";
-import { blogImage, socialFor, IMG_W, IMG_H } from "../data/images";
+import { blogImage, socialFor, dimsFor, IMG_W, IMG_H } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Blog.css";
@@ -158,13 +158,19 @@ function renderContent(content) {
     const image = line.match(IMAGE_RE);
     if (image) {
       const [, alt, src] = image;
-      const next = (lines[i + 1] || "").trim();
+      // Skip blank lines when looking for the caption — markdown is normally
+      // written with a blank line between block elements, and requiring the
+      // caption to butt up against the image would be a trap.
+      let j = i + 1;
+      while (j < lines.length && !lines[j].trim()) j++;
+      const next = (lines[j] || "").trim();
       const caption = /^\*[^*].*\*$/.test(next) ? next.slice(1, -1) : null;
-      if (caption) i++;
+      if (caption) i = j;
+      const dims = dimsFor(src);
       elements.push(
         <figure key={key++} className="blog-figure">
-          <img src={src} alt={alt} loading="lazy" decoding="async" />
-          {caption && <figcaption>{caption}</figcaption>}
+          <img src={src} alt={alt} {...(dims || {})} loading="lazy" decoding="async" />
+          {caption && <figcaption>{inline(caption, `cap${key}`)}</figcaption>}
         </figure>
       );
       continue;

@@ -644,6 +644,17 @@
       <image:caption>Title card for the AutoSmartCode guide to the AutoScraper Python library and when a custom scraper is needed instead</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/fuel-prices-used-vehicle-values</loc>
+    <lastmod>2026-08-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/fuel-prices-used-vehicle-values.svg</image:loc>
+      <image:title>How Fuel Prices Move Used Vehicle Values — and How to Track It in MMR</image:title>
+      <image:caption>Title card for the AutoSmartCode guide to how fuel prices move used vehicle values and how to track it in MMR</image:caption>
+    </image:image>
+  </url>
 
   <!-- Project case studies -->
   <url>
