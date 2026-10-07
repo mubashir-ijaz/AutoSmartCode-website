@@ -1,9 +1,12 @@
 .inner-page { padding-top: 74px; }
 
+/* Every inner page opens on a car photo, darkened on the left where the
+   heading sits. A page picks its photo with style={{"--hero-photo": ...}}. */
 .inner-hero {
   background:
-    radial-gradient(ellipse 70% 80% at 50% -10%, rgba(16, 185, 129, 0.16), transparent 65%),
-    radial-gradient(ellipse 50% 60% at 88% 30%, rgba(37, 99, 235, 0.12), transparent 60%),
+    linear-gradient(90deg, rgba(6,10,9,0.95) 0%, rgba(6,10,9,0.84) 50%, rgba(6,10,9,0.6) 100%),
+    linear-gradient(180deg, transparent 60%, var(--bg-soft) 100%),
+    var(--hero-photo, none) center / cover no-repeat,
     var(--bg-soft);
   border-bottom: 1px solid var(--border);
   padding: 5rem 0 4rem;

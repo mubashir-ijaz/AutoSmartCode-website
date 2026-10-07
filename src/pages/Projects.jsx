@@ -6,8 +6,8 @@ import "./Projects.css";
 
 export function ProjectsPage() {
   useSeo({
-    title: "Web Scraping & Automation Projects | AutoSmartCode Portfolio",
-    description: "Real client work — car auction intelligence, Google Maps lead scrapers, Amazon and Walmart data pipelines, price monitors and eCommerce builds.",
+    title: "Car Auction & Dealer Data Projects | AutoSmartCode Portfolio",
+    description: "Real client work for the car trade — run-list triage and watch lists, custom VIN panel extensions, auction intelligence pipelines and private-party sourcing.",
     path: "/projects",
     schema: {
       "@context": "https://schema.org",
@@ -28,11 +28,11 @@ export function ProjectsPage() {
 
   return (
     <div className="inner-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/lot-rows.webp")' }}>
         <div className="container">
           <FounderHeader
-            title="All Projects"
-            sub="1000+ projects delivered. Here are some of the most impactful ones — each solved a real business problem."
+            title="Dealer Projects"
+            sub="Real builds for dealers, wholesalers and auction buyers — each one replaced a morning somebody was spending by hand."
             line="every project on this page, built by me"
           />
         </div>
@@ -136,7 +136,7 @@ export function ProjectDetailPage() {
 
   return (
     <div className="inner-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/lot-rows.webp")' }}>
         <div className="container">
           <Link to="/projects" className="back-link">← All Projects</Link>
           <div className="proj-detail-type" style={{ color: project.color }}>

@@ -40,8 +40,8 @@
     <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">the Live Market, Not a Book</text>
     <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Value</text>
 
-  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Book values tell you what a car was worth. Live listing data tells you what buyers</text>
-  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">in your market are being asked to pay for it today. Here is how to build the…</text>
+  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Book values lag the market by weeks. How to price used cars against live</text>
+  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">wholesale and retail data instead, and what to do when the two disagree.</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

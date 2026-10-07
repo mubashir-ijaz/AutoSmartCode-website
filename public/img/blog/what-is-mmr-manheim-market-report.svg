@@ -40,8 +40,8 @@
     <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Market Report Explained for</text>
     <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Dealers</text>
 
-  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">MMR is the number the whole wholesale market quietly agrees a car is worth.</text>
-  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Here is what it actually measures, how to read it, and where it stops being…</text>
+  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">What MMR actually measures, why it moves, how far to trust it against a specific</text>
+  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">car, and where it quietly misleads you. Written for dealers who bid on it.</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

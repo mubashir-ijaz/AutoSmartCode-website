@@ -1,3 +1,150 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "redirects": [
+    {
+      "source": "/google-maps-scraper",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/mediamarkt-scraper",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/ebay-scraper",
+      "destination": "/ebay-motors-scraper",
+      "permanent": true
+    },
+    {
+      "source": "/amazon-product-scraper",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/walmart-scraper",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/business-leads-data",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/web-development",
+      "destination": "/services/dealer-browser-extension",
+      "permanent": true
+    },
+    {
+      "source": "/small-business-website-design",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/website-redesign-services",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/salon-website-design",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/restaurant-website-design",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/scrape-google-maps-leads",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/python-automation-small-business",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/amazon-product-analysis-ai",
+      "destination": "/blog/ai-parsing-scraped-data",
+      "permanent": true
+    },
+    {
+      "source": "/blog/zillow-airbnb-real-estate-scraping",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ecommerce-price-monitoring-automation",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-cold-email-lists-bounce",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/blog/slow-website-cost-small-business",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/projects/2",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/3",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/4",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/5",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/6",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/projects/8",
+      "destination": "/projects/10",
+      "permanent": true
+    },
+    {
+      "source": "/projects/9",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/services/autoniq-alternative",
+      "destination": "/services/dealer-browser-extension",
+      "permanent": true
+    },
+    {
+      "source": "/services/web-scraping",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    },
+    {
+      "source": "/services/dealer-inventory-scraping",
+      "destination": "/services/car-auction-automation",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
 }

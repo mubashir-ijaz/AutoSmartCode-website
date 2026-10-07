@@ -7,15 +7,15 @@ import "./Blog.css";
 
 export function BlogPage() {
   useSeo({
-    title: "Web Scraping & Automation Guides | AutoSmartCode Blog",
-    description: "Practical guides on web scraping, Python automation, lead generation and AI data analysis — written from real client projects, not theory.",
+    title: "Car Auction & Dealer Data Guides | AutoSmartCode Blog",
+    description: "Practical guides for dealers and wholesalers — MMR, Carfax and AutoCheck, VIN decoding, auction automation and pricing against the live market.",
     path: "/blog",
     schema: {
       "@context": "https://schema.org",
       "@type": "Blog",
       name: "AutoSmartCode Blog",
       url: ORIGIN + "/blog",
-      description: "Guides on web scraping, automation and data for businesses in the US, UK and worldwide.",
+      description: "Guides on auction data, vehicle history reports, MMR and dealer automation for the car trade.",
       blogPost: blogs.map(b => ({
         "@type": "BlogPosting",
         headline: b.title,
@@ -29,11 +29,11 @@ export function BlogPage() {
 
   return (
     <div className="inner-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/showroom.webp")' }}>
         <div className="container">
           <FounderHeader
             title="Guides That Actually Help"
-            sub="Practical tutorials on web scraping, automation, AI, and tools for businesses in the US, UK and worldwide — written from real project experience."
+            sub="MMR, Carfax and AutoCheck, VIN decoding, auction automation and pricing against the live market — written from real dealer projects, not theory."
             line="written by me, from paid client work"
           />
         </div>
@@ -208,7 +208,8 @@ export function BlogDetailPage() {
   const hero = blog ? blogImage(blog) : null;
 
   useSeo(blog ? {
-    title: blog.title + " | AutoSmartCode",
+    /* metaTitle is the short SERP form; title is the long on-page H1. */
+    title: (blog.metaTitle || blog.title) + " | AutoSmartCode",
     description: blog.summary.slice(0, 155),
     path: "/blog/" + blog.slug,
     type: "article",
@@ -334,7 +335,7 @@ export function BlogDetailPage() {
             <div className="sidebar-card">
               <h3>Services Mentioned</h3>
               <div className="sidebar-service-list">
-                {["Web Scraping","Python Automation","AI Analysis","Lead Generation","Web Development"].map(s => (
+                {["Run-List Triage","Dealer Extensions","History Reports","Auction Automation","Web Scraping"].map(s => (
                   <Link to="/#services" key={s} className="sidebar-service-item">{s} →</Link>
                 ))}
               </div>

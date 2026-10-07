@@ -37,11 +37,11 @@
   </g>
 
   <text x="80" y="191" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Self-Healing Scrapers: What AI</text>
-    <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Fixes When a Site Changes, and</text>
-    <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">What It Doesn&apos;t</text>
+    <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Fixes When an Auction Site</text>
+    <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Changes</text>
 
-  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Every scraper eventually breaks because a site redesigns. AI can genuinely</text>
-  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">repair some of those breaks automatically — and pretending it fixes all of them…</text>
+  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">A renamed CSS class an LLM can recover from. A new login flow it cannot. An</text>
+  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">honest account of what self-healing scraping fixes, and what still wakes you up.</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

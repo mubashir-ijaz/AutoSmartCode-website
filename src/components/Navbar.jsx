@@ -28,6 +28,7 @@ export default function Navbar() {
   }
 
   const handleContact = jumpTo("contact");
+  const handlePricing = jumpTo("pricing");
 
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
@@ -40,12 +41,13 @@ export default function Navbar() {
           {[{to:"/",label:"Home"},{to:"/services",label:"Services"},{to:"/projects",label:"Projects"},{to:"/blog",label:"Blog"},{to:"/about",label:"About"}].map(l => (
             <li key={l.to}><Link to={l.to} className={location.pathname===l.to?"active":""}>{l.label}</Link></li>
           ))}
+          <li><a href="/#pricing" onClick={handlePricing}>Pricing</a></li>
           <li><a href="/#contact" onClick={handleContact}>Contact</a></li>
           <li className="nav-mobile-cta">
-            <a href="/#contact" className="btn btn-blue" onClick={handleContact}>Get Free Quote</a>
+            <a href="/#contact" className="btn btn-blue" onClick={handleContact}>Get a Free Quote</a>
           </li>
         </ul>
-        <a href="/#contact" className="nav-cta" onClick={handleContact}>Get Free Quote</a>
+        <a href="/#contact" className="nav-cta" onClick={handleContact}>Get a Free Quote</a>
         <button className="nav-burger" onClick={()=>setOpen(!open)} aria-label="Menu">
           <span/><span/><span/>
         </button>

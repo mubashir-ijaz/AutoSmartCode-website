@@ -3,7 +3,7 @@
  *
  * Search Console is already showing impressions for these exact queries
  * ("autoscout24 scraper", "autotrader scraper", "carmax scraper",
- * "carsales scraper", "mediamarkt scraper", "dealer inventory scraper") at
+ * "carsales scraper", "dealer inventory scraper") at
  * position ~56, matched against the homepage because nothing else exists.
  * One page per query, at a root-level exact-match URL, is what turns an
  * impression into a click.
@@ -35,9 +35,9 @@ export const scrapers = [
     site: "AutoTrader",
     emoji: "🚘",
     color: "#60a5fa",
-    metaTitle: "AutoTrader Scraper — Automated Vehicle Listing Extraction",
+    metaTitle: "AutoTrader Scraper — Listing Data",
     metaDesc:
-      "Custom AutoTrader scraper that pulls every matching listing daily — VIN, price, mileage, trim, dealer and photos — into one clean spreadsheet. Built in days, fixed price.",
+      "Custom AutoTrader scraper pulling every matching listing daily: VIN, price, mileage, trim, dealer and photos in one clean spreadsheet.",
     keywords: ["autotrader scraper", "autotrader data extraction", "scrape autotrader listings", "autotrader api alternative", "autotrader inventory data"],
     tagline: "Every AutoTrader listing that matches your criteria, in a spreadsheet, refreshed while you sleep.",
     what:
@@ -87,7 +87,7 @@ export const scrapers = [
         a: "A single-market daily feed typically lands between $300 and $700. Nationwide coverage with price history and competitor roll-ups runs higher. You get a fixed quote within 24 hours of telling me the filters and fields you want.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["carmax-scraper", "cars-com-scraper", "cargurus-scraper"],
   },
 
@@ -96,9 +96,9 @@ export const scrapers = [
     site: "AutoScout24",
     emoji: "🇪🇺",
     color: "#34d399",
-    metaTitle: "AutoScout24 Scraper — European Vehicle Listing Data",
+    metaTitle: "AutoScout24 Scraper — EU Listing Data",
     metaDesc:
-      "AutoScout24 scraper for dealers and traders. Extract listings, prices, mileage and dealer details across Germany, Italy, Netherlands and every AutoScout24 market into one dataset.",
+      "AutoScout24 scraper for dealers and traders. Listings, prices, mileage and dealer details across Germany, Italy and every AutoScout24 market.",
     keywords: ["autoscout24 scraper", "autoscout24 data extraction", "scrape autoscout24", "european car listing data", "autoscout24 api"],
     tagline: "Every AutoScout24 market in one dataset — normalised, deduplicated and refreshed daily.",
     what:
@@ -148,7 +148,7 @@ export const scrapers = [
         a: "A single country with daily delivery is typically $350 to $700. Multi-country with normalisation and cross-market comparison runs higher. Fixed quote within 24 hours of describing the markets and filters you need.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["carsales-scraper", "autotrader-scraper", "cargurus-scraper"],
   },
 
@@ -157,9 +157,9 @@ export const scrapers = [
     site: "CarMax",
     emoji: "🚗",
     color: "#fbbf24",
-    metaTitle: "CarMax Scraper — Inventory, Pricing & Availability Data",
+    metaTitle: "CarMax Scraper — Inventory & Pricing",
     metaDesc:
-      "CarMax scraper pulling live nationwide inventory — VIN, no-haggle price, mileage, trim, store location and transfer availability — into a clean daily dataset.",
+      "CarMax scraper pulling live nationwide inventory: VIN, no-haggle price, mileage, trim, store location and transfer availability, refreshed daily.",
     keywords: ["carmax scraper", "carmax inventory data", "scrape carmax listings", "carmax pricing data", "carmax api"],
     tagline: "CarMax posts one price and never moves it. That makes their inventory the cleanest pricing benchmark in the country.",
     what:
@@ -209,7 +209,7 @@ export const scrapers = [
         a: "A filtered daily feed typically runs $350 to $700. Full nationwide capture with price history and store-level breakdowns is higher. You get a fixed price within 24 hours of describing what you want tracked.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["autotrader-scraper", "cars-com-scraper", "manheim-mmr-scraper"],
   },
 
@@ -218,9 +218,9 @@ export const scrapers = [
     site: "Carsales",
     emoji: "🇦🇺",
     color: "#22d3ee",
-    metaTitle: "Carsales Scraper — Australian Vehicle Listing Data",
+    metaTitle: "Carsales Scraper — Australian Car Data",
     metaDesc:
-      "Carsales.com.au scraper for Australian dealers and traders. Pull listings, prices, kilometres, dealer details and state-level market data into one refreshed dataset.",
+      "Carsales.com.au scraper for Australian dealers. Pull listings, prices, kilometres, dealer details and state-level market data into one dataset.",
     keywords: ["carsales scraper", "carsales.com.au data", "scrape carsales listings", "australian car listing data", "carsales api"],
     tagline: "The Australian market in one table — every state, every dealer, every price change.",
     what:
@@ -270,7 +270,7 @@ export const scrapers = [
         a: "A filtered daily feed typically runs $350 to $700 depending on breadth. National coverage with price history and state roll-ups is higher. Fixed quote within 24 hours.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["autoscout24-scraper", "autotrader-scraper", "carmax-scraper"],
   },
 
@@ -279,9 +279,9 @@ export const scrapers = [
     site: "Cars.com",
     emoji: "🏷️",
     color: "#a78bfa",
-    metaTitle: "Cars.com Scraper — Listing, Price & Dealer Data Extraction",
+    metaTitle: "Cars.com Scraper — Price & Dealer Data",
     metaDesc:
-      "Cars.com scraper that captures every matching listing — VIN, price, deal rating, mileage, dealer and photos — refreshed daily into Excel, Sheets or your database.",
+      "Cars.com scraper capturing every matching listing: VIN, price, deal rating, mileage, dealer and photos, refreshed daily into Excel or Sheets.",
     keywords: ["cars.com scraper", "cars com data extraction", "scrape cars.com listings", "cars.com inventory data", "cars.com api"],
     tagline: "Cars.com publishes a deal rating on every listing. Captured at scale, that becomes a map of who is mispriced.",
     what:
@@ -331,7 +331,7 @@ export const scrapers = [
         a: "A competitor watch list starts around $250. A filtered daily market feed is typically $400 to $800. Fixed quote within 24 hours of describing the filters and fields.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["autotrader-scraper", "cargurus-scraper", "carmax-scraper"],
   },
 
@@ -340,9 +340,9 @@ export const scrapers = [
     site: "CarGurus",
     emoji: "📈",
     color: "#fb7185",
-    metaTitle: "CarGurus Scraper — Deal Ratings, Prices & Dealer Data",
+    metaTitle: "CarGurus Scraper — Deal Ratings & Price",
     metaDesc:
-      "CarGurus scraper capturing listings, instant market value, deal ratings, price history and dealer reputation data across any US market, refreshed on your schedule.",
+      "CarGurus scraper capturing listings, instant market value, deal ratings, price history and dealer reputation across any US market.",
     keywords: ["cargurus scraper", "cargurus data extraction", "scrape cargurus listings", "cargurus imv data", "cargurus deal rating"],
     tagline: "CarGurus publishes its own market valuation next to every price. That comparison is the whole reason to scrape it.",
     what:
@@ -391,7 +391,7 @@ export const scrapers = [
         a: "Typically $450 to $900 for a filtered daily feed, higher than the easier sites because the anti-bot work is real. Fixed quote within 24 hours.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["cars-com-scraper", "autotrader-scraper", "carmax-scraper"],
   },
 
@@ -400,9 +400,9 @@ export const scrapers = [
     site: "Manheim MMR",
     emoji: "🔨",
     color: "#34d399",
-    metaTitle: "Manheim MMR Scraper — Automated Auction Price Lookups",
+    metaTitle: "Manheim MMR Scraper — Bulk MMR Lookups",
     metaDesc:
-      "Automate Manheim MMR lookups against your own dealer account. Bulk VIN valuations, run-list scoring and a ranked deal email before the lane opens.",
+      "Automate Manheim MMR lookups through your own dealer account. Bulk VIN valuations, run-list scoring and a ranked deal email before the lane opens.",
     keywords: ["manheim mmr scraper", "manheim automation", "mmr lookup automation", "manheim run list data", "auction price automation"],
     tagline: "Four hundred VINs against MMR, before your first coffee, using the account you already pay for.",
     what:
@@ -455,129 +455,6 @@ export const scrapers = [
     siblings: ["dealer-marketplace-scraper", "acv-auctions-scraper", "edge-pipeline-scraper"],
   },
 
-  {
-    slug: "google-maps-scraper",
-    site: "Google Maps",
-    emoji: "🗺️",
-    color: "#fbbf24",
-    metaTitle: "Google Maps Scraper — Business Leads Data Extraction",
-    metaDesc:
-      "Google Maps scraper that builds verified B2B lead lists — name, phone, email, website, rating and reviews — for any category in any city. 5,000 leads in about 24 hours.",
-    keywords: ["google maps scraper", "google maps lead scraping", "business leads data", "google maps data extraction", "b2b lead list building"],
-    tagline: "Every business of a given type, in a given place, with a verified way to reach them.",
-    what:
-      "Google Maps is the most complete public directory of operating businesses that exists — better maintained than any purchased database, because the businesses maintain it themselves to be found. Category, location, phone, website, hours, rating and review count are all published, and the ones that are actually trading are the ones that keep it current.",
-    why:
-      "It is the fastest route from an ideal-customer definition to a list of real companies that match it. Every HVAC contractor in three metros rated above 4.0 with more than 25 reviews and no online booking — that is a query against Maps plus a pass over each website, and it is a far better list than anything you can buy, because it was built this week to your criteria rather than two years ago to somebody else's.",
-    fields: [
-      "Business name, category and subcategory",
-      "Full address, plus latitude and longitude",
-      "Phone number, format-validated and line-type checked",
-      "Website URL",
-      "Email addresses found on the site, fully verified",
-      "Star rating and total review count",
-      "Opening hours and current status",
-      "Price level and service attributes",
-      "Social profiles linked from the site",
-      "Technology signals — booking system, chat, eCommerce platform",
-    ],
-    defenses:
-      "Maps results are rendered dynamically, capped per query, and localised to the requesting location, so a naïve scrape returns a few dozen results and stops. The build tiles the target area into overlapping geographic cells and queries each one, which reaches the full set rather than the first page — then deduplicates across cells so a business sitting on a boundary appears exactly once.",
-    uses: [
-      "Build an outreach list for any category in any market",
-      "Find businesses with a specific weakness — no website, no booking, poor rating",
-      "Map competitor density before opening a location",
-      "Enrich an existing CRM with phone, hours and rating",
-      "Track review counts on a competitor set over time",
-      "Segment by technology signals to personalise your first line",
-    ],
-    faqs: [
-      {
-        q: "How many leads can you get from Google Maps?",
-        a: "Five thousand verified businesses in about 24 to 48 hours is a normal run. The real ceiling is how many businesses actually match your criteria — if a niche only contains 800 genuine targets, you get 800 real ones rather than 5,000 padded with junk.",
-      },
-      {
-        q: "Do I get email addresses?",
-        a: "Maps itself rarely publishes them, so the build visits each business website and extracts contact addresses from there, then verifies each one against syntax, domain, MX and mailbox checks. Typical outcome is a verified email on 40 to 70 percent of the list depending on the industry — trades are lower, professional services are higher.",
-      },
-      {
-        q: "Why not just use the official Google Places API?",
-        a: "For some jobs that is the right answer and I will tell you so. The API is clean but it caps results per query, omits fields the map itself shows, and gets expensive at volume. Most builds use the API where it is sufficient and page extraction where it is not.",
-      },
-      {
-        q: "Is this legal under GDPR and CCPA?",
-        a: "This is B2B data from public listings — business names, addresses, published phone numbers and business email addresses. I do not touch consumer PII or anything behind a login. What you may lawfully do with the list once you have it depends on where your targets are; if the list includes EU or UK businesses I will flag it, though your sending practice is a question for your lawyer rather than for me.",
-      },
-      {
-        q: "What does a Google Maps lead list cost?",
-        a: "Most one-off lists land between $200 and $700 depending on the number of cities, categories, the depth of enrichment and whether verification is included. Recurring monthly builds are cheaper per run. Fixed price up front.",
-      },
-    ],
-    pillar: "business-leads-data",
-    siblings: ["mediamarkt-scraper", "autotrader-scraper", "cars-com-scraper"],
-  },
-
-  {
-    slug: "mediamarkt-scraper",
-    site: "MediaMarkt",
-    emoji: "🛒",
-    color: "#60a5fa",
-    metaTitle: "MediaMarkt Scraper — Product, Price & Stock Data",
-    metaDesc:
-      "MediaMarkt scraper for price monitoring and catalogue data across Germany, Spain, Italy and every MediaMarkt market. Prices, stock, specs and promotions, refreshed daily.",
-    keywords: ["mediamarkt scraper", "mediamarkt price monitoring", "scrape mediamarkt products", "mediamarkt product data", "european electronics price data"],
-    tagline: "Europe's biggest electronics retailer, priced and tracked across every country it trades in.",
-    what:
-      "MediaMarkt — with Saturn, part of the same group — is Europe's largest consumer electronics retailer, running separate country sites across Germany, Spain, Italy, the Netherlands, Belgium, Austria, Poland and more. Each market prices independently, which makes them a benchmark for anyone selling electronics in Europe and a puzzle for anyone trying to see the whole picture.",
-    why:
-      "If you sell electronics in Europe, MediaMarkt is the price your customers check. Brands use this feed for MAP compliance monitoring; resellers use it to price against the market leader; cross-border sellers use it to find the country where a SKU is cheapest. All three need the same table, and none of them can get it by opening seven websites.",
-    fields: [
-      "Product name, brand, EAN and manufacturer part number",
-      "Current price, previous price and discount percentage",
-      "Promotional flags — bundle, cashback, clearance",
-      "Stock status per country and per store where published",
-      "Full technical specification set",
-      "Category path and product URL",
-      "Customer rating and review count",
-      "Photo URLs",
-      "Country and currency, with a normalised comparison price",
-    ],
-    defenses:
-      "MediaMarkt runs bot detection, rate-limits, renders prices client-side, and varies both markup and pricing by country domain. The build uses a real browser engine with per-country residential exits, paces requests per domain, and matches products across markets on EAN so the same SKU lines up in one row regardless of how each country names it.",
-    uses: [
-      "Monitor competitor prices daily across every European market",
-      "Enforce MAP compliance as a brand",
-      "Find the cheapest country for a SKU before sourcing",
-      "Track promotion cadence to time your own",
-      "Pull full catalogue data with specs for your own listings",
-      "Get alerted the moment a watched SKU drops or restocks",
-    ],
-    faqs: [
-      {
-        q: "Can you cover all MediaMarkt country sites?",
-        a: "Yes. Germany, Spain, Italy, the Netherlands, Belgium, Austria, Poland, Hungary and the rest can run as one job, matched on EAN so the same product appears as one row with a price column per country.",
-      },
-      {
-        q: "Does it include Saturn?",
-        a: "Yes — Saturn is part of the same group and works the same way, and most clients who want one want both. It runs in the same job rather than as a separate build.",
-      },
-      {
-        q: "How often can prices be checked?",
-        a: "Daily is standard and covers most price-monitoring needs. Hourly on a defined watch list is possible and is the usual choice for MAP enforcement, where the lag between a violation and finding out is the whole point.",
-      },
-      {
-        q: "Can I get alerted on price changes?",
-        a: "Yes — email, Slack or Telegram alerts fire when a watched product crosses a threshold, drops below your floor, or comes back into stock. Most clients take a daily digest plus instant alerts on a shorter critical list.",
-      },
-      {
-        q: "What does a MediaMarkt scraper cost?",
-        a: "A single-country price monitor on a defined product set typically runs $250 to $600. Multi-country full-catalogue extraction with EAN matching runs higher. Fixed quote within 24 hours.",
-      },
-    ],
-    pillar: "web-scraping",
-    siblings: ["google-maps-scraper", "autoscout24-scraper", "carsales-scraper"],
-  },
-
   /* ------------------ Auction cluster ------------------ */
 
   {
@@ -585,9 +462,9 @@ export const scrapers = [
     site: "ADESA",
     emoji: "🏦",
     color: "#34d399",
-    metaTitle: "ADESA Scraper — Auction Run List & Condition Report Data",
+    metaTitle: "ADESA Scraper — Run Lists & Grades",
     metaDesc:
-      "Automate ADESA run lists, condition grades and sale calendars through your own dealer account. Every lot scored against MMR and delivered before the sale starts.",
+      "Automate ADESA run lists, condition grades and sale calendars through your own dealer account. Every lot scored against MMR before the sale starts.",
     keywords: ["adesa scraper", "adesa auction data", "adesa run list automation", "adesa condition report data", "car auction data extraction"],
     tagline: "The whole sale calendar read overnight, every lot graded and scored, before anyone opens a browser.",
     what:
@@ -646,9 +523,9 @@ export const scrapers = [
     site: "BacklotCars",
     emoji: "🔗",
     color: "#22d3ee",
-    metaTitle: "BacklotCars Scraper — Digital Wholesale Inventory Data",
+    metaTitle: "BacklotCars Scraper — Wholesale Data",
     metaDesc:
-      "Automate BacklotCars inventory, buy-now pricing and offer data through your own account. Every listing scored against market value and delivered as a ranked daily shortlist.",
+      "Automate BacklotCars inventory, buy-now pricing and offer data through your own account. Every listing scored against market value, ranked daily.",
     keywords: ["backlotcars scraper", "backlotcars data extraction", "backlotcars inventory automation", "digital wholesale auction data", "car wholesale scraper"],
     tagline: "A 24/7 marketplace needs a 24/7 watcher. Cars appear and sell between your morning checks.",
     what:
@@ -707,9 +584,9 @@ export const scrapers = [
     site: "OpenLane",
     emoji: "🛣️",
     color: "#a78bfa",
-    metaTitle: "OpenLane Scraper — Digital Auction Inventory Extraction",
+    metaTitle: "OPENLANE Scraper — Auction Inventory",
     metaDesc:
-      "Automate OpenLane listings, condition reports and pricing through your own dealer account. Every lot scored against market value in one ranked daily shortlist.",
+      "Automate OPENLANE listings, condition reports and pricing through your own dealer account. Every lot scored against market value, ranked daily.",
     keywords: ["openlane scraper", "openlane auction data", "openlane inventory automation", "openlane data extraction", "digital auction scraper"],
     tagline: "Off-lease, off-rental and fleet inventory, read and scored before the buyers who check by hand.",
     what:
@@ -768,9 +645,9 @@ export const scrapers = [
     site: "ACV Auctions",
     emoji: "📱",
     color: "#34d399",
-    metaTitle: "ACV Auctions Scraper — Listing & Condition Report Data",
+    metaTitle: "ACV Auctions Scraper — Lot & CR Data",
     metaDesc:
-      "Automate ACV Auctions listings, condition reports and inspection data through your own dealer account. Every lot scored against your buy box before the timer runs down.",
+      "Automate ACV Auctions listings, condition reports and inspection data through your own dealer account. Lots scored against your buy box, overnight.",
     keywords: ["acv auctions scraper", "acv auction data", "acv condition report data", "acv auctions automation", "wholesale auction data extraction"],
     tagline: "Twenty-minute auctions do not wait for a buyer to finish scrolling. This has the shortlist ready before the first one opens.",
     what:
@@ -829,9 +706,9 @@ export const scrapers = [
     site: "Copart",
     emoji: "🔧",
     color: "#f87171",
-    metaTitle: "Copart Scraper — Salvage Auction Lot & Bid Data",
+    metaTitle: "Copart Scraper — Salvage Lot & Bid Data",
     metaDesc:
-      "Copart scraper for rebuilders, exporters and parts buyers. Pull lot details, damage type, run-and-drive status, estimated retail value and sale dates into one dataset.",
+      "Copart scraper for rebuilders, exporters and parts buyers. Lot details, damage type, run-and-drive status, retail value and sale dates in one dataset.",
     keywords: ["copart scraper", "copart data extraction", "salvage auction data", "copart api alternative", "copart lot data"],
     tagline: "Every lot in every yard that matches your criteria, with damage and title status, hours before the sale.",
     what:
@@ -890,9 +767,9 @@ export const scrapers = [
     site: "EDGE Pipeline",
     emoji: "🛣️",
     color: "#a78bfa",
-    metaTitle: "EDGE Pipeline Scraper — Independent Auction Run Lists",
+    metaTitle: "EDGE Pipeline Scraper — Run Lists",
     metaDesc:
-      "Automate EDGE Pipeline and Simulcast run lists from the independent auctions you buy at. Every sale, every lane, scored against your buy box in one overnight pass.",
+      "Automate EDGE Pipeline and Simulcast run lists from the independent auctions you buy at. Every lane scored against your buy box in one overnight pass.",
     keywords: ["edge pipeline scraper", "auction edge data", "independent auction run list", "edge simulcast automation", "auctionedge scraper"],
     tagline: "The independent auctions you actually buy at, read together, in one list, ranked by margin.",
     what:
@@ -951,9 +828,9 @@ export const scrapers = [
     site: "SmartAuction",
     emoji: "🏷️",
     color: "#60a5fa",
-    metaTitle: "SmartAuction Scraper — Off-Lease & Remarketing Listing Data",
+    metaTitle: "SmartAuction Scraper — Off-Lease Data",
     metaDesc:
-      "Automate Ally SmartAuction listings, condition reports and buy-now pricing through your own dealer account. Off-lease inventory scored against your buy box daily.",
+      "Automate Ally SmartAuction listings, condition reports and buy-now pricing through your own dealer account. Off-lease inventory scored daily.",
     keywords: ["smartauction scraper", "ally smartauction data", "off lease vehicle data", "remarketing platform scraper", "smartauction automation"],
     tagline: "Off-lease cars come back on a schedule. Knowing which ones fit your lot should not take an hour a day.",
     what:
@@ -1013,9 +890,9 @@ export const scrapers = [
     h1: "Private Dealer Marketplace & Auction Portal Scraping",
     emoji: "🔐",
     color: "#f472b6",
-    metaTitle: "Dealer Marketplace Scraper — Any Private Auction Portal",
+    metaTitle: "Private Dealer Portal Scraper",
     metaDesc:
-      "Most dealers and wholesalers buy on a platform nobody else has heard of. If you can log into it, it can be automated — run lists, pricing and condition data, scored daily.",
+      "Most dealers buy on a platform nobody has heard of. If you can log into it, it can be automated: run lists, pricing and condition data, scored daily.",
     keywords: ["dealer marketplace scraper", "private auction portal scraper", "dealer only marketplace data", "custom auction site scraper", "wholesale marketplace automation", "closed dealer portal automation"],
     tagline: "If you can log into it, it can be automated — even if I have never heard of it before today.",
     what:
@@ -1075,191 +952,6 @@ export const scrapers = [
 
   /* ------------------ eCommerce cluster ------------------ */
 
-  {
-    slug: "ebay-scraper",
-    site: "eBay",
-    emoji: "🛍️",
-    color: "#fbbf24",
-    metaTitle: "eBay Scraper — Product, Price & Sold Listing Data",
-    metaDesc:
-      "eBay scraper for resellers and brands. Extract active listings, sold prices, seller data and category trends into one dataset. Sold-listing history is the real prize.",
-    keywords: ["ebay scraper", "ebay scraper python", "ebay sold listings data", "scrape ebay prices", "ebay product research tool"],
-    tagline: "Active listings tell you what people are asking. Sold listings tell you what people are paying.",
-    what:
-      "eBay is the largest open marketplace where both active and completed listings are publicly visible. That second half is the unusual part — almost no other marketplace publishes what things actually sold for, at what price, in what condition, and how many bids it took to get there.",
-    why:
-      "Asking prices are opinions; sold prices are facts. Resellers use sold-listing data to work out what a category genuinely clears at before buying inventory. Brands use it to see how their products move on the secondary market and where grey-market sellers are undercutting them. Both need the sold half, and both need it as a table rather than as a search results page.",
-    fields: [
-      "Title, item number and category path",
-      "Current price, Buy It Now price and best-offer status",
-      "Sold price and sale date for completed listings",
-      "Bid count and watcher count where shown",
-      "Condition — new, used, refurbished, for parts",
-      "Seller username, feedback score and percentage",
-      "Shipping cost, location and handling time",
-      "Item specifics, brand, model and MPN",
-      "Photo URLs and listing URL",
-    ],
-    defenses:
-      "eBay rate-limits aggressively, serves search through a JavaScript layer, caps result depth per query, and treats rapid pagination as a signal worth blocking. The build paces requests, rotates residential exits, and segments searches by category, price band and condition so the full matching set is reachable without pushing any single query past its depth cap. Where the official Browse API covers what you need, the build uses that instead — it is cleaner and does not break on a redesign.",
-    uses: [
-      "Find what a category actually sells for, not what it is listed at",
-      "Size demand before committing to inventory",
-      "Track a competitor seller's whole catalogue and pricing",
-      "Monitor grey-market listings of your own brand",
-      "Spot arbitrage between eBay and another marketplace",
-      "Build sell-through rate by category and condition",
-    ],
-    faqs: [
-      {
-        q: "Can you scrape eBay sold listings?",
-        a: "Yes, and for most people that is the entire reason to do this. Completed and sold listings are publicly visible, and captured at scale they give you real transaction prices rather than asking prices — which is a fundamentally better input to any buying decision.",
-      },
-      {
-        q: "Why not just use the official eBay API?",
-        a: "Where it covers your need, that is exactly what the build uses — it is faster, cleaner and does not break when a page changes. The gaps are where the API restricts or omits what you want, particularly around historical sold data at volume, and that is where page extraction fills in.",
-      },
-      {
-        q: "How many listings can it handle?",
-        a: "Tens of thousands per run comfortably. The constraint is eBay's per-query depth cap rather than total volume, which is why searches get segmented by category, price band and condition instead of run as one broad query.",
-      },
-      {
-        q: "Can it monitor prices continuously?",
-        a: "Yes. Daily is standard; a defined watch list can run hourly with alerts by email, Slack or Telegram when something crosses a threshold or a competitor repricing event happens.",
-      },
-      {
-        q: "What does an eBay scraper cost?",
-        a: "A one-off category extract typically runs $200 to $500. An ongoing monitor with sold-price tracking and alerts is usually $400 to $900 plus a small monthly amount. Fixed quote within 24 hours.",
-      },
-    ],
-    pillar: "web-scraping",
-    siblings: ["amazon-product-scraper", "walmart-scraper", "mediamarkt-scraper"],
-  },
-
-  {
-    slug: "amazon-product-scraper",
-    site: "Amazon",
-    h1: "Amazon Product Scraper",
-    emoji: "🛒",
-    color: "#fb7185",
-    metaTitle: "Amazon Product Scraper — Price, Rank, Review & Seller Data",
-    metaDesc:
-      "Amazon scraper pulling product data, prices, BSR, Buy Box ownership, reviews and seller info at scale. For product research, repricing and brand monitoring.",
-    keywords: ["amazon product scraper", "amazon price scraper", "scrape amazon reviews", "amazon bsr data", "product hunting tool", "dropshipping product finder"],
-    tagline: "Price, rank, Buy Box and review sentiment on every ASIN you care about — as data, every day.",
-    what:
-      "Amazon publishes an enormous amount on every product page: price, Best Sellers Rank, Buy Box winner, seller count, review distribution, A+ content and variation structure. Individually these are a page; captured across a category every day, they are the closest thing to a live feed of what is actually selling.",
-    why:
-      "Product research, repricing and brand protection are all the same data problem wearing different hats. A reseller wants to know which ASINs in a category have demand and thin competition. A brand wants to know who is on their listings and whether they are holding the Buy Box. A private-label seller wants review text at volume because that is where the next product's feature list is hiding.",
-    fields: [
-      "ASIN, title, brand and category path",
-      "Current price, list price and discount",
-      "Best Sellers Rank, overall and per subcategory",
-      "Buy Box owner and total offer count",
-      "Seller names, ratings and fulfilment type",
-      "Star rating and review count over time",
-      "Full review text, rating, date and verified status",
-      "Bullet points, description and A+ content",
-      "Variation family — sizes, colours and their individual data",
-      "Image URLs and video presence",
-    ],
-    defenses:
-      "Amazon is among the most defended sites on the open web: fingerprinting, CAPTCHA challenges, aggressive rate limits, geo and session personalisation, and page structures that differ by category and by which experiment bucket you land in. The build uses a properly driven browser engine with consistent fingerprints, residential exits matched to the target marketplace, deliberate pacing, and per-category parsers rather than one selector set that silently returns empty on half the catalogue.",
-    uses: [
-      "Product research — find demand with thin competition",
-      "Track BSR movement across a category to spot what is rising",
-      "Monitor Buy Box ownership on your own listings",
-      "Detect unauthorised sellers on your brand's ASINs",
-      "Mine review text for feature gaps and complaint patterns",
-      "Reprice against real competitor movement rather than a schedule",
-    ],
-    faqs: [
-      {
-        q: "Can you scrape Amazon reviews at scale?",
-        a: "Yes — full review text, rating, date and verified-purchase status, across as many ASINs as you need. Running the text through sentiment and topic analysis afterwards is a common add-on, and is usually where the actual insight comes from rather than the raw text.",
-      },
-      {
-        q: "Is this a product hunting tool?",
-        a: "It is the data layer under one. BSR, price, offer count, review velocity and category position across a whole category is exactly what the paid research tools are selling you — the difference is you get the raw data, on your criteria, and you own it.",
-      },
-      {
-        q: "Amazon blocks everything. Does this actually work?",
-        a: "It does, and it is genuinely the hardest site in this list. What makes it work is a real browser engine with consistent fingerprinting, residential exits, honest pacing and per-category parsers. It is slower than a naive scraper, and unlike a naive scraper it is still returning data next month.",
-      },
-      {
-        q: "Which Amazon marketplaces are covered?",
-        a: "Any of them — US, UK, DE, FR, IT, ES, CA, JP and the rest. Multi-marketplace runs match on ASIN so the same product lines up across countries in one row, which is what makes cross-border price comparison possible.",
-      },
-      {
-        q: "What does an Amazon scraper cost?",
-        a: "A one-off category or ASIN-list extract typically runs $300 to $700. An ongoing daily monitor with Buy Box and BSR tracking is usually $600 to $1,200 plus a small monthly amount, reflecting the real infrastructure cost of staying unblocked.",
-      },
-    ],
-    pillar: "web-scraping",
-    siblings: ["ebay-scraper", "walmart-scraper", "mediamarkt-scraper"],
-  },
-
-  {
-    slug: "walmart-scraper",
-    site: "Walmart",
-    emoji: "🏪",
-    color: "#60a5fa",
-    metaTitle: "Walmart Scraper — Product, Price & Stock Data Extraction",
-    metaDesc:
-      "Walmart scraper for price monitoring and product research. Multi-keyword parallel extraction of prices, stock, seller and rating data into one clean daily dataset.",
-    keywords: ["walmart scraper", "walmart price scraper", "scrape walmart products", "walmart marketplace data", "walmart product research"],
-    tagline: "Thousands of products across hundreds of keywords, run in parallel, into one clean file.",
-    what:
-      "Walmart runs both first-party retail and a growing third-party marketplace, which means its product pages carry two different kinds of signal: Walmart's own pricing, and independent sellers competing on the same items. It is the second-largest US eCommerce destination and consistently the most useful cross-check against Amazon pricing.",
-    why:
-      "Sellers listing on both marketplaces need to know where they sit on each. Brands need to see who is selling their products through Walmart's marketplace and at what price. And for anyone doing product research, Walmart is a useful independent read on demand — a product selling well in both places is a much stronger signal than one selling well in either.",
-    fields: [
-      "Item ID, title, brand and category path",
-      "Current price, was-price and rollback status",
-      "Seller name and whether it is sold by Walmart or a marketplace seller",
-      "Stock status and store-level availability where published",
-      "Star rating and review count",
-      "Shipping and pickup options",
-      "Specifications and product attributes",
-      "Variation family — sizes, colours and their pricing",
-      "Image URLs and product URL",
-    ],
-    defenses:
-      "Walmart uses bot detection with JavaScript challenges, rate-limits by IP, and renders search results client-side with a per-query depth cap. The build drives a real browser, runs keyword searches in controlled parallel rather than sequentially — which is what makes hundreds of keywords practical in one run — rotates residential exits, and paces each worker so parallelism does not turn into a block.",
-    uses: [
-      "Monitor competitor pricing across the marketplace daily",
-      "Cross-check Amazon demand signals against an independent source",
-      "Find products where Walmart pricing leaves room underneath",
-      "Detect unauthorised marketplace sellers of your brand",
-      "Track rollback cadence to time your own promotions",
-      "Pull full catalogue data with specs for your own listings",
-    ],
-    faqs: [
-      {
-        q: "Can it handle hundreds of keywords at once?",
-        a: "Yes, and that is the usual shape of the job. Keyword searches run in controlled parallel with each worker paced independently, which is what makes a few hundred keywords a single overnight run rather than a week of sequential scraping.",
-      },
-      {
-        q: "Does it distinguish Walmart's own items from marketplace sellers?",
-        a: "Yes — seller identity is its own column, and for most use cases it is the important one. First-party pricing and third-party pricing behave completely differently and mixing them produces conclusions that are not true of either.",
-      },
-      {
-        q: "How often can it run?",
-        a: "Daily is standard and covers price monitoring. A defined watch list can run more frequently with alerts when a product crosses a price threshold or comes back into stock.",
-      },
-      {
-        q: "Can I combine this with Amazon and eBay data?",
-        a: "Yes, and matched on UPC or brand plus model, that is the most useful version — one row per product with a price column per marketplace. That is a multi-source build rather than a single scrape, quoted accordingly.",
-      },
-      {
-        q: "What does a Walmart scraper cost?",
-        a: "A one-off multi-keyword extract typically runs $250 to $600. An ongoing daily monitor with alerts is usually $400 to $900 plus a small monthly amount. Fixed quote within 24 hours.",
-      },
-    ],
-    pillar: "web-scraping",
-    siblings: ["amazon-product-scraper", "ebay-scraper", "mediamarkt-scraper"],
-  },
-
   /* ------------------------------------------------------------------ */
   /* Vehicle history spokes.                                            */
   /* Search Console shows an AutoCheck cluster the site had no page for  */
@@ -1281,9 +973,9 @@ export const scrapers = [
     emoji: "🔎",
     color: "#fbbf24",
     h1: "AutoCheck Report Automation — Bulk VIN History Pulls",
-    metaTitle: "AutoCheck Scraper — Bulk AutoCheck Reports by VIN, Automated",
+    metaTitle: "Bulk AutoCheck Reports by VIN",
     metaDesc:
-      "Pull AutoCheck history reports for a whole run list through your own dealer account. Score, comparison range, title brands and announcements as columns, not 400 PDFs.",
+      "Pull AutoCheck reports for a whole run list through your own dealer account. Score, comparison range, title brands and announcements as columns, not PDFs.",
     keywords: ["autocheck scraper", "autocheck report automation", "bulk autocheck reports", "autocheck vin report", "autocheck history reports", "autocheck api alternative", "automate autocheck lookups"],
     tagline: "Four hundred AutoCheck reports, parsed into four hundred rows, before the sale starts.",
     what:
@@ -1352,9 +1044,9 @@ export const scrapers = [
     emoji: "📑",
     color: "#fb7185",
     h1: "Carfax Report Automation — Bulk Vehicle History by VIN",
-    metaTitle: "Carfax Scraper — Bulk Carfax Reports by VIN, Automated",
+    metaTitle: "Bulk Carfax Reports by VIN, Automated",
     metaDesc:
-      "Run a whole VIN list through your own Carfax dealer account and get accidents, service records, owner count and title brands as spreadsheet columns instead of PDFs.",
+      "Run a whole VIN list through your own Carfax dealer account. Accidents, service records, owner count and title brands as spreadsheet columns, not PDFs.",
     keywords: ["carfax scraper", "carfax report by vin", "vin carfax report", "carfax report automation", "bulk carfax reports", "carfax api alternative", "automate carfax lookups"],
     tagline: "The service history is the reason you buy Carfax. It is also the reason nobody reads all of them.",
     what:
@@ -1419,9 +1111,9 @@ export const scrapers = [
     emoji: "🏢",
     color: "#60a5fa",
     h1: "AutoNation Inventory Scraper — Dealer Group Listing Data",
-    metaTitle: "AutoNation Scraper — Dealer Group Inventory Data Extraction",
+    metaTitle: "AutoNation Scraper — Group Inventory",
     metaDesc:
-      "Track AutoNation's published inventory across every rooftop — VIN, price, mileage, trim, store and days listed — in one refreshed spreadsheet. Works for any dealer group.",
+      "Track AutoNation inventory across every rooftop: VIN, price, mileage, trim, store and days listed, in one refreshed sheet. Works for any dealer group.",
     keywords: ["autonation scraper", "autonation inventory data", "dealer group inventory scraper", "dealer group scraping", "scrape dealership website inventory", "multi rooftop inventory data", "automotive group listing data"],
     tagline: "A national group's whole lot, every rooftop, in one sheet that updates while you sleep.",
     what:
@@ -1476,7 +1168,7 @@ export const scrapers = [
         a: "A single rooftop or a small group with a daily refresh typically runs $300 to $700. Full national coverage across hundreds of rooftops with price history and roll-ups by region runs higher. Fixed quote within 24 hours of you naming the groups and the fields.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["carmax-scraper", "autotrader-scraper", "cars-com-scraper"],
   },
 
@@ -1485,9 +1177,9 @@ export const scrapers = [
     site: "Otomoto",
     emoji: "🇵🇱",
     color: "#34d399",
-    metaTitle: "Otomoto Scraper — Polish Car Listing Data Extraction",
+    metaTitle: "Otomoto Scraper — Polish Car Listings",
     metaDesc:
-      "Custom Otomoto scraper pulling every matching Polish and Central European listing — price, mileage, VIN where shown, dealer and photos — into one clean spreadsheet.",
+      "Custom Otomoto scraper pulling every matching Polish and Central European listing: price, mileage, VIN where shown, dealer and photos, in one sheet.",
     keywords: ["otomoto scraper", "otomoto data extraction", "scrape otomoto listings", "polish car listings data", "otomoto api alternative", "central europe car market data"],
     tagline: "The Polish market as rows — which is where a lot of Western European used stock quietly comes from.",
     what:
@@ -1537,8 +1229,119 @@ export const scrapers = [
         a: "A one-off extract across defined filters typically runs $250 to $600. An ongoing daily feed with price history and normalisation is usually $400 to $900. Adding other European marketplaces to the same schema runs higher. Fixed quote within 24 hours.",
       },
     ],
-    pillar: "dealer-inventory-scraping",
+    pillar: "car-auction-automation",
     siblings: ["autoscout24-scraper", "carsales-scraper", "cargurus-scraper"],
+  },
+
+  {
+    slug: "ebay-motors-scraper",
+    site: "eBay Motors",
+    emoji: "🛒",
+    color: "#fbbf24",
+    metaTitle: "eBay Motors Scraper — Vehicle Listings & Sold Prices",
+    metaDesc:
+      "Custom eBay Motors scraper for dealers: live and sold vehicle listings, VIN, bids, Buy It Now price, mileage and seller, delivered daily as one clean sheet.",
+    keywords: ["ebay motors scraper", "ebay car scraper", "scrape ebay motors listings", "ebay motors sold prices data", "ebay motors api alternative", "ebay vehicle data extraction"],
+    tagline: "Every eBay Motors car that fits your buy box — live bids, Buy It Now prices and what similar cars actually sold for.",
+    what:
+      "eBay Motors is one of the largest online vehicle marketplaces in the US, mixing dealer listings, private sellers and timed auctions in one place. Each listing publishes the VIN, mileage, title status, current bid or Buy It Now price, bid count, seller and location — and, unusually for a retail marketplace, completed listings show what a car actually sold for rather than just what someone asked.",
+    why:
+      "Dealers and wholesalers use it two ways. As a sourcing channel: private sellers and small dealers list cars here that never reach a wholesale lane, and the good ones go quickly. And as a pricing source: sold eBay prices are real transaction data that sit between auction MMR and retail asking prices. Both uses need the same thing — the matching cars as rows, checked against your rules, before somebody else finds them.",
+    fields: [
+      "VIN, year, make, model, trim and body style",
+      "Current bid, bid count, reserve status and Buy It Now price",
+      "Final sold price and end date on completed listings",
+      "Mileage, title status and condition as declared",
+      "Seller name, seller type, feedback score and location",
+      "Auction end time and time remaining",
+      "Item specifics — engine, drivetrain, colour, options",
+      "All photo URLs, listing URL and item number",
+    ],
+    defenses:
+      "eBay runs bot detection, rate-limits fast paging, and caps how far into a search result set one query can reach. The build uses paced requests through a real browser engine where needed, and slices searches by make, model, year band, price band and region so the depth cap never decides what you get. Sold listings are read separately on their own schedule because they change on a different clock to live ones.",
+    uses: [
+      "Source private-seller and small-dealer cars before they are gone",
+      "Get an alert when a car matching your buy box is listed below your max",
+      "Watch auctions ending in the next few hours that still have no bids",
+      "Price retail inventory against what similar cars actually sold for",
+      "Run every eBay VIN through Carfax, AutoCheck and MMR automatically",
+      "Track a competitor dealer's eBay store and their price changes",
+    ],
+    faqs: [
+      {
+        q: "Can you pull sold prices, not just asking prices?",
+        a: "Yes — completed listings show the final price, and that is often the most valuable part of an eBay Motors feed because it is real transaction data. Sold history is stored over time so you can see how a model's price moves week to week.",
+      },
+      {
+        q: "Will it bid on eBay for me?",
+        a: "No. It finds, checks and ranks cars and alerts you; you place the bid. Automated bidding is something I do not build on any platform.",
+      },
+      {
+        q: "Can it check every eBay car against Carfax and MMR?",
+        a: "Yes, using your own Carfax, AutoCheck and Manheim accounts. Each VIN that passes your filters gets its history and MMR attached, and a margin is calculated against your own recon and transport numbers.",
+      },
+      {
+        q: "Does eBay have an API for this?",
+        a: "eBay has developer APIs, but they come with call limits, application approval and gaps in what vehicle fields and sold data they expose. Where the official API covers what you need it is used; where it does not, the public listing pages fill the gap.",
+      },
+      {
+        q: "What does an eBay Motors scraper cost?",
+        a: "A daily feed for a defined buy box with alerts typically runs $300 to $650 to build plus a small monthly to keep it running. Adding history reports and MMR per VIN is quoted on top. Fixed quote within 24 hours.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["copart-scraper", "autotrader-scraper", "carfax-scraper"],
+  },
+
+  {
+    slug: "iaa-scraper",
+    site: "IAA",
+    h1: "IAA Auction Scraper",
+    emoji: "🚧",
+    color: "#fb7185",
+    metaTitle: "IAA Scraper — Insurance Auto Auctions Lot Data",
+    metaDesc:
+      "Custom IAA scraper pulling every matching salvage and clean-title lot: damage, run-and-drive, ACV, title, odometer and sale date, in one daily sheet.",
+    keywords: ["iaa scraper", "iaai scraper", "insurance auto auctions data", "scrape iaa lots", "salvage auction data", "iaa api alternative"],
+    tagline: "Every IAA lot that fits your rules — damage, start code, title and sale date — in one sheet before the sale.",
+    what:
+      "IAA (Insurance Auto Auctions) is one of the two dominant salvage vehicle auctions in North America alongside Copart, selling insurance total-losses, recovered thefts, fleet and dealer vehicles through branches across the US and Canada. Each lot publishes primary and secondary damage, start code, key status, title type, odometer, actual cash value and sale date.",
+    why:
+      "Rebuilders, exporters and parts buyers bid on both IAA and Copart, and the cars they want are spread across hundreds of branches and thousands of lots a week. Reading both auctions into one list with the same columns — and dropping the lots that fail your damage, title or location rules — is what stops a buyer from spending the morning clicking through branch listings.",
+    fields: [
+      "Stock number, VIN, year, make, model and trim",
+      "Primary and secondary damage, loss type",
+      "Start code (run and drive / starts / stationary) and key status",
+      "Title type and state, odometer and odometer brand",
+      "Actual cash value and repair estimate where shown",
+      "Branch, location, sale date and lane",
+      "All photo URLs and the lot URL",
+    ],
+    defenses:
+      "IAA puts most lot detail behind a buyer login and renders listings through JavaScript. The build runs on your own IAA buyer account, paces requests like a person, and reads search results in slices by branch and sale date so nothing is dropped. No bidding is automated.",
+    uses: [
+      "Combine IAA and Copart into one list with one set of columns",
+      "Filter out lots with flood, fire or frame damage before anyone looks",
+      "Find run-and-drive lots below a set ACV percentage",
+      "Feed an export pipeline with lots that meet a destination country's rules",
+      "Track what similar lots sold for to set your max bid",
+    ],
+    faqs: [
+      {
+        q: "Can you combine IAA and Copart?",
+        a: "Yes, and most salvage buyers want exactly that — both auctions normalised into one schema, damage and title values mapped to the same wording, and duplicates removed where a car has been relisted.",
+      },
+      {
+        q: "Do I need an IAA account?",
+        a: "Yes. Detailed lot data sits behind a buyer login, and the build runs on your own account and licence. I do not share credentials between clients or provide access you do not already have.",
+      },
+      {
+        q: "What does an IAA scraper cost?",
+        a: "A daily filtered feed typically runs $350 to $700 to build plus a monthly to keep it running. Combining it with Copart in one schema is quoted together. Fixed quote within 24 hours.",
+      },
+    ],
+    pillar: "car-auction-automation",
+    siblings: ["copart-scraper", "ebay-motors-scraper", "manheim-mmr-scraper"],
   },
 
 ];

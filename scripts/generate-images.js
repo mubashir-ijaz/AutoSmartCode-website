@@ -1,6 +1,6 @@
 /**
- * Builds a branded hero image for every blog post, scraper page, service page
- * and web-design page, into public/img/.
+ * Builds a branded hero image for every blog post, scraper page and service
+ * page, into public/img/.
  *
  * Why this exists: before it, the site had seven <img> tags in total — the
  * logo and the founder photo — and the nineteen articles had none at all. The
@@ -43,7 +43,6 @@ function loadData(relPath, names) {
 const { blogs } = loadData("src/data/content.js", ["blogs"]);
 const { services } = loadData("src/data/services.js", ["services"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
-const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
 
 /* ------------------------------- helpers ------------------------------ */
 
@@ -321,13 +320,6 @@ for (const s of scrapers) {
   });
 }
 
-for (const w of webdesign) {
-  targets.push({
-    file: `webdesign/${w.slug}.svg`,
-    svg: card({ eyebrow: "Web Development", title: w.h1 || w.nav, kicker: w.tagline || w.metaDesc, emoji: w.emoji }),
-  });
-}
-
 /* ------------------------------- write -------------------------------- */
 
 let written = 0;
@@ -367,6 +359,6 @@ fs.writeFileSync(
 
 console.log(
   `images: ${written} SVG heroes written to public/img ` +
-  `(${blogs.length} blog, ${services.length} service, ${scrapers.length} scraper, ${webdesign.length} web design)` +
+  `(${blogs.length} blog, ${services.length} service, ${scrapers.length} scraper)` +
   (resvg ? ` — plus ${rasterised} PNG` : " — PNG pass skipped (@resvg/resvg-js not installed)")
 );

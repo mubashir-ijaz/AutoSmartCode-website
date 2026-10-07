@@ -36,11 +36,11 @@
     <text x="1076" y="130" text-anchor="middle" font-size="52" fill="#ffffff" fill-opacity="0.92">🧠</text>
   </g>
 
-  <text x="80" y="229.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Using AI to Clean Up Messy</text>
-    <text x="80" y="306.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Scraped Data (And When Not To)</text>
+  <text x="80" y="229.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Using AI to Clean Messy Vehicle</text>
+    <text x="80" y="306.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Data (And When Not To)</text>
 
-  <text x="80" y="417.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Language models are very good at the parsing problems that used to need a</text>
-  <text x="80" y="453.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">hundred regexes — and a bad, expensive choice for the ones a regex already…</text>
+  <text x="80" y="417.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Condition reports and free-text announcements parse well with an LLM. VINs,</text>
+  <text x="80" y="453.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">prices and mileage do not. Where AI earns its place, and where it costs you.</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

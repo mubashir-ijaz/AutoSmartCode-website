@@ -1,22 +1,23 @@
 import { Link, useParams } from "react-router-dom";
 import { services, serviceBySlug } from "../data/services";
 import { scrapers } from "../data/scrapers";
-import { webdesign } from "../data/webdesign";
 import { projects } from "../data/content";
 import { AREAS_SERVED } from "../data/geo";
 import { serviceImage, socialFor } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
+import ExtensionDemo from "../components/ExtensionDemo";
+import "../components/ExtensionDemo.css";
 import "./Services.css";
 
 /* ================================ INDEX ================================ */
 
 export function ServicesPage() {
   useSeo({
-    title: "Services — Web Scraping, Automation & Web Development | AutoSmartCode",
+    title: "Services — Auction Data, History Reports & Dealer Tools | AutoSmartCode",
     description:
-      "Six things I build for businesses in the US, UK and beyond: car auction automation, vehicle history report pipelines, " +
-      "dealer inventory data, B2B lead lists, custom web scrapers and web development.",
+      "What I build for the car trade: auction run-list triage and watch lists, custom dealer browser extensions, " +
+      "vehicle history report pipelines, MMR automation and dealer inventory data.",
     path: "/services",
     schema: {
       "@context": "https://schema.org",
@@ -42,11 +43,11 @@ export function ServicesPage() {
 
   return (
     <div className="inner-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/suv-lineup.webp")' }}>
         <div className="container">
           <FounderHeader
-            title="What I Build"
-            sub="Six services, one developer. Each one has its own page because each one is a different problem — pick the one that sounds like yours."
+            title="What I Build for the Car Trade"
+            sub="One developer, one industry. Each service has its own page because each one is a different problem — pick the one that sounds like your morning."
             line="every service on this page, delivered by me"
           />
         </div>
@@ -77,36 +78,17 @@ export function ServicesPage() {
       <section className="section">
         <div className="container">
           <div className="svc-related">
-            <h3>Sites I scrape</h3>
+            <h3>Auctions and marketplaces I pull from</h3>
             <p className="s-sub" style={{ marginBottom: "1.4rem" }}>
-              Each of these has its own page — what it extracts, what gets in the way,
-              and what it costs.
+              Each of these has its own page — what it pulls, what gets in the way, and
+              what it costs. Buying somewhere that is not on the list is the normal
+              case, not a problem.
             </p>
             <div className="svc-related-grid">
               {scrapers.map(s => (
                 <Link to={`/${s.slug}`} key={s.slug} className="svc-related-card">
                   <span style={{ color: s.color }}>{s.emoji} {s.h1 || s.site + " Scraper"}</span>
                   <p>{s.tagline}</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container">
-          <div className="svc-related">
-            <h3>Websites I build</h3>
-            <p className="s-sub" style={{ marginBottom: "1.4rem" }}>
-              A different kind of client entirely — businesses whose website is costing
-              them enquiries they never hear about.
-            </p>
-            <div className="svc-related-grid">
-              {webdesign.map(w => (
-                <Link to={`/${w.slug}`} key={w.slug} className="svc-related-card">
-                  <span style={{ color: w.color }}>{w.emoji} {w.h1}</span>
-                  <p>{w.tagline}</p>
                 </Link>
               ))}
             </div>
@@ -142,14 +124,8 @@ export function ServiceDetailPage() {
   const service = serviceBySlug(slug);
   const proof = service && projects.find(p => p.id === service.caseStudy);
   const hero = service && serviceImage(service);
-  /* The per-site pages that roll up to this pillar. Web development's spokes
-     live in webdesign.js rather than scrapers.js, so both are checked. */
-  const spokes = service
-    ? [
-        ...scrapers.filter(sp => sp.pillar === service.slug),
-        ...(service.slug === "web-development" ? webdesign : []),
-      ]
-    : [];
+  /* The per-platform pages that roll up to this pillar. */
+  const spokes = service ? scrapers.filter(sp => sp.pillar === service.slug) : [];
 
   useSeo(service ? {
     title: service.metaTitle + " | AutoSmartCode",
@@ -211,7 +187,7 @@ export function ServiceDetailPage() {
 
   return (
     <div className="inner-page svc-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/dealer-forecourt.webp")' }}>
         <div className="container">
           <Link to="/services" className="back-link">← All Services</Link>
           <div className="svc-detail-type" style={{ color: service.color }}>
@@ -219,16 +195,21 @@ export function ServiceDetailPage() {
           </div>
           <h1 className="svc-detail-title">{service.h1}</h1>
           <p className="svc-detail-hero">{service.hero}</p>
-          <figure className="svc-hero-figure">
-            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}
-                 fetchpriority="high" decoding="async" />
-          </figure>
           <div className="svc-detail-actions">
             <Link to="/#contact" className="btn btn-blue">Get a Free Quote →</Link>
             <Link to="/projects" className="btn btn-outline">See the work</Link>
           </div>
         </div>
       </div>
+
+      {/* The extension is easier to show than describe. */}
+      {service.slug === "dealer-browser-extension" && (
+        <section className="section ext-demo-section">
+          <div className="container">
+            <ExtensionDemo />
+          </div>
+        </section>
+      )}
 
       <section className="section">
         <div className="container svc-body">

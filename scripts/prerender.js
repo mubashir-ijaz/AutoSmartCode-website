@@ -36,14 +36,15 @@ function loadData(relPath, names) {
   return sandbox.out;
 }
 
-const { blogs, projects, FAQS } = loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
+const { blogs, projects, FAQS } =
+  loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
 const { services } = loadData("src/data/services.js", ["services"]);
 const { AREAS_SERVED } = loadData("src/data/geo.js", ["AREAS_SERVED"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
-const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
-const { blogImage, scraperImage, serviceImage, webdesignImage, socialImage, dimsFor, IMG_W, IMG_H } =
+const { PRICING, priceLine } = loadData("src/data/pricing.js", ["PRICING", "priceLine"]);
+const { blogImage, scraperImage, serviceImage, socialImage, dimsFor, IMG_W, IMG_H } =
   loadData("src/data/images.js",
-    ["blogImage", "scraperImage", "serviceImage", "webdesignImage", "socialImage", "dimsFor", "IMG_W", "IMG_H"]);
+    ["blogImage", "scraperImage", "serviceImage", "socialImage", "dimsFor", "IMG_W", "IMG_H"]);
 
 /**
  * Whether scripts/generate-images.js managed to rasterise the SVG heroes to
@@ -147,6 +148,34 @@ function markdown(md) {
   return out.join("");
 }
 
+/**
+ * The site-wide nav, mirrored into every prerendered page.
+ *
+ * Without this the static HTML carried only the page body, which meant the
+ * four hub pages — /services, /projects, /blog, /about — had no inbound
+ * internal link anywhere a crawler reading raw HTML could follow. They were
+ * reachable only through the sitemap, which gets them indexed but gives them
+ * none of the internal-link signal every other page on the site passes around.
+ *
+ * These are the same destinations the real <Navbar> and <Footer> render, so
+ * the static mirror and the hydrated page agree — which is the rule the rest
+ * of this file follows for body copy too.
+ */
+const NAV = [
+  ["/", "Home"],
+  ["/services", "Services"],
+  ["/projects", "Projects"],
+  ["/blog", "Blog & Guides"],
+  ["/about", "About"],
+];
+
+const siteNav = current =>
+  `<nav aria-label="Site"><ul>${
+    NAV.filter(([href]) => href !== current)
+       .map(([href, text]) => `<li>${a(href, text)}</li>`)
+       .join("")
+  }</ul></nav>`;
+
 const crumbs = items => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -162,10 +191,10 @@ const routes = [];
 
 routes.push({
   path: "/",
-  title: "Web Scraping & Automation Services — US, UK & Worldwide | AutoSmartCode",
+  title: "Car Dealer Automation & Auction Data Scraping | AutoSmartCode",
   description:
-    "We turn any website into clean, structured data. Custom scrapers, lead lists, " +
-    "price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours.",
+    "Automation for car dealers and wholesalers: Manheim, ADESA, Copart and eBay Motors " +
+    "scraped, every VIN checked against Carfax, AutoCheck and MMR, watch list ready by 6 AM.",
   schema: {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -174,53 +203,55 @@ routes.push({
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  // Must match the visible copy in Home.jsx.
   body:
-    h1("We turn any website into the data your business runs on") +
-    p("Scrapers, auction reports, lead lists and price monitors — built clean, delivered fast. Fixed price, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
-    h2("If the data is on a website, I can put it in your spreadsheet") +
-    p("Someone on your team is copying that data by hand right now. I write the software that does it instead — on a schedule, at a volume no person can match. You never touch any code.") +
+    h1("Car dealer automation & auction data scraping") +
+    p("I pull every car from Manheim, ADESA, Copart, eBay Motors and 20+ other sites, check each VIN against Carfax, AutoCheck and MMR, and hand you a ranked buy list with notes — before the sale opens.") +
+    h2("The work your desk does by hand — done overnight") +
     ul([
-      "Works behind logins and on sites that block ordinary tools",
-      "Thousands of pages, no blocks, no missed rows",
-      "Excel, CSV, Google Sheets, a database, or an API",
+      "[Auction run-list triage](/services/auction-run-list-triage) — Manheim, ADESA, ACV and OPENLANE run lists read overnight, your filters applied, good cars in your watch list by 6 AM.",
+      "[Carfax & AutoCheck in bulk](/services/vehicle-history-reports) — hundreds of VINs checked at once on your own accounts.",
+      "[MMR & market pricing](/manheim-mmr-scraper) — MMR, retail comps and sold prices for every car, with a max bid that holds your margin.",
+      "[Find cars across every site](/ebay-motors-scraper) — eBay Motors, AutoTrader, CarGurus, Cars.com and Copart searched daily for your buy box.",
+      "[Custom dealer extension](/services/dealer-browser-extension) — an Autoniq-style panel built to your workflow, yours to keep.",
+      "[Competitor & inventory tracking](/services/car-auction-automation) — competitor lots, price drops and days on market, refreshed nightly.",
     ]) +
-    h2("What I build for clients") +
-    services.map(s => h3(s.h1) + p(s.hero) + p(a("/services/" + s.slug, "More about " + s.nav))).join("") +
-    h2("Four steps from idea to running system") +
+    h2("What happens to your run list overnight") +
+    p("Every car pulled, your filters applied, every surviving VIN checked, notes written and the watch list ready before anyone is in.") +
     ul([
-      "Tell me what you need — the URLs, the fields, how often. Plain English is fine.",
-      "I scope it and quote it — a fixed price and a delivery date within 24 hours.",
-      "I build and test it — most projects in 2 to 5 days, with sample output early.",
-      "You get it running — delivered with alerting so you know if anything breaks.",
+      "Tell me your auctions and buy box — which sites you buy on and what a good car looks like.",
+      "See one real sale done for you — before you pay for a build.",
+      "It runs every sale day — overnight, on your own accounts, with alerts if a site changes.",
     ]) +
+    h2("Fixed prices. No per-seat fees.") +
+    ul(PRICING.map(pr => pr.name + " — " + priceLine(pr))) +
     faqBlock(FAQS) +
-    linkList("Sites I scrape", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +
-    linkList("Websites I build", webdesign.map(w => ["/" + w.slug, w.h1])) +
+    linkList("Auctions, history reports and marketplaces", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +
+    linkList("Services", services.map(s => ["/services/" + s.slug, s.h1])) +
     linkList("Guides", blogs.map(b => ["/blog/" + b.slug, b.title])),
 });
 
 routes.push({
   path: "/services",
-  title: "Services — Web Scraping, Automation & Web Development | AutoSmartCode",
+  title: "Services — Auction Data, History Reports & Dealer Tools | AutoSmartCode",
   description:
-    "Six things I build for businesses in the US, UK and beyond: car auction automation, vehicle history report pipelines, " +
-    "dealer inventory data, B2B lead lists, custom web scrapers and web development.",
+    "What I build for the car trade: auction run-list triage and watch lists, custom dealer browser extensions, " +
+    "vehicle history report pipelines, MMR automation and dealer inventory data.",
   schema: crumbs([["Services", "/services"]]),
   body:
-    h1("What I Build") +
+    h1("What I Build for the Car Trade") +
     // Must match the visible copy in Services.jsx — the static and rendered
     // versions saying different things is exactly what cloaking checks look for.
-    p("Six services, one developer. Each one has its own page because each one is a different problem — pick the one that sounds like yours.") +
-    services.map(s => h2(s.h1) + p(s.hero) + p(a("/services/" + s.slug, "Read more about " + s.nav))).join("") +
-    linkList("Sites I scrape", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +
-    linkList("Websites I build", webdesign.map(w => ["/" + w.slug, w.h1])),
+    p("One developer, one industry. Each service has its own page because each one is a different problem — pick the one that sounds like your morning.") +
+    services.map(s => h2(s.h1) + p(s.hero) + p("[Read more about " + s.nav + "](/services/" + s.slug + ")")).join("") +
+    linkList("Auctions and marketplaces I pull from", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])),
 });
 
 routes.push({
   path: "/projects",
-  title: "Web Scraping & Automation Projects | AutoSmartCode Portfolio",
+  title: "Car Auction & Dealer Data Projects | AutoSmartCode Portfolio",
   description:
-    "Real client work — car auction intelligence, Google Maps lead scrapers, Amazon and Walmart data pipelines, price monitors and eCommerce builds.",
+    "Real client work for the car trade — run-list triage and watch lists, custom VIN panel extensions, auction intelligence pipelines and private-party sourcing.",
   schema: {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -235,22 +266,22 @@ routes.push({
     },
   },
   body:
-    h1("All Projects") +
-    p("1000+ projects delivered. Here are some of the most impactful ones — each solved a real business problem.") +
-    projects.map(pr => h2(pr.title) + p(pr.client) + p(pr.description) + p(a("/projects/" + pr.id, "Read the case study"))).join(""),
+    h1("Dealer Projects") +
+    p("Real builds for dealers, wholesalers and auction buyers — each one replaced a morning somebody was spending by hand.") +
+    projects.map(pr => h2(pr.title) + p(pr.client) + p(pr.description) + p("[Read the case study](/projects/" + pr.id + ")")).join(""),
 });
 
 routes.push({
   path: "/blog",
-  title: "Web Scraping & Automation Guides | AutoSmartCode Blog",
+  title: "Car Auction & Dealer Data Guides | AutoSmartCode Blog",
   description:
-    "Practical guides on web scraping, Python automation, lead generation and AI data analysis — written from real client projects, not theory.",
+    "Practical guides for dealers and wholesalers — MMR, Carfax and AutoCheck, VIN decoding, auction automation and pricing against the live market.",
   schema: {
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "AutoSmartCode Blog",
     url: ORIGIN + "/blog",
-    description: "Guides on web scraping, automation and data for businesses in the US, UK and worldwide.",
+    description: "Guides on auction data, vehicle history reports, MMR and dealer automation for the car trade.",
     blogPost: blogs.map(b => ({
       "@type": "BlogPosting",
       headline: b.title,
@@ -262,20 +293,20 @@ routes.push({
   },
   body:
     h1("Blog & Guides") +
-    p("Practical writing on scraping, automation and data — what things cost, what is legal, and how the builds actually work.") +
+    p("MMR, Carfax and AutoCheck, VIN decoding, auction automation and pricing against the live market — written from real dealer projects, not theory.") +
     blogs.map(b => {
       const hero = blogImage(b);
       return h2(b.title) + img(hero.src, hero.alt) + p(b.summary) +
-             p(a("/blog/" + b.slug, "Read the article"));
+             p("[Read the article](/blog/" + b.slug + ")");
     }).join(""),
 });
 
 routes.push({
   path: "/about",
-  title: "About Sam — Founder & CEO of AutoSmartCode | Web Scraping Expert",
+  title: "About Sam — Founder & CEO of AutoSmartCode | Car Auction Data",
   description:
-    "Sam is the founder behind AutoSmartCode — building web scrapers, data pipelines and " +
-    "automation systems for US car dealers, eCommerce sellers, agencies and property investors.",
+    "Sam is the founder behind AutoSmartCode — building auction data pipelines, history report " +
+    "automation and custom dealer tools for car dealers, wholesalers and auction buyers.",
   schema: {
     "@context": "https://schema.org",
     "@graph": [
@@ -290,26 +321,23 @@ routes.push({
   },
   body:
     h1("About AutoSmartCode") +
-    p("AutoSmartCode builds web scrapers, automation systems, data pipelines and websites for businesses across the US, UK, the Gulf, Europe and Australia. Fixed prices, quoted within 24 hours, most projects delivered in 2 to 5 days.") +
+    p("AutoSmartCode builds auction data pipelines, vehicle history report automation and custom dealer tools for the car trade across the US, UK, the Gulf, Europe and Australia. Fixed prices, quoted within 24 hours, most builds delivered in 3 to 7 days.") +
     h2("What I do") +
     ul([
       "Scraping engineering — Python, Scrapy, Playwright, Selenium, rotating proxies, session and cookie handling, fingerprint and Cloudflare defences",
       "Data and pipelines — Pandas, deduplication and fuzzy matching, validation rules, MySQL and PostgreSQL, scheduled ETL, delivery to Excel, Google Sheets, a database or a REST endpoint",
       "Automation and bots — cron and queue-driven jobs, Telegram, Slack and email alerting, retry and backoff logic, uptime and freshness monitoring",
-      "Product and front end — React, Next.js, Node.js, Vercel, dashboards and admin panels that put the data in front of the people who act on it",
+      "Dealer tools and front end — Chrome and Edge extensions, Manifest V3, React, Node.js, the VIN panel on the listing and the dashboards your desk reads in the morning",
     ]) +
     h2("Who I work with") +
-    p("US car dealers and wholesalers, eCommerce sellers, marketing agencies buying leads, real estate investors, and research and analyst teams. Plus local businesses whose website is costing them enquiries they never hear about.") +
+    p("Auction buyers, independent car dealers, wholesalers, dealer groups and fleet, lease and repo remarketers — in the US, UK, the Gulf, Europe and Australia.") +
     linkList("Services", services.map(s => ["/services/" + s.slug, s.h1])),
 });
 
 /* Service landing pages */
 for (const s of services) {
   const hero = serviceImage(s);
-  const spokes = [
-    ...scrapers.filter(sp => sp.pillar === s.slug),
-    ...(s.slug === "web-development" ? webdesign : []),
-  ];
+  const spokes = scrapers.filter(sp => sp.pillar === s.slug);
   routes.push({
     path: "/services/" + s.slug,
     title: s.metaTitle + " | AutoSmartCode",
@@ -342,7 +370,7 @@ for (const s of services) {
       ],
     },
     body:
-      h1(s.h1) + heroFigure(hero.src, hero.alt) + p(s.hero) +
+      h1(s.h1) + p(s.hero) +
       s.sections.map(sec => h2(sec.h) + sec.p.map(p).join("") + (sec.list ? ul(sec.list) : "")).join("") +
       h2("What you get") + ul(s.deliverables) +
       h2("Sites and platforms") + p(s.platforms.join(", ")) +
@@ -399,7 +427,7 @@ for (const s of scrapers) {
       ],
     },
     body:
-      h1(heading) + heroFigure(hero.src, hero.alt) + p(s.tagline) +
+      h1(heading) + p(s.tagline) +
       h2(`What ${s.site} is, and why the data matters`) + p(s.what) + p(s.why) +
       h2(`What the ${s.site} scraper extracts`) + ul(s.fields) +
       h2(`Getting past ${s.site}'s defences`) + p(s.defenses) +
@@ -407,56 +435,12 @@ for (const s of scrapers) {
       h2("How you receive the data") +
       p("Excel, CSV, JSON, a Google Sheet that refreshes on a schedule, a direct write into MySQL or Postgres, or a REST endpoint your own tools can query.") +
       faqBlock(s.faqs) +
-      linkList("Other sites I scrape", scrapers.filter(o => o.slug !== s.slug)
-        .map(o => ["/" + o.slug, o.h1 || o.site + " Scraper"])),
+      linkList("Other platforms I pull from",
+        scrapers.filter(o => o.slug !== s.slug)
+          .map(o => ["/" + o.slug, o.h1 || o.site + " Scraper"])),
   });
 }
 
-/* Web design landing pages */
-for (const w of webdesign) {
-  const hero = webdesignImage(w);
-  routes.push({
-    path: "/" + w.slug,
-    title: w.metaTitle + " | AutoSmartCode",
-    description: w.metaDesc,
-    image: socialImage(hero, HAS_RASTER),
-    imageAlt: hero.alt,
-    schema: {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Service",
-          "@id": ORIGIN + "/" + w.slug + "#service",
-          name: w.h1,
-          description: w.metaDesc,
-          url: ORIGIN + "/" + w.slug,
-          serviceType: "Web design and development",
-          keywords: w.keywords.join(", "),
-          areaServed: AREAS_SERVED,
-          provider: { "@id": ORIGIN + "/#org" },
-        },
-        {
-          "@type": "FAQPage",
-          "@id": ORIGIN + "/" + w.slug + "#faq",
-          mainEntity: w.faqs.map(f => ({
-            "@type": "Question", name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        },
-        crumbs([["Services", "/services"], [w.nav, "/" + w.slug]]),
-      ],
-    },
-    body:
-      h1(w.h1) + heroFigure(hero.src, hero.alt) + p(w.tagline) +
-      h2("The situation you're probably in") + p(w.problem) +
-      h2("Does any of this sound familiar?") + ul(w.signals) +
-      h2("What gets built instead") + p(w.answer) +
-      h2("What's included in every build") + ul(w.includes) +
-      h2("How it works") + w.process.map(st => h3(st.n + ". " + st.h) + p(st.p)).join("") +
-      faqBlock(w.faqs) +
-      linkList("Other websites I build", webdesign.filter(o => o.slug !== w.slug).map(o => ["/" + o.slug, o.h1])),
-  });
-}
 
 /* Blog articles */
 for (const b of blogs) {
@@ -467,7 +451,9 @@ for (const b of blogs) {
 
   routes.push({
     path: "/blog/" + b.slug,
-    title: b.title + " | AutoSmartCode",
+    /* metaTitle is the short SERP form; title is the long on-page H1.
+       Must match what Blog.jsx sets at runtime. */
+    title: (b.metaTitle || b.title) + " | AutoSmartCode",
     description: b.summary.slice(0, 155),
     type: "article",
     image: social,
@@ -603,7 +589,7 @@ function render(route) {
   // is a static mirror rather than a second version of the page.
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root"><!--prerender--><div class="container" style="padding:120px 0 60px">${route.body}</div><!--/prerender--></div>`
+    `<div id="root"><!--prerender--><div class="container" style="padding:120px 0 60px">${route.body}${siteNav(route.path)}</div><!--/prerender--></div>`
   );
 
   return html;

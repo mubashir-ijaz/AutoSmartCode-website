@@ -14,6 +14,7 @@ import "./Services.css";
 export function ScraperPage() {
   const { slug } = useParams();
   const s = scraperBySlug(slug);
+  const siblings = scrapers.filter(o => o.slug !== slug);
   const pillar = s && serviceBySlug(s.pillar);
   const hero = s && scraperImage(s);
 
@@ -70,7 +71,7 @@ export function ScraperPage() {
 
   return (
     <div className="inner-page svc-page">
-      <div className="inner-hero">
+      <div className="inner-hero" style={{ "--hero-photo": 'url("/img/photos/auction-yard.webp")' }}>
         <div className="container">
           <Link to="/services" className="back-link">← All Services</Link>
           <div className="svc-detail-type" style={{ color: s.color }}>
@@ -78,10 +79,6 @@ export function ScraperPage() {
           </div>
           <h1 className="svc-detail-title">{s.h1 || s.site + " Scraper"}</h1>
           <p className="svc-detail-hero">{s.tagline}</p>
-          <figure className="svc-hero-figure">
-            <img src={hero.src} alt={hero.alt} width={hero.width} height={hero.height}
-                 fetchpriority="high" decoding="async" />
-          </figure>
           <div className="svc-detail-actions">
             <Link to="/#contact" className="btn btn-blue">Get a Free Quote →</Link>
             <Link to={`/services/${s.pillar}`} className="btn btn-outline">
@@ -212,7 +209,7 @@ export function ScraperPage() {
           <div className="svc-related">
             <h3>Other sites I scrape</h3>
             <div className="svc-related-grid">
-              {scrapers.filter(o => o.slug !== s.slug).slice(0, 6).map(o => (
+              {siblings.slice(0, 6).map(o => (
                 <Link to={"/" + o.slug} key={o.slug} className="svc-related-card">
                   <span style={{ color: o.color }}>{o.emoji} {o.site} Scraper</span>
                   <p>{o.tagline}</p>

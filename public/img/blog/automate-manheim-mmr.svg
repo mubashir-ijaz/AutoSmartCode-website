@@ -36,11 +36,12 @@
     <text x="1076" y="130" text-anchor="middle" font-size="52" fill="#ffffff" fill-opacity="0.92">🚗</text>
   </g>
 
-  <text x="80" y="229.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">How Car Dealers Can Automate</text>
-    <text x="80" y="306.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Manheim MMR Price Checks</text>
+  <text x="80" y="191" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">How to Automate Manheim MMR</text>
+    <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Price Checks (Without Breaking</text>
+    <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Your Account)</text>
 
-  <text x="80" y="417.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Stop checking MMR prices manually. Here&apos;s how to build an automated system</text>
-  <text x="80" y="453.5" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">that pulls live auction data and emails you profitable deals every morning.</text>
+  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">Checking MMR one VIN at a time does not scale past a few dozen cars. How to</text>
+  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">pull Manheim Market Report values in bulk, safely, through your own dealer…</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

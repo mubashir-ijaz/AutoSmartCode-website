@@ -4,7 +4,7 @@
  *
  * Sources: src/data/content.js (blogs + projects), src/data/services.js
  * (service landing pages), src/data/scrapers.js (per-site scraper pages),
- * src/data/webdesign.js (web design pages), src/data/images.js (the hero image
+ * src/data/images.js (the hero image
  * and alt text belonging to each of those).
  *
  * This used to pull slugs out with a regex over the file text. It now
@@ -39,10 +39,9 @@ function loadData(relPath, names) {
 const { blogs, projects } = loadData("src/data/content.js", ["blogs", "projects"]);
 const { services } = loadData("src/data/services.js", ["services"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
-const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
-const { blogImage, scraperImage, serviceImage, webdesignImage } =
+const { blogImage, scraperImage, serviceImage } =
   loadData("src/data/images.js",
-    ["blogImage", "scraperImage", "serviceImage", "webdesignImage"]);
+    ["blogImage", "scraperImage", "serviceImage"]);
 
 /* ------------------------------- helpers ------------------------------ */
 
@@ -56,6 +55,7 @@ const iso = d => {
                        : parsed.toISOString().slice(0, 10);
 };
 const today = new Date().toISOString().slice(0, 10);
+
 
 /** `image` is {src, alt} from src/data/images.js, or null for pages without one. */
 const imageTag = (image, title) => image
@@ -95,27 +95,23 @@ const xml = [
   ...scrapers.map(s =>
     url("/" + s.slug, today, "weekly", "0.9", scraperImage(s), s.h1 || s.site + " Scraper")),
   "",
-  "  <!-- Web design landing pages -->",
-  ...webdesign.map(w =>
-    url("/" + w.slug, today, "weekly", "0.9", webdesignImage(w), w.h1)),
-  "",
   "  <!-- Blog articles -->",
   ...blogs.map(b =>
     url("/blog/" + b.slug, iso(b.date), "monthly", "0.7", blogImage(b), b.title)),
   "",
   "  <!-- Project case studies -->",
-  ...projects.map(pr => url("/projects/" + pr.id, today, "monthly", "0.6")),
+  ...projects.map(pr =>
+    url("/projects/" + pr.id, today, "monthly", "0.6")),
   "</urlset>",
   "",
 ].join("\n");
 
 fs.writeFileSync(path.join(root, "public/sitemap.xml"), xml);
 
-const total = 5 + services.length + scrapers.length + webdesign.length
-            + blogs.length + projects.length;
-const images = services.length + scrapers.length + webdesign.length + blogs.length;
+const total = 5 + services.length + scrapers.length + blogs.length + projects.length;
+const images = services.length + scrapers.length + blogs.length;
 console.log(
   `sitemap.xml written — 5 core + ${services.length} services + ${scrapers.length} scrapers ` +
-  `+ ${webdesign.length} web design + ${blogs.length} articles + ${projects.length} projects ` +
+  `+ ${blogs.length} articles + ${projects.length} projects ` +
   `= ${total} URLs, ${images} images`
 );

@@ -7,9 +7,12 @@
   position: relative;
   overflow: hidden;
   padding: 9rem 0 4.5rem;
+  /* a dealer showroom behind the intro, dark enough that the portrait's
+     faded edges still melt into it */
   background:
-    radial-gradient(ellipse 60% 70% at 20% 0%, rgba(16, 185, 129, 0.16), transparent 68%),
-    radial-gradient(ellipse 55% 70% at 88% 20%, rgba(37, 99, 235, 0.13), transparent 68%),
+    linear-gradient(90deg, rgba(6,10,9,0.95) 0%, rgba(6,10,9,0.88) 55%, rgba(6,10,9,0.8) 100%),
+    linear-gradient(180deg, transparent 55%, var(--bg) 100%),
+    var(--hero-photo, none) center / cover no-repeat,
     var(--bg);
 }
 .ab-hero-bg { position: absolute; inset: 0; pointer-events: none; }

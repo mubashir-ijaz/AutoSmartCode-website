@@ -6,7 +6,7 @@
  * `areaServed` of every Service / ProfessionalService schema block.
  *
  * Used by:
- *   - src/pages/Scraper.jsx, Services.jsx, WebDesign.jsx  (import AREAS_SERVED)
+ *   - src/pages/Scraper.jsx, Services.jsx  (import AREAS_SERVED)
  *   - scripts/prerender.js                                 (loadData → AREAS_SERVED)
  *
  * NOTE: public/index.html is a static file and cannot import — its

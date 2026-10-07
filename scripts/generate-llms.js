@@ -32,10 +32,11 @@ function loadData(relPath, names) {
   return sandbox.out;
 }
 
-const { blogs, projects, FAQS } = loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
+const { blogs, projects, FAQS } =
+  loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
 const { services } = loadData("src/data/services.js", ["services"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
-const { webdesign } = loadData("src/data/webdesign.js", ["webdesign"]);
+
 
 const link = (title, url, desc) => `- [${title}](${ORIGIN}${url})${desc ? ": " + desc : ""}`;
 
@@ -44,26 +45,26 @@ const link = (title, url, desc) => `- [${title}](${ORIGIN}${url})${desc ? ": " +
 const index = [
   "# AutoSmartCode",
   "",
-  "> Web scraping, automation, data pipelines and web development for US",
-  "> businesses. Run by Sam. Fixed prices quoted within 24 hours, most projects",
-  "> delivered in 2–5 days. Contact: sam@autosmartcode.com",
+  "> Auction and market data for the car trade. Run-list triage, vehicle history",
+  "> report pipelines, MMR automation and custom dealer browser extensions. Run by",
+  "> Sam. Fixed prices quoted within 24 hours. Contact: sam@autosmartcode.com",
   "",
-  "AutoSmartCode builds custom software rather than selling a product: scrapers",
-  "written against specific target sites, automation pipelines for car dealers and",
-  "wholesalers, verified B2B lead lists, and websites for small businesses. Every",
-  "build is quoted at a fixed price before work starts.",
+  "AutoSmartCode builds custom software for car dealers, wholesalers and auction",
+  "buyers rather than selling a product. The core job: read an entire auction run",
+  "list overnight, apply the dealer's own filters, pull title, Carfax, AutoCheck",
+  "and MMR per VIN, write a note per car, drop the cars that fail the rules, and",
+  "leave the rest in the dealer's watch list ranked by margin before the lane",
+  "opens. Everything runs on the client's own auction and report accounts. No",
+  "automated bidding is built, on any platform. Every build is a fixed price",
+  "quoted before work starts.",
   "",
   "## Services",
   "",
   ...services.map(s => link(s.h1, "/services/" + s.slug, s.metaDesc)),
   "",
-  "## Sites scraped (one page per platform)",
+  "## Auctions and marketplaces (one page per platform)",
   "",
   ...scrapers.map(s => link(s.h1 || s.site + " Scraper", "/" + s.slug, s.metaDesc)),
-  "",
-  "## Web design",
-  "",
-  ...webdesign.map(w => link(w.h1, "/" + w.slug, w.metaDesc)),
   "",
   "## Guides",
   "",
@@ -92,8 +93,9 @@ const full = [
   `Source: ${ORIGIN}`,
   `Generated: ${new Date().toISOString().slice(0, 10)}`,
   "",
-  "Web scraping, automation, data pipelines and web development for US",
-  "businesses. One developer-led studio. Contact: sam@autosmartcode.com",
+  "Auction and market data for the car trade — run-list triage, vehicle history",
+  "report pipelines, MMR automation and custom dealer browser extensions. One",
+  "developer-led studio. Contact: sam@autosmartcode.com",
   "",
   "## Frequently asked questions",
   "",
@@ -146,33 +148,6 @@ const full = [
     s.faqs.map(f => `**${f.q}**\n\n${f.a}`).join("\n\n"),
   ].join("\n"))),
 
-  ...webdesign.map(w => section(w.h1, [
-    `URL: ${ORIGIN}/${w.slug}`,
-    `Keywords: ${w.keywords.join(", ")}`,
-    "",
-    w.tagline,
-    "",
-    "### The problem",
-    "",
-    w.problem,
-    "",
-    "### Signals",
-    "",
-    w.signals.map(s => "- " + s).join("\n"),
-    "",
-    "### What gets built",
-    "",
-    w.answer,
-    "",
-    "### Included",
-    "",
-    w.includes.map(i => "- " + i).join("\n"),
-    "",
-    "### Questions",
-    "",
-    w.faqs.map(f => `**${f.q}**\n\n${f.a}`).join("\n\n"),
-  ].join("\n"))),
-
   ...blogs.map(b => section(b.title, [
     `URL: ${ORIGIN}/blog/${b.slug}`,
     `Published: ${b.date}`,
@@ -205,6 +180,6 @@ fs.writeFileSync(path.join(root, "public/llms-full.txt"), full);
 const kb = n => (n / 1024).toFixed(0) + " KB";
 console.log(
   `llms.txt written — ${services.length} services + ${scrapers.length} scrapers + ` +
-  `${webdesign.length} web design + ${blogs.length} guides + ${projects.length} case studies ` +
+  `${blogs.length} guides + ${projects.length} case studies ` +
   `(${kb(index.length)} index, ${kb(full.length)} full)`
 );

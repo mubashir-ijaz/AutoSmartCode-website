@@ -1,432 +1,200 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { projects, FAQS } from "../data/content";
+import { FAQS } from "../data/content";
+import { scraperBySlug } from "../data/scrapers";
+import { PRICING, PRICE_COMPARISON, money, priceById } from "../data/pricing";
 import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
-import { useSeo, ORIGIN } from "../useSeo";
-import { FlipCoin } from "../components/Founder";
+import { useSeo } from "../useSeo";
+import AuctionPipeline from "../components/AuctionPipeline";
+import Photo from "../components/Photo";
 import "./Home.css";
+import "../components/AuctionPipeline.css";
 
-/* Rows with a `to` link out to their own landing page — a homepage can't rank
-   for six different services at once, so each one gets its own URL. The rest
-   still route to the contact form. */
-const SERVICES = [
+/* The homepage sells one thing to one buyer: automation and data for the car
+   trade. A visitor should understand it from the hero alone — real cars in the
+   background, the headline saying what it is, and a watch-list card on the
+   right showing what they get back. Everything below is proof and detail. */
+
+/* Scrolling strip under the hero — the names a dealer recognises instantly. */
+const PLATFORMS = [
+  "Manheim", "ADESA", "ACV Auctions", "OPENLANE", "Copart", "IAA", "Carfax",
+  "AutoCheck", "Manheim MMR", "eBay Motors", "AutoTrader", "Cars.com",
+  "CarGurus", "CarMax", "BacklotCars", "EDGE Pipeline", "SmartAuction",
+  "AutoScout24", "Carsales", "NHTSA vPIC",
+];
+
+/* What the hero card shows — one sale, three cars, two kept and one dropped. */
+const DEMO_CARS = [
+  { car: "2021 Toyota RAV4 XLE", meta: "38k mi · Grade 4.2 · Clean title · 1 owner", mmr: "$24,900", max: "$22,100", keep: true },
+  { car: "2019 Ford F-150 XLT", meta: "71k mi · Frame damage announced", mmr: "$27,300", max: "—", keep: false },
+  { car: "2020 Honda Accord Sport", meta: "44k mi · Grade 3.9 · Clean Carfax", mmr: "$19,750", max: "$17,400", keep: true },
+];
+
+/* The six jobs. Each card is a photo, a plain sentence and a link to the page
+   that explains it properly. */
+const JOBS = [
   {
-    icon: "🕷️", accent: "blue", to: "/services/web-scraping",
-    title: "Web Scraping & Data Extraction",
-    desc: "Pull any data from any website at scale — products, prices, leads, listings, reviews. Delivered clean and structured as Excel, CSV, JSON, or straight into your database.",
-    tags: ["Python", "Selenium", "Playwright", "Anti-bot bypass"]
+    photo: "auction-yard", icon: "🔨",
+    title: "Auction run-list triage",
+    text: "Manheim, ADESA, ACV and OPENLANE run lists read overnight. Your filters applied to every car, bad ones dropped, good ones in your watch list by 6 AM.",
+    to: "/services/auction-run-list-triage",
   },
   {
-    icon: "🔨", accent: "green", to: "/services/car-auction-automation",
-    title: "Car Auction Automation",
-    desc: "Manheim, ADESA, ACV — or the private dealer portal you actually buy on — read every morning, every car scored against MMR, and the ones that clear your margin emailed before the lane opens.",
-    tags: ["Manheim MMR", "ADESA", "ACV", "Your own portal"]
+    photo: "parked-row", icon: "📄",
+    title: "Carfax & AutoCheck in bulk",
+    text: "Hundreds of VINs checked at once on your own accounts — accidents, owners, title brands and odometer flags in one sheet instead of 300 tabs.",
+    to: "/services/vehicle-history-reports",
   },
   {
-    icon: "📄", accent: "violet", to: "/services/vehicle-history-reports",
-    title: "Vehicle History Reports",
-    desc: "Carfax and AutoCheck pulled through your own dealer account, bulk VIN decoding from NHTSA, every report parsed into one sortable table instead of a folder of PDFs.",
-    tags: ["Carfax", "AutoCheck", "VIN decode", "NHTSA"]
+    photo: "lot-rows", icon: "📈",
+    title: "MMR & market pricing",
+    text: "Manheim MMR, retail comps and sold prices pulled for every car, so each one comes with a max bid that still holds your margin.",
+    to: "/manheim-mmr-scraper",
   },
   {
-    icon: "🚘", accent: "cyan", to: "/services/dealer-inventory-scraping",
-    title: "Dealer Inventory Data",
-    desc: "Live listings from AutoTrader, CarMax, Cars.com, CarGurus, AutoScout24 and Carsales — every price, VIN and photo in one sheet, with price history building daily.",
-    tags: ["AutoTrader", "CarMax", "CarGurus", "AutoScout24"]
+    photo: "dealer-forecourt", icon: "🔎",
+    title: "Find cars across every site",
+    text: "eBay Motors, AutoTrader, CarGurus, Cars.com and Copart searched daily for your buy box. You get an alert when a match lists under your number.",
+    to: "/ebay-motors-scraper",
   },
   {
-    icon: "📋", accent: "amber", to: "/services/business-leads-data",
-    title: "Business Leads Data",
-    desc: "B2B lead lists built to your exact criteria from Google Maps, LinkedIn, Yelp and industry directories. Verified emails and phones — not a recycled database.",
-    tags: ["Google Maps", "LinkedIn", "Email verification", "CRM sync"]
+    photo: "suv-lineup", icon: "🧩",
+    title: "Custom dealer extension",
+    text: "An Autoniq-style browser panel built to your workflow — scan a VIN and history, MMR and your margin show on the listing. Yours to keep, no per-seat fee.",
+    to: "/services/dealer-browser-extension",
   },
   {
-    icon: "🌐", accent: "rose", to: "/services/web-development",
-    title: "Web Development",
-    desc: "Fast, modern websites and web apps that convert — eCommerce stores, portfolios, SaaS dashboards and admin panels built with React and Next.js.",
-    tags: ["React", "Next.js", "Node.js", "Vercel"]
+    photo: "open-road", icon: "🏁",
+    title: "Competitor & inventory tracking",
+    text: "Watch competitor lots and price drops, days on market by trim, and what's selling in your area — refreshed every night, delivered to a sheet or your DMS.",
+    to: "/services/car-auction-automation",
   },
-  {
-    icon: "⚙️", accent: "green",
-    title: "Process Automation",
-    desc: "Automate the repetitive work — data entry, report generation, email alerts, file processing. Set it up once, then it runs every day without anyone touching it.",
-    tags: ["Python", "Scheduling", "Email/SMTP", "Workflows"]
-  },
-  {
-    icon: "🤖", accent: "violet",
-    title: "AI & Data Analysis",
-    desc: "AI-powered analysis of your business data — market intelligence, review sentiment, pricing trends and competitor research, delivered as reports you can act on.",
-    tags: ["LLM APIs", "Pandas", "NLP", "Reports"]
-  },
-  {
-    icon: "🔔", accent: "rose",
-    title: "Monitoring & Alert Bots",
-    desc: "Custom bots that watch prices, stock levels, listings or auctions around the clock and message you the moment something changes worth knowing about.",
-    tags: ["Telegram", "Slack", "Email alerts", "24/7 monitoring"]
-  },
+];
+
+const STATS = [
+  { n: "5,000 → 800", l: "cars in the sale, cut to the ones worth bidding on" },
+  { n: "6 AM", l: "watch list ready, notes written, before you're in" },
+  { n: "20+", l: "auctions, report sites and marketplaces automated" },
+  { n: "3–7 days", l: "from first email to running every sale day" },
 ];
 
 const STEPS = [
-  { n: "01", title: "Tell me what you need", desc: "Send the URLs, the fields you want, and how often you need it. No technical spec required — plain English is fine." },
-  { n: "02", title: "I scope it and quote it", desc: "You get a clear plan, a fixed price, and a delivery date within 24 hours. No hourly surprises, no vague estimates." },
-  { n: "03", title: "I build and test it", desc: "Most projects are built in 2–5 days. You see sample output early so we catch any misunderstanding before the full run." },
-  { n: "04", title: "You get it running", desc: "Clean data delivered, or a live system handed over with alerting so you know immediately if anything ever breaks." },
+  { n: "1", title: "Tell me your auctions and buy box", desc: "Which sites you buy on and what a good car looks like — years, mileage, grade, title, margin. Plain English is fine." },
+  { n: "2", title: "See one real sale done for you", desc: "Before you pay for a build I run your rules on an actual upcoming sale and send you the list. Wrong calls get fixed then." },
+  { n: "3", title: "It runs every sale day", desc: "Overnight, on your own accounts. If an auction site changes, you get an alert the same morning and I fix it." },
+];
+
+/* Every platform page, grouped the way a buyer thinks about them. */
+const SITE_GROUPS = [
+  { title: "Wholesale auctions", slugs: ["manheim-mmr-scraper", "adesa-scraper", "acv-auctions-scraper", "openlane-scraper", "backlotcars-scraper", "edge-pipeline-scraper", "smartauction-scraper", "dealer-marketplace-scraper"] },
+  { title: "Salvage auctions", slugs: ["copart-scraper", "iaa-scraper"] },
+  { title: "History reports", slugs: ["carfax-scraper", "autocheck-scraper"] },
+  { title: "Retail marketplaces", slugs: ["ebay-motors-scraper", "autotrader-scraper", "cars-com-scraper", "cargurus-scraper", "carmax-scraper", "autonation-scraper", "autoscout24-scraper", "carsales-scraper", "otomoto-scraper"] },
 ];
 
 const TESTIMONIALS = [
-  { initials: "JR", color: "#3b82f6", name: "James R.", role: "Used Car Dealer, New York", text: "Built our entire auction automation system from scratch. Pulls live data from Manheim, BacklotCars, and Autoniq every morning and emails us the best deals. Saves 10+ hours a week." },
-  { initials: "SM", color: "#10b981", name: "Sarah M.", role: "Marketing Agency, Texas", text: "The Google Maps lead scraper paid for itself 10x over. Generated 5,000 verified business leads for our outreach campaign in under 24 hours." },
-  { initials: "MT", color: "#8b5cf6", name: "Mike T.", role: "eCommerce Seller, California", text: "Incredible Walmart scraper — handles thousands of products across hundreds of keywords, avoids detection completely, and outputs perfect Excel files. Delivered in 3 days." },
-];
-
-/* ---------------- Live demos (typed terminal + output) ---------------- */
-
-const DEMOS = [
   {
-    id: "leads",
-    tab: "🗺️ Lead Scraping",
-    file: "scrape_leads.py",
-    blurb: "Any niche, any US city — turned into a contact list your sales team can call today.",
-    lines: [
-      { text: '$ python scrape_leads.py --niche "car dealers" --city "Dallas, TX"', cls: "cmd" },
-      { text: "→ scanning Google Maps results, page 1 of 21…", cls: "dim" },
-      { text: "✓ 412 businesses found", cls: "ok" },
-      { text: "✓ 388 phone numbers verified", cls: "ok" },
-      { text: "✓ 240 emails pulled from company websites", cls: "ok" },
-      { text: "✓ 96 owner names matched from public profiles", cls: "ok" },
-      { text: "✓ 17 duplicates removed", cls: "ok" },
-      { text: "✓ exported → dallas_car_dealers.xlsx", cls: "file" },
-    ],
-    output: {
-      kind: "table",
-      name: "📄 dallas_car_dealers.xlsx",
-      count: "412 rows × 9 columns",
-      headers: ["Business", "Owner", "Phone", "Email", "Website", "Rating", "Reviews", "City", "Category"],
-      rows: [
-        ["Metroplex Auto Group", "R. Alvarez", "(214) 555-0142", "sales@metroplexauto.example", "metroplexauto.example", "4.6", "312", "Dallas, TX", "Used car dealer"],
-        ["Lone Star Motors", "K. Whitfield", "(972) 555-0188", "info@lonestarmotors.example", "lonestarmotors.example", "4.3", "198", "Plano, TX", "Auto wholesaler"],
-        ["DFW Fleet Wholesale", "M. Okafor", "(469) 555-0207", "buying@dfwfleet.example", "dfwfleet.example", "4.8", "87", "Irving, TX", "Fleet sales"],
-      ],
-      more: "+ 409 more rows…",
-    },
+    initials: "JR", color: "#34d399", name: "James R.", role: "Used Car Dealer, New York",
+    text: "Our buyer used to spend four hours on the run list and still missed cars. Now 5,000 lots get cut to about 800 overnight, every one with notes and a max bid. He walks in and starts bidding.",
   },
   {
-    id: "auction",
-    tab: "🚗 Car Auction Reports",
-    file: "auction_scout.py",
-    blurb: "Every listing checked against Carfax, AutoCheck, J.D. Power and Galves — then ranked by real margin.",
-    lines: [
-      { text: "$ python auction_scout.py --source backlotcars --max-bid 18000", cls: "cmd" },
-      { text: "→ pulling 1,284 active auction listings…", cls: "dim" },
-      { text: "✓ VIN decoded — year, trim, drivetrain, options", cls: "ok" },
-      { text: "✓ Carfax — accident count, title brand, owners, service history", cls: "ok" },
-      { text: "✓ AutoCheck scores retrieved", cls: "ok" },
-      { text: "✓ market value matched — J.D. Power, Galves, MMR", cls: "ok" },
-      { text: "⚠ 61 vehicles rejected — branded title or 2+ accidents", cls: "warn" },
-      { text: "✓ 38 vehicles clear your 12% margin threshold", cls: "ok" },
-      { text: "✓ ranked report emailed → todays_best_deals.html", cls: "file" },
-    ],
-    output: {
-      kind: "vehicle",
-      name: "🏆 todays_best_deals.html",
-      count: "38 qualifying vehicles",
-      badge: "Best margin — 1 of 38 matches",
-      title: "2021 Toyota RAV4 XLE AWD",
-      sub: "41,208 mi · VIN 2T3W1RFV•••••••M · Lane 4 · Dallas, TX",
-      profit: "+$3,900",
-      profitLabel: "est. margin 22.4%",
-      sources: [
-        { src: "Auction price", val: "$17,400", note: "BacklotCars, closes 4:15pm" },
-        { src: "Market value (MMR)", val: "$21,850", note: "last 30 days, ±$420" },
-        { src: "J.D. Power clean", val: "$22,150", note: "clean trade +$1,100" },
-        { src: "Galves", val: "$21,300", note: "wholesale average" },
-        { src: "Title status", val: "Clean", note: "no salvage, flood or lemon brand", ok: true },
-        { src: "Accidents", val: "0 reported", note: "Carfax, full 5-year history", ok: true },
-        { src: "Owners", val: "1 owner", note: "personal use · 14 service records", ok: true },
-        { src: "AutoCheck score", val: "92 / 100", note: "above class average (78–86)", ok: true },
-      ],
-    },
+    initials: "DK", color: "#60a5fa", name: "Dave K.", role: "Wholesaler, Florida",
+    text: "I was paying per seat for a VIN tool and still copying numbers into my own sheet. Sam built the panel I actually wanted — my margin maths right on the listing — for less than four months of what I was renting.",
   },
   {
-    id: "ecom",
-    tab: "🛒 eCommerce Data",
-    file: "price_watch.py",
-    blurb: "Amazon, Walmart, eBay and any storefront — full catalogue data plus who owns the Buy Box.",
-    lines: [
-      { text: "$ python price_watch.py --sites amazon,walmart --keywords 240", cls: "cmd" },
-      { text: "→ crawling 240 keywords across 2 marketplaces…", cls: "dim" },
-      { text: "✓ 18,640 products captured", cls: "ok" },
-      { text: "✓ title, ASIN, SKU, brand and category parsed", cls: "ok" },
-      { text: "✓ 111,840 image URLs collected (6 per product)", cls: "ok" },
-      { text: "✓ price, list price, Buy Box seller and stock recorded", cls: "ok" },
-      { text: "⚠ 3 competitors dropped price in the last hour", cls: "warn" },
-      { text: "✓ written → catalog.xlsx · catalog.json · products table", cls: "file" },
-    ],
-    output: {
-      kind: "product",
-      name: "📦 catalog.xlsx · catalog.json",
-      count: "18,640 products × 22 fields",
-      hero: "🔋",
-      thumbs: ["📐", "📦", "🔌", "📊", "🎁"],
-      imageNote: "6 image URLs captured per product",
-      fields: [
-        { k: "Title", v: "20,000mAh USB-C Power Bank, 65W PD Fast Charge" },
-        { k: "ASIN", v: "B0C7K2M9QT" },
-        { k: "SKU", v: "PB-20K-65W-BLK" },
-        { k: "Brand", v: "Brand A" },
-        { k: "Price", v: "$109.99", hot: true },
-        { k: "List price", v: "$139.99  (−21%)" },
-        { k: "Buy Box", v: "Brand direct (1P)" },
-        { k: "Stock", v: "In stock · 42 units" },
-        { k: "Rating", v: "4.7 ★  ·  8,412 reviews" },
-        { k: "Category", v: "Electronics › Chargers › Power Banks" },
-        { k: "Δ 24h", v: "▼ $8.00", down: true },
-        { k: "URL", v: "amazon.com/dp/B0C7K2M9QT" },
-      ],
-      more: "+ 18,639 more products in this run",
-    },
-  },
-  {
-    id: "property",
-    tab: "🏠 Property & Research",
-    file: "market_research.py",
-    blurb: "Zillow, Redfin, Airbnb — or any site an analyst needs. Listings, rents and trends turned into a model you can decide on.",
-    lines: [
-      { text: '$ python market_research.py --market "Phoenix, AZ" --beds 3+', cls: "cmd" },
-      { text: "→ pulling Zillow + Redfin listings across 14 zip codes…", cls: "dim" },
-      { text: "✓ 2,417 active listings captured", cls: "ok" },
-      { text: "✓ price history and days-on-market parsed", cls: "ok" },
-      { text: "✓ Airbnb comps matched — nightly rate and occupancy", cls: "ok" },
-      { text: "✓ rental yield and cap rate calculated per property", cls: "ok" },
-      { text: "✓ 26 properties beat your 8% cap-rate target", cls: "ok" },
-      { text: "✓ exported → phoenix_market_report.xlsx", cls: "file" },
-    ],
-    output: {
-      kind: "table",
-      name: "📄 phoenix_market_report.xlsx",
-      count: "2,417 rows × 14 columns",
-      headers: ["Address", "Zip", "Bed/Bath", "Sqft", "List price", "Δ price", "Days on mkt", "Airbnb /night", "Occupancy", "Est. yield", "Cap rate"],
-      rows: [
-        ["1420 E Palm Ln", "85006", "3 / 2", "1,640", "$412,000", "▼ 4.2%", "58", "$189", "71%", "9.4%", "8.8%"],
-        ["908 W Encanto Blvd", "85007", "4 / 2", "2,110", "$528,500", "▼ 2.0%", "31", "$246", "68%", "8.7%", "8.1%"],
-        ["3377 N 39th St", "85018", "3 / 2", "1,780", "$465,000", "—", "12", "$212", "74%", "8.2%", "7.6%"],
-      ],
-      more: "+ 2,414 more properties…",
-    },
+    initials: "MT", color: "#a78bfa", name: "Marcus T.", role: "Dealer Group, Texas",
+    text: "Three auctions, one watch list, no duplicate VINs. The branded titles and the heavy-recon cars are gone before anyone sees the list. That alone changed what we buy.",
   },
 ];
 
-const FORMATS = ["Excel .xlsx", "CSV", "JSON", "Google Sheets", "MySQL / Postgres", "REST API"];
+/* ---------------- Hero watch-list card ---------------- */
 
-function ScrapeDemo() {
-  const [active, setActive] = useState(0);
-  const [line, setLine] = useState(0);
-  const [chars, setChars] = useState(0);
-
-  const demo = DEMOS[active];
-  const finished = line >= demo.lines.length;
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setLine(demo.lines.length);
-      return;
-    }
-
-    // Finished a full pass — hold the result, then move to the next demo.
-    if (finished) {
-      const next = setTimeout(() => {
-        setActive(a => (a + 1) % DEMOS.length);
-        setLine(0);
-        setChars(0);
-      }, 6500);
-      return () => clearTimeout(next);
-    }
-
-    const current = demo.lines[line].text;
-
-    // Still typing this line.
-    if (chars < current.length) {
-      const speed = demo.lines[line].cls === "cmd" ? 22 : 10;
-      const t = setTimeout(() => setChars(c => c + 1), speed);
-      return () => clearTimeout(t);
-    }
-
-    // Line complete — pause, then start the next one.
-    const t = setTimeout(() => { setLine(l => l + 1); setChars(0); }, 360);
-    return () => clearTimeout(t);
-  }, [line, chars, finished, demo]);
-
-  function pick(i) {
-    setActive(i);
-    setLine(0);
-    setChars(0);
-  }
-
-  const out = demo.output;
-
+function WatchListCard() {
   return (
-    <div className="demo-wrap">
+    <div className="wl-card" aria-label="Example: an auction sale triaged overnight">
+      <div className="wl-head">
+        <span className="wl-dot" />
+        <span className="wl-title">Manheim · Tuesday sale</span>
+        <span className="wl-time">05:52 AM</span>
+      </div>
+      <div className="wl-funnel">
+        <div><strong>5,214</strong><span>cars in sale</span></div>
+        <span className="wl-arrow">→</span>
+        <div><strong>812</strong><span>pass your rules</span></div>
+        <span className="wl-arrow">→</span>
+        <div className="wl-hot"><strong>47</strong><span>in watch list</span></div>
+      </div>
+      <ul className="wl-list">
+        {DEMO_CARS.map(c => (
+          <li key={c.car} className={c.keep ? "keep" : "drop"}>
+            <span className="wl-badge">{c.keep ? "✓" : "✕"}</span>
+            <div className="wl-car">
+              <strong>{c.car}</strong>
+              <span>{c.meta}</span>
+            </div>
+            <div className="wl-nums">
+              <span>MMR {c.mmr}</span>
+              <strong>{c.keep ? "Max " + c.max : "Dropped"}</strong>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <div className="wl-foot">Carfax ✓ · AutoCheck ✓ · MMR ✓ · notes written</div>
+    </div>
+  );
+}
 
-      <div className="demo-tabs" role="tablist">
-        {DEMOS.map((d, i) => (
-          <button
-            key={d.id}
-            role="tab"
-            aria-selected={i === active}
-            className={"demo-tab " + (i === active ? "active" : "")}
-            onClick={() => pick(i)}
-          >
-            {d.tab}
-          </button>
+/* ---------------- Pricing band ---------------- */
+
+function PricingBand() {
+  return (
+    <div className="price-wrap">
+      <div className="price-grid">
+        {PRICING.map(p => (
+          <div key={p.id} className={"price-card accent-" + p.accent + (p.popular ? " popular" : "")}>
+            {p.popular && <span className="price-flag">Most dealers start here</span>}
+            <div className="price-emoji">{p.emoji}</div>
+            <h3>{p.name}</h3>
+            <p className="price-blurb">{p.blurb}</p>
+
+            <div className="price-figure">
+              <span className="price-build">{money(p.build)}</span>
+              {p.monthly
+                ? <span className="price-monthly">+ {money(p.monthly)}<em>/mo</em></span>
+                : <span className="price-monthly one">one-off</span>}
+            </div>
+            <div className="price-note">{p.note}</div>
+
+            <ul className="price-includes">
+              {p.includes.map(i => <li key={i}>{i}</li>)}
+            </ul>
+
+            <a href="#contact" className={"price-btn " + (p.popular ? "solid" : "")}>
+              Get a fixed quote →
+            </a>
+          </div>
         ))}
       </div>
 
-      <p className="demo-blurb">{demo.blurb}</p>
-
-      {/* Script on the left, the file it produces on the right — they run together */}
-      <div className="demo-stage">
-
-        <div className="stage-col">
-          <div className="stage-label">
-            <span className={"stage-dot " + (finished ? "done" : "live")} />
-            {finished ? "Run complete" : "Running the script"}
-          </div>
-
-          <div className="terminal">
-            <div className="terminal-bar">
-              <span className="dot red" /><span className="dot yellow" /><span className="dot green" />
-              <span className="terminal-title">{demo.file} — AutoSmartCode</span>
-            </div>
-
-            <div className="terminal-body">
-              {demo.lines.slice(0, line).map((l, i) => (
-                <div key={i} className={"term-line " + l.cls}>{l.text}</div>
-              ))}
-              {!finished && (
-                <div className={"term-line " + demo.lines[line].cls}>
-                  {demo.lines[line].text.slice(0, chars)}
-                  <span className="caret" />
-                </div>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="stage-col">
-          <div className="stage-label">
-            <span className={"stage-dot " + (finished ? "done" : "live")} />
-            {finished ? "Your file — ready to download" : "Preview — building your file…"}
-          </div>
-
-          {/* Placeholder keeps the column filled while the script is still typing */}
-          {!finished && (
-            <div className="result-preview" aria-hidden="true">
-              <div className="sheet-head">
-                <span className="sheet-name">{out.name}</span>
-                <span className="sheet-count preview">writing rows…</span>
-              </div>
-              <div className="skeleton-body">
-                {Array.from({ length: 7 }).map((_, i) => (
-                  <div key={i} className="skel-row" style={{ animationDelay: i * 0.12 + "s" }}>
-                    <span className="skel-cell w-30" />
-                    <span className="skel-cell w-20" />
-                    <span className="skel-cell w-25" />
-                    <span className="skel-cell w-15" />
-                  </div>
-                ))}
-              </div>
-              <div className="preview-note">
-                <span className="spinner" /> {line + 1} of {demo.lines.length} steps complete
-              </div>
-            </div>
-          )}
-
-          {finished && (
-      <div className="result-sheet show">
-        <div className="sheet-head">
-          <span className="sheet-name">{out.name}</span>
-          <span className="sheet-count">{out.count}</span>
-        </div>
-
-        {out.kind === "product" ? (
-          <div className="product-record">
-            <div className="pr-media">
-              <div className="pr-img main">{out.hero}</div>
-              <div className="pr-thumbs">
-                {out.thumbs.map((t, i) => <div key={i} className="pr-img">{t}</div>)}
-              </div>
-              <div className="pr-imgnote">{out.imageNote}</div>
-            </div>
-            <div className="pr-fields">
-              {out.fields.map(f => (
-                <div key={f.k} className="pr-row">
-                  <span className="pr-k">{f.k}</span>
-                  <span className={"pr-v" + (f.hot ? " hot" : "") + (f.down ? " down" : "")}>{f.v}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : out.kind === "table" ? (
-          <div className="sheet-scroll">
-            <table className="sheet-table">
-              <thead>
-                <tr>{out.headers.map(h => <th key={h}>{h}</th>)}</tr>
-              </thead>
-              <tbody>
-                {out.rows.map(r => (
-                  <tr key={r[0]}>{r.map((c, i) => <td key={i}>{c}</td>)}</tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ) : (
-          <div className="vehicle-card">
-            <div className="vehicle-head">
-              <div>
-                <span className="vehicle-badge">★ {out.badge}</span>
-                <h4>{out.title}</h4>
-                <div className="vehicle-sub">{out.sub}</div>
-              </div>
-              <div className="vehicle-profit">
-                <span className="vp-n">{out.profit}</span>
-                <span className="vp-l">{out.profitLabel}</span>
-              </div>
-            </div>
-
-            <div className="vehicle-grid">
-              {out.sources.map(s => (
-                <div key={s.src} className={"vsrc " + (s.ok ? "clean" : "")}>
-                  <div className="vsrc-label">{s.src}</div>
-                  <div className="vsrc-val">{s.val}</div>
-                  <div className="vsrc-note">{s.note}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+      <div className="price-compare">
+        <strong>{PRICE_COMPARISON.claim}</strong> {PRICE_COMPARISON.detail}
       </div>
-          )}
-
-          {out.more && finished && <div className="demo-more show">{out.more}</div>}
-        </div>
-
-      </div>
-
-      <div className={"format-row " + (finished ? "show" : "")}>
-        <span className="format-label">Delivered in any format you need</span>
-        <div className="format-chips">
-          {FORMATS.map(f => <span key={f} className="format-chip">{f}</span>)}
-        </div>
-      </div>
-
-      <p className="demo-caption">
-        Sample output — figures shown are illustrative, not live market data.
-      </p>
     </div>
   );
 }
 
 /* ---------------- Contact form ---------------- */
+
+const NEEDS = [
+  "Auction run-list triage & watch list",
+  "Carfax / AutoCheck reports in bulk",
+  "MMR / market pricing automation",
+  "Find cars on eBay Motors, AutoTrader & others",
+  "Custom dealer browser extension",
+  "Competitor & inventory tracking",
+  "One-off data pull (one sale)",
+  "Something else / not sure",
+];
 
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", company: "", service: "", budget: "", message: "" });
@@ -458,8 +226,8 @@ function ContactForm() {
   return (
     <div className="contact-form-card">
       <div className="form-head">
-        <div className="form-head-title">Send a Message</div>
-        <div className="form-head-sub">Fill this out — I'll reply personally within 24 hours.</div>
+        <div className="form-head-title">Tell me what you want automated</div>
+        <div className="form-head-sub">Which sites you use and what a good car looks like to you. I reply personally within 24 hours.</div>
       </div>
       <div className="form-row">
         <div className="form-group">
@@ -468,35 +236,32 @@ function ContactForm() {
         </div>
         <div className="form-group">
           <label>Email Address *</label>
-          <input type="email" value={form.email} onChange={set("email")} placeholder="john@company.com" />
+          <input type="email" value={form.email} onChange={set("email")} placeholder="john@dealership.com" />
         </div>
       </div>
       <div className="form-row">
         <div className="form-group">
-          <label>Company / Business</label>
-          <input value={form.company} onChange={set("company")} placeholder="Your company" />
+          <label>Dealership / Company</label>
+          <input value={form.company} onChange={set("company")} placeholder="Your dealership" />
         </div>
         <div className="form-group">
-          <label>Service Needed *</label>
+          <label>What You Need *</label>
           <select value={form.service} onChange={set("service")}>
-            <option value="">Select a service...</option>
-            {["Web Scraping", "Process Automation", "Web Development", "AI & Data Analysis", "Lead Generation", "Monitoring & Alert Bot", "Car Dealer Automation", "Real Estate Data", "Other / Multiple"].map(s => <option key={s}>{s}</option>)}
+            <option value="">Select...</option>
+            {NEEDS.map(s => <option key={s}>{s}</option>)}
           </select>
         </div>
       </div>
       <div className="form-group">
-        <label>Budget Range</label>
-        <select value={form.budget} onChange={set("budget")}>
-          <option value="">Select budget...</option>
-          {["Under $100", "$100 – $500", "$500 – $1,000", "$1,000 – $5,000", "$5,000+"].map(b => <option key={b}>{b}</option>)}
-        </select>
+        <label>Which sites do you buy or sell on?</label>
+        <input value={form.budget} onChange={set("budget")} placeholder="Manheim, ADESA, Copart, eBay Motors, a private dealer portal..." />
       </div>
       <div className="form-group">
-        <label>Project Details *</label>
-        <textarea value={form.message} onChange={set("message")} rows={5} placeholder="What website? What data do you need? Any deadlines..." />
+        <label>Your buy box or the job — years, mileage, grade, margin *</label>
+        <textarea value={form.message} onChange={set("message")} rows={5} placeholder="e.g. 2018+, under 90k miles, grade 3+, clean title only, need 12% margin after $1,500 recon..." />
       </div>
       <button className="form-btn" onClick={submit} disabled={loading}>
-        {loading ? "Sending..." : "Send Message — I'll Reply Within 24hrs →"}
+        {loading ? "Sending..." : "Send — I'll Reply Within 24hrs →"}
       </button>
       {status && <div className={"form-msg " + status.type}>{status.type === "success" ? "✅" : "⚠️"} {status.text}</div>}
     </div>
@@ -507,10 +272,10 @@ function ContactForm() {
 
 export default function Home() {
   useSeo({
-    title: "Web Scraping & Automation Services — US, UK & Worldwide | AutoSmartCode",
+    title: "Car Dealer Automation & Auction Data Scraping | AutoSmartCode",
     description:
-      "We turn any website into clean, structured data. Custom scrapers, lead lists, " +
-      "price monitors and auction reports — built in 2–5 days, fixed price, quoted in 24 hours.",
+      "Automation for car dealers and wholesalers: Manheim, ADESA, Copart and eBay Motors " +
+      "scraped, every VIN checked against Carfax, AutoCheck and MMR, watch list ready by 6 AM.",
     path: "/",
     schema: {
       "@context": "https://schema.org",
@@ -528,201 +293,93 @@ export default function Home() {
 
       {/* ============ HERO ============ */}
       <section className="hero">
-        <div className="hero-bg" aria-hidden="true">
-          <span className="orb orb-1" />
-          <span className="orb orb-2" />
-          <span className="orb orb-3" />
-          <span className="hero-grid" />
-        </div>
+        <Photo name="hero-dealer-lot" className="hero-photo" eager
+               alt="Rows of used cars lined up on a dealer lot" />
+        <div className="hero-shade" aria-hidden="true" />
 
         <div className="container hero-layout">
-          <div className="hero-center">
+          <div className="hero-copy">
+            <span className="hero-eyebrow">🚗 Automation &amp; data scraping for the car trade</span>
 
             <h1 className="hero-h1">
-              We turn any website into{" "}
-              <span className="hero-grad">the data your business runs on</span>
+              Car dealer automation{" "}
+              <span className="hero-grad">&amp; auction data scraping</span>
             </h1>
 
             <p className="hero-desc">
-              Scrapers, auction reports, lead lists and price monitors —
-              <strong> built clean, delivered fast.</strong>
+              I pull every car from <strong>Manheim, ADESA, Copart, eBay Motors</strong> and 20+
+              other sites, check each VIN against <strong>Carfax, AutoCheck and MMR</strong>, and
+              hand you a ranked buy list with notes — before the sale opens.
             </p>
 
             <div className="hero-actions">
-              <a href="#contact" className="btn btn-blue">Start Your Project →</a>
-              <Link to="/projects" className="btn btn-outline">See My Work</Link>
+              <a href="#contact" className="btn btn-blue">Get a Free Quote →</a>
+              <a href="#how" className="btn btn-outline">See how it works</a>
             </div>
 
-          </div>
-
-          {/* The face behind the business — above the fold, so it's eager, not lazy.
-              The studio backdrop is masked out at the edges so the photo dissolves
-              into the hero background instead of sitting on it as a disc. */}
-          <div className="hero-portrait">
-            <picture>
-              <source srcSet={process.env.PUBLIC_URL + "/sam.webp"} type="image/webp" />
-              <img
-                src={process.env.PUBLIC_URL + "/sam.jpg"}
-                alt="Sam — Founder and CEO of AutoSmartCode"
-                width="420"
-                height="420"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
-
-            <div className="hp-card">
-              <div className="hp-name">Sam</div>
-              <div className="hp-role">Founder &amp; CEO · AutoSmartCode</div>
-              <Link to="/about" className="hp-link">More about me →</Link>
+            <div className="hero-trust">
+              <span>⚡ Live in 3–7 days</span>
+              <span>🔒 Runs on your own accounts</span>
+              <span>💵 From {money(priceById("oneoff").build)}</span>
             </div>
           </div>
 
+          <WatchListCard />
+        </div>
+
+        <div className="ticker" aria-label="Platforms automated">
+          <div className="ticker-track">
+            {[...PLATFORMS, ...PLATFORMS].map((p, i) => (
+              <span key={i} aria-hidden={i >= PLATFORMS.length ? "true" : undefined}>{p}</span>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ============ WHAT I DO / PROOF BAND ============ */}
-      <section className="proof-band">
-
-        {/* -- plain-English explainer + code -- */}
-        <div className="container proof-explain">
-          <div className="proof-copy">
-            <h2>
-              If the data is on a website,<br />
-              I can put it in your spreadsheet.
-            </h2>
-            <p>
-              Someone on your team is copying that data by hand right now. I write the
-              software that does it instead — on a schedule, at a volume no person can
-              match. <strong>You never touch any code.</strong>
-            </p>
-            <ul className="proof-points">
-              <li>Works behind logins and on sites that block ordinary tools</li>
-              <li>Thousands of pages, no blocks, no missed rows</li>
-              <li>Excel, CSV, Google Sheets, a database, or an API</li>
-            </ul>
-          </div>
-
-          <div className="code-window">
-            <div className="code-bar">
-              <span className="dot red" /><span className="dot yellow" /><span className="dot green" />
-              <span className="code-title">scraper.py</span>
-            </div>
-            <pre className="code-body">
-<span className="c-com"># every product page → one clean row</span>{"\n"}
-<span className="c-kw">for</span> page <span className="c-kw">in</span> <span className="c-fn">catalog</span>.pages():{"\n"}
-{"    "}item = page.<span className="c-fn">extract</span>({"\n"}
-{"        "}title = <span className="c-str">"h1.product-title"</span>,{"\n"}
-{"        "}price = <span className="c-str">"span.price"</span>,{"\n"}
-{"        "}stock = <span className="c-str">"div.availability"</span>,{"\n"}
-{"    "}){"\n"}
-{"    "}sheet.<span className="c-fn">append</span>(item)   <span className="c-com"># → products.xlsx</span>
-            </pre>
-          </div>
-        </div>
-
-        {/* -- live demo -- */}
-        <div className="container proof-demo">
-          <div className="demo-head">
-            <h2>See exactly what you get</h2>
-            <p>
-              Four real jobs I run for clients — lead lists, car auction reports,
-              eCommerce catalogue data, and property research. Watch each one run, then
-              look at the file it hands you at the end.
-            </p>
-          </div>
-
-          <ScrapeDemo />
-
-          <div className="proof-audience">
-            <div className="audience-row">
-              {[
-                "🚗 Car wholesalers & dealers",
-                "🛒 eCommerce sellers",
-                "📋 Agencies buying leads",
-                "🏠 Real estate investors",
-                "📊 Research & analyst teams",
-              ].map(a => <span key={a} className="audience-chip">{a}</span>)}
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      {/* ============ SERVICES ============ */}
-      <section className="section services-section" id="services">
+      {/* ============ WHAT I AUTOMATE ============ */}
+      <section className="section jobs-section" id="services">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">What I build for clients</h2>
+            <span className="s-label">What gets automated</span>
+            <h2 className="s-title">The work your desk does by hand — done overnight</h2>
             <p className="s-sub">
-              Scraping, automation, and the websites and dashboards built around them.
-              One developer from start to finish — you always talk to the person writing
-              the code, never a sales rep.
+              Six jobs every dealer and wholesaler repeats each week. Each one runs on a
+              schedule and lands in your inbox, a Google Sheet or the auction's own watch list.
             </p>
           </div>
 
-          <div className="svc-list">
-            {SERVICES.map((s, i) => {
-              const inner = (
-                <>
-                  <span className="svc-num">{String(i + 1).padStart(2, "0")}</span>
-                  <span className="svc-icon">{s.icon}</span>
-                  <div className="svc-main">
-                    <h3>{s.title}</h3>
-                    <p>{s.desc}</p>
-                  </div>
-                  <div className="svc-tags">
-                    {s.tags.map(t => <span key={t} className="tag">{t}</span>)}
-                  </div>
-                  <span className="svc-arrow">→</span>
-                </>
-              );
-              const cls = "svc-row accent-" + s.accent;
-              return s.to
-                ? <Link to={s.to} key={s.title} className={cls}>{inner}</Link>
-                : <a href="#contact" key={s.title} className={cls}>{inner}</a>;
-            })}
-          </div>
-
-          <div className="svc-footnote">
-            Every service above has <Link to="/services">its own page</Link> with what it
-            covers, what it costs and what you get back. Need something that isn't on this
-            list? It probably still fits — <a href="#contact">just ask</a>.
+          <div className="jobs-grid">
+            {JOBS.map(j => (
+              <Link to={j.to} key={j.title} className="job-card">
+                <div className="job-photo">
+                  <Photo name={j.photo} alt="" />
+                  <span className="job-icon">{j.icon}</span>
+                </div>
+                <div className="job-body">
+                  <h3>{j.title}</h3>
+                  <p>{j.text}</p>
+                  <span className="job-more">Learn more →</span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
-
-      {/* ============ FLIP COIN — the person and the business, same thing ============ */}
-      <section className="section coin-section">
-        <div className="container coin-wrap">
-
-          <FlipCoin size={260} />
-
-          <div className="coin-copy">
-            <span className="coin-eyebrow">Got a project in mind?</span>
-            <h2 className="s-title">The developer and the company<br />are the same person</h2>
-            <p>
-              Flip it either way and you get me. No account manager forwarding your email,
-              no junior picking up the build after you've signed — just the person who
-              writes your code, answering your questions and staying reachable long after
-              the invoice is paid.
-            </p>
-            <div className="coin-actions">
-              <a href="#contact" className="btn btn-blue">Start your project →</a>
-              <Link to="/about" className="btn btn-outline">More about me</Link>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
 
       {/* ============ HOW IT WORKS ============ */}
-      <section className="section steps-section">
+      <section className="section how-section" id="how">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">Four steps from idea to running system</h2>
+            <span className="s-label">How it works</span>
+            <h2 className="s-title">What happens to your run list overnight</h2>
+            <p className="s-sub">
+              Every car pulled, your filters applied, every surviving VIN checked, notes
+              written and the watch list ready before anyone is in.
+            </p>
           </div>
+
+          <AuctionPipeline />
+
           <div className="steps-grid">
             {STEPS.map(s => (
               <div key={s.n} className="step-card">
@@ -735,43 +392,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ FEATURED PROJECTS (3) ============ */}
-      <section className="section projects-section">
-        <div className="container">
-          <div className="section-head-row">
-            <div>
-              <h2 className="s-title">Projects that made<br />a real difference</h2>
+      {/* ============ STATS BAND ============ */}
+      <section className="stats-band">
+        <Photo name="lot-rows" className="band-photo" alt="" />
+        <div className="band-shade" aria-hidden="true" />
+        <div className="container stats-grid">
+          {STATS.map(s => (
+            <div key={s.n} className="stat">
+              <strong>{s.n}</strong>
+              <span>{s.l}</span>
             </div>
-            <Link to="/projects" className="btn btn-outline">View all projects →</Link>
+          ))}
+        </div>
+      </section>
+
+      {/* ============ SITES ============ */}
+      <section className="section sites-section" id="sites">
+        <div className="container">
+          <div className="section-head">
+            <span className="s-label">Sites I automate</span>
+            <h2 className="s-title">Auctions, history reports and marketplaces</h2>
+            <p className="s-sub">
+              Each one has its own page with the exact fields you get back. Buying on a
+              portal that isn't listed? That's normal — <a href="#contact">send me the name</a>.
+            </p>
           </div>
 
-          <div className="projects-grid">
-            {projects.slice(0, 3).map(p => (
-              <Link to={"/projects/" + p.id} key={p.id} className="proj-card">
-                <div className="proj-type" style={{ color: p.color, background: p.color + "14" }}>
-                  {p.emoji} {p.type}
-                </div>
-                <h3>{p.title}</h3>
-                <p>{p.description.slice(0, 130)}…</p>
-                <div className="tag-row">
-                  {p.stack.slice(0, 3).map(t => <span key={t} className="tag">{t}</span>)}
-                </div>
-                <div className="proj-result">{p.result}</div>
-              </Link>
+          <div className="sites-grid">
+            {SITE_GROUPS.map(g => (
+              <div key={g.title} className="sites-col">
+                <h3>{g.title}</h3>
+                <ul>
+                  {g.slugs.map(slug => {
+                    const s = scraperBySlug(slug);
+                    if (!s) return null;
+                    return (
+                      <li key={slug}>
+                        <Link to={"/" + slug}>
+                          <span className="site-emoji">{s.emoji}</span>
+                          {s.site}
+                          <span className="site-arrow">→</span>
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             ))}
-          </div>
-
-          <div className="view-all-row">
-            <Link to="/projects" className="btn btn-blue">See all {projects.length} projects →</Link>
           </div>
         </div>
       </section>
 
       {/* ============ TESTIMONIALS ============ */}
-      <section className="section">
+      <section className="section testi-section">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">1000+ projects delivered for 100+ businesses across the US, UK &amp; beyond</h2>
+            <span className="s-label">Dealers, wholesalers &amp; buyers</span>
+            <h2 className="s-title">They stopped working the list by hand</h2>
           </div>
           <div className="testi-grid">
             {TESTIMONIALS.map(t => (
@@ -791,14 +468,28 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ============ PRICING ============ */}
+      <section className="section pricing-section" id="pricing">
+        <div className="container">
+          <div className="section-head">
+            <span className="s-label">Pricing</span>
+            <h2 className="s-title">Fixed prices. No per-seat fees.</h2>
+            <p className="s-sub">
+              Quoted in 24 hours, and the build belongs to you when it's done. Add a buyer,
+              add the whole desk — the price doesn't move.
+            </p>
+          </div>
+
+          <PricingBand />
+        </div>
+      </section>
+
       {/* ============ FAQ ============ */}
       <section className="section faq-section" id="faq">
         <div className="container">
           <div className="section-head">
-            <h2 className="s-title">Questions I get asked</h2>
-            <p className="s-sub">
-              Straight answers on price, timelines and what's actually legal — before you email.
-            </p>
+            <span className="s-label">FAQ</span>
+            <h2 className="s-title">Questions dealers ask first</h2>
           </div>
 
           <div className="faq-list">
@@ -817,21 +508,24 @@ export default function Home() {
 
       {/* ============ CONTACT ============ */}
       <section className="section contact-section" id="contact">
+        <Photo name="showroom" className="band-photo" alt="" />
+        <div className="band-shade heavy" aria-hidden="true" />
         <div className="container">
           <div className="contact-wrap">
             <div className="contact-info">
-              <h2 className="s-title">Let's build something<br />that works for you</h2>
+              <span className="s-label">Free quote in 24 hours</span>
+              <h2 className="s-title">Send me one sale.<br />See what comes back.</h2>
               <p className="contact-desc">
-                I'm the founder and sole developer at AutoSmartCode. You talk directly to
-                me — no middlemen, no account managers. Clear communication, honest
-                timelines, and work that keeps running after it's delivered.
+                Tell me which auctions or sites you use and what a good car looks like to
+                you. I'll run a real upcoming sale so you can judge the results before you
+                commit to anything. You talk to me directly — no middlemen.
               </p>
               <div className="contact-details">
                 {[
-                  { icon: "📧", label: "Email — replies within 24hrs", val: "sam@autosmartcode.com" },
-                  { icon: "🌍", label: "Serving clients worldwide", val: "US, UK, Gulf, Europe & Australia — Mon–Sat" },
-                  { icon: "⚡", label: "Fast turnaround", val: "Most projects start within 24 hours" },
-                  { icon: "🔒", label: "Confidentiality", val: "NDA available on request" },
+                  { icon: "📧", label: "Email — replies within 24hrs", val: CONTACT_EMAIL },
+                  { icon: "🔨", label: "Sites covered", val: "Manheim, ADESA, ACV, Copart, IAA, eBay Motors & more" },
+                  { icon: "⚡", label: "Live in 3–7 days", val: "You see one real sale done first" },
+                  { icon: "🔒", label: "Your accounts, your data", val: "Never shared between clients · NDA on request" },
                 ].map(d => (
                   <div key={d.val} className="c-detail">
                     <div className="c-icon">{d.icon}</div>

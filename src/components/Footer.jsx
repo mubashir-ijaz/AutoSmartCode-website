@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { services } from "../data/services";
 import { scrapers } from "../data/scrapers";
-import { webdesign } from "../data/webdesign";
 import { useFeedback } from "./FeedbackModal";
 import "./Footer.css";
 
@@ -13,11 +12,11 @@ export default function Footer() {
   return (
     <>
       {/* ---------- CTA band ---------- */}
-      <section className="footer-cta">
+      <section className="footer-cta" style={{ "--cta-photo": 'url("/img/photos/open-road.webp")' }}>
         <div className="container footer-cta-inner">
           <div>
-            <h2>Have a project in mind?</h2>
-            <p>Describe what you need and get a free, fixed-price quote within 24 hours.</p>
+            <h2>Ready to automate your car business?</h2>
+            <p>Tell me the auctions and sites you use — free, fixed-price quote within 24 hours.</p>
           </div>
           <div className="footer-cta-actions">
             <Link to="/#contact" className="btn footer-cta-btn">Get a Free Quote →</Link>
@@ -37,15 +36,17 @@ export default function Footer() {
                 Auto<span>Smart</span>Code
               </Link>
               <p>
-                We turn any website into clean, structured, and usable data — plus the
-                automation and web development that puts it to work. 1000+ projects
-                delivered for businesses across the US, UK, the Gulf, Europe and Australia.
+                Car dealer automation and auction data scraping. Manheim, ADESA, Copart and
+                eBay Motors read overnight, Carfax, AutoCheck and MMR pulled per VIN, and a
+                ranked watch list ready before the lane opens — for dealers, wholesalers and
+                buyers in the US, UK, the Gulf, Europe and Australia.
               </p>
               <a href="mailto:sam@autosmartcode.com" className="footer-email">
                 ✉ sam@autosmartcode.com
               </a>
               <div className="footer-badges">
                 <span className="footer-badge">⚡ 24h quote</span>
+                <span className="footer-badge">🔨 Built for dealers</span>
                 <span className="footer-badge">🔒 NDA available</span>
                 <span className="footer-badge">★ 5.0 rating</span>
               </div>
@@ -64,19 +65,10 @@ export default function Footer() {
             </div>
 
             <div className="footer-col">
-              <h4>Scrapers</h4>
+              <h4>Auctions &amp; Marketplaces</h4>
               <ul>
                 {scrapers.map(s => (
                   <li key={s.slug}><Link to={`/${s.slug}`}>{s.site} Scraper</Link></li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="footer-col">
-              <h4>Websites</h4>
-              <ul>
-                {webdesign.map(w => (
-                  <li key={w.slug}><Link to={`/${w.slug}`}>{w.nav}</Link></li>
                 ))}
               </ul>
             </div>
@@ -86,6 +78,7 @@ export default function Footer() {
               <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/services">All Services</Link></li>
+                <li><Link to="/#pricing">Pricing</Link></li>
                 <li><Link to="/projects">All Projects</Link></li>
                 <li><Link to="/blog">Blog & Guides</Link></li>
                 <li><Link to="/about">About Sam</Link></li>
@@ -100,7 +93,7 @@ export default function Footer() {
           <div className="footer-bottom">
             <span>© {YEAR} AutoSmartCode — Sam. All rights reserved.</span>
             <span className="footer-bottom-tags">
-              Web Scraping · Automation · AI · Web Development · Serving the USA, UK, Europe, the Gulf &amp; Australia
+              Auction Run-List Triage · Vehicle History Reports · MMR Automation · Custom Dealer Extensions · Serving dealers in the USA, UK, Europe, the Gulf &amp; Australia
             </span>
           </div>
         </div>

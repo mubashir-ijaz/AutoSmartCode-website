@@ -10,7 +10,6 @@
  *   /img/blog/<slug>.svg        one per article
  *   /img/scrapers/<slug>.svg    one per per-site scraper page
  *   /img/services/<slug>.svg    one per service pillar
- *   /img/webdesign/<slug>.svg   one per web-design page
  *
  * On alt text: every alt below is a description of the card that is actually
  * there — a title card in the site's own colours — not a keyword list. Alt
@@ -42,44 +41,30 @@ export const INLINE_DIMS = {
 
 /** Intrinsic size for an inline image src, or null when it is not known. */
 export const dimsFor = src =>
-  INLINE_DIMS[src] || (/^\/img\/(blog|scrapers|services|webdesign)\//.test(src)
+  INLINE_DIMS[src] || (/^\/img\/(blog|scrapers|services)\//.test(src)
     ? { width: IMG_W, height: IMG_H }
     : null);
 
 /** Hand-written alt for the articles — the pages that carry search traffic. */
 const BLOG_ALT = {
   "what-is-web-scraping":
-    "Title card for the AutoSmartCode beginner's guide to web scraping — how automated data extraction works",
+    "Title card for the AutoSmartCode plain-English guide to web scraping for car dealers",
   "is-web-scraping-legal":
-    "Title card for the AutoSmartCode guide to whether web scraping is legal for US businesses",
+    "Title card for the AutoSmartCode guide to whether scraping auction and vehicle data is legal for dealers",
   "how-much-does-web-scraping-cost":
-    "Title card for the AutoSmartCode breakdown of what web scraping costs, by project complexity and volume",
+    "Title card for the AutoSmartCode breakdown of what auction and dealer data automation costs",
   "automate-manheim-mmr":
     "Title card for the AutoSmartCode guide to automating Manheim MMR lookups for car dealers",
-  "scrape-google-maps-leads":
-    "Title card for the AutoSmartCode guide to scraping Google Maps for B2B sales leads",
-  "python-automation-small-business":
-    "Title card for the AutoSmartCode guide to Python automation for small business owners",
-  "amazon-product-analysis-ai":
-    "Title card for the AutoSmartCode guide to analysing Amazon product and review data with AI",
-  "zillow-airbnb-real-estate-scraping":
-    "Title card for the AutoSmartCode guide to scraping Zillow and Airbnb real estate data",
   "bypass-captcha-anti-bot-scraping":
-    "Title card for the AutoSmartCode technical guide to handling CAPTCHAs and anti-bot systems when scraping",
-  "ecommerce-price-monitoring-automation":
-    "Title card for the AutoSmartCode guide to automated eCommerce competitor price monitoring",
+    "Title card for the AutoSmartCode guide to why auction scrapers get blocked and how to fix it",
   "free-vin-decoder-nhtsa-api":
     "Title card for the AutoSmartCode guide to the free NHTSA VIN decoder API for vehicle data",
   "price-used-cars-market-data":
     "Title card for the AutoSmartCode guide to pricing used cars with live market data",
   "ai-parsing-scraped-data":
-    "Title card for the AutoSmartCode guide to using AI to parse and clean messy scraped data",
+    "Title card for the AutoSmartCode guide to using AI to clean messy vehicle data",
   "self-healing-scrapers-ai":
-    "Title card for the AutoSmartCode technical guide to building self-healing scrapers with AI",
-  "why-cold-email-lists-bounce":
-    "Title card for the AutoSmartCode guide to why cold email lists bounce and how to verify them",
-  "slow-website-cost-small-business":
-    "Title card for the AutoSmartCode guide to what a slow website costs a small business",
+    "Title card for the AutoSmartCode guide to self-healing scrapers when an auction site changes",
   "what-is-mmr-manheim-market-report":
     "Title card for the AutoSmartCode guide explaining MMR, the Manheim Market Report used car value",
   "automate-car-merchandising-workflow":
@@ -123,16 +108,6 @@ export function serviceImage(service) {
   return {
     src: `/img/services/${service.slug}.svg`,
     alt: `Title card for the AutoSmartCode service page: ${service.h1 || service.nav}`,
-    width: IMG_W,
-    height: IMG_H,
-  };
-}
-
-/** Web-design page hero. */
-export function webdesignImage(page) {
-  return {
-    src: `/img/webdesign/${page.slug}.svg`,
-    alt: `Title card for the AutoSmartCode web development service: ${page.h1 || page.nav}`,
     width: IMG_W,
     height: IMG_H,
   };

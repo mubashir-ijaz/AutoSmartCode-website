@@ -2,7 +2,9 @@
 .footer-cta {
   background:
     radial-gradient(ellipse 70% 100% at 50% 0%, rgba(16, 185, 129, 0.18), transparent 65%),
-    linear-gradient(90deg, #071310, #06100f 55%, #071310);
+    linear-gradient(90deg, rgba(7,19,16,0.95), rgba(6,16,15,0.82) 55%, rgba(7,19,16,0.95)),
+    var(--cta-photo, none) center 60% / cover no-repeat,
+    #071310;
   border-top: 1px solid var(--accent-line);
   border-bottom: 1px solid var(--border);
   padding: 4.25rem 0;

@@ -1,0 +1,466 @@
+/* The auto-running run-list pipeline.
+ *
+ * Styled as auction furniture, not a terminal: lot plates, lane badges, grade
+ * dials and vehicle silhouettes. The only monospace left is on VIN and lot
+ * numbers, where fixed-width is genuinely how a dealer reads them.
+ *
+ * Shares the site's tokens from index.css — no new colours invented here. */
+
+.pipe {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(16, 185, 129, 0.07) 0%, transparent 60%),
+    linear-gradient(180deg, var(--card2) 0%, var(--card) 100%);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+
+/* ---------------- funnel headline ---------------- */
+
+.pipe-funnel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1.6rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.pf-cell { position: relative; padding-right: 1.6rem; opacity: 0.4; transition: opacity 0.5s ease; }
+.pf-cell.on { opacity: 1; }
+
+.pf-value {
+  font-family: var(--font-head);
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.pf-cell.cut  .pf-value { color: var(--amber); }
+.pf-cell.good .pf-value { color: var(--accent-bright); }
+
+.pf-label {
+  margin-top: 0.4rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pf-arrow { position: absolute; right: 0.3rem; top: 0.55rem; color: var(--faint); font-size: 1.1rem; }
+
+.pf-clock {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font-size: 0.78rem; color: var(--body);
+  white-space: nowrap;
+}
+
+.pf-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.14);
+  animation: pipe-pulse 1.5s ease-in-out infinite;
+}
+.pf-dot.done {
+  background: var(--accent-bright);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+  animation: none;
+}
+
+@keyframes pipe-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+/* ---------------- body: rail + panel ---------------- */
+
+.pipe-body { display: grid; grid-template-columns: 265px 1fr; }
+
+.pipe-rail {
+  list-style: none;
+  padding: 1.2rem 0.9rem;
+  border-right: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.pr-step {
+  display: flex; gap: 0.75rem; align-items: flex-start;
+  padding: 0.68rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+.pr-step.active { background: var(--accent-glow); border-color: var(--accent-line); }
+
+.pr-mark {
+  flex: none;
+  width: 24px; height: 24px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--faint);
+  border: 1px solid var(--border2);
+  transition: all 0.35s ease;
+}
+.pr-step.active .pr-mark { color: #04120d; background: var(--accent-bright); border-color: var(--accent-bright); }
+.pr-step.done   .pr-mark { color: var(--accent-bright); border-color: var(--accent-line); background: var(--accent-glow); }
+
+.pr-text { display: flex; flex-direction: column; min-width: 0; }
+
+.pr-label {
+  font-family: var(--font-head);
+  font-size: 0.88rem; font-weight: 700;
+  color: var(--muted); line-height: 1.3;
+  transition: color 0.35s ease;
+}
+.pr-step.active .pr-label { color: var(--ink); }
+.pr-step.done   .pr-label { color: var(--ink2); }
+
+.pr-sub { font-size: 0.73rem; color: var(--faint); line-height: 1.45; }
+.pr-step.active .pr-sub { color: var(--body); }
+
+/* ---------------- the stage panel ---------------- */
+
+.pipe-panel {
+  padding: 1.6rem 1.7rem 1.8rem;
+  min-height: 440px;
+  animation: pipe-in 0.45s ease both;
+}
+
+@keyframes pipe-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+.pp-head { margin-bottom: 1.15rem; }
+.pp-head h3 { font-size: 1.18rem; font-weight: 800; margin-bottom: 0.4rem; }
+.pp-head p  { font-size: 0.89rem; color: var(--body); line-height: 1.7; max-width: 62ch; }
+
+/* A lane marker sweeping past, instead of a spinner. */
+.lane-pulse {
+  display: inline-block;
+  width: 18px; height: 3px;
+  border-radius: 2px;
+  background: var(--accent-bright);
+  animation: lane-sweep 1.1s ease-in-out infinite;
+}
+@keyframes lane-sweep {
+  0%   { opacity: 0.2; transform: translateX(-6px) scaleX(0.6); }
+  50%  { opacity: 1;   transform: translateX(0)    scaleX(1);   }
+  100% { opacity: 0.2; transform: translateX(6px)  scaleX(0.6); }
+}
+
+.pipe .caret {
+  display: inline-block;
+  width: 7px; height: 1em;
+  background: var(--accent-bright);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: pipe-blink 1s steps(2) infinite;
+}
+@keyframes pipe-blink { 50% { opacity: 0; } }
+
+/* ---------------- the vehicle row: the core object ---------------- */
+
+.car-row {
+  display: grid;
+  grid-template-columns: 56px 62px minmax(0, 1fr) 84px 44px;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 0.38rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+  animation: car-in 0.34s ease both;
+}
+
+@keyframes car-in {
+  from { opacity: 0; transform: translateX(-14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.car-row.static { animation: none; margin-bottom: 0.8rem; }
+
+/* The silhouette, tinted by the row's state. */
+.car-thumb {
+  display: block;
+  color: var(--accent-bright);
+  opacity: 0.85;
+}
+.car-thumb .car-sil { display: block; width: 100%; height: auto; }
+.car-thumb.sm { width: 46px; }
+
+/* Lot plate — reads like the card on the windscreen. */
+.car-id {
+  display: flex; flex-direction: column; gap: 1px;
+  font-family: var(--font-mono);
+}
+.car-id b {
+  font-size: 0.76rem; font-weight: 700;
+  color: var(--ink2); letter-spacing: 0.02em;
+}
+.car-id em {
+  font-style: normal;
+  font-size: 0.62rem;
+  color: var(--faint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.car-main { display: flex; flex-direction: column; min-width: 0; gap: 2px; }
+
+.car-name {
+  font-size: 0.87rem; font-weight: 600; color: var(--ink2);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.car-note { font-size: 0.74rem; color: var(--muted); }
+
+.car-odo {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.car-grade { color: var(--accent-bright); display: grid; place-items: center; }
+
+.car-money { text-align: right; }
+.car-money b {
+  display: block;
+  font-family: var(--font-head);
+  font-size: 0.95rem; font-weight: 800;
+  color: var(--accent-bright);
+}
+.car-money em {
+  display: block; font-style: normal;
+  font-size: 0.66rem; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* State variants */
+.car-row.won {
+  grid-template-columns: 56px 62px minmax(0, 1fr) 44px 108px;
+  border-color: var(--accent-line);
+  background: linear-gradient(90deg, rgba(16, 185, 129, 0.07) 0%, rgba(0, 0, 0, 0.2) 55%);
+  opacity: 0; transform: translateY(8px); animation: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.car-row.won.on { opacity: 1; transform: none; }
+
+.car-row.dropped {
+  grid-template-columns: 56px 62px minmax(0, 1fr) minmax(0, 1.1fr) 20px;
+  border-color: rgba(251, 113, 133, 0.2);
+  background: rgba(251, 113, 133, 0.05);
+  opacity: 0; transform: translateX(-10px); animation: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.car-row.dropped.on { opacity: 1; transform: none; }
+.car-row.dropped .car-thumb { color: var(--rose); opacity: 0.45; }
+.car-row.dropped .car-name { color: var(--muted); text-decoration: line-through; text-decoration-color: rgba(251,113,133,0.5); }
+
+.pp-dmark { color: var(--rose); font-size: 0.82rem; text-align: center; }
+.pp-dwhy  { font-size: 0.78rem; color: var(--rose); }
+
+.pp-streaming {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-top: 0.9rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- stage 2: filters ---- */
+
+.pp-note { font-size: 0.78rem; color: var(--faint); margin-bottom: 0.85rem; font-style: italic; }
+
+.pp-filter {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  gap: 0.7rem; align-items: center;
+  padding: 0.62rem 0.7rem;
+  margin-bottom: 0.4rem;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: rgba(0, 0, 0, 0.18);
+  opacity: 0.25; transform: translateY(5px);
+  transition: opacity 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+}
+.pp-filter.on { opacity: 1; transform: none; border-color: var(--accent-line); }
+
+.pp-check {
+  width: 20px; height: 20px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  color: var(--accent-bright);
+  background: var(--accent-glow);
+}
+.pp-rule { font-size: 0.88rem; color: var(--ink2); font-weight: 600; }
+.pp-cut {
+  font-family: var(--font-mono); font-size: 0.78rem;
+  color: var(--amber); font-variant-numeric: tabular-nums;
+}
+
+.pp-total {
+  margin-top: 0.9rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 9px;
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-line);
+  font-family: var(--font-head);
+  font-weight: 700;
+  color: var(--accent-bright);
+  opacity: 0; transition: opacity 0.45s ease;
+}
+.pp-total.on { opacity: 1; }
+
+/* ---- stage 3: enrichment ---- */
+
+.pp-vin {
+  display: grid;
+  grid-template-columns: 46px auto 1fr;
+  gap: 0.8rem; align-items: center;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.22);
+  margin-bottom: 0.9rem;
+}
+.pp-vinwrap { display: flex; flex-direction: column; gap: 1px; }
+.pp-vinlabel {
+  font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--faint);
+}
+.pp-vinno { font-family: var(--font-mono); font-size: 0.82rem; color: var(--cyan); }
+.pp-vinlot { font-size: 0.78rem; color: var(--muted); text-align: right; }
+
+.pp-lookups { display: grid; gap: 0.35rem; }
+
+.pp-lookup {
+  display: grid;
+  grid-template-columns: 20px 150px 1fr;
+  gap: 0.6rem; align-items: center;
+  padding: 0.48rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  opacity: 0.4;
+  transition: opacity 0.35s ease, background 0.35s ease, border-color 0.35s ease;
+}
+.pp-lookup.busy { opacity: 1; background: rgba(0, 0, 0, 0.24); border-color: var(--border); }
+.pp-lookup.done { opacity: 1; }
+
+.pp-lmark { display: grid; place-items: center; font-size: 0.8rem; color: var(--accent-bright); }
+.pp-lname { font-size: 0.86rem; font-weight: 650; color: var(--ink2); }
+.pp-lsrc  { font-size: 0.78rem; color: var(--faint); }
+
+.pp-progress { margin-top: 1rem; }
+.pp-bar { height: 6px; border-radius: 99px; background: rgba(255,255,255,0.07); overflow: hidden; }
+.pp-bar span {
+  display: block; height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-bright) 100%);
+  transition: width 0.3s linear;
+}
+.pp-barlabel {
+  display: block; margin-top: 0.5rem;
+  font-size: 0.75rem; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- stage 4: notes ---- */
+
+.pp-notepad {
+  position: relative;
+  min-height: 112px;
+  padding: 1.5rem 1.05rem 0.95rem;
+  border-radius: 10px;
+  border: 1px solid var(--accent-line);
+  background: rgba(16, 185, 129, 0.05);
+  font-size: 0.86rem;
+  line-height: 1.85;
+  color: var(--ink2);
+}
+.pp-notelabel {
+  position: absolute; top: 0.5rem; left: 1.05rem;
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-bright);
+}
+.pp-noteexplain {
+  margin-top: 0.95rem;
+  font-size: 0.85rem; color: var(--body); line-height: 1.75;
+  max-width: 64ch;
+}
+
+/* ---- stage 5/6 footers ---- */
+
+.pp-dropsum, .pp-readyfoot {
+  margin-top: 0.85rem;
+  font-size: 0.85rem; color: var(--body); line-height: 1.7;
+  max-width: 64ch;
+  opacity: 0; transition: opacity 0.45s ease;
+}
+.pp-dropsum.on, .pp-readyfoot.on { opacity: 1; }
+
+.pp-readyhead {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.pp-badge {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  border-radius: 99px;
+  font-size: 0.74rem; font-weight: 700;
+  color: var(--accent-bright);
+  background: var(--accent-glow);
+  border: 1px solid var(--accent-line);
+}
+.pp-readynote { font-size: 0.78rem; color: var(--faint); }
+
+/* ---------------- caption ---------------- */
+
+.pipe-caption {
+  padding: 0.85rem 1.6rem 1.1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.74rem; color: var(--faint); text-align: center;
+}
+
+/* ---------------- responsive ---------------- */
+
+@media (max-width: 900px) {
+  .pipe-body { grid-template-columns: 1fr; }
+
+  /* The rail becomes a horizontal scroller so the stage order still reads
+     left-to-right instead of eating a screen of vertical space. */
+  .pipe-rail {
+    display: flex; gap: 0.5rem;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem;
+    scrollbar-width: none;
+  }
+  .pipe-rail::-webkit-scrollbar { display: none; }
+  .pr-step { flex: none; }
+  .pr-sub { display: none; }
+
+  .pipe-funnel { grid-template-columns: repeat(3, 1fr); row-gap: 0.9rem; }
+  .pf-clock { grid-column: 1 / -1; }
+  .pipe-panel { padding: 1.2rem 1rem 1.4rem; min-height: 0; }
+}
+
+@media (max-width: 620px) {
+  .car-row,
+  .car-row.won     { grid-template-columns: 44px 52px minmax(0, 1fr) 76px; }
+  .car-row.dropped { grid-template-columns: 44px 52px minmax(0, 1fr); }
+  .car-row .car-odo,
+  .car-row.won .car-grade { display: none; }
+  .car-row.dropped .pp-dmark { display: none; }
+  .car-row.dropped .pp-dwhy { grid-column: 2 / -1; }
+  .pp-lookup { grid-template-columns: 20px 1fr; }
+  .pp-lsrc { display: none; }
+  .pp-vin { grid-template-columns: 40px 1fr; }
+  .pp-vinlot { display: none; }
+  .pf-value { font-size: 1.45rem; }
+  .pf-arrow { display: none; }
+  .pf-cell { padding-right: 0.5rem; }
+}

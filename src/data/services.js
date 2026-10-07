@@ -25,26 +25,327 @@
 export const services = [
   /* ------------------------------------------------------------------ */
   {
+    slug: "auction-run-list-triage",
+    nav: "Run-List Triage & Watch List",
+    emoji: "📋",
+    accent: "green",
+    color: "#34d399",
+    h1: "Auction Run-List Triage — Watch List Built Before You Reach the Office",
+    metaTitle: "Auction Run-List Triage for Dealers",
+    metaDesc:
+      "5,000 cars in the sale cut to the few hundred worth bidding on, overnight. Your filters, Carfax, AutoCheck and MMR per VIN, notes written, watch list by 6 AM.",
+    keywords: [
+      "auction run list triage",
+      "auction watch list automation",
+      "car auction run list software",
+      "bulk vin check auction",
+      "manheim run list filter",
+      "auction pre bid research",
+      "wholesale car buying automation",
+      "auction condition report automation",
+      "car auction notes automation",
+      "filter 5000 auction cars",
+    ],
+    hero:
+      "A 5,000-car sale read overnight and cut to the few hundred worth your morning — each one annotated, each one with a max bid, sitting in your watch list before anyone is in.",
+    sections: [
+      {
+        h: "The problem is arithmetic, not effort",
+        p: [
+          "A mid-week wholesale sale runs three to five thousand cars. Your buyer has maybe two hours before the first lane opens. Even at twenty seconds a car — glance at the row, check the grade, decide — that is twenty-eight hours of looking. Nobody is lazy here. The maths simply does not work.",
+          "So what happens instead is that the list gets worked top-down until the sale starts, and the rest is never looked at. The cars that would have made money are distributed randomly through five thousand rows, which means most of them are in the part nobody reached.",
+        ],
+      },
+      {
+        h: "What triage actually does to a run list",
+        p: [
+          "Overnight, while the sale is still being loaded, the whole run list is pulled — every lot, not the first page and not a sample. Then your buy box is applied to all of it at once: years, mileage bands, makes and models, condition grade floor, title rules, lane, geography, whatever you told me matters.",
+          "What survives gets the lookups your buyer would have done one car at a time, nine tabs deep: title brand check, Carfax, AutoCheck, Manheim MMR, book values, and the seller's own announcements and disclosures. Then each car gets a note written in the format your desk already reads, the ones that fail your rules are dropped with the reason kept, and the rest are pushed into the auction's own watch list ranked by margin.",
+          "By six in the morning the work is done. Your buyer opens the laptop and the list is already there — not a spreadsheet to interpret, the watch list they were going to build by hand.",
+        ],
+      },
+      {
+        h: "Filters are yours, and they change by phone call",
+        p: [
+          "The filters are not a fixed product feature set — they are whatever you buy on. Some desks care most about grade and announced frame damage. Some will not touch a car over 90,000 miles regardless of grade. Some want Northeast cars excluded in winter, some want a specific trim level only, some run a different rule for trucks than for sedans.",
+          "All of that is configuration, not code. You do not log into anything to change it and you do not pay for a revision — you tell me the rule has changed and it changes for the next sale.",
+        ],
+        list: [
+          "Year range, and different ranges per segment",
+          "Mileage ceiling, with exceptions by make",
+          "Condition grade floor, per lane if you want",
+          "Title status — clean only, or branded types you will accept",
+          "Announced damage, frame, odometer and as-is flags",
+          "Accident count and owner count ceilings from history reports",
+          "Recon estimate ceiling, by your own rates",
+          "Minimum margin against MMR or your retail comps",
+          "Makes, models and trims you will and will not buy",
+          "Lane, auction location and transport distance",
+        ],
+      },
+      {
+        h: "The notes are the part dealers underestimate",
+        p: [
+          "A filtered list still needs reading. What makes a watch list usable at 7 AM is that every car on it already explains itself: title and owner count, what the history report said, the MMR with its range, the grade and whether frame was announced, the recon estimate, and then the number that matters — the maximum bid that still holds your margin.",
+          "Written once, in your wording, the same way every time. The useful side-effect is auditability: when a car turns out badly, the note says what was known before the bid, so you can tell the difference between a bad call and bad luck.",
+        ],
+      },
+      {
+        h: "Dropped cars keep their reason",
+        p: [
+          "Nothing is deleted silently. Every car that comes out of the list is logged with why — branded title, three accidents on Carfax, recon estimate over your ceiling, bidding already above MMR, odometer discrepancy declared.",
+          "That matters for two reasons. It lets you check the rules are doing what you think rather than asking you to trust them, and it means that when you want to loosen a rule, you can see exactly how many cars it was costing you.",
+        ],
+      },
+      {
+        h: "Where the list lands",
+        p: [
+          "Most dealers want two things: the cars in the auction platform's own watch list, so the buyer logs in and they are simply there, and a ranked email or Google Sheet as the readable version. Both, usually.",
+          "Beyond that it can go wherever you work — Slack or Telegram for instant alerts on a car that scores unusually well, a shared sheet the whole desk can open, a direct write into your DMS or inventory database, or a CSV into whatever tool your analyst already uses.",
+        ],
+      },
+      {
+        h: "Accounts, access and what this is not",
+        p: [
+          "This runs on the auction accounts you already hold and are licensed to use, and the history-report subscriptions you already pay for. I do not resell auction data, share credentials between clients, or create access you do not have. A system built on borrowed access dies the first time somebody audits it, and it takes your account with it.",
+          "It also does not bid. Most platforms prohibit automated bidding outright, and the downside of a bug in a bidding bot is that you own a car nobody wanted. The system finds, checks, annotates and ranks. A person decides.",
+        ],
+      },
+    ],
+    deliverables: [
+      "Every car in the sale read, not a sample",
+      "Your buy box applied identically to all of them",
+      "Title, Carfax, AutoCheck, MMR and book values per VIN",
+      "A written note per car, in your own format",
+      "Max bid per car that holds your margin",
+      "Cars pushed into the auction's own watch list",
+      "Ranked email or Google Sheet as the readable copy",
+      "Dropped-car log with the reason for every exclusion",
+      "Failure alerting, so silence never means 'no cars'",
+    ],
+    platforms: ["Manheim", "ADESA", "ACV Auctions", "OPENLANE", "BacklotCars", "SmartAuction", "EDGE Pipeline", "Copart", "IAA", "Your own dealer portal"],
+    stack: ["Python", "Selenium", "Playwright", "Pandas", "Cookie management", "Proxy rotation", "Cron / scheduling", "SMTP"],
+    faqs: [
+      {
+        q: "How many cars can it actually get through in one night?",
+        a: "The run list itself is fast — a five-thousand-lot sale is read in minutes. The slow part is the per-VIN lookups, because those run at a rate that does not hammer your accounts. A couple of thousand VINs fully enriched overnight is routine, and since your filters have already removed most of the sale before that stage, that is normally the whole qualifying list with room spare.",
+      },
+      {
+        q: "Can it put cars straight into my watch list on the auction site?",
+        a: "Yes, on the platforms that have a watch list, using your own logged-in account. That is the version most dealers want, because the buyer does not have to do anything with a spreadsheet — they log in and the cars are already flagged. You also get the ranked email as the readable copy.",
+      },
+      {
+        q: "What if my filters are more complicated than year and mileage?",
+        a: "They usually are, and that is the point of a custom build rather than a product. Different rules per segment, recon ceilings by your own labour rates, margin floors that vary by make, exclusions on specific trims or regions — all of it is configuration. You tell me the rule in plain English and it applies from the next sale.",
+      },
+      {
+        q: "How much does run-list triage cost?",
+        a: "A single-platform build with watch-list push and daily email delivery starts around $450, plus roughly $149 a month to keep it running, which covers hosting, site changes and fixes. There is no per-car or per-seat charge — the same price covers a 900-car sale and a 6,000-car sale, and your whole desk can read the output.",
+      },
+      {
+        q: "Can I see it work on a real sale before I commit?",
+        a: "That is the normal way in. Tell me the auction and your buy box, and I will triage one actual upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have paid for a build. A one-off pull of a single sale is $150, and it comes off the build fee if you go ahead.",
+      },
+      {
+        q: "Does it work on the portal I actually buy on?",
+        a: "Almost certainly. Most of the trade buys on a platform nobody outside their region has heard of — a private dealer-only marketplace, a regional auction's own site, a lender's repo portal, an in-house system with a listings module bolted on. Obscure portals are usually easier than famous ones, because nobody has ever bothered to defend them. Send me the name and a couple of screenshots and you will have a straight answer within a day.",
+      },
+      {
+        q: "What happens when the auction site changes its layout?",
+        a: "It breaks, like every scraper eventually does — anyone who tells you otherwise is selling something. The difference is that you hear it from an alert the same morning rather than from three quiet days of an empty watch list, and fixes on systems I built are covered by the monthly, not quoted as a new project.",
+      },
+      {
+        q: "Will it bid for me?",
+        a: "No, and I will not build that. Most auction platforms prohibit automated bidding, and a bug in a bidding bot means you own a car you never wanted. This finds, checks, annotates and ranks. The bidding stays with your buyer.",
+      },
+    ],
+    related: ["dealer-browser-extension", "car-auction-automation", "vehicle-history-reports"],
+    caseStudy: 10,
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
+    slug: "dealer-browser-extension",
+    nav: "Custom Dealer Extension",
+    emoji: "🧩",
+    accent: "violet",
+    color: "#a78bfa",
+    h1: "Custom Dealer Browser Extension — The Autoniq Alternative You Own",
+    metaTitle: "Autoniq Alternative — Custom VIN Panel",
+    metaDesc:
+      "An Autoniq alternative built to your spec: title, Carfax, AutoCheck, MMR and your own margin maths in one panel on the listing. Paid once, no per-seat fee.",
+    /* Carries both intents now: people shopping to switch ("autoniq
+       alternative") and people who already know they want one built. The
+       separate comparison page was folded in here — one page, one signal. */
+    keywords: [
+      "autoniq alternative",
+      "alternative to autoniq",
+      "cheaper than autoniq",
+      "autoniq competitor",
+      "custom dealer browser extension",
+      "vin scanner app for dealers",
+      "dealer vin scanning tool",
+      "auction vin lookup tool",
+      "car auction browser extension",
+      "dealer chrome extension development",
+    ],
+    hero:
+      "The panel you wish was on the auction listing — VIN decoded, title checked, history pulled, MMR fetched and your own margin maths run, all in the tab you were already in. Built once, yours to keep, seats are free.",
+    sections: [
+      {
+        h: "You already know this tool. That is the problem",
+        p: [
+          "Extensions like Autoniq exist because the workflow is obvious: read the VIN off the page you are looking at, go and fetch everything known about that car, and show it next to the listing instead of across nine tabs. Dealers pay per seat per month for that, and it is worth paying for.",
+          "What it does not do is know your business. It does not know your recon rates, your margin floor, your transport cost from that auction, which announcements you treat as fatal, or the order your buyer wants the numbers in. So the panel tells you what the car is, and your buyer still copies three figures into their own spreadsheet to find out whether to bid. That last step is the one that matters, and it is the one no off-the-shelf tool can do for you.",
+        ],
+      },
+      {
+        h: "What a custom extension puts on the page",
+        p: [
+          "The same reports, plus the decision. Land on a car — or scan a VIN — and the panel fills itself with the lookups you care about, then runs your own arithmetic on top and tells you the maximum bid that still holds your margin.",
+        ],
+        list: [
+          "VIN read straight off the listing, or scanned from a windscreen",
+          "Full VIN decode — year, make, model, trim, drivetrain, engine, options",
+          "Title brand check, and the states involved",
+          "Carfax — accidents, owners, service history, use type",
+          "AutoCheck — score and where it sits against the class average",
+          "Manheim MMR with its range, adjusted for grade and mileage",
+          "Book values — J.D. Power, Galves, KBB, Black Book",
+          "Seller announcements and as-is disclosures, parsed",
+          "Your recon estimate, by your own labour and parts rates",
+          "Your landed cost — transport, fees, floor plan",
+          "Max bid to hold your margin, and a plain BID / PASS on the car",
+        ],
+      },
+      {
+        h: "Built per client, to your spec",
+        p: [
+          "This is not a product with a licence. It is a build: you tell me the fields, the order, the wording and the maths, and I write the extension that does exactly that on the portals you actually buy on. Two dealers who buy differently end up with two different panels, which is the entire reason this beats renting a generic one.",
+          "It installs the way any Chrome or Edge extension does, loaded from a file or through your own workspace, and it runs against your own logged-in sessions and your own report subscriptions. It does not route your data through me and it does not need an account with me to work.",
+        ],
+      },
+      {
+        h: "Looking for an Autoniq alternative?",
+        p: [
+          "Almost nobody goes shopping for one because the category is bad. Scan a VIN, get the reports and the book values next to the car — that workflow is correct, and the tools that do it earn their keep. Dealers come looking for an alternative for three much narrower reasons, and it is worth being honest about which one is yours, because only two of them justify a build.",
+          "The first is seat cost. A per-buyer monthly fee is fine for one buyer and starts to grate at four, because the price scales with your desk while the value does not. The second is fit: the panel shows what the vendor decided every dealer needs, which means it stops exactly where your business starts — at your recon rates, your fee structure, your transport cost, your margin floor. The third is coverage: you buy on a portal the tool does not support, so on those cars you are back to nine tabs anyway.",
+          "If you simply want the standard panel on the standard platforms for one or two buyers, an off-the-shelf subscription is probably the right answer, and I will tell you that rather than sell you a build.",
+        ],
+      },
+      {
+        h: "The cost comparison, done honestly",
+        p: [
+          "A subscription is an operating cost that never ends and scales with headcount. A build is a one-off cost that does not scale with headcount, plus an optional monthly if you want me maintaining it as the auction sites change.",
+          "Which is cheaper depends entirely on your desk size and how long you keep it. One buyer, twelve months, standard platforms — a subscription probably wins. Three or more buyers, or a portal nobody supports, or arithmetic the vendor cannot do, and a build is usually ahead inside the first year and clearly ahead after that. Ask me to work it out against what you actually pay now; if the answer is that you should stay where you are, that is the answer you will get.",
+        ],
+      },
+      {
+        h: "Why it is cheaper than what you are paying now",
+        p: [
+          "Subscription tools charge per buyer, per month, forever, and the price goes up when your desk grows. A build is paid for once. Install it for three buyers or thirty and the cost does not move, because there is no licence server deciding what you are allowed.",
+          "A typical build starts around $600, with roughly $39 a month if you want me keeping it working as the auction sites change. For most dealers that is a few months of what they were renting, after which it is theirs.",
+        ],
+      },
+      {
+        h: "What it cannot do",
+        p: [
+          "It cannot show you data you do not have access to. The panel pulls Carfax through your Carfax account, AutoCheck through your AutoCheck or auction access, MMR through your Manheim login. If you do not subscribe to something, no extension — mine or anyone's — can conjure it, and I would rather say that now than after you have paid.",
+          "It also will not bid. Automated bidding is prohibited on most platforms and the failure mode is owning a car nobody chose. The panel tells your buyer what the car is worth; your buyer bids.",
+          "And it breaks when a site changes its markup, the same as every extension does. The monthly covers fixing that. Without it, you own the code and can have anyone fix it — that is the trade you are getting.",
+        ],
+      },
+      {
+        h: "Browsers and portals",
+        p: [
+          "Chrome and Edge are the normal targets, because that is what dealer desks run; Firefox is possible if you need it. On the portal side, the extension is written against the specific sites you buy on, including the private ones — a dealer-only marketplace, a regional auction's own platform, a lender's repo portal, your group's in-house system.",
+          "If you buy on four platforms, the panel works on all four and normalises the output, so your buyer reads the same layout regardless of which site the car is on.",
+        ],
+      },
+    ],
+    deliverables: [
+      "A working Chrome / Edge extension, built to your spec",
+      "VIN read from the listing, or scanned",
+      "Every report you subscribe to, in one panel",
+      "Your recon, fees and margin maths run on the car",
+      "Max bid and a plain BID / PASS verdict",
+      "Works across every portal you buy on, one layout",
+      "Installs for your whole desk — no per-seat fee",
+      "Source code is yours, not licensed to you",
+    ],
+    platforms: ["Manheim", "ADESA", "ACV Auctions", "OPENLANE", "Copart", "IAA", "Carfax", "AutoCheck", "Chrome", "Edge", "Your own dealer portal"],
+    stack: ["JavaScript", "Chrome Extension APIs", "Manifest V3", "Python", "REST APIs", "Playwright"],
+    faqs: [
+      {
+        q: "What is the best Autoniq alternative for a small dealer?",
+        a: "If you have one or two buyers and you buy on the major platforms, the honest answer is usually another off-the-shelf subscription rather than a custom build — the maths does not favour a build at that size. A custom panel starts to make sense at around three buyers, or immediately if you buy on a portal no tool supports, or if your bid decision depends on recon and fee numbers no vendor has.",
+      },
+      {
+        q: "Can it do everything Autoniq does?",
+        a: "It can do the parts you actually use, which is usually not the whole feature list. The approach is to watch what your buyer does with the tool today, rebuild exactly that, and then add the arithmetic no off-the-shelf panel can do. Anything you rely on that I cannot replicate, I will tell you about before you commission the build rather than after.",
+      },
+      {
+        q: "Is this just a copy of Autoniq?",
+        a: "No — it is the same workflow built to your spec instead of to an average dealer's. Autoniq decides what the panel shows; on a custom build you do. The practical difference is that your recon rates, fee structure and margin floor are in the panel, so it ends on a max bid rather than on data you still have to interpret.",
+      },
+      {
+        q: "How much does a custom dealer extension cost?",
+        a: "Builds start around $600 one-off, plus about $39 a month if you want me maintaining it as the auction sites change. There is no per-seat charge — install it for your whole desk at the same price. Compared with a per-buyer monthly subscription it usually pays for itself inside a few months.",
+      },
+      {
+        q: "Do I need my own Carfax, AutoCheck and MMR subscriptions?",
+        a: "Yes. The extension works through the accounts you already hold — it automates the lookups you are entitled to make, it does not create access. If you are not subscribed to something, that row simply will not be in your panel, and I will tell you that before you commission anything rather than after.",
+      },
+      {
+        q: "Will it work on the auction portal I use?",
+        a: "Usually, including the private ones. The extension is written against the specific sites you buy on, so an in-house dealer-group system or a regional auction's own platform is a normal target rather than an exception. Send me the portal and a couple of screenshots of the car page and you will know within a day.",
+      },
+      {
+        q: "How long does a build take?",
+        a: "Most extensions are working in 5 to 10 days depending on how many portals and how many report sources are involved. You see the panel running on a real listing partway through, so the layout and the wording get settled before the maths is finished.",
+      },
+      {
+        q: "Can my whole team use it?",
+        a: "Yes, and that is one of the main reasons to build rather than rent. There is no licence check and no seat count — install it on every machine on the desk. Adding a buyer costs nothing.",
+      },
+      {
+        q: "What happens if the auction site changes and it stops working?",
+        a: "Extensions break when markup changes, the same as scrapers do. The monthly covers fixing it. If you would rather not pay a monthly, you still own the source, so you or anyone you hire can maintain it — which is not true of anything you subscribe to.",
+      },
+      {
+        q: "Can it bid or place proxy bids for me?",
+        a: "No. Automated bidding is prohibited on most platforms, and a bug in a bidding bot means you own a car you never wanted. The panel gives your buyer the number; the buyer bids.",
+      },
+    ],
+    related: ["auction-run-list-triage", "car-auction-automation", "vehicle-history-reports"],
+    caseStudy: 11,
+  },
+
+  /* ------------------------------------------------------------------ */
+  {
     slug: "car-auction-automation",
     nav: "Car Auction Automation",
     emoji: "🔨",
     accent: "green",
     color: "#34d399",
     h1: "Car Auction Automation for Dealers and Wholesalers",
-    metaTitle: "Car Auction Automation — Manheim, ADESA & BacklotCars Data",
+    metaTitle: "Car Auction Automation for Dealers",
     metaDesc:
-      "Automated auction data for dealers and wholesalers. Pull run lists from Manheim, ADESA, ACV or the private dealer portal you actually buy on, scored against MMR daily.",
+      "Automated auction data for dealers and wholesalers. Run lists from Manheim, ADESA, ACV or the private portal you actually buy on, scored against MMR daily.",
+    /* Category terms only. The brand terms — "adesa auction data",
+       "backlotcars scraper", "private auction portal scraper" — belong to the
+       per-platform pages that roll up to this pillar, and listing them here
+       too had the site bidding against itself. */
     keywords: [
       "car auction automation",
-      "manheim mmr automation",
-      "adesa auction data",
-      "acv auctions data",
-      "backlotcars scraper",
-      "autoniq automation",
-      "dealer marketplace automation",
-      "private auction portal scraper",
+      "auction data automation",
       "wholesale car buying software",
       "auction deal finder",
+      "automate auction run lists",
+      "car auction software for dealers",
+      "wholesale auction data feed",
+      "auction inventory automation",
+      "dealer auction integration",
     ],
     hero:
       "Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it — whichever platforms those six tabs happen to be.",
@@ -143,7 +444,7 @@ export const services = [
         a: "I do not build automated bidding. Most auction platforms prohibit it outright, and the downside of a bug in a bidding bot is that you own a car you never wanted. The system finds and ranks; a person decides.",
       },
     ],
-    related: ["vehicle-history-reports", "dealer-inventory-scraping", "web-scraping"],
+    related: ["auction-run-list-triage", "dealer-browser-extension", "vehicle-history-reports"],
     caseStudy: 1,
   },
 
@@ -155,9 +456,9 @@ export const services = [
     accent: "violet",
     color: "#a78bfa",
     h1: "Vehicle History Report Automation — Carfax, AutoCheck and VIN Data",
-    metaTitle: "Vehicle History Report Automation — Carfax & AutoCheck at Scale",
+    metaTitle: "Bulk Vehicle History Report Pulls",
     metaDesc:
-      "Stop pulling car history reports one VIN at a time. Bulk VIN decoding, automated report retrieval through your own Carfax or AutoCheck dealer account, and every result parsed into one spreadsheet.",
+      "Stop pulling history reports one VIN at a time. Bulk VIN decoding and automated Carfax or AutoCheck retrieval through your own dealer account, in one sheet.",
     /* Deliberately capability terms only. The brand-specific queries —
        "carfax scraper", "carfax report by vin", "autocheck scraper",
        "autocheck vin report" — belong to /carfax-scraper and
@@ -250,415 +551,12 @@ export const services = [
         a: "Yes, and the same rules apply — your own account, your own inventory. Some dealers run both and reconcile them, which is straightforward once each report is parsed into the same set of columns.",
       },
     ],
-    related: ["car-auction-automation", "dealer-inventory-scraping", "web-scraping"],
+    related: ["auction-run-list-triage", "dealer-browser-extension", "car-auction-automation"],
     caseStudy: 1,
   },
 
   /* ------------------------------------------------------------------ */
-  {
-    slug: "dealer-inventory-scraping",
-    nav: "Dealer Inventory Data",
-    emoji: "🚘",
-    accent: "cyan",
-    color: "#22d3ee",
-    h1: "Car Dealer Inventory Scraping — AutoTrader, CarMax, Cars.com and More",
-    metaTitle: "Dealer Inventory Scraper — AutoTrader, CarMax, AutoScout24",
-    metaDesc:
-      "Scrape live dealer inventory and vehicle listings from AutoTrader, CarMax, Cars.com, CarGurus, AutoScout24 and Carsales. Every listing, price, VIN and photo in one clean spreadsheet, refreshed daily.",
-    keywords: [
-      "dealer inventory scraper",
-      "autotrader scraper",
-      "carmax scraper",
-      "autoscout24 scraper",
-      "carsales scraper",
-      "cars.com data scraping",
-      "cargurus scraper",
-      "vehicle listing data",
-      "automate vehicle listings",
-    ],
-    hero:
-      "Every competitor's price, every listing, every day. What used to be a market feeling becomes a sortable column.",
-    sections: [
-      {
-        h: "Why dealers scrape listing sites",
-        p: [
-          "Pricing a car against the market means knowing what the market is asking, and the market changes daily. A dealer inventory scraper reads the live listings on the sites your buyers actually shop — AutoTrader, Cars.com, CarGurus, CarMax, and their equivalents outside the US — and hands you the whole comparable set as data rather than as twenty browser tabs.",
-          "The uses stack up quickly once the data exists: pricing against genuine local comps instead of a gut number, spotting which competitor just cut $1,200 across their sedans, tracking how long specific trims sit before they move, and finding sourcing opportunities where a market is thin.",
-        ],
-      },
-      {
-        h: "Sites this covers",
-        p: [
-          "US and international listing platforms, marketplaces and individual dealer websites. Individual dealer sites matter more than people expect — a competitor's own inventory page is often the fastest signal that something has been repriced.",
-        ],
-        list: [
-          "AutoTrader — listings, prices, dealer details, days on market",
-          "Cars.com and CarGurus — listings, price history, deal ratings",
-          "CarMax and Carvana — inventory, pricing, location availability",
-          "AutoScout24 and Mobile.de — European listing data",
-          "Carsales — Australian listing data",
-          "Facebook Marketplace, Craigslist and OfferUp — private-party listings",
-          "Any individual dealer website, including DealerSocket, Dealer.com and vAuto-backed sites",
-        ],
-      },
-      {
-        h: "What comes out of it",
-        p: [
-          "One row per listing: VIN, year, make, model, trim, mileage, asking price, previous prices seen, dealer name and location, days listed, photo URLs, and the full option list where the site publishes it. Re-run daily and you get price history for free, because the system remembers what it saw yesterday.",
-          "Delivery is whatever fits your workflow — an Excel file, a Google Sheet that refreshes overnight, a Postgres table, or an API endpoint your own tooling can query. Most dealers take the Google Sheet because their whole desk can open it without installing anything.",
-        ],
-      },
-      {
-        h: "Sites that fight back",
-        p: [
-          "Most large listing platforms run bot detection: fingerprinting, rate limiting, JavaScript challenges, and layouts that change without notice. This is routine rather than exotic — the build uses a real browser engine, sensible request pacing, rotating residential exits where the site demands it, and structural selectors that survive a cosmetic redesign.",
-          "The pacing part matters and is not just politeness. A scraper that hammers a site gets blocked, and a blocked scraper delivers nothing. Running at a rate the site can absorb is what makes a pipeline last months instead of days.",
-        ],
-      },
-    ],
-    deliverables: [
-      "Daily refresh of every matching listing",
-      "Price-change history built up automatically",
-      "VIN, trim, mileage, options and photos per row",
-      "Competitor-level and market-level roll-ups",
-      "Days-on-market tracking per vehicle",
-      "Excel, Google Sheets, Postgres or API delivery",
-      "Alerts when a watched vehicle or dealer changes price",
-    ],
-    platforms: ["AutoTrader", "Cars.com", "CarGurus", "CarMax", "Carvana", "AutoScout24", "Mobile.de", "Carsales", "Facebook Marketplace"],
-    stack: ["Python", "Playwright", "Selenium", "Pandas", "Proxy rotation", "PostgreSQL", "Google Sheets API"],
-    faqs: [
-      {
-        q: "Is scraping car listing sites legal?",
-        a: "Collecting publicly visible listing data is generally lawful in the United States, and US appellate courts have repeatedly held that scraping public pages is not unauthorised access. What matters is what you collect and what you do with it — I stay off personal data behind logins, keep request rates civil, and will say plainly if a specific request looks like a problem.",
-      },
-      {
-        q: "How fresh is the data?",
-        a: "As fresh as you want to pay for. Daily overnight refresh is the common choice and suits pricing work. Hourly or near-real-time is possible for a narrow watch list, and costs more because it means more requests and more infrastructure.",
-      },
-      {
-        q: "Can you scrape a specific dealer's own website?",
-        a: "Yes, and it is often the most useful feed. Individual dealer sites usually have lighter defences than the big portals and update the moment a car is repriced, which makes them a faster signal than the aggregators.",
-      },
-      {
-        q: "What about international sites like AutoScout24 or Carsales?",
-        a: "Same work, different markup. AutoScout24, Mobile.de and Carsales are all builds I have done. Non-English sites are fine — the field names get normalised into whatever schema you are already using.",
-      },
-      {
-        q: "How much does a listing scraper cost?",
-        a: "A single site with daily delivery usually lands between $300 and $900. Multi-site pipelines with price history and roll-ups run higher. You get a fixed quote within 24 hours of describing the sites and fields, not an hourly meter.",
-      },
-    ],
-    related: ["car-auction-automation", "vehicle-history-reports", "web-scraping"],
-    caseStudy: 7,
-  },
-
   /* ------------------------------------------------------------------ */
-  {
-    slug: "business-leads-data",
-    nav: "Business Leads Data",
-    emoji: "📋",
-    accent: "amber",
-    color: "#fbbf24",
-    h1: "Business Leads Data & B2B Lead Scraping Services",
-    metaTitle: "Business Leads Data — B2B Lead List Scraping Services",
-    metaDesc:
-      "Custom B2B lead lists built to your exact criteria from Google Maps, LinkedIn, Yelp and industry directories. Verified emails and phones, no recycled databases, delivered in days.",
-    keywords: [
-      "business leads data",
-      "b2b lead scraping services",
-      "lead list building service",
-      "google maps lead scraping",
-      "linkedin lead generation data",
-      "verified business email list",
-      "leads data scraping",
-    ],
-    hero:
-      "Not a database somebody else already emailed twice. A list built this week, to your criteria, from sources you can point at.",
-    sections: [
-      {
-        h: "Built to order, not bought off a shelf",
-        p: [
-          "Most lead lists sold online are the same aggregated database resold to everyone in your industry, months stale, with bounce rates that quietly wreck your sending domain. The alternative is to build the list at the moment you need it, from the sources where the businesses actually are, filtered to the criteria that matter to you rather than to the criteria a vendor happened to store.",
-          "That means you get to be specific in ways a stock list never allows. Every HVAC contractor in three named metros with a Google rating above 4.0, at least 25 reviews, a website that has no booking form, and a listed mobile number — that is a build, not a filter on somebody's database.",
-        ],
-      },
-      {
-        h: "Where the data comes from",
-        p: [
-          "Public business listings, professional directories, association member lists, marketplace seller pages and company websites. The right source depends entirely on who you are selling to, which is the first thing worth talking through before anything is built.",
-        ],
-        list: [
-          "Google Maps and Google Business Profiles — by category and geography",
-          "Yelp, Yellow Pages and regional directories",
-          "LinkedIn company pages and public professional data",
-          "Industry association and licensing-board member registers",
-          "Trade show and conference exhibitor lists",
-          "Marketplace seller directories — Amazon, Etsy, Shopify storefronts",
-          "Company websites, for contact pages and technology signals",
-        ],
-      },
-      {
-        h: "Fields you can have",
-        p: [
-          "Business name, category, full address, geo coordinates, phone, website, email, contact name and role where published, rating and review count, opening hours, social profiles, employee-count band, and technology signals scraped from the site — whether they run Shopify, whether they have live chat, whether their booking is online or by phone.",
-          "That last category is what turns a list into a campaign. Knowing that 340 of your 900 targets have no online booking gives you the first line of the email, and it is the difference between outreach that gets replies and outreach that gets deleted.",
-        ],
-      },
-      {
-        h: "Verification, because a raw list is half a list",
-        p: [
-          "Every email goes through syntax, domain, MX and mailbox checks before delivery, and anything that fails is either dropped or flagged rather than quietly padding the row count. Phone numbers are format-validated and line-type checked. Duplicates are collapsed across sources so the same business does not arrive three times under three spellings.",
-          "You are told the numbers honestly: how many were found, how many survived verification, how many were dropped and why. A smaller verified list beats a big dirty one every time, because deliverability damage from a bad send outlasts the campaign.",
-        ],
-      },
-      {
-        h: "Staying on the right side of privacy law",
-        p: [
-          "This is B2B data from public sources: business contact details, published listings, professional profiles. I do not scrape personal data from behind logins, do not touch consumer PII, and do not build lists designed to circumvent someone's opt-out.",
-          "CAN-SPAM, GDPR and CCPA all bear on what you can do with a list once you have it, and the rules differ by where your targets are. If your list includes EU or UK businesses, that changes what a lawful send looks like — I will flag it, though what your lawyer says about your sending practice is a separate question from what the data is.",
-        ],
-      },
-    ],
-    deliverables: [
-      "Lead list built to your exact filter criteria",
-      "Email, phone, address, website and contact name",
-      "Ratings, review counts and opening hours",
-      "Technology and website signals per business",
-      "Full email verification before delivery",
-      "Cross-source deduplication",
-      "Excel, CSV, Google Sheets or straight into your CRM",
-    ],
-    platforms: ["Google Maps", "Yelp", "LinkedIn", "Yellow Pages", "Industry directories", "Amazon sellers", "Shopify stores", "Trade registries"],
-    stack: ["Python", "Playwright", "Google Places", "Email verification APIs", "Pandas", "Google Sheets API", "CRM webhooks"],
-    faqs: [
-      {
-        q: "How many leads can you deliver and how fast?",
-        a: "Five thousand verified business leads in about 24 to 48 hours is a normal run. Larger builds are a question of scale rather than difficulty. The limit is usually how many businesses actually match your criteria — if a niche only contains 800 real targets, you get 800 real targets rather than 5,000 padded ones.",
-      },
-      {
-        q: "What does a lead list cost?",
-        a: "Most one-off lists land between $200 and $700 depending on the number of sources, the depth of fields and whether verification is included. Recurring monthly builds are quoted as a lower per-run fee. You get a fixed price up front.",
-      },
-      {
-        q: "How accurate are the emails?",
-        a: "Every address is syntax, domain, MX and mailbox verified before it reaches you, which typically puts deliverability in the 90 to 95 percent range. Anything that cannot be verified is flagged rather than silently included, so you always know what you are sending to.",
-      },
-      {
-        q: "Can you find a specific person's email at each company?",
-        a: "Where a named contact and role are published — on the company site, in a directory, on a professional profile — yes. What I will not do is guess-and-test private addresses or pull personal data from behind a login. Business contact details from public sources is the line.",
-      },
-      {
-        q: "Can it drop straight into my CRM?",
-        a: "Yes. HubSpot, Pipedrive, Salesforce, Close, Airtable and Notion are all straightforward, either as a scheduled push or as a webhook that fires as each verified lead is found.",
-      },
-    ],
-    related: ["web-scraping", "web-development", "dealer-inventory-scraping"],
-    caseStudy: 3,
-  },
-
-  /* ------------------------------------------------------------------ */
-  {
-    slug: "web-scraping",
-    nav: "Web Scraping Services",
-    emoji: "🕷️",
-    accent: "blue",
-    color: "#60a5fa",
-    h1: "Web Scraping Services for US, UK & International Businesses",
-    metaTitle: "Custom Web Scraping Services — Data Extraction Built in Days",
-    metaDesc:
-      "Custom web scraping and data extraction for any website. Products, prices, listings, leads and reviews delivered as clean Excel, CSV or database rows. Fixed price, quoted in 24 hours.",
-    keywords: [
-      "custom web scraping services",
-      "web scraping services",
-      "data extraction services",
-      "custom web scraper development",
-      "hire a web scraping developer",
-      "price monitoring scraper",
-      "ecommerce data scraping",
-      "web scraping company usa",
-      "web scraping service cost",
-    ],
-    hero:
-      "If the data is on a website, it can be in your spreadsheet. Usually within the week, always for a price agreed before anything starts.",
-    sections: [
-      {
-        h: "What a custom scraper gets you that a tool does not",
-        p: [
-          "Off-the-shelf scraping tools work beautifully until the site does something interesting — an infinite scroll, a login wall, a price that only appears after a JavaScript call, a layout that differs on every fifth page. That is where point-and-click products stop and custom work starts, and it is where most of the sites worth scraping actually live.",
-          "A custom build is written against your specific target. It handles that site's pagination, that site's defences, that site's inconsistencies, and it produces exactly the columns you asked for rather than a generic dump you have to clean before it is useful.",
-        ],
-      },
-      {
-        h: "What people use it for",
-        p: [
-          "Almost always one of a handful of jobs, wearing different clothes depending on the industry.",
-        ],
-        list: [
-          "Competitor price monitoring — track prices across rival sites daily and get alerted on changes",
-          "Product and catalogue data — thousands of SKUs with specs, images, stock and variants",
-          "Lead generation — business contact data from directories and listings",
-          "Real estate research — listings, rents, sale history and yield analysis",
-          "Review and sentiment data — customer reviews at scale for product or market research",
-          "Job and hiring data — postings, salary bands and hiring signals by company",
-          "Financial and market data — public filings, listings and published rates",
-        ],
-      },
-      {
-        h: "Sites that do not want to be read",
-        p: [
-          "Cloudflare, DataDome, PerimeterX, fingerprinting, rate limits, CAPTCHA challenges, login walls, and single-page apps that render nothing in the raw HTML. These are the normal conditions of the job rather than exceptions to it.",
-          "The tooling that gets through is a real browser engine driven properly, request pacing that looks like traffic rather than an attack, residential exits where the site demands them, and session handling that persists. Where a login is involved, it is your credentials, on your account, doing what you are entitled to do.",
-        ],
-      },
-      {
-        h: "Clean data, or it is not finished",
-        p: [
-          "Extraction is the first half. The half that determines whether you can use the output is normalisation: prices parsed to numbers with currency separated, dates in one format, addresses split into components, duplicates collapsed, missing fields marked as missing rather than as an empty string that looks like a zero.",
-          "Every delivered dataset gets validated before it reaches you — row counts against expectations, null-rate checks on required fields, and range checks that catch a price column quietly returning empty because a selector moved. Silent data corruption is worse than an outright failure, because you act on it.",
-        ],
-      },
-      {
-        h: "How it works, start to finish",
-        p: [
-          "You send the URLs and the fields you want, in plain English — no technical spec required. Within 24 hours you get a scope, a fixed price and a delivery date. Most builds take 2 to 5 days, and you see sample output early so a misunderstanding about what a field means costs an hour rather than the whole project.",
-          "Then you either get a file, or a running system handed over with scheduling and alerting so it keeps delivering without you thinking about it. Either way you are talking to the person writing the code, from the first email to whatever the site does six months later.",
-        ],
-      },
-    ],
-    deliverables: [
-      "Custom scraper written for your specific target sites",
-      "Anti-bot handling, sessions and login support",
-      "Scheduled runs — hourly, daily or weekly",
-      "Validated, normalised, deduplicated output",
-      "Excel, CSV, JSON, Google Sheets, SQL or REST API",
-      "Alerting when a run fails or a field goes empty",
-      "Fixes when a site changes, on systems I built",
-    ],
-    platforms: ["Amazon", "eBay", "Walmart", "Etsy", "Zillow", "Airbnb", "Redfin", "Google Maps", "LinkedIn", "Yelp", "Facebook"],
-    stack: ["Python", "Playwright", "Selenium", "Scrapy", "BeautifulSoup", "Pandas", "PostgreSQL", "Proxy rotation", "FastAPI"],
-    faqs: [
-      {
-        q: "How much does a web scraper cost?",
-        a: "Most one-off jobs land between $150 and $800 depending on how many sites, how many fields and how much anti-bot protection is involved. Recurring systems that run daily are quoted as a build fee plus a small monthly amount. The price is fixed before work starts — never an hourly meter.",
-      },
-      {
-        q: "Is web scraping legal?",
-        a: "Scraping publicly accessible data is generally legal in the United States, and US courts have repeatedly upheld that. What matters is what you collect and how you use it — I stay away from personal data behind logins, respect terms where they bind, and will tell you plainly if a request looks like a problem rather than take the money.",
-      },
-      {
-        q: "How long does a project take?",
-        a: "Most builds are delivered in 2 to 5 days. You get a scope, a fixed price and a delivery date within 24 hours of describing what you need, and sample output arrives early enough to correct course.",
-      },
-      {
-        q: "What format does the data come in?",
-        a: "Excel, CSV, JSON, Google Sheets, a direct write into MySQL or Postgres, or a REST endpoint your own systems can query. Most clients take Excel or a Google Sheet that refreshes on a schedule.",
-      },
-      {
-        q: "Do I need to know anything technical?",
-        a: "No. You describe the website and the details you want in plain English and you get back a finished file, or a system that emails you a fresh one every morning. You never open a terminal.",
-      },
-      {
-        q: "What if the site changes and it breaks?",
-        a: "Sites change and scrapers break — anyone who tells you otherwise is selling something. Delivered systems include alerting so you know immediately rather than discovering it through stale data, and I fix breakages on systems I built.",
-      },
-    ],
-    related: ["business-leads-data", "dealer-inventory-scraping", "web-development"],
-    caseStudy: 2,
-  },
-
-  /* ------------------------------------------------------------------ */
-  {
-    slug: "web-development",
-    nav: "Web Development",
-    emoji: "🌐",
-    accent: "rose",
-    color: "#fb7185",
-    h1: "Web Development Services — Sites, Stores and Dashboards",
-    metaTitle: "Web Development Services — React, Next.js Sites & Dashboards",
-    metaDesc:
-      "Fast, modern websites, eCommerce stores and internal dashboards built with React and Next.js. Built to load quickly, rank well and convert — by the developer who writes the code.",
-    keywords: [
-      "web development services",
-      "react web development",
-      "next.js development services",
-      "custom dashboard development",
-      "ecommerce website development",
-      "hire a web developer usa",
-      "internal tools development",
-    ],
-    hero:
-      "The website is the front of the business. It should load instantly, say the right thing, and be findable — three things most templates get wrong.",
-    sections: [
-      {
-        h: "What gets built here",
-        p: [
-          "Marketing sites and landing pages that load fast and are structured so search engines can actually read them. eCommerce stores on Shopify or custom stacks. Internal dashboards that put a business's own data — often the data from a scraper built alongside it — in front of the people who need to act on it. SaaS front ends, admin panels, and the client portals that sit between the two.",
-          "The common thread is that these are built rather than assembled. A page-builder template gets you something that looks fine and carries three hundred kilobytes of JavaScript you did not ask for; written code gets you something that scores well on Core Web Vitals because there is nothing extra in it.",
-        ],
-      },
-      {
-        h: "Built for search from the first commit",
-        p: [
-          "SEO retrofitted onto a finished site is expensive and half-effective. Doing it during the build costs nothing extra and works properly: server rendering or static generation so crawlers get real HTML rather than an empty div, a heading structure that maps to how people search, structured data that matches what is actually on the page, canonical URLs and a sitemap that maintains itself, and image handling that does not sink the largest-contentful-paint score.",
-          "This is the same work described across the rest of this site, applied to the site itself. It is why these pages exist as separate URLs with their own titles instead of as tabs on a homepage.",
-        ],
-      },
-      {
-        h: "Dashboards and internal tools",
-        p: [
-          "The most useful thing many businesses can build is not public at all. If a scraper is delivering data daily, somebody has to look at it — and a spreadsheet stops scaling around the point where three people need it at once and one of them keeps sorting the wrong column.",
-          "A small internal dashboard fixes that: live data, the filters your team actually uses, alerts on the conditions that matter, exports where people still want Excel, and access control so the right people see the right rows. These are usually week-long builds, not quarter-long ones.",
-        ],
-      },
-      {
-        h: "The stack and why",
-        p: [
-          "React and Next.js for anything with interactivity, because static generation and server rendering are built in rather than bolted on. Node and FastAPI for back ends. Postgres for data. Vercel or a plain VPS for hosting, depending on whether you want zero-maintenance or full control.",
-          "None of that is a religious position — if you already run WordPress and need it maintained rather than replaced, that is the honest answer and I will say so instead of quoting a rebuild.",
-        ],
-      },
-    ],
-    deliverables: [
-      "Marketing sites and landing pages that convert",
-      "eCommerce stores — Shopify or custom",
-      "Internal dashboards over your own data",
-      "SaaS front ends, admin panels and client portals",
-      "Technical SEO built in, not bolted on",
-      "Core Web Vitals tuned before handover",
-      "Deployed, documented and yours to keep",
-    ],
-    platforms: ["React", "Next.js", "Shopify", "Node.js", "FastAPI", "PostgreSQL", "Vercel", "Tailwind"],
-    stack: ["React", "Next.js", "TypeScript", "Node.js", "FastAPI", "PostgreSQL", "Vercel", "Stripe"],
-    faqs: [
-      {
-        q: "How much does a website cost?",
-        a: "A focused marketing site is typically $800 to $2,500 depending on page count and how much custom design is involved. eCommerce and dashboard builds run higher because there is real logic behind them. You get a fixed price and a delivery date within 24 hours of describing what you need.",
-      },
-      {
-        q: "How long does a build take?",
-        a: "A landing page or small marketing site is usually under a week. A store or a dashboard is typically two to four weeks. You see working pages as they are built rather than a reveal at the end.",
-      },
-      {
-        q: "Do you do the design as well as the code?",
-        a: "Yes. If you have brand assets or a design, I build to it. If you do not, you get something clean and current that is designed around what the page is meant to make a visitor do.",
-      },
-      {
-        q: "Will the site actually rank?",
-        a: "It will be built so nothing technical stands in the way — real HTML for crawlers, correct structure, valid schema, fast loading. Rankings themselves come from content and from other sites linking to yours, and no honest developer will promise you a position. What I can promise is that the site will not be the reason you are invisible.",
-      },
-      {
-        q: "Can you connect the site to a scraper or automation?",
-        a: "That is the most common version of this job — a dashboard or portal sitting on top of a data pipeline built at the same time. Having one person write both ends means the handoff between them is not a negotiation.",
-      },
-      {
-        q: "Do I own the code?",
-        a: "Entirely. It is deployed to your accounts, the repository is yours, and there is no licence, retainer or hosting arrangement you have to keep paying me for in order to keep your own website.",
-      },
-    ],
-    related: ["web-scraping", "business-leads-data", "car-auction-automation"],
-    caseStudy: 6,
-  },
 ];
 
 export const serviceBySlug = slug => services.find(s => s.slug === slug);

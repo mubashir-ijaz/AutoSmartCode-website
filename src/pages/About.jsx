@@ -22,36 +22,36 @@ const SKILLS = [
   },
   {
     icon: "🌐", accent: "cyan",
-    k: "Product & front end",
-    v: "React · Next.js · Node.js · Vercel · dashboards and admin panels that put the data in front of the people who act on it",
+    k: "Dealer tools & front end",
+    v: "Chrome / Edge extensions · Manifest V3 · React · Node.js · the VIN panel on the listing and the dashboards your desk reads in the morning",
   },
   {
     icon: "🤖", accent: "violet",
     k: "AI on top of the data",
-    v: "LLM APIs for classification, sentiment and summarisation · competitor, pricing and market intelligence reports built from your own scraped data",
+    v: "LLM APIs for condition-report and announcement parsing · auto-written per-car notes in your own wording · market and pricing intelligence built from your own auction data",
   },
 ];
 
 const INDUSTRIES = [
   {
+    icon: "🔨",
+    name: "Auction buyers",
+    text: "A full run list read overnight and cut to the cars worth your two hours — your filters applied to all of it, every surviving VIN checked against Carfax, AutoCheck and MMR, notes written, and the survivors ranked by margin in your watch list before the lane opens.",
+  },
+  {
     icon: "🚗",
-    name: "Car wholesalers & dealers",
-    text: "Auction inventory priced against Carfax, AutoCheck, MMR, J.D. Power and Galves — branded titles and accident histories filtered out before a ranked deal list lands in your inbox each morning.",
+    name: "Independent dealers",
+    text: "Sourcing without a buyer on staff. Auction inventory, private-party listings and dealer marketplaces pulled into one list, branded titles and heavy-recon cars filtered out, and a landed cost against your own retail comps on every car.",
   },
   {
-    icon: "🛒",
-    name: "eCommerce sellers",
-    text: "Full catalogue capture across Amazon, Walmart and eBay — titles, ASINs, images, stock, list price and Buy Box ownership, tracked over time so you see a competitor move the hour it happens.",
+    icon: "📦",
+    name: "Wholesalers",
+    text: "Volume without the tab-switching. Several platforms normalised into one schema, the same VIN on two sources reconciled rather than duplicated, and a custom VIN panel on the listing so your desk reads one layout wherever the car is.",
   },
   {
-    icon: "📋",
-    name: "Agencies & sales teams",
-    text: "Lead lists built from Google Maps, LinkedIn, Facebook, Yelp and trade directories, then verified — so your outreach runs on contacts that exist, not on scraped noise.",
-  },
-  {
-    icon: "🏠",
-    name: "Real estate investors",
-    text: "Zillow, Redfin and Airbnb listings joined into one model — price history, days on market, nightly rates and occupancy turned into yield and cap rate per property.",
+    icon: "🏢",
+    name: "Dealer groups & remarketers",
+    text: "Fleet, lease and repo inventory read out of closed portals — a lender's repo system, a captive's closed sale, your group's own in-house platform — and written straight into the DMS or inventory database you already run on.",
   },
 ];
 
@@ -90,11 +90,11 @@ const STATS = [
 
 export default function About() {
   useSeo({
-    title: "About Sam — Founder & CEO of AutoSmartCode | Web Scraping Expert",
+    title: "About Sam — Founder & CEO of AutoSmartCode | Car Auction Data",
     description:
-      "Sam is the founder and sole developer behind AutoSmartCode — building web scrapers, " +
-      "data pipelines and automation systems for US car dealers, eCommerce sellers, agencies " +
-      "and property investors.",
+      "Sam is the founder and sole developer behind AutoSmartCode — building auction run-list " +
+      "triage, history report pipelines and custom dealer tools for car dealers, wholesalers " +
+      "and auction buyers.",
     path: "/about",
     type: "profile",
     image: ORIGIN + "/sam.jpg",
@@ -111,12 +111,12 @@ export default function About() {
           url: ORIGIN + "/about",
           worksFor: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
           knowsAbout: [
+            "Car dealer automation",
+            "Auction data scraping",
+            "Manheim MMR",
+            "Carfax and AutoCheck vehicle history reports",
             "Web scraping",
-            "Data extraction",
-            "Process automation",
-            "Lead generation",
-            "Python",
-            "React",
+            "Browser extensions",
           ],
         },
         crumbs([["About", "/about"]]),
@@ -128,7 +128,7 @@ export default function About() {
     <div className="about-page">
 
       {/* ============ INTRO ============ */}
-      <section className="ab-hero">
+      <section className="ab-hero" style={{ "--hero-photo": 'url("/img/photos/showroom.webp")' }}>
         <div className="ab-hero-bg" aria-hidden="true">
           <span className="ab-orb ab-orb-1" />
           <span className="ab-orb ab-orb-2" />
@@ -142,10 +142,11 @@ export default function About() {
               <span className="ab-grad">AutoSmartCode</span>
             </h1>
             <p className="ab-lead">
-              I build the software that does the copying and pasting, so nobody on your
-              team has to. Scrapers, data pipelines, monitoring bots and the dashboards
-              around them — delivered by one developer who stays reachable after the
-              invoice is paid.
+              I build the software that reads the run list, so your buyer does not have
+              to. Auction data pipelines, history report automation and custom dealer
+              tools — delivered by one developer who already knows what MMR, a grade 3.1
+              and an announced frame mean, and who stays reachable after the invoice is
+              paid.
             </p>
 
             <div className="ab-stats">
@@ -158,7 +159,7 @@ export default function About() {
             </div>
 
             <div className="ab-actions">
-              <Link to="/#contact" className="btn btn-blue">Start your project →</Link>
+              <Link to="/#contact" className="btn btn-blue">Get a free quote →</Link>
               <Link to="/projects" className="btn btn-outline">See my work</Link>
             </div>
           </div>
