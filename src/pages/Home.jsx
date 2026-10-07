@@ -135,12 +135,9 @@ const RICKY = {
   name: "Ricky",
   company: "Major Auto Sales",
   place: "New York, USA",
-  short: "Everything is ready when I walk in at 6 AM.",
+  short: "I walk in at 6 AM and my watch list is already done.",
   quote:
-    "I walk into the office at 6 AM and everything is already done — the auctions are " +
-    "checked, the marketplaces are checked, and my watch list is ready. Before, we had 10 " +
-    "to 15 cars in inventory. Now we run 150 to 200 cars as a wholesaler. I'm happy with " +
-    "it every single day.",
+    "I walk into the office at 6 AM and the work is already done. Every auction has been gone through, the marketplaces are checked, and my watch list is sitting there with notes and max bids — I just sit down and start buying. When we started, we had 10 to 15 cars in inventory. Today we run 150 to 200 cars as a wholesaler. It changed how we run the business, and I'm happy with it every single day.",
   stats: [
     { from: "10–15", to: "150–200", l: "cars in inventory" },
     { from: "", to: "6 AM", l: "watch list ready, every sale day" },

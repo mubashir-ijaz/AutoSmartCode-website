@@ -213,7 +213,7 @@ routes.push({
       "Daily deals from marketplaces, government & lease sales",
     ]) +
     h2("From 15 cars to 200 — without working the list by hand") +
-    p("“I walk into the office at 6 AM and everything is already done — the auctions are checked, the marketplaces are checked, and my watch list is ready. Before, we had 10 to 15 cars in inventory. Now we run 150 to 200 cars as a wholesaler. I'm happy with it every single day.” — Ricky, Major Auto Sales, New York, USA") +
+    p("“I walk into the office at 6 AM and the work is already done. Every auction has been gone through, the marketplaces are checked, and my watch list is sitting there with notes and max bids — I just sit down and start buying. When we started, we had 10 to 15 cars in inventory. Today we run 150 to 200 cars as a wholesaler. It changed how we run the business, and I'm happy with it every single day.” — Ricky, Major Auto Sales, New York, USA") +
     p("[Read the Major Auto Sales case study](/projects/12)") +
     h2("Four ways I take the busywork off your desk") +
     ul([
