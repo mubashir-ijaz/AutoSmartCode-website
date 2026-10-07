@@ -1,6 +1,6 @@
 # AutoSmartCode
 
-> AutoSmartCode builds custom automation for car dealers, wholesalers and auction buyers: overnight auction run-list triage, bulk Carfax, AutoCheck and MMR lookups per VIN, browser extensions that show that data on the listing, and daily monitoring of marketplaces, government and off-lease sales.
+> A dealer gives AutoSmartCode their buying rules, and AutoSmartCode automatically searches, filters, researches and ranks vehicles across auctions and marketplaces — with Carfax, AutoCheck and MMR on the dealer's own accounts — so the dealer can focus on buying.
 
 AutoSmartCode is a one-developer software studio, run by Sam, that works only
 for the car trade. It builds and runs custom automation for independent
@@ -93,6 +93,7 @@ Key facts:
 
 ## Guides: sourcing, dealer workflow and buying decisions
 
+- [How Dealers Find Good Auction Cars Faster: Buy Box In, Ranked Watch List Out](https://www.autosmartcode.com/blog/find-good-auction-cars-faster): Five questions dealers ask — finding cars faster, checking Carfax and AutoCheck automatically, comparing against MMR before bidding, buy-box alerts, and watching several auctions at once — answered with the workflow that does it.
 - [Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself](https://www.autosmartcode.com/blog/mmr-carfax-autocheck-on-listing-extension): The copy-VIN, open-tab, paste, come-back loop costs a buyer hours a week. How a custom browser extension reads the VIN off the page and shows MMR, history and your margin on the same screen.
 - [Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily](https://www.autosmartcode.com/blog/government-off-lease-car-auctions-dealers): GSA Auctions, GovDeals, police and municipal sales, and the off-lease closed-sale chain — where the cars come from, what makes them good buys, and how to monitor them without checking ten sites a day.
 - [How to Automate Your Used-Car Merchandising Workflow](https://www.autosmartcode.com/blog/automate-car-merchandising-workflow): From auction win to live listing: photos, descriptions, pricing and syndication. Which merchandising steps automate cleanly, and which still need a person.

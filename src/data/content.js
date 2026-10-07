@@ -1400,6 +1400,76 @@ The extension makes each car fast. An [overnight run-list triage](/services/auct
 See [how custom dealer extensions work](/services/dealer-browser-extension), or [send me a message](/#contact) with the sites you buy on. Fixed quote within 24 hours.
     `
   },
+  {
+    id: 25,
+    slug: "find-good-auction-cars-faster",
+    tag: "Dealer Automation",
+    emoji: "🎯",
+    color: "linear-gradient(135deg, #062a1f 0%, #0b1a2e 100%)",
+    metaTitle: "How Dealers Find Good Auction Cars Faster",
+    title: "How Dealers Find Good Auction Cars Faster: Buy Box In, Ranked Watch List Out",
+    summary: "Five questions dealers ask — finding cars faster, checking Carfax and AutoCheck automatically, comparing against MMR before bidding, buy-box alerts, and watching several auctions at once — answered with the workflow that does it.",
+    keywords: [
+      "find auction cars faster",
+      "automatically check carfax autocheck auction",
+      "compare auction car to mmr before bidding",
+      "buy box alerts car dealer",
+      "monitor manheim openlane facebook marketplace",
+      "dealer buying automation"
+    ],
+    date: "October 8, 2026",
+    readTime: "7 min read",
+    content: `
+## The short answer
+
+A dealer gives AutoSmartCode their buying rules once — the buy box. From then on, software searches the auctions and marketplaces they buy from, filters every car against those rules, researches the survivors with Carfax, AutoCheck and MMR on the dealer's own accounts, and ranks what is left by margin. The buyer spends the morning buying, not searching.
+
+The five questions below are the ones dealers actually ask. Each one is the same workflow seen from a different angle.
+
+## How can I find good auction cars faster?
+
+Stop reading the run list. A large sale can have five thousand lots, and nobody reads that properly by hand — buyers skim, and the good cars on page forty get missed.
+
+The faster way is to let the run list be read overnight and filtered before anyone looks at it. Your filters remove most of the sale first — on a typical five-thousand-lot sale that is around two thirds gone before anything expensive happens. Only what survives gets researched, noted and given a max bid, and by 6 AM it is in your watch list on the auction site, ranked.
+
+That is [auction run-list triage](/services/auction-run-list-triage), and [this case study](/projects/10) shows a 5,000-car sale cut to a working watch list.
+
+## How can I automatically check Carfax and AutoCheck on auction cars?
+
+Through your own dealer accounts, one VIN at a time, but done by software instead of a person. Each car that passes your filters has its VIN run through Carfax and AutoCheck, and the parts you care about — accidents, owner count, title brands, the AutoCheck score — come back as columns rather than PDFs. Cars that fail your history rules are dropped with the reason written down.
+
+Nothing here needs access you do not already have. If you are not subscribed to a report, no tool can pull it for you. [Vehicle history report automation](/services/vehicle-history-reports) covers the details, and [AutoCheck vs Carfax](/blog/autocheck-vs-carfax-vehicle-history) covers when the two disagree.
+
+## How can I compare an auction car against MMR before bidding?
+
+Two ways, and most dealers want both.
+
+- **Overnight, for the whole sale:** MMR is pulled for every surviving car, your recon, fees and transport are subtracted, and the note ends on the highest bid that still holds your margin.
+- **Live, on the listing:** a [custom browser extension](/services/dealer-browser-extension) reads the VIN off the page you are looking at and shows MMR, history and your max bid on the same screen — no copying VINs into another tab.
+
+If MMR itself is unfamiliar, [what MMR measures and where it misleads](/blog/what-is-mmr-manheim-market-report) is the place to start.
+
+## How can I get notified when a car matching my buy box is listed?
+
+You describe the buy box once — years, makes and models, mileage, price ceiling, distance from your store, title rules. Each source is then searched on a schedule, new listings are compared against what was seen the day before, and only new matches reach you, already checked against history and MMR where there is a VIN.
+
+The default is a morning email ranked by margin. For fast-moving sources like Facebook Marketplace, where a good private-party car is often gone the same day, it can be an instant text, Telegram or Slack alert instead. That is [marketplace, government and lease sale monitoring](/services/marketplace-government-lease-sales).
+
+## How can I monitor Manheim, OPENLANE and Facebook Marketplace from one system?
+
+By treating every source as an input to the same buy box rather than as a separate tab. Wholesale auctions such as [Manheim](/manheim-mmr-scraper), ADESA, ACV and [OPENLANE](/openlane-scraper) run on your own logins. Marketplaces such as [Facebook Marketplace](/facebook-marketplace-car-scraper) and eBay Motors, and government sales such as GovDeals and GSA Auctions, are watched daily. Everything lands in one ranked list.
+
+If you want the whole thing in one place your team works from — sources, history, MMR, your rules and the hand-off to your DMS — that is [custom dealer software](/services/custom-dealer-software). [Major Auto Sales](/projects/12) runs on this kind of setup: auctions and marketplaces worked overnight, watch list ready at 6 AM.
+
+## What this does not do
+
+It does not bid. Most auction platforms prohibit automated bidding, and a bug in a bidding bot means owning a car nobody chose — the system finds, checks and ranks, and your buyer bids. It does not resell data or share accounts between dealers. And some platforms, Facebook in particular, restrict automated access in their terms; for those it is kept to low-volume alerts on your own logged-in session, and the risk is explained before you decide.
+
+## Getting started
+
+The normal first step is one real sale: tell me the auction and what a good car looks like to you, and you get back the watch list it produces. [Send me a message](/#contact) with the sites you buy on and your buy box.
+    `
+  },
 ];
 
 export const projects = [

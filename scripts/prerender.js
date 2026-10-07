@@ -219,6 +219,7 @@ routes.push({
     p("“I walk into the office at 6 AM and the work is already done. Every auction has been gone through, the marketplaces are checked, and my watch list is sitting there with notes and max bids — I just sit down and start buying. When we started, we had 10 to 15 cars in inventory. Today we run 150 to 200 cars as a wholesaler. It changed how we run the business, and I'm happy with it every single day.” — Ricky, Major Auto Sales, New York, USA") +
     p("[Read the Major Auto Sales case study](/projects/12)") +
     h2("Four ways I take the busywork off your desk") +
+    p("You give me your buying rules. I search, filter, research and rank cars across the auctions and marketplaces you use, on your own accounts, so you can focus on buying.") +
     ul([
       "[Scan the car, see everything on the same screen](/services/dealer-browser-extension) — a custom extension reads the VIN off the listing and shows MMR, Carfax, AutoCheck and your max bid right there.",
       "[A clean watch list when you reach the office](/services/auction-run-list-triage) — while you sleep, the whole run list is read, filtered, checked and noted.",

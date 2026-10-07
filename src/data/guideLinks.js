@@ -29,4 +29,5 @@ export const GUIDE_LINKS = {
   "fuel-prices-used-vehicle-values": ["/manheim-mmr-scraper", "/services/auction-run-list-triage"],
   "government-off-lease-car-auctions-dealers": ["/services/marketplace-government-lease-sales", "/govdeals-scraper", "/gsa-auctions-scraper"],
   "mmr-carfax-autocheck-on-listing-extension": ["/services/dealer-browser-extension", "/projects/11"],
+  "find-good-auction-cars-faster": ["/services/auction-run-list-triage", "/services/marketplace-government-lease-sales", "/projects/12"],
 };

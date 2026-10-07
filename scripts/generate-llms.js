@@ -52,10 +52,10 @@ const link = (title, url, desc) => `- [${title}](${ORIGIN}${url})${desc ? ": " +
    the citation is worth. */
 
 const SHORT_DESC =
-  "AutoSmartCode builds custom automation for car dealers, wholesalers and " +
-  "auction buyers: overnight auction run-list triage, bulk Carfax, AutoCheck and " +
-  "MMR lookups per VIN, browser extensions that show that data on the listing, " +
-  "and daily monitoring of marketplaces, government and off-lease sales.";
+  "A dealer gives AutoSmartCode their buying rules, and AutoSmartCode " +
+  "automatically searches, filters, researches and ranks vehicles across " +
+  "auctions and marketplaces — with Carfax, AutoCheck and MMR on the dealer's " +
+  "own accounts — so the dealer can focus on buying.";
 
 const LONG_DESC = [
   "AutoSmartCode is a one-developer software studio, run by Sam, that works only",
@@ -101,7 +101,7 @@ const BLOG_GROUPS = [
     "what-is-an-autocheck-report", "free-vin-decoder-nhtsa-api",
   ]],
   ["Guides: sourcing, dealer workflow and buying decisions", [
-    "mmr-carfax-autocheck-on-listing-extension", "government-off-lease-car-auctions-dealers",
+    "find-good-auction-cars-faster", "mmr-carfax-autocheck-on-listing-extension", "government-off-lease-car-auctions-dealers",
     "automate-car-merchandising-workflow", "how-much-does-web-scraping-cost", "is-web-scraping-legal",
   ]],
   ["Guides: how auction data collection works", [

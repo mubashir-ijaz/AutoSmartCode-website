@@ -50,8 +50,8 @@ export default function Footer() {
                 Auto<span>Smart</span>Code
               </Link>
               <p>
-                Auction run lists, history reports and MMR automated for car dealers,
-                wholesalers and auction buyers, running on your own accounts.
+                Give me your buying rules. I search, filter, research and rank cars
+                across auctions and marketplaces, so you can focus on buying.
               </p>
               <Link to="/#contact" className="footer-email">
                 Send a message →

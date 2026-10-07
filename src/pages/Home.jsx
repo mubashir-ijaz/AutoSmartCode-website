@@ -333,8 +333,8 @@ export default function Home() {
             <span className="s-label">What I build for dealers</span>
             <h2 className="s-title">Four ways I take the busywork off your desk</h2>
             <p className="s-sub">
-              Built for car dealers, wholesalers and auction buyers. Each one runs on your own
-              accounts and pays for itself in hours saved and cars you would have missed.
+              You give me your buying rules. I search, filter, research and rank cars across
+              the auctions and marketplaces you use, on your own accounts, so you can focus on buying.
             </p>
           </div>
 

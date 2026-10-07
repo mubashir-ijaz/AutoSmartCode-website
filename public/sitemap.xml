@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://www.autosmartcode.com/blog</loc>
-    <lastmod>2026-10-07</lastmod>
+    <lastmod>2026-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -552,6 +552,17 @@
       <image:loc>https://www.autosmartcode.com/img/blog/mmr-carfax-autocheck-on-listing-extension.svg</image:loc>
       <image:title>Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself</image:title>
       <image:caption>Title card for the AutoSmartCode article &quot;Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself&quot;</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/find-good-auction-cars-faster</loc>
+    <lastmod>2026-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/find-good-auction-cars-faster.svg</image:loc>
+      <image:title>How Dealers Find Good Auction Cars Faster: Buy Box In, Ranked Watch List Out</image:title>
+      <image:caption>Title card for the AutoSmartCode article &quot;How Dealers Find Good Auction Cars Faster: Buy Box In, Ranked Watch List Out&quot;</image:caption>
     </image:image>
   </url>
 
