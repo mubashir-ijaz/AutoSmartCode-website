@@ -1,5 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import { projects } from "../data/content";
+import { services } from "../data/services";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Projects.css";
@@ -195,6 +196,18 @@ export function ProjectDetailPage() {
                 {project.details.map(d => <li key={d}><span className="check">✓</span>{d}</li>)}
               </ul>
             </div>
+            {/* Case study → service: the reverse of the proof block on each
+                service page. Mirrored in scripts/prerender.js. */}
+            {services.some(s => s.caseStudy === project.id) && (
+              <div className="sidebar-card">
+                <h3>The Service Behind It</h3>
+                <div className="sidebar-service-list">
+                  {services.filter(s => s.caseStudy === project.id).map(s => (
+                    <Link to={`/services/${s.slug}`} key={s.slug} className="sidebar-service-item">{s.nav} →</Link>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="sidebar-cta">
               <p>Need something similar for your business?</p>
               <Link to="/#contact" className="btn btn-blue" style={{ width: "100%", justifyContent: "center" }}>

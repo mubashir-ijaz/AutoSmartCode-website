@@ -54,7 +54,7 @@ export function ScraperPage() {
   } : {
     title: "Page not found | AutoSmartCode",
     description: "This page does not exist.",
-    path: "/" + slug,
+    path: slug ? "/" + slug : window.location.pathname,
     noindex: true,
   });
 

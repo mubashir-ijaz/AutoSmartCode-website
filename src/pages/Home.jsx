@@ -5,34 +5,14 @@ import { scraperBySlug } from "../data/scrapers";
 import { PRICING, PRICE_COMPARISON, priceById } from "../data/pricing";
 import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
 import { useSeo } from "../useSeo";
-import AuctionPipeline from "../components/AuctionPipeline";
 import Photo from "../components/Photo";
 import ExtensionDemo from "../components/ExtensionDemo";
-import WeekWatchLists from "../components/WeekWatchLists";
 import "./Home.css";
-import "../components/AuctionPipeline.css";
 import "../components/ExtensionDemo.css";
 
 /* The homepage sells one thing to one buyer: automation and data for the car
    trade. A visitor should understand it from the hero alone — real cars in the
-   background, the headline saying what it is, and a watch-list card on the
-   right showing what they get back. Everything below is proof and detail. */
-
-/* The three promises in the hero, each with its price so nobody has to scroll
-   to find out what it costs. Prices come from pricing.js. */
-const HERO_POINTS = [
-  { text: "MMR, Carfax & AutoCheck right on the car page", price: priceById("extension").price + "/mo" },
-  { text: "A clean auction watch list waiting every morning", price: priceById("watchlist").price + "/mo per site" },
-  { text: "Daily deals from marketplaces, government & lease sales", price: null },
-];
-
-/* Scrolling strip under the hero — the names a dealer recognises instantly. */
-const PLATFORMS = [
-  "Manheim", "ADESA", "ACV Auctions", "OPENLANE", "Copart", "IAA", "Carfax",
-  "AutoCheck", "Manheim MMR", "eBay Motors", "AutoTrader", "Cars.com",
-  "CarGurus", "CarMax", "BacklotCars", "EDGE Pipeline", "SmartAuction",
-  "AutoScout24", "Carsales", "NHTSA vPIC",
-];
+   background, the headline saying what it is, one line on what they get. Everything below is proof and detail. */
 
 /* The four things AutoSmartCode does, in the order a dealer meets them. Each
    is a photo card linking to the page that explains it properly. */
@@ -303,60 +283,26 @@ export default function Home() {
 
       {/* ============ HERO ============ */}
       <section className="hero">
-        <Photo name="hero-dealer-lot" className="hero-photo" eager
-               alt="Rows of used cars lined up on a dealer lot" />
+        <Photo name="hero-night-drive" className="hero-photo" eager
+               alt="A black sedan driving on a highway at dusk, tail lights glowing" />
         <div className="hero-shade" aria-hidden="true" />
 
         <div className="container hero-layout">
           <div className="hero-copy">
-            <span className="hero-eyebrow">Car dealer automation &amp; auction data scraping</span>
-
             <h1 className="hero-h1">
               Car dealer automation{" "}
-              <span className="hero-grad">that works while you sleep.</span>
+              <span className="hero-accent">that works while you sleep.</span>
             </h1>
 
             <p className="hero-desc">
-              For dealers, wholesalers and auction buyers — running on your own Manheim,
-              Carfax, AutoCheck and Autoniq accounts.
+              Your auction run lists checked overnight, with Carfax, AutoCheck and MMR
+              on every car, and a clean watch list waiting when you reach the office.
             </p>
-
-            <ul className="hero-points">
-              {HERO_POINTS.map(h => (
-                <li key={h.text}>
-                  <span className="hp-tick" aria-hidden="true">✓</span>
-                  <span className="hp-text">{h.text}</span>
-                  {h.price && <span className="hp-price">{h.price}</span>}
-                </li>
-              ))}
-            </ul>
 
             <div className="hero-actions">
               <a href="#contact" className="btn btn-blue">Get a Free Quote →</a>
               <a href="#services" className="btn btn-outline">See what I build</a>
             </div>
-
-            <a href="#results" className="hero-proof">
-              <span className="hp-avatar" aria-hidden="true">R</span>
-              <span className="hp-proof-text">
-                <span className="hp-stars" aria-label="5 stars">★★★★★</span>
-                “{RICKY.short}”
-                <em>{RICKY.name} · {RICKY.company}, {RICKY.place}</em>
-              </span>
-            </a>
-          </div>
-
-          <div className="wl-wrap">
-            <WeekWatchLists />
-            <span className="wl-float wl-float-bottom">🌙 Built while you slept</span>
-          </div>
-        </div>
-
-        <div className="ticker" aria-label="Platforms automated">
-          <div className="ticker-track">
-            {[...PLATFORMS, ...PLATFORMS].map((p, i) => (
-              <span key={i} aria-hidden={i >= PLATFORMS.length ? "true" : undefined}>{p}</span>
-            ))}
           </div>
         </div>
       </section>
@@ -485,7 +431,6 @@ export default function Home() {
             ))}
           </ol>
 
-          <AuctionPipeline />
 
           <div className="section-ctas">
             <Link to="/services/auction-run-list-triage" className="btn btn-blue">See auction triage →</Link>

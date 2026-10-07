@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "redirects": [
     {
       "source": "/google-maps-scraper",
@@ -139,12 +140,6 @@
       "source": "/services/dealer-inventory-scraping",
       "destination": "/services/car-auction-automation",
       "permanent": true
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
     }
   ]
 }

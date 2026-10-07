@@ -1238,7 +1238,7 @@ export const scrapers = [
     site: "eBay Motors",
     emoji: "🛒",
     color: "#fbbf24",
-    metaTitle: "eBay Motors Scraper — Vehicle Listings & Sold Prices",
+    metaTitle: "eBay Motors Scraper — Listings & Sold Prices",
     metaDesc:
       "Custom eBay Motors scraper for dealers: live and sold vehicle listings, VIN, bids, Buy It Now price, mileage and seller, delivered daily as one clean sheet.",
     keywords: ["ebay motors scraper", "ebay car scraper", "scrape ebay motors listings", "ebay motors sold prices data", "ebay motors api alternative", "ebay vehicle data extraction"],

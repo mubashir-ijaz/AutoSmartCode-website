@@ -1,9 +1,18 @@
 import { Link, useParams } from "react-router-dom";
 import { blogs } from "../data/content";
+import { services } from "../data/services";
 import { blogImage, socialFor, dimsFor, IMG_W, IMG_H } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Blog.css";
+
+/* "June 10, 2025" -> "2025-06-10" in every timezone. toISOString() on the
+   local-midnight parse gave the day before for anyone east of UTC. */
+const isoDate = str => {
+  const d = new Date(str);
+  return isNaN(d) ? undefined
+    : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+};
 
 export function BlogPage() {
   useSeo({
@@ -20,7 +29,7 @@ export function BlogPage() {
         "@type": "BlogPosting",
         headline: b.title,
         url: ORIGIN + "/blog/" + b.slug,
-        datePublished: new Date(b.date).toISOString().slice(0, 10),
+        datePublished: isoDate(b.date),
         author: { "@type": "Person", name: "Sam" },
         image: ORIGIN + socialFor(blogImage(b)),
       })),
@@ -204,7 +213,7 @@ function renderContent(content) {
 export function BlogDetailPage() {
   const { slug } = useParams();
   const blog = blogs.find(b => b.slug === slug);
-  const published = blog ? new Date(blog.date).toISOString().slice(0, 10) : "";
+  const published = blog ? isoDate(blog.date) : "";
   const hero = blog ? blogImage(blog) : null;
 
   useSeo(blog ? {
@@ -237,8 +246,8 @@ export function BlogDetailPage() {
             height: hero.height,
             caption: hero.alt,
           },
-          author: { "@type": "Person", name: "Sam", url: ORIGIN },
-          publisher: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
+          author: { "@type": "Person", name: "Sam", url: ORIGIN + "/about" },
+          publisher: { "@id": ORIGIN + "/#org" },
           mainEntityOfPage: { "@type": "WebPage", "@id": ORIGIN + "/blog/" + blog.slug },
         },
         crumbs([["Blog", "/blog"], [blog.title, "/blog/" + blog.slug]]),
@@ -319,7 +328,7 @@ export function BlogDetailPage() {
                   <div className="author-title">Founder, AutoSmartCode</div>
                 </div>
               </div>
-              <p className="author-bio">Python automation and web scraping developer with 1000+ projects delivered for US businesses across automotive, eCommerce, real estate, and lead generation.</p>
+              <p className="author-bio">Builds auction data pipelines, vehicle history report automation and custom browser extensions for car dealers, wholesalers and auction buyers. 1000+ automation projects delivered.</p>
             </div>
 
             <div className="sidebar-card">
@@ -335,8 +344,8 @@ export function BlogDetailPage() {
             <div className="sidebar-card">
               <h3>Services Mentioned</h3>
               <div className="sidebar-service-list">
-                {["Run-List Triage","Dealer Extensions","History Reports","Auction Automation","Web Scraping"].map(s => (
-                  <Link to="/#services" key={s} className="sidebar-service-item">{s} →</Link>
+                {services.map(s => (
+                  <Link to={`/services/${s.slug}`} key={s.slug} className="sidebar-service-item">{s.nav} →</Link>
                 ))}
               </div>
             </div>
@@ -378,9 +387,9 @@ export function BlogDetailPage() {
       >
         <p>
           I'm Sam, founder of AutoSmartCode. I've delivered scraping and automation
-          systems to over a hundred US businesses — car wholesalers, eCommerce sellers,
-          agencies and property investors — and the articles here are the notes from
-          that work rather than a content plan.
+          systems to over a hundred businesses, and AutoSmartCode now works only for
+          the car trade — dealers, wholesalers and auction buyers. The articles here
+          are the notes from that work rather than a content plan.
         </p>
         <p>
           If something in this piece doesn't match what you're seeing on your own target

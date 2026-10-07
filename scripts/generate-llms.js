@@ -11,7 +11,10 @@
  * work between "this site is relevant" and "here is the answer" — which is
  * the same argument as the prerendering in scripts/prerender.js, one layer up.
  *
- * llms.txt      — the index. Every page, one line each, with a description.
+ * llms.txt      — the index. A verified company description and key facts,
+ *                 then every page, one line each, grouped by topic and in
+ *                 order of commercial importance (see SCRAPER_GROUPS and
+ *                 BLOG_GROUPS — new pages land under "Other" until placed).
  * llms-full.txt — the whole site as one Markdown document, for assistants
  *                 that would rather ingest once than crawl 49 URLs.
  *
@@ -36,48 +39,154 @@ const { blogs, projects, FAQS } =
   loadData("src/data/content.js", ["blogs", "projects", "FAQS"]);
 const { services } = loadData("src/data/services.js", ["services"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
+const { PRICING, priceLine } = loadData("src/data/pricing.js", ["PRICING", "priceLine"]);
 
 
 const link = (title, url, desc) => `- [${title}](${ORIGIN}${url})${desc ? ": " + desc : ""}`;
+
+/* ------------------------- company description ------------------------- */
+/* One source for the short and long descriptions, so llms.txt and
+   llms-full.txt cannot drift apart. Every claim here is stated elsewhere on
+   the site (FAQS in content.js, PRICING, About.jsx) — keep it that way. An
+   assistant repeating a claim the site cannot back up costs more trust than
+   the citation is worth. */
+
+const SHORT_DESC =
+  "AutoSmartCode builds custom automation for car dealers, wholesalers and " +
+  "auction buyers: overnight auction run-list triage, bulk Carfax, AutoCheck and " +
+  "MMR lookups per VIN, browser extensions that show that data on the listing, " +
+  "and daily monitoring of marketplaces, government and off-lease sales.";
+
+const LONG_DESC = [
+  "AutoSmartCode is a one-developer software studio, run by Sam, that works only",
+  "for the car trade. It builds and runs custom automation for independent",
+  "dealers, wholesalers, dealer groups and auction buyers in the US, UK, the",
+  "Gulf, Europe and Australia. The core job: read an entire auction run list",
+  "overnight (Manheim, ADESA, ACV, OPENLANE or a private dealer portal), apply",
+  "the dealer's own buy box, pull title, Carfax, AutoCheck and Manheim MMR per",
+  "VIN, write a note and a max bid per car, and leave the survivors in the",
+  "dealer's own watch list by 6 AM. It also builds Chrome and Edge extensions",
+  "that show MMR, history and margin on the listing page, daily alerts from",
+  "marketplaces and government and off-lease sales, and custom dealer software",
+  "that connects those accounts into one system. Everything runs on the",
+  "client's own licensed accounts; it does not resell data or build automated",
+  "bidding.",
+].join("\n");
+
+/* -------------------------- page grouping ------------------------------ */
+/* Sections in order of commercial importance. A platform page or guide not
+   listed here still appears (under "Other") and the build warns, so adding a
+   page to the data files never silently drops it from llms.txt. */
+
+const SCRAPER_GROUPS = [
+  ["Wholesale auction platforms (run lists, condition reports, MMR scoring)", [
+    "manheim-mmr-scraper", "adesa-scraper", "acv-auctions-scraper", "openlane-scraper",
+    "backlotcars-scraper", "smartauction-scraper", "edge-pipeline-scraper", "dealer-marketplace-scraper",
+  ]],
+  ["Salvage auctions", ["copart-scraper", "iaa-scraper"]],
+  ["Vehicle history reports by VIN", ["carfax-scraper", "autocheck-scraper"]],
+  ["Marketplace, government and fleet sale monitoring", [
+    "facebook-marketplace-car-scraper", "ebay-motors-scraper", "govdeals-scraper", "gsa-auctions-scraper",
+  ]],
+  ["Retail listing and market pricing data", [
+    "autotrader-scraper", "cars-com-scraper", "cargurus-scraper", "carmax-scraper",
+    "autonation-scraper", "autoscout24-scraper", "carsales-scraper", "otomoto-scraper",
+  ]],
+];
+
+const BLOG_GROUPS = [
+  ["Guides: MMR, valuation and vehicle history", [
+    "what-is-mmr-manheim-market-report", "automate-manheim-mmr", "price-used-cars-market-data",
+    "fuel-prices-used-vehicle-values", "autocheck-vs-carfax-vehicle-history",
+    "what-is-an-autocheck-report", "free-vin-decoder-nhtsa-api",
+  ]],
+  ["Guides: sourcing, dealer workflow and buying decisions", [
+    "mmr-carfax-autocheck-on-listing-extension", "government-off-lease-car-auctions-dealers",
+    "automate-car-merchandising-workflow", "how-much-does-web-scraping-cost", "is-web-scraping-legal",
+  ]],
+  ["Guides: how auction data collection works", [
+    "what-is-web-scraping", "bypass-captcha-anti-bot-scraping", "self-healing-scrapers-ai",
+    "ai-parsing-scraped-data", "autoscraper-python-library-vs-custom-scraper",
+  ]],
+];
+
+/** Services in priority order: the two priced, productised offers first. */
+const SERVICE_ORDER = [
+  "auction-run-list-triage", "dealer-browser-extension", "marketplace-government-lease-sales",
+  "vehicle-history-reports", "car-auction-automation", "custom-dealer-software",
+];
+
+function grouped(groups, items, keyOf) {
+  const used = new Set(groups.flatMap(([, keys]) => keys));
+  const out = groups.map(([title, keys]) =>
+    [title, keys.map(k => items.find(i => keyOf(i) === k)).filter(Boolean)]);
+  for (const k of used)
+    if (!items.some(i => keyOf(i) === k)) console.warn("llms.txt: grouped page no longer exists — " + k);
+  const rest = items.filter(i => !used.has(keyOf(i)));
+  if (rest.length) {
+    console.warn("llms.txt: not grouped yet, listed under Other — " + rest.map(keyOf).join(", "));
+    out.push(["Other", rest]);
+  }
+  return out;
+}
+
+/** First sentence of a description — never a mid-word cut. */
+const firstSentence = t => (t.match(/^.+?[.!?](\s|$)/) || [t])[0].trim();
+
+const orderedServices = [
+  ...SERVICE_ORDER.map(slug => services.find(s => s.slug === slug)).filter(Boolean),
+  ...services.filter(s => !SERVICE_ORDER.includes(s.slug)),
+];
 
 /* ------------------------------- llms.txt ------------------------------ */
 
 const index = [
   "# AutoSmartCode",
   "",
-  "> Auction and market data for the car trade. Run-list triage, vehicle history",
-  "> report pipelines, MMR automation and custom dealer browser extensions. Run by",
-  "> Sam. Fixed prices quoted within 24 hours. Contact: sam@autosmartcode.com",
+  "> " + SHORT_DESC,
   "",
-  "AutoSmartCode builds custom software for car dealers, wholesalers and auction",
-  "buyers rather than selling a product. The core job: read an entire auction run",
-  "list overnight, apply the dealer's own filters, pull title, Carfax, AutoCheck",
-  "and MMR per VIN, write a note per car, drop the cars that fail the rules, and",
-  "leave the rest in the dealer's watch list ranked by margin before the lane",
-  "opens. Everything runs on the client's own auction and report accounts. No",
-  "automated bidding is built, on any platform. Every build is a fixed price",
-  "quoted before work starts.",
+  LONG_DESC,
   "",
-  "## Services",
+  "Key facts:",
   "",
-  ...services.map(s => link(s.h1, "/services/" + s.slug, s.metaDesc)),
+  "- Who it is for: used-car dealers, wholesalers, dealer groups and auction buyers. Not consumers, and not other industries.",
+  "- How it works: built per client and run on the client's own auction, Carfax, AutoCheck and Manheim accounts. No data resale, no shared credentials, no automated bidding.",
+  "- Pricing: " + PRICING.map(pr => pr.name + ", " + priceLine(pr)).join("; ") + ".",
+  "- Timeline: most run-list triage builds are live in 3 to 7 days; extensions take 5 to 10.",
+  "- Maintenance: when an auction site changes and a job breaks, the client hears from an alert the same morning; fixes are covered by the monthly fee.",
+  "- Contact: sam@autosmartcode.com, or the form at " + ORIGIN + "/#contact. Fixed-price quotes within 24 hours.",
   "",
-  "## Auctions and marketplaces (one page per platform)",
+  "## Primary services",
   "",
-  ...scrapers.map(s => link(s.h1 || s.site + " Scraper", "/" + s.slug, s.metaDesc)),
+  ...orderedServices.map(s => link(s.h1, "/services/" + s.slug, s.metaDesc)),
   "",
-  "## Guides",
+  ...grouped(SCRAPER_GROUPS, scrapers, s => s.slug).flatMap(([title, items]) => [
+    "## " + title,
+    "",
+    ...items.map(s => link(s.h1 || s.site + " Scraper", "/" + s.slug, s.metaDesc)),
+    "",
+  ]),
+  "## Case studies (client work)",
   "",
-  ...blogs.map(b => link(b.title, "/blog/" + b.slug, b.summary)),
+  ...projects.map(p => link(p.title, "/projects/" + p.id, p.client + ". " + firstSentence(p.description))),
   "",
-  "## Case studies",
+  ...grouped(BLOG_GROUPS, blogs, b => b.slug).flatMap(([title, items]) => [
+    "## " + title,
+    "",
+    ...items.map(b => link(b.title, "/blog/" + b.slug, b.summary)),
+    "",
+  ]),
+  "## About and contact",
   "",
-  ...projects.map(p => link(p.title, "/projects/" + p.id, p.description.slice(0, 140))),
+  link("About Sam and AutoSmartCode", "/about", "who builds the software, the technical stack, and the markets served"),
+  link("All services", "/services", "every service on one page, with the platform pages under each"),
+  link("All case studies", "/projects", "client builds with the problem, the solution and the result"),
+  link("Contact and quote", "/#contact", "send the auction or portal name and your buy box; fixed-price quote within 24 hours"),
   "",
   "## Optional",
   "",
-  link("Full site content as one document", "/llms-full.txt", "every page above, in full"),
-  link("Sitemap", "/sitemap.xml"),
+  link("Full site content as one Markdown document", "/llms-full.txt", "every service, platform page, guide and case study in full"),
+  link("XML sitemap", "/sitemap.xml"),
   "",
 ].join("\n");
 
@@ -93,9 +202,9 @@ const full = [
   `Source: ${ORIGIN}`,
   `Generated: ${new Date().toISOString().slice(0, 10)}`,
   "",
-  "Auction and market data for the car trade — run-list triage, vehicle history",
-  "report pipelines, MMR automation and custom dealer browser extensions. One",
-  "developer-led studio. Contact: sam@autosmartcode.com",
+  LONG_DESC,
+  "",
+  "Contact: sam@autosmartcode.com",
   "",
   "## Frequently asked questions",
   "",
@@ -103,7 +212,6 @@ const full = [
 
   ...services.map(s => section(s.h1, [
     `URL: ${ORIGIN}/services/${s.slug}`,
-    `Keywords: ${s.keywords.join(", ")}`,
     "",
     s.hero,
     "",
@@ -121,7 +229,6 @@ const full = [
 
   ...scrapers.map(s => section(s.h1 || s.site + " Scraper", [
     `URL: ${ORIGIN}/${s.slug}`,
-    `Keywords: ${s.keywords.join(", ")}`,
     "",
     s.tagline,
     "",

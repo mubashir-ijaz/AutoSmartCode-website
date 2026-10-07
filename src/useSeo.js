@@ -59,13 +59,13 @@ export function useSeo({ title, description, path, type = "website", image, imag
     setMeta('meta[property="og:type"]', "content", type);
     setMeta('meta[property="og:image"]', "content", img);
     setMeta('meta[property="og:image:alt"]', "content",
-      imageAlt || "AutoSmartCode — web scraping and automation for US, UK and global businesses");
+      imageAlt || "AutoSmartCode — auction data and automation for car dealers, wholesalers and auction buyers");
 
     setMeta('meta[name="twitter:title"]', "content", title);
     setMeta('meta[name="twitter:description"]', "content", description);
     setMeta('meta[name="twitter:image"]', "content", img);
     setMeta('meta[name="twitter:image:alt"]', "content",
-      imageAlt || "AutoSmartCode — web scraping and automation for US, UK and global businesses");
+      imageAlt || "AutoSmartCode — auction data and automation for car dealers, wholesalers and auction buyers");
 
     // Page-level structured data, replaced (not stacked) on each navigation.
     const prev = document.getElementById("route-schema");

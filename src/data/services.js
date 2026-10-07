@@ -438,7 +438,7 @@ export const services = [
       },
     ],
     related: ["auction-run-list-triage", "dealer-browser-extension", "vehicle-history-reports"],
-    caseStudy: 1,
+    caseStudy: 12,
   },
 
   /* ------------------------------------------------------------------ */
@@ -558,7 +558,7 @@ export const services = [
     h1: "Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers",
     metaTitle: "Marketplace, Government & Lease Sale Alerts",
     metaDesc:
-      "OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked every day for your buy box. New matches in your inbox each morning.",
+      "OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked daily for your buy box. New matches in your inbox each morning.",
     keywords: [
       "facebook marketplace car alerts for dealers",
       "government vehicle auction monitoring",

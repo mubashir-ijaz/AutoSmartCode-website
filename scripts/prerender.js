@@ -206,12 +206,7 @@ routes.push({
   // Must match the visible copy in Home.jsx.
   body:
     h1("Car dealer automation that works while you sleep.") +
-    p("For dealers, wholesalers and auction buyers — running on your own Manheim, Carfax, AutoCheck and Autoniq accounts.") +
-    ul([
-      "MMR, Carfax & AutoCheck right on the car page — $50–$100/mo",
-      "A clean auction watch list waiting every morning — $500/mo per site",
-      "Daily deals from marketplaces, government & lease sales",
-    ]) +
+    p("Your auction run lists checked overnight, with Carfax, AutoCheck and MMR on every car, and a clean watch list waiting when you reach the office.") +
     h2("From 15 cars to 200 — without working the list by hand") +
     p("“I walk into the office at 6 AM and the work is already done. Every auction has been gone through, the marketplaces are checked, and my watch list is sitting there with notes and max bids — I just sit down and start buying. When we started, we had 10 to 15 cars in inventory. Today we run 150 to 200 cars as a wholesaler. It changed how we run the business, and I'm happy with it every single day.” — Ricky, Major Auto Sales, New York, USA") +
     p("[Read the Major Auto Sales case study](/projects/12)") +
@@ -300,7 +295,7 @@ routes.push({
       "@type": "BlogPosting",
       headline: b.title,
       url: ORIGIN + "/blog/" + b.slug,
-      datePublished: new Date(b.date).toISOString().slice(0, 10),
+      datePublished: new Date(b.date + " UTC").toISOString().slice(0, 10),
       author: { "@type": "Person", name: "Sam" },
       image: ORIGIN + socialImage(blogImage(b), HAS_RASTER),
     })),
@@ -351,6 +346,7 @@ routes.push({
 /* Service landing pages */
 for (const s of services) {
   const hero = serviceImage(s);
+  const proof = projects.find(pr => pr.id === s.caseStudy);
   const spokes = scrapers.filter(sp => sp.pillar === s.slug);
   routes.push({
     path: "/services/" + s.slug,
@@ -386,6 +382,11 @@ for (const s of services) {
     body:
       h1(s.h1) + p(s.hero) +
       s.sections.map(sec => h2(sec.h) + sec.p.map(p).join("") + (sec.list ? ul(sec.list) : "")).join("") +
+      // Matches the svc-proof block in src/pages/Services.jsx.
+      (proof
+        ? h3(proof.title) + p(proof.description) + p(proof.result) +
+          p("[Read the full case study](/projects/" + proof.id + ")")
+        : "") +
       h2("What you get") + ul(s.deliverables) +
       h2("Sites and platforms") + p(s.platforms.join(", ")) +
       h2("Built with") + p(s.stack.join(", ")) +
@@ -458,7 +459,7 @@ for (const s of scrapers) {
 
 /* Blog articles */
 for (const b of blogs) {
-  const published = new Date(b.date);
+  const published = new Date(b.date + " UTC");
   const iso = isNaN(published) ? undefined : published.toISOString().slice(0, 10);
   const hero = blogImage(b);
   const social = socialImage(hero, HAS_RASTER);
@@ -495,7 +496,7 @@ for (const b of blogs) {
             height: IMG_H,
             caption: hero.alt,
           },
-          author: { "@type": "Person", name: "Sam", url: ORIGIN },
+          author: { "@type": "Person", name: "Sam", url: ORIGIN + "/about" },
           publisher: { "@id": ORIGIN + "/#org" },
           inLanguage: "en-US",
         },
@@ -540,7 +541,12 @@ for (const pr of projects) {
       h2("My solution") + p(pr.solution) +
       h2("Result") + p(pr.result) +
       h2("Tech stack") + p(pr.stack.join(", ")) +
-      h2("What was built") + ul(pr.details),
+      h2("What was built") + ul(pr.details) +
+      (services.some(s => s.caseStudy === pr.id)
+        ? linkList("The service behind it", services
+            .filter(s => s.caseStudy === pr.id)
+            .map(s => ["/services/" + s.slug, s.h1]))
+        : ""),
   });
 }
 
@@ -617,4 +623,22 @@ for (const route of routes) {
   written++;
 }
 
-console.log(`prerendered ${written} routes to static HTML`);
+/* 404.html — served by Vercel with a real 404 status for any URL that has no
+   file above (vercel.json no longer rewrites everything to index.html).
+   Before this, /anything-at-all returned 200 with the homepage's HTML and
+   canonical: a soft 404 on every mistyped or stale link. */
+const notFound = render({
+  path: "/404",
+  title: "Page not found | AutoSmartCode",
+  description: "This page does not exist on AutoSmartCode.",
+  body:
+    h1("Page not found") +
+    p("That address is not a page on this site. The pages below are probably what you were after.") +
+    linkList("Services", services.map(s => ["/services/" + s.slug, s.h1])) +
+    linkList("Guides", blogs.map(b => ["/blog/" + b.slug, b.title])),
+})
+  .replace(/<meta name="robots" content="[^"]*"\s*\/?>/, '<meta name="robots" content="noindex, follow"/>')
+  .replace(/<link rel="canonical" href="[^"]*"\s*\/?>/, "");
+fs.writeFileSync(path.join(build, "404.html"), notFound);
+
+console.log(`prerendered ${written} routes to static HTML, plus 404.html`);

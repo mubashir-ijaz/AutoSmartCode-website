@@ -62,6 +62,9 @@ export default function App() {
               routes above always win in React Router, so this only catches the
               rest — and unknown slugs render a noindex not-found state. */}
           <Route path="/:slug" element={<RootSlug />} />
+          {/* Deeper unknown paths ("/a/b") get the same noindex not-found
+              state, rather than an empty page between the nav and footer. */}
+          <Route path="*" element={<RootSlug />} />
         </Routes>
         </RouteFade>
         <Footer />

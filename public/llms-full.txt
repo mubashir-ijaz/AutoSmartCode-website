@@ -3,9 +3,21 @@
 Source: https://www.autosmartcode.com
 Generated: 2026-10-07
 
-Auction and market data for the car trade — run-list triage, vehicle history
-report pipelines, MMR automation and custom dealer browser extensions. One
-developer-led studio. Contact: sam@autosmartcode.com
+AutoSmartCode is a one-developer software studio, run by Sam, that works only
+for the car trade. It builds and runs custom automation for independent
+dealers, wholesalers, dealer groups and auction buyers in the US, UK, the
+Gulf, Europe and Australia. The core job: read an entire auction run list
+overnight (Manheim, ADESA, ACV, OPENLANE or a private dealer portal), apply
+the dealer's own buy box, pull title, Carfax, AutoCheck and Manheim MMR per
+VIN, write a note and a max bid per car, and leave the survivors in the
+dealer's own watch list by 6 AM. It also builds Chrome and Edge extensions
+that show MMR, history and margin on the listing page, daily alerts from
+marketplaces and government and off-lease sales, and custom dealer software
+that connects those accounts into one system. Everything runs on the
+client's own licensed accounts; it does not resell data or build automated
+bidding.
+
+Contact: sam@autosmartcode.com
 
 ## Frequently asked questions
 
@@ -76,7 +88,6 @@ Me. AutoSmartCode is one developer, not an agency — the person who writes your
 ## Auction Run-List Triage — Watch List Built Before You Reach the Office
 
 URL: https://www.autosmartcode.com/services/auction-run-list-triage
-Keywords: auction run list triage, auction watch list automation, car auction run list software, bulk vin check auction, manheim run list filter, auction pre bid research, wholesale car buying automation, auction condition report automation, car auction notes automation, filter 5000 auction cars
 
 A 5,000-car sale read overnight and cut to the few hundred worth your morning — each one annotated, each one with a max bid, sitting in your watch list before anyone is in.
 
@@ -181,7 +192,6 @@ No, and I will not build that. Most auction platforms prohibit automated bidding
 ## Custom Dealer Extension — MMR, Carfax & AutoCheck on the Car Page in Real Time
 
 URL: https://www.autosmartcode.com/services/dealer-browser-extension
-Keywords: autoniq alternative, alternative to autoniq, cheaper than autoniq, autoniq competitor, custom dealer browser extension, vin scanner app for dealers, dealer vin scanning tool, auction vin lookup tool, car auction browser extension, dealer chrome extension development
 
 The extension scans the car for you and shows real-time MMR, Carfax, AutoCheck and your own margin maths on the same screen — no copying the VIN, no opening tabs, no coming back to the car page. $50–$100 a month, no setup fee.
 
@@ -294,7 +304,6 @@ No. Automated bidding is prohibited on most platforms, and a bug in a bidding bo
 ## Car Auction Automation for Dealers and Wholesalers
 
 URL: https://www.autosmartcode.com/services/car-auction-automation
-Keywords: car auction automation, auction data automation, wholesale car buying software, auction deal finder, automate auction run lists, car auction software for dealers, wholesale auction data feed, auction inventory automation, dealer auction integration
 
 Your buyers open six auction tabs every morning and still miss cars. This replaces that hour with an email that already has the answer in it — whichever platforms those six tabs happen to be.
 
@@ -383,7 +392,6 @@ I do not build automated bidding. Most auction platforms prohibit it outright, a
 ## Vehicle History Report Automation — Carfax, AutoCheck and VIN Data
 
 URL: https://www.autosmartcode.com/services/vehicle-history-reports
-Keywords: vehicle history report automation, car history report, vehicle history report api, bulk vin decoder, vin lookup automation, vin history data, vin decoding at scale
 
 One VIN at a time is fine for one car. For a 400-car run list it is a lost afternoon — and the reports end up as 400 PDFs nobody can sort.
 
@@ -455,7 +463,6 @@ Yes, and the same rules apply — your own account, your own inventory. Some dea
 ## Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers
 
 URL: https://www.autosmartcode.com/services/marketplace-government-lease-sales
-Keywords: facebook marketplace car alerts for dealers, government vehicle auction monitoring, govdeals car alerts, gsa auctions vehicles, off lease vehicle sales dealers, lease return car auctions, openlane daily listings, used car sourcing automation, dealer car sourcing tool, find cars to buy for dealership
 
 Every place good cars turn up outside the big lanes — OPENLANE, Facebook Marketplace, eBay Motors, government and fleet sales, off-lease and lease-return sales — checked daily against your buy box, with the matches waiting for you each morning.
 
@@ -539,7 +546,6 @@ It depends on how many sources and how often. A daily monitor across a handful o
 ## Custom Dealer Software — Manheim, Carfax, AutoCheck & Autoniq in One System
 
 URL: https://www.autosmartcode.com/services/custom-dealer-software
-Keywords: custom software for car dealers, dealer software development, car dealer dashboard, manheim carfax integration, autoniq integration, wholesale car business software, used car buying software, dealer automation software, car dealer crm custom, auction buying software
 
 Your Manheim, MMR, Carfax, AutoCheck and Autoniq accounts working together in one system built around how your desk actually buys — not five logins and a spreadsheet holding it all together.
 
@@ -609,7 +615,6 @@ You do. The source code and all the data are handed over, there is no per-seat l
 ## AutoTrader Scraper
 
 URL: https://www.autosmartcode.com/autotrader-scraper
-Keywords: autotrader scraper, autotrader data extraction, scrape autotrader listings, autotrader api alternative, autotrader inventory data
 
 Every AutoTrader listing that matches your criteria, in a spreadsheet, refreshed while you sleep.
 
@@ -672,7 +677,6 @@ A single-market daily feed typically lands between $300 and $700. Nationwide cov
 ## AutoScout24 Scraper
 
 URL: https://www.autosmartcode.com/autoscout24-scraper
-Keywords: autoscout24 scraper, autoscout24 data extraction, scrape autoscout24, european car listing data, autoscout24 api
 
 Every AutoScout24 market in one dataset — normalised, deduplicated and refreshed daily.
 
@@ -735,7 +739,6 @@ A single country with daily delivery is typically $350 to $700. Multi-country wi
 ## CarMax Scraper
 
 URL: https://www.autosmartcode.com/carmax-scraper
-Keywords: carmax scraper, carmax inventory data, scrape carmax listings, carmax pricing data, carmax api
 
 CarMax posts one price and never moves it. That makes their inventory the cleanest pricing benchmark in the country.
 
@@ -798,7 +801,6 @@ A filtered daily feed typically runs $350 to $700. Full nationwide capture with 
 ## Carsales Scraper
 
 URL: https://www.autosmartcode.com/carsales-scraper
-Keywords: carsales scraper, carsales.com.au data, scrape carsales listings, australian car listing data, carsales api
 
 The Australian market in one table — every state, every dealer, every price change.
 
@@ -861,7 +863,6 @@ A filtered daily feed typically runs $350 to $700 depending on breadth. National
 ## Cars.com Scraper
 
 URL: https://www.autosmartcode.com/cars-com-scraper
-Keywords: cars.com scraper, cars com data extraction, scrape cars.com listings, cars.com inventory data, cars.com api
 
 Cars.com publishes a deal rating on every listing. Captured at scale, that becomes a map of who is mispriced.
 
@@ -924,7 +925,6 @@ A competitor watch list starts around $250. A filtered daily market feed is typi
 ## CarGurus Scraper
 
 URL: https://www.autosmartcode.com/cargurus-scraper
-Keywords: cargurus scraper, cargurus data extraction, scrape cargurus listings, cargurus imv data, cargurus deal rating
 
 CarGurus publishes its own market valuation next to every price. That comparison is the whole reason to scrape it.
 
@@ -986,7 +986,6 @@ Typically $450 to $900 for a filtered daily feed, higher than the easier sites b
 ## Manheim MMR Scraper
 
 URL: https://www.autosmartcode.com/manheim-mmr-scraper
-Keywords: manheim mmr scraper, manheim automation, mmr lookup automation, manheim run list data, auction price automation
 
 Four hundred VINs against MMR, before your first coffee, using the account you already pay for.
 
@@ -1048,7 +1047,6 @@ Overnight run-list triage on Manheim is $500 a month — that covers every sale 
 ## ADESA Scraper
 
 URL: https://www.autosmartcode.com/adesa-scraper
-Keywords: adesa scraper, adesa auction data, adesa run list automation, adesa condition report data, car auction data extraction
 
 The whole sale calendar read overnight, every lot graded and scored, before anyone opens a browser.
 
@@ -1111,7 +1109,6 @@ Overnight run-list triage on ADESA is $500 a month — that covers every sale on
 ## BacklotCars Scraper
 
 URL: https://www.autosmartcode.com/backlotcars-scraper
-Keywords: backlotcars scraper, backlotcars data extraction, backlotcars inventory automation, digital wholesale auction data, car wholesale scraper
 
 A 24/7 marketplace needs a 24/7 watcher. Cars appear and sell between your morning checks.
 
@@ -1174,7 +1171,6 @@ Overnight run-list triage on BacklotCars is $500 a month — that covers every s
 ## OpenLane Scraper
 
 URL: https://www.autosmartcode.com/openlane-scraper
-Keywords: openlane scraper, openlane auction data, openlane inventory automation, openlane data extraction, digital auction scraper
 
 Off-lease, off-rental and fleet inventory, read and scored before the buyers who check by hand.
 
@@ -1237,7 +1233,6 @@ Overnight run-list triage on OPENLANE is $500 a month — that covers every sale
 ## ACV Auctions Scraper
 
 URL: https://www.autosmartcode.com/acv-auctions-scraper
-Keywords: acv auctions scraper, acv auction data, acv condition report data, acv auctions automation, wholesale auction data extraction
 
 Twenty-minute auctions do not wait for a buyer to finish scrolling. This has the shortlist ready before the first one opens.
 
@@ -1300,7 +1295,6 @@ Overnight run-list triage on ACV Auctions is $500 a month — that covers every 
 ## Copart Scraper
 
 URL: https://www.autosmartcode.com/copart-scraper
-Keywords: copart scraper, copart data extraction, salvage auction data, copart api alternative, copart lot data
 
 Every lot in every yard that matches your criteria, with damage and title status, hours before the sale.
 
@@ -1363,7 +1357,6 @@ A filtered daily feed across selected yards typically runs $400 to $900. Full mu
 ## EDGE Pipeline Scraper
 
 URL: https://www.autosmartcode.com/edge-pipeline-scraper
-Keywords: edge pipeline scraper, auction edge data, independent auction run list, edge simulcast automation, auctionedge scraper
 
 The independent auctions you actually buy at, read together, in one list, ranked by margin.
 
@@ -1426,7 +1419,6 @@ Overnight run-list triage on EDGE Pipeline is $500 a month — that covers every
 ## SmartAuction Scraper
 
 URL: https://www.autosmartcode.com/smartauction-scraper
-Keywords: smartauction scraper, ally smartauction data, off lease vehicle data, remarketing platform scraper, smartauction automation
 
 Off-lease cars come back on a schedule. Knowing which ones fit your lot should not take an hour a day.
 
@@ -1489,7 +1481,6 @@ Overnight run-list triage on SmartAuction is $500 a month — that covers every 
 ## Private Dealer Marketplace & Auction Portal Scraping
 
 URL: https://www.autosmartcode.com/dealer-marketplace-scraper
-Keywords: dealer marketplace scraper, private auction portal scraper, dealer only marketplace data, custom auction site scraper, wholesale marketplace automation, closed dealer portal automation
 
 If you can log into it, it can be automated — even if I have never heard of it before today.
 
@@ -1556,7 +1547,6 @@ It will eventually, like every scraper does — the difference is you find out f
 ## AutoCheck Report Automation — Bulk VIN History Pulls
 
 URL: https://www.autosmartcode.com/autocheck-scraper
-Keywords: autocheck scraper, autocheck report automation, bulk autocheck reports, autocheck vin report, autocheck history reports, autocheck api alternative, automate autocheck lookups
 
 Four hundred AutoCheck reports, parsed into four hundred rows, before the sale starts.
 
@@ -1628,7 +1618,6 @@ A batch puller against your own account, delivering a parsed spreadsheet, typica
 ## Carfax Report Automation — Bulk Vehicle History by VIN
 
 URL: https://www.autosmartcode.com/carfax-scraper
-Keywords: carfax scraper, carfax report by vin, vin carfax report, carfax report automation, bulk carfax reports, carfax api alternative, automate carfax lookups
 
 The service history is the reason you buy Carfax. It is also the reason nobody reads all of them.
 
@@ -1696,7 +1685,6 @@ A batch puller against your own account with a parsed spreadsheet out typically 
 ## AutoNation Inventory Scraper — Dealer Group Listing Data
 
 URL: https://www.autosmartcode.com/autonation-scraper
-Keywords: autonation scraper, autonation inventory data, dealer group inventory scraper, dealer group scraping, scrape dealership website inventory, multi rooftop inventory data, automotive group listing data
 
 A national group's whole lot, every rooftop, in one sheet that updates while you sleep.
 
@@ -1764,7 +1752,6 @@ A single rooftop or a small group with a daily refresh typically runs $300 to $7
 ## Otomoto Scraper
 
 URL: https://www.autosmartcode.com/otomoto-scraper
-Keywords: otomoto scraper, otomoto data extraction, scrape otomoto listings, polish car listings data, otomoto api alternative, central europe car market data
 
 The Polish market as rows — which is where a lot of Western European used stock quietly comes from.
 
@@ -1827,7 +1814,6 @@ A one-off extract across defined filters typically runs $250 to $600. An ongoing
 ## eBay Motors Scraper
 
 URL: https://www.autosmartcode.com/ebay-motors-scraper
-Keywords: ebay motors scraper, ebay car scraper, scrape ebay motors listings, ebay motors sold prices data, ebay motors api alternative, ebay vehicle data extraction
 
 Every eBay Motors car that fits your buy box — live bids, Buy It Now prices and what similar cars actually sold for.
 
@@ -1889,7 +1875,6 @@ A daily feed for a defined buy box with alerts typically runs $300 to $650 to bu
 ## IAA Auction Scraper
 
 URL: https://www.autosmartcode.com/iaa-scraper
-Keywords: iaa scraper, iaai scraper, insurance auto auctions data, scrape iaa lots, salvage auction data, iaa api alternative
 
 Every IAA lot that fits your rules — damage, start code, title and sale date — in one sheet before the sale.
 
@@ -1941,7 +1926,6 @@ A daily filtered feed typically runs $350 to $700 to build plus a monthly to kee
 ## Facebook Marketplace Car Alerts for Dealers
 
 URL: https://www.autosmartcode.com/facebook-marketplace-car-scraper
-Keywords: facebook marketplace car scraper, facebook marketplace vehicle alerts, facebook marketplace cars for dealers, private party car sourcing, facebook marketplace car data, find private seller cars
 
 Private-party cars that fit your buy box, from the cities you choose — before the next dealer messages the seller.
 
@@ -1997,7 +1981,6 @@ Usually included as one source within a marketplace monitoring build, alongside 
 ## GovDeals Vehicle Scraper & Alerts
 
 URL: https://www.autosmartcode.com/govdeals-scraper
-Keywords: govdeals scraper, govdeals vehicle alerts, government car auctions for dealers, govdeals cars, municipal vehicle auctions, government fleet vehicles for sale
 
 City, county and state fleet vehicles across thousands of agencies — the ones that fit your buy box, with closing times, every morning.
 
@@ -2053,7 +2036,6 @@ Usually built as part of a government and marketplace monitor. A daily filtered 
 ## GSA Auctions Vehicle Scraper & Alerts
 
 URL: https://www.autosmartcode.com/gsa-auctions-scraper
-Keywords: gsa auctions scraper, gsa auctions vehicles, federal fleet vehicles for sale, gsa auto auctions, government surplus cars, gsa vehicle alerts
 
 Federal fleet cars, trucks and SUVs — filtered to your buy box and your transport range, with closing times, every day.
 

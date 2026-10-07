@@ -1,83 +1,120 @@
 # AutoSmartCode
 
-> Auction and market data for the car trade. Run-list triage, vehicle history
-> report pipelines, MMR automation and custom dealer browser extensions. Run by
-> Sam. Fixed prices quoted within 24 hours. Contact: sam@autosmartcode.com
+> AutoSmartCode builds custom automation for car dealers, wholesalers and auction buyers: overnight auction run-list triage, bulk Carfax, AutoCheck and MMR lookups per VIN, browser extensions that show that data on the listing, and daily monitoring of marketplaces, government and off-lease sales.
 
-AutoSmartCode builds custom software for car dealers, wholesalers and auction
-buyers rather than selling a product. The core job: read an entire auction run
-list overnight, apply the dealer's own filters, pull title, Carfax, AutoCheck
-and MMR per VIN, write a note per car, drop the cars that fail the rules, and
-leave the rest in the dealer's watch list ranked by margin before the lane
-opens. Everything runs on the client's own auction and report accounts. No
-automated bidding is built, on any platform. Every build is a fixed price
-quoted before work starts.
+AutoSmartCode is a one-developer software studio, run by Sam, that works only
+for the car trade. It builds and runs custom automation for independent
+dealers, wholesalers, dealer groups and auction buyers in the US, UK, the
+Gulf, Europe and Australia. The core job: read an entire auction run list
+overnight (Manheim, ADESA, ACV, OPENLANE or a private dealer portal), apply
+the dealer's own buy box, pull title, Carfax, AutoCheck and Manheim MMR per
+VIN, write a note and a max bid per car, and leave the survivors in the
+dealer's own watch list by 6 AM. It also builds Chrome and Edge extensions
+that show MMR, history and margin on the listing page, daily alerts from
+marketplaces and government and off-lease sales, and custom dealer software
+that connects those accounts into one system. Everything runs on the
+client's own licensed accounts; it does not resell data or build automated
+bidding.
 
-## Services
+Key facts:
+
+- Who it is for: used-car dealers, wholesalers, dealer groups and auction buyers. Not consumers, and not other industries.
+- How it works: built per client and run on the client's own auction, Carfax, AutoCheck and Manheim accounts. No data resale, no shared credentials, no automated bidding.
+- Pricing: VIN-Scan Extension, $50–$100/month — depending on the data sources shown; Overnight Auction Watch List, $500/month — per auction site · every sale, Mon–Fri; Marketplaces & Custom Software, Custom — fixed price, quoted in 24 hours; Try One Sale, $150 one-off — one sale, delivered in 48 hours.
+- Timeline: most run-list triage builds are live in 3 to 7 days; extensions take 5 to 10.
+- Maintenance: when an auction site changes and a job breaks, the client hears from an alert the same morning; fixes are covered by the monthly fee.
+- Contact: sam@autosmartcode.com, or the form at https://www.autosmartcode.com/#contact. Fixed-price quotes within 24 hours.
+
+## Primary services
 
 - [Auction Run-List Triage — Watch List Built Before You Reach the Office](https://www.autosmartcode.com/services/auction-run-list-triage): 5,000 cars in the sale cut to the few hundred worth bidding on, overnight. Your filters, Carfax, AutoCheck and MMR per VIN, notes written, watch list by 6 AM.
 - [Custom Dealer Extension — MMR, Carfax & AutoCheck on the Car Page in Real Time](https://www.autosmartcode.com/services/dealer-browser-extension): An Autoniq alternative built to your workflow: MMR, Carfax, AutoCheck and your margin maths on the listing in real time. $50–$100 a month, no setup fee.
-- [Car Auction Automation for Dealers and Wholesalers](https://www.autosmartcode.com/services/car-auction-automation): Automated auction data for dealers and wholesalers. Run lists from Manheim, ADESA, ACV or the private portal you actually buy on, scored against MMR daily.
+- [Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers](https://www.autosmartcode.com/services/marketplace-government-lease-sales): OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked daily for your buy box. New matches in your inbox each morning.
 - [Vehicle History Report Automation — Carfax, AutoCheck and VIN Data](https://www.autosmartcode.com/services/vehicle-history-reports): Stop pulling history reports one VIN at a time. Bulk VIN decoding and automated Carfax or AutoCheck retrieval through your own dealer account, in one sheet.
-- [Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers](https://www.autosmartcode.com/services/marketplace-government-lease-sales): OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked every day for your buy box. New matches in your inbox each morning.
+- [Car Auction Automation for Dealers and Wholesalers](https://www.autosmartcode.com/services/car-auction-automation): Automated auction data for dealers and wholesalers. Run lists from Manheim, ADESA, ACV or the private portal you actually buy on, scored against MMR daily.
 - [Custom Dealer Software — Manheim, Carfax, AutoCheck & Autoniq in One System](https://www.autosmartcode.com/services/custom-dealer-software): Custom software for car dealers and wholesalers that connects Manheim, MMR, Carfax, AutoCheck, Autoniq and your DMS into one dashboard built around how you buy.
 
-## Auctions and marketplaces (one page per platform)
+## Wholesale auction platforms (run lists, condition reports, MMR scoring)
 
-- [AutoTrader Scraper](https://www.autosmartcode.com/autotrader-scraper): Custom AutoTrader scraper pulling every matching listing daily: VIN, price, mileage, trim, dealer and photos in one clean spreadsheet.
-- [AutoScout24 Scraper](https://www.autosmartcode.com/autoscout24-scraper): AutoScout24 scraper for dealers and traders. Listings, prices, mileage and dealer details across Germany, Italy and every AutoScout24 market.
-- [CarMax Scraper](https://www.autosmartcode.com/carmax-scraper): CarMax scraper pulling live nationwide inventory: VIN, no-haggle price, mileage, trim, store location and transfer availability, refreshed daily.
-- [Carsales Scraper](https://www.autosmartcode.com/carsales-scraper): Carsales.com.au scraper for Australian dealers. Pull listings, prices, kilometres, dealer details and state-level market data into one dataset.
-- [Cars.com Scraper](https://www.autosmartcode.com/cars-com-scraper): Cars.com scraper capturing every matching listing: VIN, price, deal rating, mileage, dealer and photos, refreshed daily into Excel or Sheets.
-- [CarGurus Scraper](https://www.autosmartcode.com/cargurus-scraper): CarGurus scraper capturing listings, instant market value, deal ratings, price history and dealer reputation across any US market.
 - [Manheim MMR Scraper](https://www.autosmartcode.com/manheim-mmr-scraper): Automate Manheim MMR lookups through your own dealer account. Bulk VIN valuations, run-list scoring and a ranked deal email before the lane opens.
 - [ADESA Scraper](https://www.autosmartcode.com/adesa-scraper): Automate ADESA run lists, condition grades and sale calendars through your own dealer account. Every lot scored against MMR before the sale starts.
-- [BacklotCars Scraper](https://www.autosmartcode.com/backlotcars-scraper): Automate BacklotCars inventory, buy-now pricing and offer data through your own account. Every listing scored against market value, ranked daily.
-- [OpenLane Scraper](https://www.autosmartcode.com/openlane-scraper): Automate OPENLANE listings, condition reports and pricing through your own dealer account. Every lot scored against market value, ranked daily.
 - [ACV Auctions Scraper](https://www.autosmartcode.com/acv-auctions-scraper): Automate ACV Auctions listings, condition reports and inspection data through your own dealer account. Lots scored against your buy box, overnight.
-- [Copart Scraper](https://www.autosmartcode.com/copart-scraper): Copart scraper for rebuilders, exporters and parts buyers. Lot details, damage type, run-and-drive status, retail value and sale dates in one dataset.
-- [EDGE Pipeline Scraper](https://www.autosmartcode.com/edge-pipeline-scraper): Automate EDGE Pipeline and Simulcast run lists from the independent auctions you buy at. Every lane scored against your buy box in one overnight pass.
+- [OpenLane Scraper](https://www.autosmartcode.com/openlane-scraper): Automate OPENLANE listings, condition reports and pricing through your own dealer account. Every lot scored against market value, ranked daily.
+- [BacklotCars Scraper](https://www.autosmartcode.com/backlotcars-scraper): Automate BacklotCars inventory, buy-now pricing and offer data through your own account. Every listing scored against market value, ranked daily.
 - [SmartAuction Scraper](https://www.autosmartcode.com/smartauction-scraper): Automate Ally SmartAuction listings, condition reports and buy-now pricing through your own dealer account. Off-lease inventory scored daily.
+- [EDGE Pipeline Scraper](https://www.autosmartcode.com/edge-pipeline-scraper): Automate EDGE Pipeline and Simulcast run lists from the independent auctions you buy at. Every lane scored against your buy box in one overnight pass.
 - [Private Dealer Marketplace & Auction Portal Scraping](https://www.autosmartcode.com/dealer-marketplace-scraper): Most dealers buy on a platform nobody has heard of. If you can log into it, it can be automated: run lists, pricing and condition data, scored daily.
-- [AutoCheck Report Automation — Bulk VIN History Pulls](https://www.autosmartcode.com/autocheck-scraper): Pull AutoCheck reports for a whole run list through your own dealer account. Score, comparison range, title brands and announcements as columns, not PDFs.
-- [Carfax Report Automation — Bulk Vehicle History by VIN](https://www.autosmartcode.com/carfax-scraper): Run a whole VIN list through your own Carfax dealer account. Accidents, service records, owner count and title brands as spreadsheet columns, not PDFs.
-- [AutoNation Inventory Scraper — Dealer Group Listing Data](https://www.autosmartcode.com/autonation-scraper): Track AutoNation inventory across every rooftop: VIN, price, mileage, trim, store and days listed, in one refreshed sheet. Works for any dealer group.
-- [Otomoto Scraper](https://www.autosmartcode.com/otomoto-scraper): Custom Otomoto scraper pulling every matching Polish and Central European listing: price, mileage, VIN where shown, dealer and photos, in one sheet.
-- [eBay Motors Scraper](https://www.autosmartcode.com/ebay-motors-scraper): Custom eBay Motors scraper for dealers: live and sold vehicle listings, VIN, bids, Buy It Now price, mileage and seller, delivered daily as one clean sheet.
+
+## Salvage auctions
+
+- [Copart Scraper](https://www.autosmartcode.com/copart-scraper): Copart scraper for rebuilders, exporters and parts buyers. Lot details, damage type, run-and-drive status, retail value and sale dates in one dataset.
 - [IAA Auction Scraper](https://www.autosmartcode.com/iaa-scraper): Custom IAA scraper pulling every matching salvage and clean-title lot: damage, run-and-drive, ACV, title, odometer and sale date, in one daily sheet.
+
+## Vehicle history reports by VIN
+
+- [Carfax Report Automation — Bulk Vehicle History by VIN](https://www.autosmartcode.com/carfax-scraper): Run a whole VIN list through your own Carfax dealer account. Accidents, service records, owner count and title brands as spreadsheet columns, not PDFs.
+- [AutoCheck Report Automation — Bulk VIN History Pulls](https://www.autosmartcode.com/autocheck-scraper): Pull AutoCheck reports for a whole run list through your own dealer account. Score, comparison range, title brands and announcements as columns, not PDFs.
+
+## Marketplace, government and fleet sale monitoring
+
 - [Facebook Marketplace Car Alerts for Dealers](https://www.autosmartcode.com/facebook-marketplace-car-scraper): Facebook Marketplace car alerts for dealers: private-party vehicles matching your buy box across the cities you choose, with price, mileage and photos.
+- [eBay Motors Scraper](https://www.autosmartcode.com/ebay-motors-scraper): Custom eBay Motors scraper for dealers: live and sold vehicle listings, VIN, bids, Buy It Now price, mileage and seller, delivered daily as one clean sheet.
 - [GovDeals Vehicle Scraper & Alerts](https://www.autosmartcode.com/govdeals-scraper): GovDeals vehicle alerts for dealers: city, county and state fleet cars and trucks matching your buy box, with mileage, location, current bid and closing time.
 - [GSA Auctions Vehicle Scraper & Alerts](https://www.autosmartcode.com/gsa-auctions-scraper): GSA Auctions vehicle alerts for dealers: federal fleet cars, trucks and SUVs that match your buy box, with mileage, location, current bid and closing time.
 
-## Guides
+## Retail listing and market pricing data
 
-- [What Is Web Scraping? A Plain-English Guide for Car Dealers](https://www.autosmartcode.com/blog/what-is-web-scraping): No code, no jargon. What scraping is, how it turns an auction run list or a listings page into a spreadsheet, and what it can and cannot do for a dealership.
-- [Is Scraping Auction and Vehicle Data Legal? What Dealers Need to Know](https://www.autosmartcode.com/blog/is-web-scraping-legal): Public data, logged-in auction portals, history reports and terms of service — where the lines actually fall for a dealer automating their own accounts.
-- [What Auction and Dealer Data Automation Actually Costs in 2026](https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost): Real prices for run-list triage, bulk history reports, custom VIN extensions and inventory feeds. What drives the number up, and what a fair quote looks like.
-- [How to Automate Manheim MMR Price Checks (Without Breaking Your Account)](https://www.autosmartcode.com/blog/automate-manheim-mmr): Checking MMR one VIN at a time does not scale past a few dozen cars. How to pull Manheim Market Report values in bulk, safely, through your own dealer login.
-- [Why Your Auction Scraper Keeps Getting Blocked (And How to Fix It)](https://www.autosmartcode.com/blog/bypass-captcha-anti-bot-scraping): Rate limits, fingerprinting, session expiry and CAPTCHA walls are why overnight jobs die quietly. What actually causes blocks, and what fixes them.
-- [Free VIN Decoding with NHTSA vPIC: What You Get, and What You Still Have to Buy](https://www.autosmartcode.com/blog/free-vin-decoder-nhtsa-api): NHTSA vPIC decodes any VIN free and unlimited. What it returns, what it will never tell you, and how to use it to cut your paid lookup bill on a run list.
-- [How to Price Used Cars Against the Live Market, Not a Book Value](https://www.autosmartcode.com/blog/price-used-cars-market-data): Book values lag the market by weeks. How to price used cars against live wholesale and retail data instead, and what to do when the two disagree.
-- [Using AI to Clean Messy Vehicle Data (And When Not To)](https://www.autosmartcode.com/blog/ai-parsing-scraped-data): Condition reports and free-text announcements parse well with an LLM. VINs, prices and mileage do not. Where AI earns its place, and where it costs you.
-- [Self-Healing Scrapers: What AI Fixes When an Auction Site Changes](https://www.autosmartcode.com/blog/self-healing-scrapers-ai): A renamed CSS class an LLM can recover from. A new login flow it cannot. An honest account of what self-healing scraping fixes, and what still wakes you up.
+- [AutoTrader Scraper](https://www.autosmartcode.com/autotrader-scraper): Custom AutoTrader scraper pulling every matching listing daily: VIN, price, mileage, trim, dealer and photos in one clean spreadsheet.
+- [Cars.com Scraper](https://www.autosmartcode.com/cars-com-scraper): Cars.com scraper capturing every matching listing: VIN, price, deal rating, mileage, dealer and photos, refreshed daily into Excel or Sheets.
+- [CarGurus Scraper](https://www.autosmartcode.com/cargurus-scraper): CarGurus scraper capturing listings, instant market value, deal ratings, price history and dealer reputation across any US market.
+- [CarMax Scraper](https://www.autosmartcode.com/carmax-scraper): CarMax scraper pulling live nationwide inventory: VIN, no-haggle price, mileage, trim, store location and transfer availability, refreshed daily.
+- [AutoNation Inventory Scraper — Dealer Group Listing Data](https://www.autosmartcode.com/autonation-scraper): Track AutoNation inventory across every rooftop: VIN, price, mileage, trim, store and days listed, in one refreshed sheet. Works for any dealer group.
+- [AutoScout24 Scraper](https://www.autosmartcode.com/autoscout24-scraper): AutoScout24 scraper for dealers and traders. Listings, prices, mileage and dealer details across Germany, Italy and every AutoScout24 market.
+- [Carsales Scraper](https://www.autosmartcode.com/carsales-scraper): Carsales.com.au scraper for Australian dealers. Pull listings, prices, kilometres, dealer details and state-level market data into one dataset.
+- [Otomoto Scraper](https://www.autosmartcode.com/otomoto-scraper): Custom Otomoto scraper pulling every matching Polish and Central European listing: price, mileage, VIN where shown, dealer and photos, in one sheet.
+
+## Case studies (client work)
+
+- [Major Auto Sales — From 15 Cars to 200 as a Wholesaler](https://www.autosmartcode.com/projects/12): Ricky, Major Auto Sales — New York, USA. Daily auction and marketplace automation for a New York wholesaler.
+- [Car Auction Intelligence System](https://www.autosmartcode.com/projects/1): Used Car Dealership, New York. Full automation pipeline that scrapes live auction listings from Manheim MMR, BacklotCars, Autoniq, and ADESA daily.
+- [Facebook Marketplace Vehicle Scraper](https://www.autosmartcode.com/projects/7): Car Dealer, Florida. Automated scraper collecting vehicle listings from Facebook Marketplace across multiple US cities — make, model, year, price, mileage, seller contact info, and photos.
+- [Run-List Triage — 5,000 Cars Cut to a Working Watch List](https://www.autosmartcode.com/projects/10): Used Car Dealer, Southeast US. Overnight triage of a full auction run list.
+- [Custom VIN Panel Extension — An Autoniq Alternative, Built to Spec](https://www.autosmartcode.com/projects/11): Wholesaler, Florida. A Chrome extension that injects a data panel into the auction listing page.
+
+## Guides: MMR, valuation and vehicle history
+
 - [What Is MMR? The Manheim Market Report Explained for Dealers](https://www.autosmartcode.com/blog/what-is-mmr-manheim-market-report): What MMR actually measures, why it moves, how far to trust it against a specific car, and where it quietly misleads you. Written for dealers who bid on it.
-- [How to Automate Your Used-Car Merchandising Workflow](https://www.autosmartcode.com/blog/automate-car-merchandising-workflow): From auction win to live listing: photos, descriptions, pricing and syndication. Which merchandising steps automate cleanly, and which still need a person.
+- [How to Automate Manheim MMR Price Checks (Without Breaking Your Account)](https://www.autosmartcode.com/blog/automate-manheim-mmr): Checking MMR one VIN at a time does not scale past a few dozen cars. How to pull Manheim Market Report values in bulk, safely, through your own dealer login.
+- [How to Price Used Cars Against the Live Market, Not a Book Value](https://www.autosmartcode.com/blog/price-used-cars-market-data): Book values lag the market by weeks. How to price used cars against live wholesale and retail data instead, and what to do when the two disagree.
+- [How Fuel Prices Move Used Vehicle Values — and How to Track It in MMR](https://www.autosmartcode.com/blog/fuel-prices-used-vehicle-values): Fuel prices move truck and hybrid values on a predictable lag. How the lag works, how big it gets, and how to track it in MMR before the repricing hits.
 - [AutoCheck vs Carfax: Which Report to Trust, and How to Pull Both in Bulk](https://www.autosmartcode.com/blog/autocheck-vs-carfax-vehicle-history): The two reports disagree more often than dealers expect. Where each is strong, where each goes blind, and how to pull both per VIN without two tabs a car.
 - [What Is an AutoCheck Report? The Score, the History, and How to Read One](https://www.autosmartcode.com/blog/what-is-an-autocheck-report): What the AutoCheck score means, how it is built, what it covers that Carfax does not, and the blind spots nobody mentions. How to read one properly.
-- [AutoScraper vs a Custom Build: What the Python Library Can and Cannot Do](https://www.autosmartcode.com/blog/autoscraper-python-library-vs-custom-scraper): AutoScraper learns patterns from an example and works on simple pages. Where it stops, logins, pagination, anti-bot, scheduling, and what you need instead.
-- [How Fuel Prices Move Used Vehicle Values — and How to Track It in MMR](https://www.autosmartcode.com/blog/fuel-prices-used-vehicle-values): Fuel prices move truck and hybrid values on a predictable lag. How the lag works, how big it gets, and how to track it in MMR before the repricing hits.
-- [Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily](https://www.autosmartcode.com/blog/government-off-lease-car-auctions-dealers): GSA Auctions, GovDeals, police and municipal sales, and the off-lease closed-sale chain — where the cars come from, what makes them good buys, and how to monitor them without checking ten sites a day.
+- [Free VIN Decoding with NHTSA vPIC: What You Get, and What You Still Have to Buy](https://www.autosmartcode.com/blog/free-vin-decoder-nhtsa-api): NHTSA vPIC decodes any VIN free and unlimited. What it returns, what it will never tell you, and how to use it to cut your paid lookup bill on a run list.
+
+## Guides: sourcing, dealer workflow and buying decisions
+
 - [Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself](https://www.autosmartcode.com/blog/mmr-carfax-autocheck-on-listing-extension): The copy-VIN, open-tab, paste, come-back loop costs a buyer hours a week. How a custom browser extension reads the VIN off the page and shows MMR, history and your margin on the same screen.
+- [Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily](https://www.autosmartcode.com/blog/government-off-lease-car-auctions-dealers): GSA Auctions, GovDeals, police and municipal sales, and the off-lease closed-sale chain — where the cars come from, what makes them good buys, and how to monitor them without checking ten sites a day.
+- [How to Automate Your Used-Car Merchandising Workflow](https://www.autosmartcode.com/blog/automate-car-merchandising-workflow): From auction win to live listing: photos, descriptions, pricing and syndication. Which merchandising steps automate cleanly, and which still need a person.
+- [What Auction and Dealer Data Automation Actually Costs in 2026](https://www.autosmartcode.com/blog/how-much-does-web-scraping-cost): Real prices for run-list triage, bulk history reports, custom VIN extensions and inventory feeds. What drives the number up, and what a fair quote looks like.
+- [Is Scraping Auction and Vehicle Data Legal? What Dealers Need to Know](https://www.autosmartcode.com/blog/is-web-scraping-legal): Public data, logged-in auction portals, history reports and terms of service — where the lines actually fall for a dealer automating their own accounts.
 
-## Case studies
+## Guides: how auction data collection works
 
-- [Major Auto Sales — From 15 Cars to 200 as a Wholesaler](https://www.autosmartcode.com/projects/12): Daily auction and marketplace automation for a New York wholesaler. Every auction sale and the marketplaces he buys from are worked overnigh
-- [Car Auction Intelligence System](https://www.autosmartcode.com/projects/1): Full automation pipeline that scrapes live auction listings from Manheim MMR, BacklotCars, Autoniq, and ADESA daily. Compares each vehicle's
-- [Facebook Marketplace Vehicle Scraper](https://www.autosmartcode.com/projects/7): Automated scraper collecting vehicle listings from Facebook Marketplace across multiple US cities — make, model, year, price, mileage, selle
-- [Run-List Triage — 5,000 Cars Cut to a Working Watch List](https://www.autosmartcode.com/projects/10): Overnight triage of a full auction run list. Every lot in the sale is pulled, the dealer's own buy box is applied, each surviving VIN is enr
-- [Custom VIN Panel Extension — An Autoniq Alternative, Built to Spec](https://www.autosmartcode.com/projects/11): A Chrome extension that injects a data panel into the auction listing page. It reads the VIN off the page, decodes it, pulls title status, C
+- [What Is Web Scraping? A Plain-English Guide for Car Dealers](https://www.autosmartcode.com/blog/what-is-web-scraping): No code, no jargon. What scraping is, how it turns an auction run list or a listings page into a spreadsheet, and what it can and cannot do for a dealership.
+- [Why Your Auction Scraper Keeps Getting Blocked (And How to Fix It)](https://www.autosmartcode.com/blog/bypass-captcha-anti-bot-scraping): Rate limits, fingerprinting, session expiry and CAPTCHA walls are why overnight jobs die quietly. What actually causes blocks, and what fixes them.
+- [Self-Healing Scrapers: What AI Fixes When an Auction Site Changes](https://www.autosmartcode.com/blog/self-healing-scrapers-ai): A renamed CSS class an LLM can recover from. A new login flow it cannot. An honest account of what self-healing scraping fixes, and what still wakes you up.
+- [Using AI to Clean Messy Vehicle Data (And When Not To)](https://www.autosmartcode.com/blog/ai-parsing-scraped-data): Condition reports and free-text announcements parse well with an LLM. VINs, prices and mileage do not. Where AI earns its place, and where it costs you.
+- [AutoScraper vs a Custom Build: What the Python Library Can and Cannot Do](https://www.autosmartcode.com/blog/autoscraper-python-library-vs-custom-scraper): AutoScraper learns patterns from an example and works on simple pages. Where it stops, logins, pagination, anti-bot, scheduling, and what you need instead.
+
+## About and contact
+
+- [About Sam and AutoSmartCode](https://www.autosmartcode.com/about): who builds the software, the technical stack, and the markets served
+- [All services](https://www.autosmartcode.com/services): every service on one page, with the platform pages under each
+- [All case studies](https://www.autosmartcode.com/projects): client builds with the problem, the solution and the result
+- [Contact and quote](https://www.autosmartcode.com/#contact): send the auction or portal name and your buy box; fixed-price quote within 24 hours
 
 ## Optional
 
-- [Full site content as one document](https://www.autosmartcode.com/llms-full.txt): every page above, in full
-- [Sitemap](https://www.autosmartcode.com/sitemap.xml)
+- [Full site content as one Markdown document](https://www.autosmartcode.com/llms-full.txt): every service, platform page, guide and case study in full
+- [XML sitemap](https://www.autosmartcode.com/sitemap.xml)

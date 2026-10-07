@@ -50,11 +50,32 @@ const xmlEsc = s => String(s)
   .replace(/"/g, "&quot;").replace(/'/g, "&apos;");
 
 const iso = d => {
-  const parsed = new Date(d);
+  const parsed = new Date(d + " UTC"); // "June 10, 2025" is local midnight otherwise, a day early east of UTC
   return isNaN(parsed) ? new Date().toISOString().slice(0, 10)
                        : parsed.toISOString().slice(0, 10);
 };
 const today = new Date().toISOString().slice(0, 10);
+
+/**
+ * When a page's source last changed, from git. Stamping every URL with the
+ * build date told Google that every page changes on every deploy; once
+ * lastmod is shown to be wrong, Google ignores it for the whole site.
+ * Falls back to today outside a git checkout (e.g. a zip upload).
+ */
+const { execSync } = require("child_process");
+const gitDate = (...files) => {
+  const dates = files.map(file => {
+    try {
+      return execSync(`git log -1 --format=%cs -- "${file}"`, { cwd: root, stdio: ["ignore", "pipe", "ignore"] })
+        .toString().trim();
+    } catch { return ""; }
+  }).filter(Boolean).sort();
+  return dates.length ? dates[dates.length - 1] : today;
+};
+const SERVICES_DATE = gitDate("src/data/services.js", "src/pages/Services.jsx");
+const SCRAPERS_DATE = gitDate("src/data/scrapers.js", "src/pages/Scraper.jsx");
+const PROJECTS_DATE = gitDate("src/data/content.js", "src/pages/Projects.jsx");
+const HOME_DATE = gitDate("src/pages/Home.jsx", "src/data/pricing.js", "src/data/content.js");
 
 
 /** `image` is {src, alt} from src/data/images.js, or null for pages without one. */
@@ -81,19 +102,19 @@ const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
   '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
-  url("/", today, "weekly", "1.0"),
-  url("/services", today, "weekly", "0.9"),
-  url("/projects", today, "monthly", "0.8"),
-  url("/blog", today, "weekly", "0.8"),
-  url("/about", today, "monthly", "0.7"),
+  url("/", HOME_DATE, "weekly", "1.0"),
+  url("/services", SERVICES_DATE, "weekly", "0.9"),
+  url("/projects", PROJECTS_DATE, "monthly", "0.8"),
+  url("/blog", blogs.map(b => iso(b.date)).sort().pop(), "weekly", "0.8"),
+  url("/about", gitDate("src/pages/About.jsx"), "monthly", "0.7"),
   "",
   "  <!-- Service landing pages — the commercial-intent pages -->",
   ...services.map(s =>
-    url("/services/" + s.slug, today, "weekly", "0.9", serviceImage(s), s.h1)),
+    url("/services/" + s.slug, SERVICES_DATE, "weekly", "0.9", serviceImage(s), s.h1)),
   "",
   "  <!-- Per-site scraper pages — exact-match to search queries -->",
   ...scrapers.map(s =>
-    url("/" + s.slug, today, "weekly", "0.9", scraperImage(s), s.h1 || s.site + " Scraper")),
+    url("/" + s.slug, SCRAPERS_DATE, "weekly", "0.9", scraperImage(s), s.h1 || s.site + " Scraper")),
   "",
   "  <!-- Blog articles -->",
   ...blogs.map(b =>
@@ -101,7 +122,7 @@ const xml = [
   "",
   "  <!-- Project case studies -->",
   ...projects.map(pr =>
-    url("/projects/" + pr.id, today, "monthly", "0.6")),
+    url("/projects/" + pr.id, PROJECTS_DATE, "monthly", "0.6")),
   "</urlset>",
   "",
 ].join("\n");
