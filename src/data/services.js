@@ -556,7 +556,234 @@ export const services = [
   },
 
   /* ------------------------------------------------------------------ */
+  {
+    slug: "marketplace-government-lease-sales",
+    nav: "Marketplace, Gov & Lease Sales",
+    emoji: "📡",
+    accent: "amber",
+    color: "#fbbf24",
+    h1: "Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers",
+    metaTitle: "Marketplace, Government & Lease Sale Alerts",
+    metaDesc:
+      "OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked every day for your buy box. New matches in your inbox each morning.",
+    keywords: [
+      "facebook marketplace car alerts for dealers",
+      "government vehicle auction monitoring",
+      "govdeals car alerts",
+      "gsa auctions vehicles",
+      "off lease vehicle sales dealers",
+      "lease return car auctions",
+      "openlane daily listings",
+      "used car sourcing automation",
+      "dealer car sourcing tool",
+      "find cars to buy for dealership",
+    ],
+    hero:
+      "Every place good cars turn up outside the big lanes — OPENLANE, Facebook Marketplace, eBay Motors, government and fleet sales, off-lease and lease-return sales — checked daily against your buy box, with the matches waiting for you each morning.",
+    sections: [
+      {
+        h: "The cheap cars are not all in the Tuesday sale",
+        p: [
+          "Wholesale lanes are where most of the volume is, but they are also where every other buyer is looking. The cars that leave the most margin often show up somewhere quieter: a private seller on Facebook Marketplace who wants it gone this weekend, a county retiring a fleet of pickups on GovDeals, a federal agency listing sedans on GSA Auctions, a lease-return SUV that the grounding dealer passed on and is now in an online closed sale.",
+          "The problem is that these sources do not come to you. Each one has its own site, its own search, its own schedule, and none of them will tell you when the car you want is listed. Checking them by hand every day is a job nobody on a busy desk actually does — so the opportunities are simply missed.",
+        ],
+      },
+      {
+        h: "What gets watched, every day",
+        p: [
+          "You give me the buy box once — years, makes and models, mileage, price ceiling, distance from your store, title rules. Every source on your list is then searched on a schedule, new listings are compared against what was seen yesterday, and only the new matches come through.",
+        ],
+        list: [
+          "OPENLANE — dealer and off-lease inventory, including closed sales on your account",
+          "Facebook Marketplace — private-party vehicles across the cities you choose",
+          "eBay Motors — live auctions, Buy It Now and sold prices",
+          "Craigslist, AutoTrader private sellers and Cars.com private listings",
+          "GovDeals, GSA Auctions, Public Surplus and municipal or police auctions",
+          "Off-lease and lease-return sales — captive and bank closed sales you have access to",
+          "Fleet, rental and repo remarketing portals on your account",
+        ],
+      },
+      {
+        h: "Government and fleet sales, made usable",
+        p: [
+          "Government vehicles are some of the best-documented used cars sold anywhere — fleet maintenance, known mileage, usually one owner — but government auction sites were built for compliance, not for dealers. Listings are spread across thousands of agencies and locations, the search tools are basic, and closing times vary by lot.",
+          "The monitor reads them all into one list with the same columns as everything else: year, make, model, mileage, location, current bid, closing time and the lot link. Lots outside your distance or above your ceiling are dropped. The rest arrive with the closing time highlighted, so you only open the ones worth bidding on.",
+        ],
+      },
+      {
+        h: "Off-lease and lease-return cars, before the open sale",
+        p: [
+          "A leased car that comes back is usually offered to the grounding dealer first, then to a closed sale for that brand's dealers, then to the open market. Each step narrows the field of buyers. If you have access to those closed sales, the earlier you see a car the better the price — but closed-sale inventory changes daily and is easy to miss.",
+          "Where you hold the account, those sales are read on the same daily schedule, checked against your buy box, and the matching VINs get the same Carfax, AutoCheck and MMR lookups as any other car.",
+        ],
+      },
+      {
+        h: "Every match checked before it reaches you",
+        p: [
+          "A listing is only interesting if the car is. Matches with a VIN are run through Carfax, AutoCheck and MMR on your own accounts, then a margin is calculated using your recon and transport numbers. Cars that fail your history rules are dropped with the reason logged, so the morning list is short and every line on it is worth a look.",
+        ],
+      },
+      {
+        h: "How you get it",
+        p: [
+          "A morning email ranked by margin is the default, with a Google Sheet holding the full history. For fast-moving sources like Facebook Marketplace, an instant SMS, Telegram or Slack alert when a strong match is listed — because a good private-party car is often gone the same day.",
+        ],
+      },
+      {
+        h: "Accounts and limits",
+        p: [
+          "Sources that need a login — closed lease sales, OPENLANE, fleet portals — run on your own account. Public sources are read at a gentle pace. Some platforms, Facebook in particular, restrict automated access in their terms; for those the monitor is kept to low-volume alerts on your own logged-in session, and I will explain the risk before you decide. Nothing is ever bought or bid on automatically.",
+        ],
+      },
+    ],
+    deliverables: [
+      "Daily search of every source on your list",
+      "Only new listings — nothing you saw yesterday",
+      "Your buy box applied to every source the same way",
+      "Carfax, AutoCheck and MMR per VIN where a VIN is listed",
+      "Margin per car using your own recon and transport numbers",
+      "Government lots with closing times highlighted",
+      "Morning email ranked by margin, plus a Google Sheet",
+      "Instant alerts for fast-moving private-party cars",
+      "Failure alerting if a source stops returning data",
+    ],
+    platforms: ["OPENLANE", "Facebook Marketplace", "eBay Motors", "Craigslist", "GovDeals", "GSA Auctions", "Public Surplus", "Off-lease closed sales", "Fleet & rental portals"],
+    stack: ["Python", "Playwright", "Selenium", "Pandas", "Scheduling", "SMS / Telegram alerts", "Google Sheets API"],
+    faqs: [
+      {
+        q: "Which marketplaces can you monitor?",
+        a: "OPENLANE, Facebook Marketplace, eBay Motors, Craigslist, AutoTrader and Cars.com private listings, GovDeals, GSA Auctions, Public Surplus, municipal and police auctions, and the off-lease, fleet and repo portals you have access to. If you buy somewhere that is not on the list, send me the name — most sources can be added.",
+      },
+      {
+        q: "Can you monitor government vehicle auctions?",
+        a: "Yes. GovDeals, GSA Auctions, Public Surplus and many city, county and police auctions are read daily into one list with mileage, location, current bid and closing time. Lots outside your distance or price ceiling are filtered out before you see them.",
+      },
+      {
+        q: "What about off-lease and lease-return vehicles?",
+        a: "Where you have access to closed or captive lease sales, they are checked on the same daily schedule against your buy box, and matching VINs get Carfax, AutoCheck and MMR. Seeing a lease return in the closed sale, before it reaches the open market, is usually where the better price is.",
+      },
+      {
+        q: "Is monitoring Facebook Marketplace allowed?",
+        a: "Facebook's terms restrict automated access, so it carries more risk than other sources. When a dealer wants it, it is kept to low-volume searches and alerts on their own logged-in session, and I explain the risk first. Many dealers decide eBay Motors, Craigslist and government sales cover enough private and fleet supply without it.",
+      },
+      {
+        q: "How fast are the alerts?",
+        a: "Daily is standard and suits most sources. For private-party marketplaces, where a good car can sell in hours, matches can be checked several times a day with an instant SMS, Telegram or Slack alert.",
+      },
+      {
+        q: "What does marketplace and government sale monitoring cost?",
+        a: "It depends on how many sources and how often. A daily monitor across a handful of sources with a morning email typically starts in the same range as a single auction triage build. You get a fixed quote within 24 hours of sending the list of sources and your buy box.",
+      },
+    ],
+    related: ["auction-run-list-triage", "custom-dealer-software", "vehicle-history-reports"],
+    caseStudy: 7,
+  },
+
   /* ------------------------------------------------------------------ */
+  {
+    slug: "custom-dealer-software",
+    nav: "Custom Dealer Software",
+    emoji: "🛠️",
+    accent: "cyan",
+    color: "#22d3ee",
+    h1: "Custom Dealer Software — Manheim, Carfax, AutoCheck & Autoniq in One System",
+    metaTitle: "Custom Software for Car Dealers",
+    metaDesc:
+      "Custom software for car dealers and wholesalers that connects Manheim, MMR, Carfax, AutoCheck, Autoniq and your DMS into one dashboard built around how you buy.",
+    keywords: [
+      "custom software for car dealers",
+      "dealer software development",
+      "car dealer dashboard",
+      "manheim carfax integration",
+      "autoniq integration",
+      "wholesale car business software",
+      "used car buying software",
+      "dealer automation software",
+      "car dealer crm custom",
+      "auction buying software",
+    ],
+    hero:
+      "Your Manheim, MMR, Carfax, AutoCheck and Autoniq accounts working together in one system built around how your desk actually buys — not five logins and a spreadsheet holding it all together.",
+    sections: [
+      {
+        h: "Five good tools, no system",
+        p: [
+          "Most dealers and wholesalers already pay for the right data: Manheim and MMR for wholesale values, Carfax and AutoCheck for history, Autoniq or a similar tool for VIN lookups, a DMS for inventory, and maybe a book-value service on top. Each is good on its own. None of them talk to each other.",
+          "So the business runs on people moving numbers between tabs — copying a VIN here, pasting an MMR there, keeping a spreadsheet that is the only place everything lives. It works until you grow, and then the spreadsheet becomes the thing slowing you down.",
+        ],
+      },
+      {
+        h: "What a custom system looks like",
+        p: [
+          "One place your desk logs into. Cars arrive in it from wherever you source — auction run lists, marketplaces, trade-ins, government sales. Each one is enriched automatically with history, MMR and book values through your own subscriptions. Your rules score it. Your buyers see a ranked list, a margin and a max bid, and every decision is recorded.",
+        ],
+        list: [
+          "A buying dashboard with every car you are considering, from every source",
+          "Automatic Carfax, AutoCheck, MMR and book values per VIN",
+          "Your recon, transport, fee and margin rules applied to every car",
+          "Bought, passed and lost cars tracked with the reason",
+          "Purchase history and performance by auction, buyer and segment",
+          "Push into your DMS or inventory system when a car is bought",
+          "Alerts by email, SMS, Slack or Telegram",
+          "Access for your whole team with no per-seat licence",
+        ],
+      },
+      {
+        h: "Built on the accounts you already have",
+        p: [
+          "The system uses your existing Manheim, Carfax, AutoCheck and Autoniq access rather than replacing it. Where a provider offers an official API or data feed, that is used. Where it does not, the system works through your own logged-in session in the same way a person would — nothing is shared between clients and nothing is accessed that you are not licensed for.",
+        ],
+      },
+      {
+        h: "Start small, grow it",
+        p: [
+          "Most custom systems start from one piece that already saves time — usually overnight auction triage or a VIN-scan extension — and grow outward: add marketplaces, then a dashboard, then reporting, then the DMS hand-off. Each step is quoted separately at a fixed price, so you never commit to a large project before you have seen the first part work.",
+        ],
+      },
+      {
+        h: "You own it",
+        p: [
+          "The code and the data belong to you. There is no per-seat fee, so adding buyers does not add cost, and the source is handed over so you are never locked in. A small monthly covers hosting, monitoring and fixes when one of the sites it reads changes.",
+        ],
+      },
+    ],
+    deliverables: [
+      "One dashboard for every car you are considering",
+      "Manheim, MMR, Carfax, AutoCheck and Autoniq connected",
+      "Your buying rules and margin maths built in",
+      "Auction, marketplace and trade-in sources in one place",
+      "Reports on what you bought, passed and lost — and why",
+      "DMS or inventory hand-off when a car is bought",
+      "Team access with no per-seat licence",
+      "Source code and data owned by you",
+    ],
+    platforms: ["Manheim", "Manheim MMR", "Carfax", "AutoCheck", "Autoniq", "OPENLANE", "ACV Auctions", "Your DMS", "Google Sheets"],
+    stack: ["Python", "Node.js", "React", "PostgreSQL", "REST APIs", "Chrome extensions", "Scheduling"],
+    faqs: [
+      {
+        q: "Can you connect Manheim, Carfax and Autoniq into one system?",
+        a: "Yes, using your own accounts. Each source is read through its official API where one exists, or through your logged-in session where it does not, and the results are combined per VIN in one dashboard with your own margin rules applied.",
+      },
+      {
+        q: "Do I have to replace the tools I already pay for?",
+        a: "No. The system sits on top of the subscriptions you already have and makes them work together. Some dealers later drop a per-seat tool once the custom system covers what they used it for, but that is your call.",
+      },
+      {
+        q: "How long does a custom dealer system take?",
+        a: "The first useful piece is usually live in one to two weeks. Larger systems are built in stages, each with a fixed price and a working result, so you see progress every step instead of waiting months for one big delivery.",
+      },
+      {
+        q: "What does custom dealer software cost?",
+        a: "It depends on the scope, so every project is quoted at a fixed price after a short call about how your desk buys. Starting with a single piece — triage or an extension — keeps the first step affordable and lets the system grow as it pays for itself.",
+      },
+      {
+        q: "Who owns the software?",
+        a: "You do. The source code and all the data are handed over, there is no per-seat licence, and you are free to have anyone maintain it. A small monthly covers hosting and fixes if you want me to keep running it.",
+      },
+    ],
+    related: ["dealer-browser-extension", "auction-run-list-triage", "marketplace-government-lease-sales"],
+    caseStudy: 1,
+  },
 ];
 
 export const serviceBySlug = slug => services.find(s => s.slug === slug);

@@ -77,6 +77,28 @@
       <image:caption>Title card for the AutoSmartCode service page: Vehicle History Report Automation — Carfax, AutoCheck and VIN Data</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.autosmartcode.com/services/marketplace-government-lease-sales</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/marketplace-government-lease-sales.svg</image:loc>
+      <image:title>Daily Marketplace, Government &amp; Lease Sale Monitoring for Car Dealers</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Daily Marketplace, Government &amp; Lease Sale Monitoring for Car Dealers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/services/custom-dealer-software</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/services/custom-dealer-software.svg</image:loc>
+      <image:title>Custom Dealer Software — Manheim, Carfax, AutoCheck &amp; Autoniq in One System</image:title>
+      <image:caption>Title card for the AutoSmartCode service page: Custom Dealer Software — Manheim, Carfax, AutoCheck &amp; Autoniq in One System</image:caption>
+    </image:image>
+  </url>
 
   <!-- Per-site scraper pages — exact-match to search queries -->
   <url>
@@ -310,6 +332,39 @@
       <image:caption>Title card for the AutoSmartCode IAA scraper — automated IAA data extraction</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://www.autosmartcode.com/facebook-marketplace-car-scraper</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/facebook-marketplace-car-scraper.svg</image:loc>
+      <image:title>Facebook Marketplace Car Alerts for Dealers</image:title>
+      <image:caption>Title card for the AutoSmartCode Facebook Marketplace scraper — automated Facebook Marketplace data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/govdeals-scraper</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/govdeals-scraper.svg</image:loc>
+      <image:title>GovDeals Vehicle Scraper &amp; Alerts</image:title>
+      <image:caption>Title card for the AutoSmartCode GovDeals scraper — automated GovDeals data extraction</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/gsa-auctions-scraper</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/scrapers/gsa-auctions-scraper.svg</image:loc>
+      <image:title>GSA Auctions Vehicle Scraper &amp; Alerts</image:title>
+      <image:caption>Title card for the AutoSmartCode GSA Auctions scraper — automated GSA Auctions data extraction</image:caption>
+    </image:image>
+  </url>
 
   <!-- Blog articles -->
   <url>
@@ -475,6 +530,28 @@
       <image:loc>https://www.autosmartcode.com/img/blog/fuel-prices-used-vehicle-values.svg</image:loc>
       <image:title>How Fuel Prices Move Used Vehicle Values — and How to Track It in MMR</image:title>
       <image:caption>Title card for the AutoSmartCode guide to how fuel prices move used vehicle values and how to track it in MMR</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/government-off-lease-car-auctions-dealers</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/government-off-lease-car-auctions-dealers.svg</image:loc>
+      <image:title>Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily</image:title>
+      <image:caption>Title card for the AutoSmartCode article &quot;Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily&quot;</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.autosmartcode.com/blog/mmr-carfax-autocheck-on-listing-extension</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://www.autosmartcode.com/img/blog/mmr-carfax-autocheck-on-listing-extension.svg</image:loc>
+      <image:title>Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself</image:title>
+      <image:caption>Title card for the AutoSmartCode article &quot;Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself&quot;</image:caption>
     </image:image>
   </url>
 

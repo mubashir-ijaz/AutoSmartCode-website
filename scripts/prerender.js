@@ -193,8 +193,8 @@ routes.push({
   path: "/",
   title: "Car Dealer Automation & Auction Data Scraping | AutoSmartCode",
   description:
-    "Automation for car dealers and wholesalers: Manheim, ADESA, Copart and eBay Motors " +
-    "scraped, every VIN checked against Carfax, AutoCheck and MMR, watch list ready by 6 AM.",
+    "Car dealer automation: extensions showing MMR, Carfax & AutoCheck on the listing, " +
+    "overnight auction watch lists, and daily marketplace, government & lease sale alerts.",
   schema: {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -206,27 +206,33 @@ routes.push({
   // Must match the visible copy in Home.jsx.
   body:
     h1("Car dealer automation & auction data scraping") +
-    p("I pull every car from Manheim, ADESA, Copart, eBay Motors and 20+ other sites, check each VIN against Carfax, AutoCheck and MMR, and hand you a ranked buy list with notes — before the sale opens.") +
-    h2("The work your desk does by hand — done overnight") +
+    p("Extensions that show MMR, Carfax and AutoCheck on the car page. Auction watch lists built overnight while you sleep. Daily alerts from OPENLANE, Facebook Marketplace, eBay, government and lease sales. And custom software that ties it all together.") +
+    h2("Four ways I take the busywork off your desk") +
     ul([
-      "[Auction run-list triage](/services/auction-run-list-triage) — Manheim, ADESA, ACV and OPENLANE run lists read overnight, your filters applied, good cars in your watch list by 6 AM.",
-      "[Carfax & AutoCheck in bulk](/services/vehicle-history-reports) — hundreds of VINs checked at once on your own accounts.",
-      "[MMR & market pricing](/manheim-mmr-scraper) — MMR, retail comps and sold prices for every car, with a max bid that holds your margin.",
-      "[Find cars across every site](/ebay-motors-scraper) — eBay Motors, AutoTrader, CarGurus, Cars.com and Copart searched daily for your buy box.",
-      "[Custom dealer extension](/services/dealer-browser-extension) — an Autoniq-style panel built to your workflow, yours to keep.",
-      "[Competitor & inventory tracking](/services/car-auction-automation) — competitor lots, price drops and days on market, refreshed nightly.",
+      "[Scan the car, see everything on the same screen](/services/dealer-browser-extension) — a custom extension reads the VIN off the listing and shows MMR, Carfax, AutoCheck and your max bid right there.",
+      "[A clean watch list when you reach the office](/services/auction-run-list-triage) — while you sleep, the whole run list is read, filtered, checked and noted.",
+      "[Marketplaces, government & lease sales, every day](/services/marketplace-government-lease-sales) — OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked daily for your buy box.",
+      "[Manheim, Carfax & Autoniq working as one system](/services/custom-dealer-software) — software designed around how you buy, your accounts connected into one dashboard.",
     ]) +
-    h2("What happens to your run list overnight") +
-    p("Every car pulled, your filters applied, every surviving VIN checked, notes written and the watch list ready before anyone is in.") +
+    h2("Stop copying VINs. See MMR, Carfax & AutoCheck on the car page.") +
+    p("I build a browser extension for your desk that scans the car automatically and shows real-time data on the same screen — an Autoniq-style panel built around your margin, paid for once, free for every seat.") +
+    h2("I work while you sleep. You walk into a clean watch list.") +
     ul([
-      "Tell me your auctions and buy box — which sites you buy on and what a good car looks like.",
-      "See one real sale done for you — before you pay for a build.",
-      "It runs every sale day — overnight, on your own accounts, with alerts if a site changes.",
+      "10:00 PM — run lists pulled from Manheim, ADESA, ACV and OPENLANE",
+      "11:30 PM — your buy box applied",
+      "1:00 AM — every VIN checked against Carfax, AutoCheck, MMR and book values",
+      "3:30 AM — marketplaces and government sales checked for new matches",
+      "5:00 AM — notes and max bids written",
+      "6:00 AM — watch list ready and a ranked email in your inbox",
     ]) +
+    h2("Good cars outside the lanes — found for you every day") +
+    p("OPENLANE, eBay Motors, Facebook Marketplace, Craigslist, GSA Auctions, GovDeals, Public Surplus, police and municipal auctions, off-lease and lease-return sales, captive, bank, repo and fleet portals.") +
+    h2("Your Manheim, Carfax & Autoniq — working as one smart system") +
+    p("I design software around how your business buys and sells: the accounts you already pay for connected into one dashboard, your rules built in, and your team working from the same list.") +
     h2("Fixed prices. No per-seat fees.") +
     ul(PRICING.map(pr => pr.name + " — " + priceLine(pr))) +
     faqBlock(FAQS) +
-    linkList("Auctions, history reports and marketplaces", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +
+    linkList("Auctions, marketplaces, government sales and history reports", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +
     linkList("Services", services.map(s => ["/services/" + s.slug, s.h1])) +
     linkList("Guides", blogs.map(b => ["/blog/" + b.slug, b.title])),
 });

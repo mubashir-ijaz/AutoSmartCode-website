@@ -19,6 +19,8 @@ quoted before work starts.
 - [Custom Dealer Browser Extension — The Autoniq Alternative You Own](https://www.autosmartcode.com/services/dealer-browser-extension): An Autoniq alternative built to your spec: title, Carfax, AutoCheck, MMR and your own margin maths in one panel on the listing. Paid once, no per-seat fee.
 - [Car Auction Automation for Dealers and Wholesalers](https://www.autosmartcode.com/services/car-auction-automation): Automated auction data for dealers and wholesalers. Run lists from Manheim, ADESA, ACV or the private portal you actually buy on, scored against MMR daily.
 - [Vehicle History Report Automation — Carfax, AutoCheck and VIN Data](https://www.autosmartcode.com/services/vehicle-history-reports): Stop pulling history reports one VIN at a time. Bulk VIN decoding and automated Carfax or AutoCheck retrieval through your own dealer account, in one sheet.
+- [Daily Marketplace, Government & Lease Sale Monitoring for Car Dealers](https://www.autosmartcode.com/services/marketplace-government-lease-sales): OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked every day for your buy box. New matches in your inbox each morning.
+- [Custom Dealer Software — Manheim, Carfax, AutoCheck & Autoniq in One System](https://www.autosmartcode.com/services/custom-dealer-software): Custom software for car dealers and wholesalers that connects Manheim, MMR, Carfax, AutoCheck, Autoniq and your DMS into one dashboard built around how you buy.
 
 ## Auctions and marketplaces (one page per platform)
 
@@ -43,6 +45,9 @@ quoted before work starts.
 - [Otomoto Scraper](https://www.autosmartcode.com/otomoto-scraper): Custom Otomoto scraper pulling every matching Polish and Central European listing: price, mileage, VIN where shown, dealer and photos, in one sheet.
 - [eBay Motors Scraper](https://www.autosmartcode.com/ebay-motors-scraper): Custom eBay Motors scraper for dealers: live and sold vehicle listings, VIN, bids, Buy It Now price, mileage and seller, delivered daily as one clean sheet.
 - [IAA Auction Scraper](https://www.autosmartcode.com/iaa-scraper): Custom IAA scraper pulling every matching salvage and clean-title lot: damage, run-and-drive, ACV, title, odometer and sale date, in one daily sheet.
+- [Facebook Marketplace Car Alerts for Dealers](https://www.autosmartcode.com/facebook-marketplace-car-scraper): Facebook Marketplace car alerts for dealers: private-party vehicles matching your buy box across the cities you choose, with price, mileage and photos.
+- [GovDeals Vehicle Scraper & Alerts](https://www.autosmartcode.com/govdeals-scraper): GovDeals vehicle alerts for dealers: city, county and state fleet cars and trucks matching your buy box, with mileage, location, current bid and closing time.
+- [GSA Auctions Vehicle Scraper & Alerts](https://www.autosmartcode.com/gsa-auctions-scraper): GSA Auctions vehicle alerts for dealers: federal fleet cars, trucks and SUVs that match your buy box, with mileage, location, current bid and closing time.
 
 ## Guides
 
@@ -61,6 +66,8 @@ quoted before work starts.
 - [What Is an AutoCheck Report? The Score, the History, and How to Read One](https://www.autosmartcode.com/blog/what-is-an-autocheck-report): What the AutoCheck score means, how it is built, what it covers that Carfax does not, and the blind spots nobody mentions. How to read one properly.
 - [AutoScraper vs a Custom Build: What the Python Library Can and Cannot Do](https://www.autosmartcode.com/blog/autoscraper-python-library-vs-custom-scraper): AutoScraper learns patterns from an example and works on simple pages. Where it stops, logins, pagination, anti-bot, scheduling, and what you need instead.
 - [How Fuel Prices Move Used Vehicle Values — and How to Track It in MMR](https://www.autosmartcode.com/blog/fuel-prices-used-vehicle-values): Fuel prices move truck and hybrid values on a predictable lag. How the lag works, how big it gets, and how to track it in MMR before the repricing hits.
+- [Government and Off-Lease Car Auctions: Where Dealers Find Them and How to Watch Them Daily](https://www.autosmartcode.com/blog/government-off-lease-car-auctions-dealers): GSA Auctions, GovDeals, police and municipal sales, and the off-lease closed-sale chain — where the cars come from, what makes them good buys, and how to monitor them without checking ten sites a day.
+- [Stop Copying VINs: See MMR, Carfax and AutoCheck on the Auction Listing Itself](https://www.autosmartcode.com/blog/mmr-carfax-autocheck-on-listing-extension): The copy-VIN, open-tab, paste, come-back loop costs a buyer hours a week. How a custom browser extension reads the VIN off the page and shows MMR, history and your margin on the same screen.
 
 ## Case studies
 

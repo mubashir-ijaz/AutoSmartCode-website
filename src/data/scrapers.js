@@ -636,7 +636,7 @@ export const scrapers = [
         a: "Listing extraction with scoring typically runs $600 to $1,200. Adding condition reports and cross-platform MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
       },
     ],
-    pillar: "car-auction-automation",
+    pillar: "marketplace-government-lease-sales",
     siblings: ["smartauction-scraper", "dealer-marketplace-scraper", "manheim-mmr-scraper"],
   },
 
@@ -1289,8 +1289,8 @@ export const scrapers = [
         a: "A daily feed for a defined buy box with alerts typically runs $300 to $650 to build plus a small monthly to keep it running. Adding history reports and MMR per VIN is quoted on top. Fixed quote within 24 hours.",
       },
     ],
-    pillar: "car-auction-automation",
-    siblings: ["copart-scraper", "autotrader-scraper", "carfax-scraper"],
+    pillar: "marketplace-government-lease-sales",
+    siblings: ["facebook-marketplace-car-scraper", "copart-scraper", "govdeals-scraper"],
   },
 
   {
@@ -1342,6 +1342,166 @@ export const scrapers = [
     ],
     pillar: "car-auction-automation",
     siblings: ["copart-scraper", "ebay-motors-scraper", "manheim-mmr-scraper"],
+  },
+
+  {
+    slug: "facebook-marketplace-car-scraper",
+    site: "Facebook Marketplace",
+    h1: "Facebook Marketplace Car Alerts for Dealers",
+    emoji: "📘",
+    color: "#60a5fa",
+    metaTitle: "Facebook Marketplace Car Scraper & Alerts",
+    metaDesc:
+      "Facebook Marketplace car alerts for dealers: private-party vehicles matching your buy box across the cities you choose, with price, mileage and photos.",
+    keywords: ["facebook marketplace car scraper", "facebook marketplace vehicle alerts", "facebook marketplace cars for dealers", "private party car sourcing", "facebook marketplace car data", "find private seller cars"],
+    tagline: "Private-party cars that fit your buy box, from the cities you choose — before the next dealer messages the seller.",
+    what:
+      "Facebook Marketplace has become one of the largest private-party used-car markets in the US, with sellers listing cars they want gone quickly and often priced below retail. Listings carry the year, make, model, asking price, mileage, location, photos and the seller's description — and they move fast.",
+    why:
+      "Dealers source from it because private-party cars skip the auction fee and the competition of a wholesale lane. The catch is time: searching ten cities by hand every day is not realistic, and the good cars are gone within hours. A monitor that watches for your buy box and alerts you the moment a match appears is what turns Marketplace into a sourcing channel instead of a scroll.",
+    fields: [
+      "Year, make, model and trim as listed",
+      "Asking price and price drops",
+      "Mileage, title status and transmission where stated",
+      "City and distance from your store",
+      "Listing age — when it was posted",
+      "Seller description text",
+      "Photo URLs and the listing link",
+    ],
+    defenses:
+      "Marketplace requires a logged-in session, renders through heavy JavaScript and actively limits automated access — Facebook's terms restrict it. A Marketplace monitor is therefore kept deliberately small: it runs on your own account, at a low and human pace, on a narrow set of searches, and its job is to alert you rather than to collect data in bulk. I will explain the account risk before you decide whether it is worth it.",
+    uses: [
+      "Instant alert when a car matching your buy box is listed nearby",
+      "Watch ten or more cities without opening ten searches",
+      "Spot price drops on cars you are already watching",
+      "Check asking price against MMR before you message the seller",
+      "Track how quickly private-party prices move for a model",
+    ],
+    faqs: [
+      {
+        q: "Is it allowed to scrape Facebook Marketplace?",
+        a: "Facebook's terms restrict automated access, so this carries real account risk and is not something to run at volume. When a dealer wants it, it is built as a low-volume alert tool on their own session, and I explain the trade-off first. Many dealers get enough private-party supply from eBay Motors and Craigslist, which carry less risk.",
+      },
+      {
+        q: "How quickly will I hear about a new car?",
+        a: "Searches can run several times a day, with an SMS, Telegram or Slack message when a strong match appears — Marketplace cars often sell the same day, so speed is the whole point.",
+      },
+      {
+        q: "Can it check the car against Carfax and MMR?",
+        a: "When the seller has included the VIN, yes. Otherwise the alert shows year, model and mileage so you can ask for the VIN, and the MMR range for that car is attached as a guide.",
+      },
+      {
+        q: "What does a Facebook Marketplace monitor cost?",
+        a: "Usually included as one source within a marketplace monitoring build, alongside eBay Motors, Craigslist and government sales. Fixed quote within 24 hours.",
+      },
+    ],
+    pillar: "marketplace-government-lease-sales",
+    siblings: ["ebay-motors-scraper", "govdeals-scraper", "gsa-auctions-scraper"],
+  },
+
+  {
+    slug: "govdeals-scraper",
+    site: "GovDeals",
+    h1: "GovDeals Vehicle Scraper & Alerts",
+    emoji: "🏛️",
+    color: "#34d399",
+    metaTitle: "GovDeals Scraper — Government Vehicle Alerts",
+    metaDesc:
+      "GovDeals vehicle alerts for dealers: city, county and state fleet cars and trucks matching your buy box, with mileage, location, current bid and closing time.",
+    keywords: ["govdeals scraper", "govdeals vehicle alerts", "government car auctions for dealers", "govdeals cars", "municipal vehicle auctions", "government fleet vehicles for sale"],
+    tagline: "City, county and state fleet vehicles across thousands of agencies — the ones that fit your buy box, with closing times, every morning.",
+    what:
+      "GovDeals is an online marketplace where thousands of US state and local government agencies — cities, counties, school districts, utilities and police departments — sell surplus assets, including a steady flow of fleet cars, pickups, vans and SUVs. Listings typically include mileage, condition notes, photos, the agency's location, the current bid and the closing time.",
+    why:
+      "Government fleet vehicles are often well-maintained and single-owner, and many sell without the competition of a wholesale lane. The problem for a dealer is spread: listings come from thousands of agencies across the country, each closing on its own schedule, and the site's search is built for the public rather than for a buyer with a margin target. A daily feed filtered to your distance, mileage and price turns that into a short list worth bidding on.",
+    fields: [
+      "Year, make, model and body type",
+      "Mileage and condition notes as described",
+      "VIN where listed",
+      "Selling agency, city and state",
+      "Current bid, bid count and reserve status",
+      "Closing date and time",
+      "Photo URLs and the listing link",
+    ],
+    defenses:
+      "GovDeals is a public site with modest rate limits. The build paces requests, reads each category and region in slices, and tracks lots across days so you see new listings and changing bids rather than the same lots every morning.",
+    uses: [
+      "Daily list of new fleet cars and trucks within your transport range",
+      "Alerts for lots closing today that are still below your max",
+      "Find specific body types — police interceptors, work trucks, vans",
+      "Check VINs against Carfax, AutoCheck and MMR before bidding",
+      "Track what similar government lots actually sold for",
+    ],
+    faqs: [
+      {
+        q: "Are government auction cars good buys for dealers?",
+        a: "Often. Fleet vehicles usually have maintenance records and one owner, but condition varies widely — high idle hours on police units, for example. That is why each lot is checked against your rules and, where a VIN is listed, Carfax, AutoCheck and MMR.",
+      },
+      {
+        q: "Can you combine GovDeals with GSA Auctions and other government sales?",
+        a: "Yes. GovDeals, GSA Auctions, Public Surplus and local police or municipal auctions can be read into one daily list with the same columns, so you see all government supply in one place.",
+      },
+      {
+        q: "Will it bid for me?",
+        a: "No. It finds and checks lots and tells you what closes when. You place the bids.",
+      },
+      {
+        q: "What does a GovDeals scraper cost?",
+        a: "Usually built as part of a government and marketplace monitor. A daily filtered feed with alerts is quoted at a fixed price within 24 hours.",
+      },
+    ],
+    pillar: "marketplace-government-lease-sales",
+    siblings: ["gsa-auctions-scraper", "facebook-marketplace-car-scraper", "ebay-motors-scraper"],
+  },
+
+  {
+    slug: "gsa-auctions-scraper",
+    site: "GSA Auctions",
+    h1: "GSA Auctions Vehicle Scraper & Alerts",
+    emoji: "🇺🇸",
+    color: "#a78bfa",
+    metaTitle: "GSA Auctions Scraper — Federal Fleet Vehicles",
+    metaDesc:
+      "GSA Auctions vehicle alerts for dealers: federal fleet cars, trucks and SUVs that match your buy box, with mileage, location, current bid and closing time.",
+    keywords: ["gsa auctions scraper", "gsa auctions vehicles", "federal fleet vehicles for sale", "gsa auto auctions", "government surplus cars", "gsa vehicle alerts"],
+    tagline: "Federal fleet cars, trucks and SUVs — filtered to your buy box and your transport range, with closing times, every day.",
+    what:
+      "GSA Auctions is the US General Services Administration's online sale for surplus federal property, including vehicles retired from federal agency fleets. Vehicle lots list the year, make, model, mileage, location, condition notes, photos, the current bid and the closing time, and many include the VIN.",
+    why:
+      "Federal fleet vehicles are typically maintained on a schedule and retired by age or mileage, which makes them predictable buys. They are also spread across sale locations nationwide with staggered closing times. A daily feed that drops everything outside your distance and price ceiling, and highlights what closes soon, makes GSA a regular sourcing channel instead of an occasional browse.",
+    fields: [
+      "Year, make, model and body type",
+      "Mileage and condition notes",
+      "VIN where listed",
+      "Sale location, city and state",
+      "Current bid and closing date and time",
+      "Photo URLs and the lot link",
+    ],
+    defenses:
+      "GSA Auctions is a public government site. The build reads it at a gentle pace, tracks lots across days so you see what is new and how bids move, and normalises the fields to match your other sources.",
+    uses: [
+      "Daily list of new federal fleet vehicles near you",
+      "Alerts for lots closing soon still under your max bid",
+      "Run listed VINs through Carfax, AutoCheck and MMR",
+      "Combine with GovDeals and local auctions in one sheet",
+      "Track sold prices to set better max bids",
+    ],
+    faqs: [
+      {
+        q: "Can dealers buy on GSA Auctions?",
+        a: "GSA Auctions is open to the public, including dealers, subject to its registration and payment terms. The monitor finds and checks the lots; registering and bidding is done by you.",
+      },
+      {
+        q: "Can you combine GSA with other government sales?",
+        a: "Yes — GSA Auctions, GovDeals, Public Surplus and local police or municipal sales can all land in one daily list with the same columns.",
+      },
+      {
+        q: "What does a GSA Auctions monitor cost?",
+        a: "Usually built as part of a government and marketplace monitor. Fixed quote within 24 hours of sending your buy box and the sources you want.",
+      },
+    ],
+    pillar: "marketplace-government-lease-sales",
+    siblings: ["govdeals-scraper", "facebook-marketplace-car-scraper", "ebay-motors-scraper"],
   },
 
 ];

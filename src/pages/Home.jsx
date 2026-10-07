@@ -7,8 +7,10 @@ import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
 import { useSeo } from "../useSeo";
 import AuctionPipeline from "../components/AuctionPipeline";
 import Photo from "../components/Photo";
+import ExtensionDemo from "../components/ExtensionDemo";
 import "./Home.css";
 import "../components/AuctionPipeline.css";
+import "../components/ExtensionDemo.css";
 
 /* The homepage sells one thing to one buyer: automation and data for the car
    trade. A visitor should understand it from the hero alone — real cars in the
@@ -30,66 +32,92 @@ const DEMO_CARS = [
   { car: "2020 Honda Accord Sport", meta: "44k mi · Grade 3.9 · Clean Carfax", mmr: "$19,750", max: "$17,400", keep: true },
 ];
 
-/* The six jobs. Each card is a photo, a plain sentence and a link to the page
-   that explains it properly. */
-const JOBS = [
+/* The four things AutoSmartCode does, in the order a dealer meets them. Each
+   is a photo card linking to the page that explains it properly. */
+const OFFERS = [
   {
-    photo: "auction-yard", icon: "🔨",
-    title: "Auction run-list triage",
-    text: "Manheim, ADESA, ACV and OPENLANE run lists read overnight. Your filters applied to every car, bad ones dropped, good ones in your watch list by 6 AM.",
-    to: "/services/auction-run-list-triage",
+    photo: "suv-lineup", icon: "🧩", tag: "Browser extension",
+    title: "Scan the car, see everything on the same screen",
+    text: "A custom extension reads the VIN off the listing and shows MMR, Carfax, AutoCheck and your max bid right there — no copying VINs, no five tabs, no coming back.",
+    to: "/services/dealer-browser-extension", anchor: "#extension",
   },
   {
-    photo: "parked-row", icon: "📄",
-    title: "Carfax & AutoCheck in bulk",
-    text: "Hundreds of VINs checked at once on your own accounts — accidents, owners, title brands and odometer flags in one sheet instead of 300 tabs.",
-    to: "/services/vehicle-history-reports",
+    photo: "auction-yard", icon: "🌙", tag: "Overnight auction triage",
+    title: "A clean watch list when you reach the office",
+    text: "While you sleep, the whole run list is read, filtered, checked and noted. By 6 AM the cars worth bidding on are in your watch list, ranked by margin.",
+    to: "/services/auction-run-list-triage", anchor: "#overnight",
   },
   {
-    photo: "lot-rows", icon: "📈",
-    title: "MMR & market pricing",
-    text: "Manheim MMR, retail comps and sold prices pulled for every car, so each one comes with a max bid that still holds your margin.",
-    to: "/manheim-mmr-scraper",
+    photo: "dealer-forecourt", icon: "📡", tag: "Daily marketplace monitoring",
+    title: "Marketplaces, government & lease sales, every day",
+    text: "OPENLANE, Facebook Marketplace, eBay Motors, GovDeals, GSA Auctions and off-lease sales checked daily for your buy box. Only new matches reach you.",
+    to: "/services/marketplace-government-lease-sales", anchor: "#marketplaces",
   },
   {
-    photo: "dealer-forecourt", icon: "🔎",
-    title: "Find cars across every site",
-    text: "eBay Motors, AutoTrader, CarGurus, Cars.com and Copart searched daily for your buy box. You get an alert when a match lists under your number.",
-    to: "/ebay-motors-scraper",
-  },
-  {
-    photo: "suv-lineup", icon: "🧩",
-    title: "Custom dealer extension",
-    text: "An Autoniq-style browser panel built to your workflow — scan a VIN and history, MMR and your margin show on the listing. Yours to keep, no per-seat fee.",
-    to: "/services/dealer-browser-extension",
-  },
-  {
-    photo: "open-road", icon: "🏁",
-    title: "Competitor & inventory tracking",
-    text: "Watch competitor lots and price drops, days on market by trim, and what's selling in your area — refreshed every night, delivered to a sheet or your DMS.",
-    to: "/services/car-auction-automation",
+    photo: "showroom", icon: "🛠️", tag: "Custom dealer software",
+    title: "Manheim, Carfax & Autoniq working as one system",
+    text: "Software designed around how you buy — your accounts connected into one dashboard with your rules built in, so the business grows without more tabs.",
+    to: "/services/custom-dealer-software", anchor: "#software",
   },
 ];
+
+/* The extension section's before/after — the loop every buyer recognises. */
+const OLD_WAY = [
+  "Copy the VIN off the listing",
+  "Open Carfax, paste, wait",
+  "Open AutoCheck, paste, wait",
+  "Open MMR, paste, adjust mileage",
+  "Type it all into your margin sheet",
+  "Go back to the car — next one",
+];
+const NEW_WAY = [
+  "Open the listing",
+  "MMR, Carfax & AutoCheck appear on the page",
+  "Your recon, fees & margin already worked out",
+  "Max bid and BID / PASS — decide and move on",
+];
+
+/* What happens overnight, by the clock. */
+const NIGHT = [
+  { t: "10:00 PM", h: "Run lists pulled", d: "Every car in tomorrow's Manheim, ADESA, ACV and OPENLANE sales." },
+  { t: "11:30 PM", h: "Your buy box applied", d: "Years, mileage, grade, title and margin rules — most of the sale drops out." },
+  { t: "1:00 AM", h: "Every VIN checked", d: "Carfax, AutoCheck, MMR and book values pulled on your own accounts." },
+  { t: "3:30 AM", h: "Marketplaces & gov sales", d: "Facebook, eBay, GovDeals, GSA and lease sales checked for new matches." },
+  { t: "5:00 AM", h: "Notes & max bids written", d: "One note per car in your wording, ending on the bid that holds your margin." },
+  { t: "6:00 AM", h: "Watch list ready", d: "Cars in the auction's watch list and a ranked email in your inbox." },
+];
+
+/* Where marketplace monitoring looks, grouped for the band. */
+const SOURCES = [
+  { title: "Online & dealer marketplaces", items: ["OPENLANE", "eBay Motors", "Facebook Marketplace", "Craigslist", "AutoTrader private", "Cars.com private"] },
+  { title: "Government & fleet sales", items: ["GSA Auctions", "GovDeals", "Public Surplus", "Police & municipal", "Fleet & rental portals"] },
+  { title: "Lease & repo sales", items: ["Off-lease closed sales", "Lease-return sales", "Captive & bank sales", "Repo & lender portals"] },
+];
+
+/* The custom-software diagram: what plugs into the hub, and what comes out. */
+const HUB_IN = ["Manheim", "MMR", "Carfax", "AutoCheck", "Autoniq", "OPENLANE / ACV"];
+const HUB_OUT = ["Ranked buy list", "Max bid per car", "Team dashboard", "DMS hand-off", "SMS & email alerts", "Buy / pass reports"];
 
 const STATS = [
   { n: "5,000 → 800", l: "cars in the sale, cut to the ones worth bidding on" },
   { n: "6 AM", l: "watch list ready, notes written, before you're in" },
-  { n: "20+", l: "auctions, report sites and marketplaces automated" },
-  { n: "3–7 days", l: "from first email to running every sale day" },
+  { n: "25+", l: "auctions, marketplaces and government sales automated" },
+  { n: "0", l: "VINs copied by hand with a custom extension" },
 ];
 
 const STEPS = [
-  { n: "1", title: "Tell me your auctions and buy box", desc: "Which sites you buy on and what a good car looks like — years, mileage, grade, title, margin. Plain English is fine." },
-  { n: "2", title: "See one real sale done for you", desc: "Before you pay for a build I run your rules on an actual upcoming sale and send you the list. Wrong calls get fixed then." },
-  { n: "3", title: "It runs every sale day", desc: "Overnight, on your own accounts. If an auction site changes, you get an alert the same morning and I fix it." },
+  { n: "1", title: "Tell me how you buy", desc: "Which auctions and marketplaces you use and what a good car looks like — years, mileage, grade, title, margin. Plain English is fine." },
+  { n: "2", title: "See it work first", desc: "Before you pay for a build I run your rules on a real upcoming sale and send you the list. Wrong calls get fixed then." },
+  { n: "3", title: "It runs every day", desc: "On your own accounts, while you sleep. If a site changes, you get an alert the same morning and I fix it." },
 ];
 
 /* Every platform page, grouped the way a buyer thinks about them. */
 const SITE_GROUPS = [
   { title: "Wholesale auctions", slugs: ["manheim-mmr-scraper", "adesa-scraper", "acv-auctions-scraper", "openlane-scraper", "backlotcars-scraper", "edge-pipeline-scraper", "smartauction-scraper", "dealer-marketplace-scraper"] },
-  { title: "Salvage auctions", slugs: ["copart-scraper", "iaa-scraper"] },
+  { title: "Marketplaces", slugs: ["facebook-marketplace-car-scraper", "ebay-motors-scraper", "autotrader-scraper", "cars-com-scraper", "cargurus-scraper", "carmax-scraper", "autonation-scraper"] },
+  { title: "Government & salvage", slugs: ["govdeals-scraper", "gsa-auctions-scraper", "copart-scraper", "iaa-scraper"] },
   { title: "History reports", slugs: ["carfax-scraper", "autocheck-scraper"] },
-  { title: "Retail marketplaces", slugs: ["ebay-motors-scraper", "autotrader-scraper", "cars-com-scraper", "cargurus-scraper", "carmax-scraper", "autonation-scraper", "autoscout24-scraper", "carsales-scraper", "otomoto-scraper"] },
+  { title: "International", slugs: ["autoscout24-scraper", "carsales-scraper", "otomoto-scraper"] },
 ];
 
 const TESTIMONIALS = [
@@ -186,12 +214,11 @@ function PricingBand() {
 /* ---------------- Contact form ---------------- */
 
 const NEEDS = [
-  "Auction run-list triage & watch list",
+  "Extension — MMR, Carfax & AutoCheck on the listing",
+  "Overnight auction watch list",
+  "Marketplace, government & lease sale alerts",
+  "Custom software — connect Manheim, Carfax, Autoniq",
   "Carfax / AutoCheck reports in bulk",
-  "MMR / market pricing automation",
-  "Find cars on eBay Motors, AutoTrader & others",
-  "Custom dealer browser extension",
-  "Competitor & inventory tracking",
   "One-off data pull (one sale)",
   "Something else / not sure",
 ];
@@ -274,8 +301,8 @@ export default function Home() {
   useSeo({
     title: "Car Dealer Automation & Auction Data Scraping | AutoSmartCode",
     description:
-      "Automation for car dealers and wholesalers: Manheim, ADESA, Copart and eBay Motors " +
-      "scraped, every VIN checked against Carfax, AutoCheck and MMR, watch list ready by 6 AM.",
+      "Car dealer automation: extensions showing MMR, Carfax & AutoCheck on the listing, " +
+      "overnight auction watch lists, and daily marketplace, government & lease sale alerts.",
     path: "/",
     schema: {
       "@context": "https://schema.org",
@@ -307,17 +334,19 @@ export default function Home() {
             </h1>
 
             <p className="hero-desc">
-              I pull every car from <strong>Manheim, ADESA, Copart, eBay Motors</strong> and 20+
-              other sites, check each VIN against <strong>Carfax, AutoCheck and MMR</strong>, and
-              hand you a ranked buy list with notes — before the sale opens.
+              Extensions that show <strong>MMR, Carfax and AutoCheck on the car page</strong>.
+              Auction watch lists <strong>built overnight while you sleep</strong>. Daily alerts from
+              OPENLANE, Facebook Marketplace, eBay, government and lease sales. And custom software
+              that ties it all together.
             </p>
 
             <div className="hero-actions">
               <a href="#contact" className="btn btn-blue">Get a Free Quote →</a>
-              <a href="#how" className="btn btn-outline">See how it works</a>
+              <a href="#services" className="btn btn-outline">See what I build</a>
             </div>
 
             <div className="hero-trust">
+              <span>🌙 Works while you sleep</span>
               <span>⚡ Live in 3–7 days</span>
               <span>🔒 Runs on your own accounts</span>
               <span>💵 From {money(priceById("oneoff").build)}</span>
@@ -336,28 +365,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ WHAT I AUTOMATE ============ */}
-      <section className="section jobs-section" id="services">
+      {/* ============ FOUR OFFERS ============ */}
+      <section className="section offers-section" id="services">
         <div className="container">
           <div className="section-head">
-            <span className="s-label">What gets automated</span>
-            <h2 className="s-title">The work your desk does by hand — done overnight</h2>
+            <span className="s-label">What I build for dealers</span>
+            <h2 className="s-title">Four ways I take the busywork off your desk</h2>
             <p className="s-sub">
-              Six jobs every dealer and wholesaler repeats each week. Each one runs on a
-              schedule and lands in your inbox, a Google Sheet or the auction's own watch list.
+              Built for car dealers, wholesalers and auction buyers. Each one runs on your own
+              accounts and pays for itself in hours saved and cars you would have missed.
             </p>
           </div>
 
-          <div className="jobs-grid">
-            {JOBS.map(j => (
-              <Link to={j.to} key={j.title} className="job-card">
-                <div className="job-photo">
-                  <Photo name={j.photo} alt="" />
-                  <span className="job-icon">{j.icon}</span>
+          <div className="offers-grid">
+            {OFFERS.map((o, i) => (
+              <Link to={o.to} key={o.title} className="offer-card">
+                <div className="offer-photo">
+                  <Photo name={o.photo} alt="" />
+                  <span className="offer-num">{String(i + 1).padStart(2, "0")}</span>
                 </div>
-                <div className="job-body">
-                  <h3>{j.title}</h3>
-                  <p>{j.text}</p>
+                <div className="offer-body">
+                  <span className="offer-tag">{o.icon} {o.tag}</span>
+                  <h3>{o.title}</h3>
+                  <p>{o.text}</p>
                   <span className="job-more">Learn more →</span>
                 </div>
               </Link>
@@ -366,20 +396,146 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="section how-section" id="how">
+      {/* ============ 1 · EXTENSION ============ */}
+      <section className="section ext-section" id="extension">
         <div className="container">
           <div className="section-head">
-            <span className="s-label">How it works</span>
-            <h2 className="s-title">What happens to your run list overnight</h2>
+            <span className="s-label">01 · Custom VIN extension</span>
+            <h2 className="s-title">Stop copying VINs. See MMR, Carfax &amp; AutoCheck on the car page.</h2>
             <p className="s-sub">
-              Every car pulled, your filters applied, every surviving VIN checked, notes
-              written and the watch list ready before anyone is in.
+              I build a browser extension for your desk that scans the car automatically and
+              shows real-time data on the same screen — an Autoniq-style panel built around
+              your margin, paid for once, free for every seat.
             </p>
           </div>
 
+          <div className="ba-grid">
+            <div className="ba-card ba-old">
+              <div className="ba-head"><span>✕</span> The way it works today</div>
+              <ol>{OLD_WAY.map(s => <li key={s}>{s}</li>)}</ol>
+              <div className="ba-foot">≈ 2 minutes a car · 50 cars = 1.5+ hours</div>
+            </div>
+            <div className="ba-card ba-new">
+              <div className="ba-head"><span>✓</span> With your own extension</div>
+              <ol>{NEW_WAY.map(s => <li key={s}>{s}</li>)}</ol>
+              <div className="ba-foot">A few seconds a car · nothing to paste</div>
+            </div>
+          </div>
+
+          <div className="ext-demo-wrap">
+            <ExtensionDemo />
+          </div>
+
+          <div className="section-ctas">
+            <Link to="/services/dealer-browser-extension" className="btn btn-blue">How the extension works →</Link>
+            <span className="cta-note">Works on Manheim, ADESA, ACV, OPENLANE &amp; private portals · from {money(priceById("extension").build)}</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 2 · OVERNIGHT ============ */}
+      <section className="section how-section" id="overnight">
+        <div className="container">
+          <div className="section-head">
+            <span className="s-label">02 · Overnight auction triage</span>
+            <h2 className="s-title">I work while you sleep. You walk into a clean watch list.</h2>
+            <p className="s-sub">
+              The whole sale is read, filtered, checked and noted overnight. When you reach the
+              office the cars worth bidding on are already in your watch list.
+            </p>
+          </div>
+
+          <ol className="night-line">
+            {NIGHT.map(n => (
+              <li key={n.t}>
+                <span className="night-t">{n.t}</span>
+                <strong>{n.h}</strong>
+                <p>{n.d}</p>
+              </li>
+            ))}
+          </ol>
+
           <AuctionPipeline />
 
+          <div className="section-ctas">
+            <Link to="/services/auction-run-list-triage" className="btn btn-blue">See auction triage →</Link>
+            <span className="cta-note">From {money(priceById("watchlist").build)} · unlimited cars per sale</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 3 · MARKETPLACES / GOV / LEASE ============ */}
+      <section className="section src-band" id="marketplaces">
+        <Photo name="dealer-forecourt" className="band-photo" alt="" />
+        <div className="band-shade" aria-hidden="true" />
+        <div className="container">
+          <div className="section-head">
+            <span className="s-label">03 · Daily marketplace monitoring</span>
+            <h2 className="s-title">Good cars outside the lanes — found for you every day</h2>
+            <p className="s-sub">
+              Private-party, government, fleet and off-lease cars are often cheaper because fewer
+              dealers watch for them. Your buy box is checked against all of these daily.
+            </p>
+          </div>
+
+          <div className="src-grid">
+            {SOURCES.map(g => (
+              <div key={g.title} className="src-col">
+                <h3>{g.title}</h3>
+                <div className="src-chips">
+                  {g.items.map(i => <span key={i}>{i}</span>)}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="section-ctas">
+            <Link to="/services/marketplace-government-lease-sales" className="btn btn-blue">See marketplace monitoring →</Link>
+            <Link to="/blog/government-off-lease-car-auctions-dealers" className="btn btn-outline">Guide: government &amp; off-lease auctions</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 4 · CUSTOM SOFTWARE ============ */}
+      <section className="section sw-section" id="software">
+        <div className="container sw-wrap">
+          <div className="sw-copy">
+            <span className="s-label">04 · Custom dealer software</span>
+            <h2 className="s-title">Your Manheim, Carfax &amp; Autoniq — working as one smart system</h2>
+            <p className="s-sub">
+              I design software around how your business buys and sells: the accounts you already
+              pay for connected into one dashboard, your rules built in, and your team working
+              from the same list. Built in stages, fixed price each, and you own the code.
+            </p>
+            <div className="section-ctas left">
+              <Link to="/services/custom-dealer-software" className="btn btn-blue">Custom software →</Link>
+              <a href="#contact" className="btn btn-outline">Talk about your idea</a>
+            </div>
+          </div>
+
+          <div className="hub" aria-label="Your accounts feed one dashboard, which produces buy lists, max bids and alerts">
+            <div className="hub-col">
+              {HUB_IN.map(h => <span key={h} className="hub-in">{h}</span>)}
+            </div>
+            <div className="hub-core">
+              <span className="hub-logo">⚙️</span>
+              <strong>Your dashboard</strong>
+              <em>your rules · your data</em>
+            </div>
+            <div className="hub-col">
+              {HUB_OUT.map(h => <span key={h} className="hub-out">{h}</span>)}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ STEPS ============ */}
+      <section className="section steps-section">
+        <div className="container">
+          <div className="section-head">
+            <span className="s-label">How we start</span>
+            <h2 className="s-title">Three steps, and you see it work before you pay</h2>
+          </div>
           <div className="steps-grid">
             {STEPS.map(s => (
               <div key={s.n} className="step-card">
@@ -411,7 +567,7 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <span className="s-label">Sites I automate</span>
-            <h2 className="s-title">Auctions, history reports and marketplaces</h2>
+            <h2 className="s-title">Auctions, marketplaces, government sales &amp; history reports</h2>
             <p className="s-sub">
               Each one has its own page with the exact fields you get back. Buying on a
               portal that isn't listed? That's normal — <a href="#contact">send me the name</a>.
