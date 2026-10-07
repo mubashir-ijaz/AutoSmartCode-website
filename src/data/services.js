@@ -140,11 +140,11 @@ export const services = [
       },
       {
         q: "How much does run-list triage cost?",
-        a: "A single-platform build with watch-list push and daily email delivery starts around $450, plus roughly $149 a month to keep it running, which covers hosting, site changes and fixes. There is no per-car or per-seat charge — the same price covers a 900-car sale and a 6,000-car sale, and your whole desk can read the output.",
+        a: "$500 a month per auction site. That covers every sale on that site, Monday to Friday — if it runs three sales a day, that is fifteen sales a week, all included. There is no build fee, no per-car charge and no per-seat charge: the same price covers a 900-car sale and a 6,000-car sale, and hosting, site changes and fixes are part of it.",
       },
       {
         q: "Can I see it work on a real sale before I commit?",
-        a: "That is the normal way in. Tell me the auction and your buy box, and I will triage one actual upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have paid for a build. A one-off pull of a single sale is $150, and it comes off the build fee if you go ahead.",
+        a: "That is the normal way in. Tell me the auction and your buy box, and I will triage one actual upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have paid for a month. A one-off pull of a single sale is $150, and it comes off your first month if you go ahead.",
       },
       {
         q: "Does it work on the portal I actually buy on?",
@@ -170,10 +170,10 @@ export const services = [
     emoji: "🧩",
     accent: "violet",
     color: "#a78bfa",
-    h1: "Custom Dealer Browser Extension — The Autoniq Alternative You Own",
+    h1: "Custom Dealer Extension — MMR, Carfax & AutoCheck on the Car Page in Real Time",
     metaTitle: "Autoniq Alternative — Custom VIN Panel",
     metaDesc:
-      "An Autoniq alternative built to your spec: title, Carfax, AutoCheck, MMR and your own margin maths in one panel on the listing. Paid once, no per-seat fee.",
+      "An Autoniq alternative built to your workflow: MMR, Carfax, AutoCheck and your margin maths on the listing in real time. $50–$100 a month, no setup fee.",
     /* Carries both intents now: people shopping to switch ("autoniq
        alternative") and people who already know they want one built. The
        separate comparison page was folded in here — one page, one signal. */
@@ -190,7 +190,7 @@ export const services = [
       "dealer chrome extension development",
     ],
     hero:
-      "The panel you wish was on the auction listing — VIN decoded, title checked, history pulled, MMR fetched and your own margin maths run, all in the tab you were already in. Built once, yours to keep, seats are free.",
+      "The extension scans the car for you and shows real-time MMR, Carfax, AutoCheck and your own margin maths on the same screen — no copying the VIN, no opening tabs, no coming back to the car page. $50–$100 a month, no setup fee.",
     sections: [
       {
         h: "You already know this tool. That is the problem",
@@ -221,8 +221,8 @@ export const services = [
       {
         h: "Built per client, to your spec",
         p: [
-          "This is not a product with a licence. It is a build: you tell me the fields, the order, the wording and the maths, and I write the extension that does exactly that on the portals you actually buy on. Two dealers who buy differently end up with two different panels, which is the entire reason this beats renting a generic one.",
-          "It installs the way any Chrome or Edge extension does, loaded from a file or through your own workspace, and it runs against your own logged-in sessions and your own report subscriptions. It does not route your data through me and it does not need an account with me to work.",
+          "You tell me the fields, the order, the wording and the maths, and I set the extension up to do exactly that on the portals you actually buy on. Two dealers who buy differently end up with two different panels, which is the entire reason this beats a generic one.",
+          "It installs the way any Chrome or Edge extension does and runs against your own dealer accounts — your Manheim and MMR login, your Carfax, your AutoCheck, your Autoniq. Data is shown in real time as you open each car.",
         ],
       },
       {
@@ -234,17 +234,10 @@ export const services = [
         ],
       },
       {
-        h: "The cost comparison, done honestly",
+        h: "Pricing: $50–$100 a month, no setup fee",
         p: [
-          "A subscription is an operating cost that never ends and scales with headcount. A build is a one-off cost that does not scale with headcount, plus an optional monthly if you want me maintaining it as the auction sites change.",
-          "Which is cheaper depends entirely on your desk size and how long you keep it. One buyer, twelve months, standard platforms — a subscription probably wins. Three or more buyers, or a portal nobody supports, or arithmetic the vendor cannot do, and a build is usually ahead inside the first year and clearly ahead after that. Ask me to work it out against what you actually pay now; if the answer is that you should stay where you are, that is the answer you will get.",
-        ],
-      },
-      {
-        h: "Why it is cheaper than what you are paying now",
-        p: [
-          "Subscription tools charge per buyer, per month, forever, and the price goes up when your desk grows. A build is paid for once. Install it for three buyers or thirty and the cost does not move, because there is no licence server deciding what you are allowed.",
-          "A typical build starts around $600, with roughly $39 a month if you want me keeping it working as the auction sites change. For most dealers that is a few months of what they were renting, after which it is theirs.",
+          "The extension is a simple monthly: between $50 and $100 a month depending on how many data sources the panel shows and how many portals it covers. There is no setup fee and no build fee — you pay the first month and it is installed.",
+          "The monthly covers everything that keeps it working: changes when an auction site updates its pages, new fields you ask for, and support when something looks wrong.",
         ],
       },
       {
@@ -252,7 +245,7 @@ export const services = [
         p: [
           "It cannot show you data you do not have access to. The panel pulls Carfax through your Carfax account, AutoCheck through your AutoCheck or auction access, MMR through your Manheim login. If you do not subscribe to something, no extension — mine or anyone's — can conjure it, and I would rather say that now than after you have paid.",
           "It also will not bid. Automated bidding is prohibited on most platforms and the failure mode is owning a car nobody chose. The panel tells your buyer what the car is worth; your buyer bids.",
-          "And it breaks when a site changes its markup, the same as every extension does. The monthly covers fixing that. Without it, you own the code and can have anyone fix it — that is the trade you are getting.",
+          "And it needs updating when a site changes its markup, the same as every extension does. That is what the monthly covers, so you never pay extra for a fix.",
         ],
       },
       {
@@ -270,15 +263,15 @@ export const services = [
       "Your recon, fees and margin maths run on the car",
       "Max bid and a plain BID / PASS verdict",
       "Works across every portal you buy on, one layout",
-      "Installs for your whole desk — no per-seat fee",
-      "Source code is yours, not licensed to you",
+      "Real-time data on the car page — no copying VINs",
+      "$50–$100 a month, no setup fee",
     ],
     platforms: ["Manheim", "ADESA", "ACV Auctions", "OPENLANE", "Copart", "IAA", "Carfax", "AutoCheck", "Chrome", "Edge", "Your own dealer portal"],
     stack: ["JavaScript", "Chrome Extension APIs", "Manifest V3", "Python", "REST APIs", "Playwright"],
     faqs: [
       {
         q: "What is the best Autoniq alternative for a small dealer?",
-        a: "If you have one or two buyers and you buy on the major platforms, the honest answer is usually another off-the-shelf subscription rather than a custom build — the maths does not favour a build at that size. A custom panel starts to make sense at around three buyers, or immediately if you buy on a portal no tool supports, or if your bid decision depends on recon and fee numbers no vendor has.",
+        a: "One that shows the reports you already pay for, on the sites you actually buy on, with your own margin maths — at a price a small dealer can carry. A custom extension is $50–$100 a month with no setup fee, uses your own MMR, Carfax, AutoCheck and Autoniq accounts, and covers private or regional portals off-the-shelf tools skip.",
       },
       {
         q: "Can it do everything Autoniq does?",
@@ -290,7 +283,7 @@ export const services = [
       },
       {
         q: "How much does a custom dealer extension cost?",
-        a: "Builds start around $600 one-off, plus about $39 a month if you want me maintaining it as the auction sites change. There is no per-seat charge — install it for your whole desk at the same price. Compared with a per-buyer monthly subscription it usually pays for itself inside a few months.",
+        a: "$50 to $100 a month, depending on how many data sources the panel shows and how many portals it covers. There is no setup fee. Updates when an auction site changes, and support, are included.",
       },
       {
         q: "Do I need my own Carfax, AutoCheck and MMR subscriptions?",
@@ -302,15 +295,15 @@ export const services = [
       },
       {
         q: "How long does a build take?",
-        a: "Most extensions are working in 5 to 10 days depending on how many portals and how many report sources are involved. You see the panel running on a real listing partway through, so the layout and the wording get settled before the maths is finished.",
+        a: "Most extensions are working within a few days to a week, depending on how many portals and how many report sources are involved. You see the panel running on a real listing first, so the layout and the wording get settled before anything else.",
       },
       {
         q: "Can my whole team use it?",
-        a: "Yes, and that is one of the main reasons to build rather than rent. There is no licence check and no seat count — install it on every machine on the desk. Adding a buyer costs nothing.",
+        a: "Yes. Tell me how many buyers need it when you ask for a quote and it is set up for each of them, each using your dealership's own accounts.",
       },
       {
         q: "What happens if the auction site changes and it stops working?",
-        a: "Extensions break when markup changes, the same as scrapers do. The monthly covers fixing it. If you would rather not pay a monthly, you still own the source, so you or anyone you hire can maintain it — which is not true of anything you subscribe to.",
+        a: "It gets updated. Extensions need changes when a site changes its pages, the same as scrapers do, and that is exactly what the monthly covers — you are not billed extra for fixes.",
       },
       {
         q: "Can it bid or place proxy bids for me?",

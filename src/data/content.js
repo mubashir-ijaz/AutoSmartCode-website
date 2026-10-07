@@ -1379,7 +1379,7 @@ Nothing to paste, nothing to come back to. The buyer reads one panel and decides
 Tools like Autoniq exist because this workflow is obvious, and they are good at it. Two things push dealers toward a custom build:
 
 - **They do not know your business.** A rented panel shows what the car is. It does not know your recon rates, your transport cost from that auction or your margin floor — so the last and most important step still happens in a spreadsheet.
-- **Per-seat pricing grows with your desk.** Every buyer is another monthly fee. A custom extension is paid for once and installs on every seat for free.
+- **Price.** A custom extension is $50 to $100 a month with no setup fee, depending on which data sources it shows — and updates when a site changes are included.
 
 There is also coverage: many dealers buy on a regional or private portal that off-the-shelf tools do not support. A custom extension is built for the sites you actually use — Manheim, ADESA, ACV, OPENLANE, a private dealer marketplace or your own portal.
 
@@ -1488,7 +1488,7 @@ export const platforms = [
 export const FAQS = [
   {
     q: "Can you build an extension that shows MMR, Carfax and AutoCheck right on the listing?",
-    a: "Yes — that is one of the main things I build. A custom browser extension reads the VIN straight off the auction or marketplace page, pulls Manheim MMR, Carfax, AutoCheck and book values through your own accounts, and shows them in one panel on the same screen, with your recon and margin maths ending on a max bid. No copying the VIN, no opening five tabs, no coming back to the car page. It works on Manheim, ADESA, ACV, OPENLANE and the private portals you buy on, and every seat on your desk is free.",
+    a: "Yes — that is one of the main things I build. A custom browser extension reads the VIN straight off the auction or marketplace page, pulls Manheim MMR, Carfax, AutoCheck and book values through your own accounts, and shows them in one panel on the same screen, with your recon and margin maths ending on a max bid. No copying the VIN, no opening five tabs, no coming back to the car page. It works on Manheim, ADESA, ACV, OPENLANE and the private portals you buy on, and it costs $50 to $100 a month with no setup fee.",
   },
   {
     q: "Besides wholesale auctions, which marketplaces and sales can you watch?",
@@ -1516,11 +1516,11 @@ export const FAQS = [
   },
   {
     q: "How much does this cost?",
-    a: "Run-list triage starts at $450 to build plus about $149 a month to keep running, per auction platform, with no per-car and no per-seat charge — the same price covers a 900-car sale and a 6,000-car sale. A custom browser extension starts around $600 one-off plus roughly $39 a month. A one-off pull of a single sale is $150, and it comes off the build fee if you go ahead. Every quote is fixed up front, never hourly.",
+    a: "Overnight auction triage is $500 a month per auction site, covering every sale on that site Monday to Friday — three sales a day is fifteen a week, all included, with no per-car charge. The custom extension that shows MMR, Carfax and AutoCheck on the car page is $50 to $100 a month with no setup fee. A one-off pull of a single sale is $150, credited to your first month. Marketplace monitoring and custom software are quoted at a fixed price within 24 hours.",
   },
   {
     q: "Can I see it work before I pay for a build?",
-    a: "That is the normal way in. Tell me the auction and what a good car looks like to you, and I will triage one real upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have committed to a build. That trial run is the $150 one-off pull, credited against the build if you proceed.",
+    a: "That is the normal way in. Tell me the auction and what a good car looks like to you, and I will triage one real upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have committed to anything. That trial run is the $150 one-off pull, credited to your first month if you go ahead.",
   },
   {
     q: "The portal I buy on isn't one of the big names. Can you still do it?",

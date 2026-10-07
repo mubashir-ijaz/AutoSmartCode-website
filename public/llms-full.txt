@@ -11,7 +11,7 @@ developer-led studio. Contact: sam@autosmartcode.com
 
 ### Can you build an extension that shows MMR, Carfax and AutoCheck right on the listing?
 
-Yes — that is one of the main things I build. A custom browser extension reads the VIN straight off the auction or marketplace page, pulls Manheim MMR, Carfax, AutoCheck and book values through your own accounts, and shows them in one panel on the same screen, with your recon and margin maths ending on a max bid. No copying the VIN, no opening five tabs, no coming back to the car page. It works on Manheim, ADESA, ACV, OPENLANE and the private portals you buy on, and every seat on your desk is free.
+Yes — that is one of the main things I build. A custom browser extension reads the VIN straight off the auction or marketplace page, pulls Manheim MMR, Carfax, AutoCheck and book values through your own accounts, and shows them in one panel on the same screen, with your recon and margin maths ending on a max bid. No copying the VIN, no opening five tabs, no coming back to the car page. It works on Manheim, ADESA, ACV, OPENLANE and the private portals you buy on, and it costs $50 to $100 a month with no setup fee.
 
 ### Besides wholesale auctions, which marketplaces and sales can you watch?
 
@@ -39,11 +39,11 @@ Yes, on any platform that has a watch list, using your own logged-in account. Th
 
 ### How much does this cost?
 
-Run-list triage starts at $450 to build plus about $149 a month to keep running, per auction platform, with no per-car and no per-seat charge — the same price covers a 900-car sale and a 6,000-car sale. A custom browser extension starts around $600 one-off plus roughly $39 a month. A one-off pull of a single sale is $150, and it comes off the build fee if you go ahead. Every quote is fixed up front, never hourly.
+Overnight auction triage is $500 a month per auction site, covering every sale on that site Monday to Friday — three sales a day is fifteen a week, all included, with no per-car charge. The custom extension that shows MMR, Carfax and AutoCheck on the car page is $50 to $100 a month with no setup fee. A one-off pull of a single sale is $150, credited to your first month. Marketplace monitoring and custom software are quoted at a fixed price within 24 hours.
 
 ### Can I see it work before I pay for a build?
 
-That is the normal way in. Tell me the auction and what a good car looks like to you, and I will triage one real upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have committed to a build. That trial run is the $150 one-off pull, credited against the build if you proceed.
+That is the normal way in. Tell me the auction and what a good car looks like to you, and I will triage one real upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have committed to anything. That trial run is the $150 one-off pull, credited to your first month if you go ahead.
 
 ### The portal I buy on isn't one of the big names. Can you still do it?
 
@@ -157,11 +157,11 @@ They usually are, and that is the point of a custom build rather than a product.
 
 **How much does run-list triage cost?**
 
-A single-platform build with watch-list push and daily email delivery starts around $450, plus roughly $149 a month to keep it running, which covers hosting, site changes and fixes. There is no per-car or per-seat charge — the same price covers a 900-car sale and a 6,000-car sale, and your whole desk can read the output.
+$500 a month per auction site. That covers every sale on that site, Monday to Friday — if it runs three sales a day, that is fifteen sales a week, all included. There is no build fee, no per-car charge and no per-seat charge: the same price covers a 900-car sale and a 6,000-car sale, and hosting, site changes and fixes are part of it.
 
 **Can I see it work on a real sale before I commit?**
 
-That is the normal way in. Tell me the auction and your buy box, and I will triage one actual upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have paid for a build. A one-off pull of a single sale is $150, and it comes off the build fee if you go ahead.
+That is the normal way in. Tell me the auction and your buy box, and I will triage one actual upcoming sale and send you the watch list it produces. If the calls look wrong, we fix the rules then — before you have paid for a month. A one-off pull of a single sale is $150, and it comes off your first month if you go ahead.
 
 **Does it work on the portal I actually buy on?**
 
@@ -178,12 +178,12 @@ No, and I will not build that. Most auction platforms prohibit automated bidding
 
 ---
 
-## Custom Dealer Browser Extension — The Autoniq Alternative You Own
+## Custom Dealer Extension — MMR, Carfax & AutoCheck on the Car Page in Real Time
 
 URL: https://www.autosmartcode.com/services/dealer-browser-extension
 Keywords: autoniq alternative, alternative to autoniq, cheaper than autoniq, autoniq competitor, custom dealer browser extension, vin scanner app for dealers, dealer vin scanning tool, auction vin lookup tool, car auction browser extension, dealer chrome extension development
 
-The panel you wish was on the auction listing — VIN decoded, title checked, history pulled, MMR fetched and your own margin maths run, all in the tab you were already in. Built once, yours to keep, seats are free.
+The extension scans the car for you and shows real-time MMR, Carfax, AutoCheck and your own margin maths on the same screen — no copying the VIN, no opening tabs, no coming back to the car page. $50–$100 a month, no setup fee.
 
 ### You already know this tool. That is the problem
 
@@ -207,9 +207,9 @@ The same reports, plus the decision. Land on a car — or scan a VIN — and the
 - Max bid to hold your margin, and a plain BID / PASS on the car
 ### Built per client, to your spec
 
-This is not a product with a licence. It is a build: you tell me the fields, the order, the wording and the maths, and I write the extension that does exactly that on the portals you actually buy on. Two dealers who buy differently end up with two different panels, which is the entire reason this beats renting a generic one.
+You tell me the fields, the order, the wording and the maths, and I set the extension up to do exactly that on the portals you actually buy on. Two dealers who buy differently end up with two different panels, which is the entire reason this beats a generic one.
 
-It installs the way any Chrome or Edge extension does, loaded from a file or through your own workspace, and it runs against your own logged-in sessions and your own report subscriptions. It does not route your data through me and it does not need an account with me to work.
+It installs the way any Chrome or Edge extension does and runs against your own dealer accounts — your Manheim and MMR login, your Carfax, your AutoCheck, your Autoniq. Data is shown in real time as you open each car.
 ### Looking for an Autoniq alternative?
 
 Almost nobody goes shopping for one because the category is bad. Scan a VIN, get the reports and the book values next to the car — that workflow is correct, and the tools that do it earn their keep. Dealers come looking for an alternative for three much narrower reasons, and it is worth being honest about which one is yours, because only two of them justify a build.
@@ -217,23 +217,18 @@ Almost nobody goes shopping for one because the category is bad. Scan a VIN, get
 The first is seat cost. A per-buyer monthly fee is fine for one buyer and starts to grate at four, because the price scales with your desk while the value does not. The second is fit: the panel shows what the vendor decided every dealer needs, which means it stops exactly where your business starts — at your recon rates, your fee structure, your transport cost, your margin floor. The third is coverage: you buy on a portal the tool does not support, so on those cars you are back to nine tabs anyway.
 
 If you simply want the standard panel on the standard platforms for one or two buyers, an off-the-shelf subscription is probably the right answer, and I will tell you that rather than sell you a build.
-### The cost comparison, done honestly
+### Pricing: $50–$100 a month, no setup fee
 
-A subscription is an operating cost that never ends and scales with headcount. A build is a one-off cost that does not scale with headcount, plus an optional monthly if you want me maintaining it as the auction sites change.
+The extension is a simple monthly: between $50 and $100 a month depending on how many data sources the panel shows and how many portals it covers. There is no setup fee and no build fee — you pay the first month and it is installed.
 
-Which is cheaper depends entirely on your desk size and how long you keep it. One buyer, twelve months, standard platforms — a subscription probably wins. Three or more buyers, or a portal nobody supports, or arithmetic the vendor cannot do, and a build is usually ahead inside the first year and clearly ahead after that. Ask me to work it out against what you actually pay now; if the answer is that you should stay where you are, that is the answer you will get.
-### Why it is cheaper than what you are paying now
-
-Subscription tools charge per buyer, per month, forever, and the price goes up when your desk grows. A build is paid for once. Install it for three buyers or thirty and the cost does not move, because there is no licence server deciding what you are allowed.
-
-A typical build starts around $600, with roughly $39 a month if you want me keeping it working as the auction sites change. For most dealers that is a few months of what they were renting, after which it is theirs.
+The monthly covers everything that keeps it working: changes when an auction site updates its pages, new fields you ask for, and support when something looks wrong.
 ### What it cannot do
 
 It cannot show you data you do not have access to. The panel pulls Carfax through your Carfax account, AutoCheck through your AutoCheck or auction access, MMR through your Manheim login. If you do not subscribe to something, no extension — mine or anyone's — can conjure it, and I would rather say that now than after you have paid.
 
 It also will not bid. Automated bidding is prohibited on most platforms and the failure mode is owning a car nobody chose. The panel tells your buyer what the car is worth; your buyer bids.
 
-And it breaks when a site changes its markup, the same as every extension does. The monthly covers fixing that. Without it, you own the code and can have anyone fix it — that is the trade you are getting.
+And it needs updating when a site changes its markup, the same as every extension does. That is what the monthly covers, so you never pay extra for a fix.
 ### Browsers and portals
 
 Chrome and Edge are the normal targets, because that is what dealer desks run; Firefox is possible if you need it. On the portal side, the extension is written against the specific sites you buy on, including the private ones — a dealer-only marketplace, a regional auction's own platform, a lender's repo portal, your group's in-house system.
@@ -248,14 +243,14 @@ If you buy on four platforms, the panel works on all four and normalises the out
 - Your recon, fees and margin maths run on the car
 - Max bid and a plain BID / PASS verdict
 - Works across every portal you buy on, one layout
-- Installs for your whole desk — no per-seat fee
-- Source code is yours, not licensed to you
+- Real-time data on the car page — no copying VINs
+- $50–$100 a month, no setup fee
 
 ### Questions
 
 **What is the best Autoniq alternative for a small dealer?**
 
-If you have one or two buyers and you buy on the major platforms, the honest answer is usually another off-the-shelf subscription rather than a custom build — the maths does not favour a build at that size. A custom panel starts to make sense at around three buyers, or immediately if you buy on a portal no tool supports, or if your bid decision depends on recon and fee numbers no vendor has.
+One that shows the reports you already pay for, on the sites you actually buy on, with your own margin maths — at a price a small dealer can carry. A custom extension is $50–$100 a month with no setup fee, uses your own MMR, Carfax, AutoCheck and Autoniq accounts, and covers private or regional portals off-the-shelf tools skip.
 
 **Can it do everything Autoniq does?**
 
@@ -267,7 +262,7 @@ No — it is the same workflow built to your spec instead of to an average deale
 
 **How much does a custom dealer extension cost?**
 
-Builds start around $600 one-off, plus about $39 a month if you want me maintaining it as the auction sites change. There is no per-seat charge — install it for your whole desk at the same price. Compared with a per-buyer monthly subscription it usually pays for itself inside a few months.
+$50 to $100 a month, depending on how many data sources the panel shows and how many portals it covers. There is no setup fee. Updates when an auction site changes, and support, are included.
 
 **Do I need my own Carfax, AutoCheck and MMR subscriptions?**
 
@@ -279,15 +274,15 @@ Usually, including the private ones. The extension is written against the specif
 
 **How long does a build take?**
 
-Most extensions are working in 5 to 10 days depending on how many portals and how many report sources are involved. You see the panel running on a real listing partway through, so the layout and the wording get settled before the maths is finished.
+Most extensions are working within a few days to a week, depending on how many portals and how many report sources are involved. You see the panel running on a real listing first, so the layout and the wording get settled before anything else.
 
 **Can my whole team use it?**
 
-Yes, and that is one of the main reasons to build rather than rent. There is no licence check and no seat count — install it on every machine on the desk. Adding a buyer costs nothing.
+Yes. Tell me how many buyers need it when you ask for a quote and it is set up for each of them, each using your dealership's own accounts.
 
 **What happens if the auction site changes and it stops working?**
 
-Extensions break when markup changes, the same as scrapers do. The monthly covers fixing it. If you would rather not pay a monthly, you still own the source, so you or anyone you hire can maintain it — which is not true of anything you subscribe to.
+It gets updated. Extensions need changes when a site changes its pages, the same as scrapers do, and that is exactly what the monthly covers — you are not billed extra for fixes.
 
 **Can it bid or place proxy bids for me?**
 
@@ -1045,7 +1040,7 @@ No. I do not build automated bidding — most platforms prohibit it and the down
 
 **What does Manheim automation cost?**
 
-MMR lookup automation on its own typically runs $500 to $1,000. A full pipeline with run lists, buy-box scoring and a daily ranked email is usually $900 to $1,800 plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on Manheim is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of Manheim data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1108,7 +1103,7 @@ Not if it is paced properly, which is a design constraint here rather than an af
 
 **What does ADESA automation cost?**
 
-Run-list extraction with scoring typically runs $600 to $1,200. Adding condition reports and MMR reconciliation pushes it higher. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on ADESA is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of ADESA data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1171,7 +1166,7 @@ Yes, and that is the common shape. One pipeline reading every platform you hold 
 
 **What does it cost?**
 
-A single-platform watcher with alerting typically runs $600 to $1,200. Multi-platform pipelines with MMR reconciliation run higher, plus a small monthly amount covering hosting and fixes.
+Overnight run-list triage on BacklotCars is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of BacklotCars data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1234,7 +1229,7 @@ Yes. A matching lot with time still on the clock triggers an alert by email, Sla
 
 **What does OpenLane automation cost?**
 
-Listing extraction with scoring typically runs $600 to $1,200. Adding condition reports and cross-platform MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on OPENLANE is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of OPENLANE data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1297,7 +1292,7 @@ No. I do not build automated bidding — most platforms prohibit it outright and
 
 **What does ACV automation cost?**
 
-Listing extraction with buy-box scoring typically runs $600 to $1,200. Adding full condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on ACV Auctions is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of ACV Auctions data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1423,7 +1418,7 @@ Yes, and it is the point of the exercise. Regional run lists joined against Manh
 
 **What does this cost?**
 
-One auction house with run-list extraction and scoring typically runs $600 to $1,200. Each additional house on the same platform is a fraction of that, because the parser is already built. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on EDGE Pipeline is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of EDGE Pipeline data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1486,7 +1481,7 @@ No. I do not build automated purchasing or bidding — the platforms generally p
 
 **What does SmartAuction automation cost?**
 
-Listing extraction with buy-box scoring and alerting typically runs $600 to $1,200. Adding condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.
+Overnight run-list triage on SmartAuction is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of SmartAuction data work are quoted at a fixed price within 24 hours.
 
 
 ---
@@ -1549,7 +1544,7 @@ That is the shape of most builds. Two or three portals, one normalised schema, o
 
 **How much does automating a private portal cost?**
 
-A single portal with listing extraction, buy-box scoring and daily delivery typically runs $600 to $1,500 depending on how awkward the platform is. Additional platforms on the same pipeline cost less than the first. You get a fixed quote within 24 hours of showing me the screens.
+Overnight run-list triage on your dealer marketplace is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other data work on your marketplace is quoted at a fixed price within 24 hours.
 
 **What if the platform changes and it breaks?**
 
@@ -3416,7 +3411,7 @@ Nothing to paste, nothing to come back to. The buyer reads one panel and decides
 Tools like Autoniq exist because this workflow is obvious, and they are good at it. Two things push dealers toward a custom build:
 
 - **They do not know your business.** A rented panel shows what the car is. It does not know your recon rates, your transport cost from that auction or your margin floor — so the last and most important step still happens in a spreadsheet.
-- **Per-seat pricing grows with your desk.** Every buyer is another monthly fee. A custom extension is paid for once and installs on every seat for free.
+- **Price.** A custom extension is $50 to $100 a month with no setup fee, depending on which data sources it shows — and updates when a site changes are included.
 
 There is also coverage: many dealers buy on a regional or private portal that off-the-shelf tools do not support. A custom extension is built for the sites you actually use — Manheim, ADESA, ACV, OPENLANE, a private dealer marketplace or your own portal.
 

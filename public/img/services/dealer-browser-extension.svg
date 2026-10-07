@@ -36,12 +36,12 @@
     <text x="1076" y="130" text-anchor="middle" font-size="52" fill="#ffffff" fill-opacity="0.92">🧩</text>
   </g>
 
-  <text x="80" y="191" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Custom Dealer Browser</text>
-    <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Extension — The Autoniq</text>
-    <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Alternative You Own</text>
+  <text x="80" y="191" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Custom Dealer Extension — MMR,</text>
+    <text x="80" y="268" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Carfax &amp; AutoCheck on the Car</text>
+    <text x="80" y="345" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="66" font-weight="800" fill="#ffffff" letter-spacing="-1.1">Page in Real Time</text>
 
-  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">The panel you wish was on the auction listing — VIN decoded, title checked,</text>
-  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">history pulled, MMR fetched and your own margin maths run, all in the tab you…</text>
+  <text x="80" y="456" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">The extension scans the car for you and shows real-time MMR, Carfax,</text>
+  <text x="80" y="492" font-family="'Plus Jakarta Sans','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" font-size="25" font-weight="500" fill="#94a3b8">AutoCheck and your own margin maths on the same screen — no copying the VIN,…</text>
 
   <line x1="80" y1="524" x2="1120" y2="524" stroke="#ffffff" stroke-opacity="0.09"/>
   

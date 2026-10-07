@@ -3,93 +3,110 @@
  *  THE ONLY FILE WITH PRICES IN IT — EDIT THE NUMBERS HERE
  * ============================================================
  *
- * Every price shown anywhere on the site comes from this file: the homepage
- * pricing band, the service pages, the extension page and the FAQ answers.
- * Change a number here and it changes everywhere, so the site can never
- * quote a dealer one figure and a different one two clicks later.
+ * Every price card on the site comes from this file: the homepage pricing
+ * band, the hero, the section CTAs and the prerendered HTML. Prices written
+ * into FAQ answers (content.js, services.js, scrapers.js) must be kept in
+ * step with these by hand.
  *
- * These are starting figures written to undercut the per-seat subscription
- * tools dealers already pay for. They are deliberately low because that is
- * the pitch. Replace any of them with your real numbers.
- *
- *   build    one-off build fee — what they pay to get it working
- *   monthly  what it costs to keep running (hosting, fixes, site changes)
- *   note     the qualifier shown under the price, in the buyer's language
+ *   price    what is shown big — "$500", "$50–$100", "Custom"
+ *   per      what follows it — "/month", "one-off"
+ *   unit     the line under it — what one price covers
+ *   note     the small print, in the buyer's language
  */
 
 export const PRICING = [
   {
-    id: "watchlist",
-    emoji: "📋",
-    accent: "green",
-    name: "Auction Run-List Triage",
+    id: "extension",
+    emoji: "🧩",
+    accent: "violet",
+    name: "VIN-Scan Extension",
     blurb:
-      "The whole run list read overnight, the bad cars dropped, the good ones " +
-      "sitting in your watch list with notes before you reach the office.",
-    build: 450,
-    monthly: 149,
-    note: "per auction platform · unlimited cars per sale",
+      "Scans the car for you and shows real-time MMR, Carfax, AutoCheck and your " +
+      "max bid on the same screen. No copying VINs, no tabs, no coming back.",
+    price: "$50–$100",
+    per: "/month",
+    unit: "depending on the data sources shown",
+    note: "no setup fee · works on your own accounts",
     includes: [
-      "Every car in the sale pulled, not a sample",
-      "Your filters — year, mileage, grade, make, title status",
-      "Carfax / AutoCheck / MMR pulled per car",
-      "Notes written automatically in your own wording",
-      "Watch list built for you before the lane opens",
+      "VIN read straight off the auction or marketplace page",
+      "MMR, Carfax, AutoCheck & Autoniq data in one panel",
+      "Uses your own dealer accounts, in real time",
+      "Your recon, fees and margin maths — ends on a max bid",
+      "Updates when an auction site changes, included",
+    ],
+  },
+  {
+    id: "watchlist",
+    emoji: "🌙",
+    accent: "green",
+    name: "Overnight Auction Watch List",
+    blurb:
+      "The whole run list read while you sleep — bad cars dropped, good ones in " +
+      "your watch list with notes and a max bid before you reach the office.",
+    price: "$500",
+    per: "/month",
+    unit: "per auction site · every sale, Mon–Fri",
+    note: "e.g. 3 sales a day = 15 sales a week, all included",
+    includes: [
+      "Every car in every sale, not a sample",
+      "Your buy box — year, mileage, grade, title, margin",
+      "Carfax, AutoCheck and MMR checked per car",
+      "A written note and max bid on every car",
+      "Cars in your watch list + ranked email by 6 AM",
     ],
     popular: true,
   },
   {
-    id: "extension",
-    emoji: "🧩",
-    accent: "violet",
-    name: "Custom Dealer Extension",
+    id: "custom",
+    emoji: "📡",
+    accent: "amber",
+    name: "Marketplaces & Custom Software",
     blurb:
-      "An Autoniq-style browser extension built to your workflow — scan a VIN " +
-      "and every report you pay for opens in the same tab, not nine of them.",
-    build: 600,
-    monthly: 39,
-    note: "one-time build · yours to keep, no per-seat fee",
+      "Daily alerts from OPENLANE, Facebook Marketplace, eBay, government and lease " +
+      "sales — or a custom system that ties Manheim, Carfax and Autoniq together.",
+    price: "Custom",
+    per: "",
+    unit: "fixed price, quoted in 24 hours",
+    note: "you see it working before you commit",
     includes: [
-      "VIN read straight off the auction page",
-      "Title, history, MMR and book values in one panel",
-      "Your margin maths shown on the car, live",
-      "Works on the portals you actually buy on",
-      "Installs for your whole desk — seats are free",
+      "Marketplace, government & lease sale monitoring",
+      "Only new matches, checked against your buy box",
+      "Custom dashboards connecting your accounts",
+      "DMS hand-off and team alerts",
+      "Built in stages — fixed price each",
     ],
   },
   {
     id: "oneoff",
     emoji: "📄",
     accent: "blue",
-    name: "One-Off Data Pull",
+    name: "Try One Sale",
     blurb:
-      "A single sale, a single market, a single spreadsheet. No subscription, " +
-      "no commitment — useful for seeing whether any of this is for you.",
-    build: 150,
-    monthly: null,
-    note: "one sale or one market · delivered in 48 hours",
+      "Send me one upcoming sale and your buy box. You get the watch list it " +
+      "produces, so you can judge the calls before you sign up.",
+    price: "$150",
+    per: "one-off",
+    unit: "one sale, delivered in 48 hours",
+    note: "credited to your first month if you go ahead",
     includes: [
-      "One auction sale or one market scraped in full",
-      "Delivered as Excel, CSV or a Google Sheet",
-      "History reports and MMR included per car",
-      "No account, no subscription, no lock-in",
-      "Credited against a full build if you go ahead",
+      "One full auction sale triaged",
+      "History and MMR on every kept car",
+      "Excel, CSV or Google Sheet",
+      "No subscription, no commitment",
     ],
   },
 ];
 
-/* Shown next to the pricing band — what a dealer is paying today for less. */
+/* Shown under the pricing band. */
 export const PRICE_COMPARISON = {
-  claim: "Per-seat tools charge every buyer on your desk, every month, forever.",
+  claim: "Every service runs on your own dealer accounts.",
   detail:
-    "A custom build is paid for once and belongs to you. Add a third buyer, " +
-    "a fourth, the whole desk — the price does not move.",
+    "Your Manheim, MMR, Carfax, AutoCheck and Autoniq logins — nothing shared " +
+    "between clients, and nothing bid on automatically.",
 };
 
-export const money = n => "$" + n.toLocaleString("en-US");
-
-/** "$450 build + $149/mo" — the one-line form used in body copy and FAQs. */
+/** "$500/month — per auction site …" — the one-line form used in prerendered HTML. */
 export const priceLine = p =>
-  p.monthly ? `${money(p.build)} build + ${money(p.monthly)}/mo` : `${money(p.build)} one-off`;
+  `${p.price}${p.per ? (p.per.startsWith("/") ? p.per : " " + p.per) : ""} — ${p.unit}`;
 
 export const priceById = id => PRICING.find(p => p.id === id);

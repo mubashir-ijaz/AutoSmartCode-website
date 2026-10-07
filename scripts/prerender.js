@@ -205,8 +205,13 @@ routes.push({
   },
   // Must match the visible copy in Home.jsx.
   body:
-    h1("Car dealer automation & auction data scraping") +
-    p("Extensions that show MMR, Carfax and AutoCheck on the car page. Auction watch lists built overnight while you sleep. Daily alerts from OPENLANE, Facebook Marketplace, eBay, government and lease sales. And custom software that ties it all together.") +
+    h1("Car dealer automation that works while you sleep.") +
+    p("For dealers, wholesalers and auction buyers — running on your own Manheim, Carfax, AutoCheck and Autoniq accounts.") +
+    ul([
+      "MMR, Carfax & AutoCheck right on the car page — $50–$100/mo",
+      "A clean auction watch list waiting every morning — $500/mo per site",
+      "Daily deals from marketplaces, government & lease sales",
+    ]) +
     h2("Four ways I take the busywork off your desk") +
     ul([
       "[Scan the car, see everything on the same screen](/services/dealer-browser-extension) — a custom extension reads the VIN off the listing and shows MMR, Carfax, AutoCheck and your max bid right there.",
@@ -215,7 +220,7 @@ routes.push({
       "[Manheim, Carfax & Autoniq working as one system](/services/custom-dealer-software) — software designed around how you buy, your accounts connected into one dashboard.",
     ]) +
     h2("Stop copying VINs. See MMR, Carfax & AutoCheck on the car page.") +
-    p("I build a browser extension for your desk that scans the car automatically and shows real-time data on the same screen — an Autoniq-style panel built around your margin, paid for once, free for every seat.") +
+    p("I build a browser extension for your desk that scans the car automatically and shows real-time data on the same screen — an Autoniq-style panel built around your margin, from $50 to $100 a month with no setup fee.") +
     h2("I work while you sleep. You walk into a clean watch list.") +
     ul([
       "10:00 PM — run lists pulled from Manheim, ADESA, ACV and OPENLANE",
@@ -229,7 +234,7 @@ routes.push({
     p("OPENLANE, eBay Motors, Facebook Marketplace, Craigslist, GSA Auctions, GovDeals, Public Surplus, police and municipal auctions, off-lease and lease-return sales, captive, bank, repo and fleet portals.") +
     h2("Your Manheim, Carfax & Autoniq — working as one smart system") +
     p("I design software around how your business buys and sells: the accounts you already pay for connected into one dashboard, your rules built in, and your team working from the same list.") +
-    h2("Fixed prices. No per-seat fees.") +
+    h2("Simple monthly prices. No setup fees.") +
     ul(PRICING.map(pr => pr.name + " — " + priceLine(pr))) +
     faqBlock(FAQS) +
     linkList("Auctions, marketplaces, government sales and history reports", scrapers.map(s => ["/" + s.slug, s.h1 || s.site + " Scraper"])) +

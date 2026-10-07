@@ -448,7 +448,7 @@ export const scrapers = [
       },
       {
         q: "What does Manheim automation cost?",
-        a: "MMR lookup automation on its own typically runs $500 to $1,000. A full pipeline with run lists, buy-box scoring and a daily ranked email is usually $900 to $1,800 plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on Manheim is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of Manheim data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -511,7 +511,7 @@ export const scrapers = [
       },
       {
         q: "What does ADESA automation cost?",
-        a: "Run-list extraction with scoring typically runs $600 to $1,200. Adding condition reports and MMR reconciliation pushes it higher. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on ADESA is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of ADESA data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -572,7 +572,7 @@ export const scrapers = [
       },
       {
         q: "What does it cost?",
-        a: "A single-platform watcher with alerting typically runs $600 to $1,200. Multi-platform pipelines with MMR reconciliation run higher, plus a small monthly amount covering hosting and fixes.",
+        a: "Overnight run-list triage on BacklotCars is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of BacklotCars data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -633,7 +633,7 @@ export const scrapers = [
       },
       {
         q: "What does OpenLane automation cost?",
-        a: "Listing extraction with scoring typically runs $600 to $1,200. Adding condition reports and cross-platform MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on OPENLANE is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of OPENLANE data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "marketplace-government-lease-sales",
@@ -694,7 +694,7 @@ export const scrapers = [
       },
       {
         q: "What does ACV automation cost?",
-        a: "Listing extraction with buy-box scoring typically runs $600 to $1,200. Adding full condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on ACV Auctions is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of ACV Auctions data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -816,7 +816,7 @@ export const scrapers = [
       },
       {
         q: "What does this cost?",
-        a: "One auction house with run-list extraction and scoring typically runs $600 to $1,200. Each additional house on the same platform is a fraction of that, because the parser is already built. Recurring systems are a build fee plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on EDGE Pipeline is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of EDGE Pipeline data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -877,7 +877,7 @@ export const scrapers = [
       },
       {
         q: "What does SmartAuction automation cost?",
-        a: "Listing extraction with buy-box scoring and alerting typically runs $600 to $1,200. Adding condition report parsing and MMR reconciliation runs higher, plus a small monthly amount for hosting and fixes.",
+        a: "Overnight run-list triage on SmartAuction is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other kinds of SmartAuction data work are quoted at a fixed price within 24 hours.",
       },
     ],
     pillar: "car-auction-automation",
@@ -939,7 +939,7 @@ export const scrapers = [
       },
       {
         q: "How much does automating a private portal cost?",
-        a: "A single portal with listing extraction, buy-box scoring and daily delivery typically runs $600 to $1,500 depending on how awkward the platform is. Additional platforms on the same pipeline cost less than the first. You get a fixed quote within 24 hours of showing me the screens.",
+        a: "Overnight run-list triage on your dealer marketplace is $500 a month — that covers every sale on the platform, Monday to Friday, with your buy box, Carfax, AutoCheck and MMR per car and the watch list ready by morning. No build fee and no per-car charge. Other data work on your marketplace is quoted at a fixed price within 24 hours.",
       },
       {
         q: "What if the platform changes and it breaks?",

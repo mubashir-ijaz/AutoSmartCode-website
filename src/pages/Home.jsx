@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FAQS } from "../data/content";
 import { scraperBySlug } from "../data/scrapers";
-import { PRICING, PRICE_COMPARISON, money, priceById } from "../data/pricing";
+import { PRICING, PRICE_COMPARISON, priceById } from "../data/pricing";
 import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
 import { useSeo } from "../useSeo";
 import AuctionPipeline from "../components/AuctionPipeline";
@@ -16,6 +16,14 @@ import "../components/ExtensionDemo.css";
    trade. A visitor should understand it from the hero alone — real cars in the
    background, the headline saying what it is, and a watch-list card on the
    right showing what they get back. Everything below is proof and detail. */
+
+/* The three promises in the hero, each with its price so nobody has to scroll
+   to find out what it costs. Prices come from pricing.js. */
+const HERO_POINTS = [
+  { text: "MMR, Carfax & AutoCheck right on the car page", price: priceById("extension").price + "/mo" },
+  { text: "A clean auction watch list waiting every morning", price: priceById("watchlist").price + "/mo per site" },
+  { text: "Daily deals from marketplaces, government & lease sales", price: null },
+];
 
 /* Scrolling strip under the hero — the names a dealer recognises instantly. */
 const PLATFORMS = [
@@ -127,7 +135,7 @@ const TESTIMONIALS = [
   },
   {
     initials: "DK", color: "#60a5fa", name: "Dave K.", role: "Wholesaler, Florida",
-    text: "I was paying per seat for a VIN tool and still copying numbers into my own sheet. Sam built the panel I actually wanted — my margin maths right on the listing — for less than four months of what I was renting.",
+    text: "I was paying per seat for a VIN tool and still copying numbers into my own sheet. Sam built the panel I actually wanted — my margin maths right on the listing — for a fraction of what I was renting.",
   },
   {
     initials: "MT", color: "#a78bfa", name: "Marcus T.", role: "Dealer Group, Texas",
@@ -186,11 +194,10 @@ function PricingBand() {
             <p className="price-blurb">{p.blurb}</p>
 
             <div className="price-figure">
-              <span className="price-build">{money(p.build)}</span>
-              {p.monthly
-                ? <span className="price-monthly">+ {money(p.monthly)}<em>/mo</em></span>
-                : <span className="price-monthly one">one-off</span>}
+              <span className="price-build">{p.price}</span>
+              {p.per && <span className="price-monthly"><em>{p.per}</em></span>}
             </div>
+            <div className="price-unit">{p.unit}</div>
             <div className="price-note">{p.note}</div>
 
             <ul className="price-includes">
@@ -326,31 +333,34 @@ export default function Home() {
 
         <div className="container hero-layout">
           <div className="hero-copy">
-            <span className="hero-eyebrow">🚗 Automation &amp; data scraping for the car trade</span>
+            <span className="hero-eyebrow">Car dealer automation &amp; auction data scraping</span>
 
             <h1 className="hero-h1">
               Car dealer automation{" "}
-              <span className="hero-grad">&amp; auction data scraping</span>
+              <span className="hero-grad">that works while you sleep.</span>
             </h1>
 
             <p className="hero-desc">
-              Extensions that show <strong>MMR, Carfax and AutoCheck on the car page</strong>.
-              Auction watch lists <strong>built overnight while you sleep</strong>. Daily alerts from
-              OPENLANE, Facebook Marketplace, eBay, government and lease sales. And custom software
-              that ties it all together.
+              For dealers, wholesalers and auction buyers — running on your own Manheim,
+              Carfax, AutoCheck and Autoniq accounts.
             </p>
+
+            <ul className="hero-points">
+              {HERO_POINTS.map(h => (
+                <li key={h.text}>
+                  <span className="hp-tick" aria-hidden="true">✓</span>
+                  <span className="hp-text">{h.text}</span>
+                  {h.price && <span className="hp-price">{h.price}</span>}
+                </li>
+              ))}
+            </ul>
 
             <div className="hero-actions">
               <a href="#contact" className="btn btn-blue">Get a Free Quote →</a>
               <a href="#services" className="btn btn-outline">See what I build</a>
             </div>
 
-            <div className="hero-trust">
-              <span>🌙 Works while you sleep</span>
-              <span>⚡ Live in 3–7 days</span>
-              <span>🔒 Runs on your own accounts</span>
-              <span>💵 From {money(priceById("oneoff").build)}</span>
-            </div>
+            <p className="hero-fine">No setup fees · Live in 3–7 days · Your accounts, your data</p>
           </div>
 
           <WatchListCard />
@@ -405,7 +415,7 @@ export default function Home() {
             <p className="s-sub">
               I build a browser extension for your desk that scans the car automatically and
               shows real-time data on the same screen — an Autoniq-style panel built around
-              your margin, paid for once, free for every seat.
+              your margin, from $50 to $100 a month with no setup fee.
             </p>
           </div>
 
@@ -428,7 +438,7 @@ export default function Home() {
 
           <div className="section-ctas">
             <Link to="/services/dealer-browser-extension" className="btn btn-blue">How the extension works →</Link>
-            <span className="cta-note">Works on Manheim, ADESA, ACV, OPENLANE &amp; private portals · from {money(priceById("extension").build)}</span>
+            <span className="cta-note">Works on Manheim, ADESA, ACV, OPENLANE &amp; private portals · {priceById("extension").price}/month, no setup fee</span>
           </div>
         </div>
       </section>
@@ -459,7 +469,7 @@ export default function Home() {
 
           <div className="section-ctas">
             <Link to="/services/auction-run-list-triage" className="btn btn-blue">See auction triage →</Link>
-            <span className="cta-note">From {money(priceById("watchlist").build)} · unlimited cars per sale</span>
+            <span className="cta-note">{priceById("watchlist").price}/month per auction site · every sale, Mon–Fri</span>
           </div>
         </div>
       </section>
@@ -629,10 +639,10 @@ export default function Home() {
         <div className="container">
           <div className="section-head">
             <span className="s-label">Pricing</span>
-            <h2 className="s-title">Fixed prices. No per-seat fees.</h2>
+            <h2 className="s-title">Simple monthly prices. No setup fees.</h2>
             <p className="s-sub">
-              Quoted in 24 hours, and the build belongs to you when it's done. Add a buyer,
-              add the whole desk — the price doesn't move.
+              Updates when an auction site changes are always
+              included, and you can try one sale for $150 before you sign up.
             </p>
           </div>
 

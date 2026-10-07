@@ -132,8 +132,8 @@ export default function ExtensionDemo() {
         <ul className="ext-points">
           <li><strong>Built to your workflow</strong> — your fields, your order, your wording</li>
           <li><strong>Your own accounts</strong> — it uses the subscriptions you already pay for</li>
-          <li><strong>Seats are free</strong> — install it for the whole desk, price does not move</li>
-          <li><strong>Yours to keep</strong> — paid for once, not rented per buyer per month</li>
+          <li><strong>No setup fee</strong> — $50 to $100 a month</li>
+          <li><strong>Real time</strong> — data appears as you open each car, nothing to paste</li>
         </ul>
       </div>
 
