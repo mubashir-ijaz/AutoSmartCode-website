@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/content";
-import { CONTACT_EMAIL } from "../config";
 import { useSeo, ORIGIN, crumbs } from "../useSeo";
 import "./About.css";
 
@@ -106,7 +105,6 @@ export default function About() {
           "@id": ORIGIN + "/about#sam",
           name: "Sam",
           jobTitle: "Founder & CEO",
-          email: "mailto:" + CONTACT_EMAIL,
           image: ORIGIN + "/sam.jpg",
           url: ORIGIN + "/about",
           worksFor: { "@type": "Organization", name: "AutoSmartCode", url: ORIGIN },
@@ -242,9 +240,9 @@ export default function About() {
                 <li><strong>Pricing</strong> Fixed price, quoted before work starts</li>
                 <li><strong>Confidentiality</strong> NDA available on request</li>
               </ul>
-              <a href={"mailto:" + CONTACT_EMAIL} className="ab-aside-mail">
-                {CONTACT_EMAIL}
-              </a>
+              <Link to="/#contact" className="ab-aside-mail">
+                Send a message →
+              </Link>
             </div>
           </aside>
         </div>

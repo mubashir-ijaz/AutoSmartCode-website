@@ -23,7 +23,7 @@ Key facts:
 - Pricing: VIN-Scan Extension, $50–$100/month — depending on the data sources shown; Overnight Auction Watch List, $500/month — per auction site · every sale, Mon–Fri; Marketplaces & Custom Software, Custom — fixed price, quoted in 24 hours; Try One Sale, $150 one-off — one sale, delivered in 48 hours.
 - Timeline: most run-list triage builds are live in 3 to 7 days; extensions take 5 to 10.
 - Maintenance: when an auction site changes and a job breaks, the client hears from an alert the same morning; fixes are covered by the monthly fee.
-- Contact: sam@autosmartcode.com, or the form at https://www.autosmartcode.com/#contact. Fixed-price quotes within 24 hours.
+- Contact: the form at https://www.autosmartcode.com/#contact (email required, WhatsApp optional). Fixed-price quotes within 24 hours.
 
 ## Primary services
 

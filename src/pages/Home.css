@@ -615,3 +615,5 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-photo img { animation: none; }
 }
+
+.form-optional { font-weight: 400; color: var(--faint); text-transform: none; letter-spacing: 0; }

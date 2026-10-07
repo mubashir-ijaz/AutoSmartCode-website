@@ -17,7 +17,7 @@ that connects those accounts into one system. Everything runs on the
 client's own licensed accounts; it does not resell data or build automated
 bidding.
 
-Contact: sam@autosmartcode.com
+Contact: https://www.autosmartcode.com/#contact
 
 ## Frequently asked questions
 
@@ -2242,7 +2242,7 @@ If the answers point somewhere uncomfortable, I say so before we start rather th
 
 Describe what you want to collect and what you plan to do with it. I will tell you honestly whether it is a straightforward build, whether it needs care, or whether you should not do it at all.
 
-**Contact me at sam@autosmartcode.com** for a free assessment within 24 hours.
+[Send me a message](/#contact) for a free assessment within 24 hours.
 
 
 ---
@@ -2339,7 +2339,7 @@ Vague requests get vague quotes. Specific requests get accurate ones.
 
 Send me your URLs and field list. I will tell you which tier your project falls into, what it will cost, and how long it will take — usually within 24 hours, with no obligation.
 
-**Contact me at sam@autosmartcode.com** to get started.
+[Send me a message](/#contact) to get started.
 
 
 ---
@@ -2410,7 +2410,7 @@ You don't need to know how to code. You just need to tell me:
 
 I build the system, test it, and hand it to you running. Most setups take 3–5 days.
 
-**Contact me at sam@autosmartcode.com** and let's talk about automating your dealership's sourcing process.
+[Send me a message](/#contact) and let's talk about automating your dealership's sourcing process.
 
 
 ---
@@ -2500,7 +2500,7 @@ Most projects never need to go past step three. Teams get into trouble by starti
 
 Anti-bot work is not a one-time fix — protections update, and a scraper that is unmaintained is a scraper that will eventually break. Every system I build includes failure alerting, so you find out from an email rather than from a silently empty spreadsheet.
 
-**Contact me at sam@autosmartcode.com** and tell me which site is blocking you. I'll tell you what it will take to get through it reliably.
+[Send me a message](/#contact) and tell me which site is blocking you. I'll tell you what it will take to get through it reliably.
 
 
 ---
@@ -2569,7 +2569,7 @@ The dealers who run this stop paying for reports on cars they were never going t
 
 Send me where your VINs come from — an auction platform, a DMS export, a spreadsheet — and what you want on each row. Free decoding plus recall checks is usually a two to three day build.
 
-**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+[Send me a message](/#contact) for a free quote within 24 hours.
 
 
 ---
@@ -2639,7 +2639,7 @@ The dealers I have built this for describe the same shift. Pricing meetings stop
 
 Tell me your market, the segments you stock, and which sites your buyers shop. Most pricing feeds are running within a week.
 
-**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+[Send me a message](/#contact) for a free quote within 24 hours.
 
 
 ---
@@ -2736,7 +2736,7 @@ Done that way, the AI step usually touches ten to twenty percent of records, whi
 
 If you have a dataset that is technically complete and practically unusable, that is the job. Send me a sample of the mess and what you want the clean version to look like.
 
-**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+[Send me a message](/#contact) for a free quote within 24 hours.
 
 
 ---
@@ -2817,7 +2817,7 @@ Sites change and scrapers break. Anyone who tells you otherwise is selling somet
 
 If you have a scraper that keeps failing quietly, or you are about to build something you need to trust for months, that is the conversation.
 
-**Contact me at sam@autosmartcode.com** for a free quote within 24 hours.
+[Send me a message](/#contact) for a free quote within 24 hours.
 
 
 ---
@@ -2882,7 +2882,7 @@ That is exactly the work I automate. A pipeline pulls each unit's [MMR from Manh
 
 MMR is licensed data behind your Manheim account. Automating it means running on **credentials you already pay for and are entitled to use** — the system does the clicking you would do anyway. It does not create accounts, share access, or reach anything you could not open yourself. Anyone offering you "free MMR data" scraped from someone else's account is selling you a liability, not a tool.
 
-**Contact me at sam@autosmartcode.com** and tell me which platforms you buy on. I will tell you honestly what a same-morning deal-finder would take to build.
+[Send me a message](/#contact) and tell me which platforms you buy on. I will tell you honestly what a same-morning deal-finder would take to build.
 
 
 ---
@@ -2944,7 +2944,7 @@ You do not automate all of this at once. You find the step where cars actually p
 
 Then the pipeline connects to whatever you already use — your DMS, your photo tool, your marketplace accounts — using **your own logins and your own accounts.** It removes the manual clicking between systems; it does not replace the systems you have chosen.
 
-**Contact me at sam@autosmartcode.com.** Tell me where cars get stuck between winning them and having them live, and I will map out what part of that chain is worth automating first and what it would take.
+[Send me a message](/#contact). Tell me where cars get stuck between winning them and having them live, and I will map out what part of that chain is worth automating first and what it would take.
 
 
 ---
@@ -3000,7 +3000,7 @@ There is a page for each half of it: [AutoCheck report automation](/autocheck-sc
 
 This only works on **credentials you own and are entitled to use.** History data is licensed, and automating access you pay for is a different thing entirely from scraping someone else's account or reselling report data — which the providers' terms forbid and which I will not build. The point is to save your team the manual clicking on data you already have the right to pull, nothing more.
 
-**Contact me at sam@autosmartcode.com.** Tell me which report you subscribe to and where your VINs come from, and I will scope a batch puller for you — usually a two-to-three-day build.
+[Send me a message](/#contact). Tell me which report you subscribe to and where your VINs come from, and I will scope a batch puller for you — usually a two-to-three-day build.
 
 
 ---
@@ -3097,7 +3097,7 @@ That is a data-shape problem, not a report problem. What fixes it is pulling the
 
 The account is yours and the credits get spent on the same cars they would have been spent on anyway. What changes is that the answer arrives as a table before the sale rather than as forty browser tabs during it. That is what [AutoCheck report automation](/autocheck-scraper) is.
 
-**Tell me how many VINs you run in a typical week and which platforms you buy on**, at sam@autosmartcode.com, and I will tell you what it would take. Free VIN data comes first in every build — [the NHTSA vPIC decoder](/blog/free-vin-decoder-nhtsa-api) covers a surprising amount at no cost, so paid report credits only get spent where they add something.
+**Tell me how many VINs you run in a typical week and which platforms you buy on** through [the contact form](/#contact), and I will tell you what it would take. Free VIN data comes first in every build — [the NHTSA vPIC decoder](/blog/free-vin-decoder-nhtsa-api) covers a surprising amount at no cost, so paid report credits only get spent where they add something.
 
 
 ---
@@ -3183,7 +3183,7 @@ Use AutoScraper when the page is static, the job is small, and a silent failure 
 
 When the data is rendered by JavaScript, when the site pushes back, when the result has to be trustworthy on a schedule, or when the output has to join cleanly to something else — the library is not the bottleneck you are trying to remove, and building the other six layers around it yourself is the actual project.
 
-**That is the part I get hired for.** If you are not sure which side of the line you are on, email sam@autosmartcode.com with the URL and what you want out of it, and I will tell you straight — including telling you to use the free library, which happens often enough that it is worth asking. If it does need a build, you get a fixed price within 24 hours; [what these projects typically cost](/blog/how-much-does-web-scraping-cost) is written up in full, and [the auction automation service](/services/car-auction-automation) covers what a build includes.
+**That is the part I get hired for.** If you are not sure which side of the line you are on, [send me a message](/#contact) with the URL and what you want out of it, and I will tell you straight — including telling you to use the free library, which happens often enough that it is worth asking. If it does need a build, you get a fixed price within 24 hours; [what these projects typically cost](/blog/how-much-does-web-scraping-cost) is written up in full, and [the auction automation service](/services/car-auction-automation) covers what a build includes.
 
 
 ---
@@ -3290,7 +3290,7 @@ That is the same machinery as [car auction automation](/services/car-auction-aut
 
 **Correlation in your own data is still correlation.** If trucks softened the same month fuel rose, rates also moved and so did off-lease volume. Treat the numbers as an early warning to look harder, not as an explanation.
 
-**Contact me at sam@autosmartcode.com** if you want this built. Tell me the segments you actually stock, the region you buy and sell in, and which data you already subscribe to — MMR, an inventory feed, an auction account. I will tell you what is worth pulling, what you already have that you are not using, and what it would cost. Fixed price, quoted within 24 hours.
+[Send me a message](/#contact) if you want this built. Tell me the segments you actually stock, the region you buy and sell in, and which data you already subscribe to — MMR, an inventory feed, an auction account. I will tell you what is worth pulling, what you already have that you are not using, and what it would cost. Fixed price, quoted within 24 hours.
 
 
 ---
@@ -3357,7 +3357,7 @@ Government sites are public and can be read at a gentle pace. Closed lease sales
 
 For most dealers this is not a replacement for auction buying. It is a second channel that runs in the background and occasionally hands you a car the lane would have made more expensive. Combined with an [overnight auction watch list](/services/auction-run-list-triage) and [daily marketplace monitoring](/services/marketplace-government-lease-sales), it means the morning starts with every source already checked.
 
-**Contact me at sam@autosmartcode.com** with the sources you buy on — or want to — and your buy box. I will tell you which are worth monitoring and what it would cost. Fixed price, quoted within 24 hours.
+[Send me a message](/#contact) with the sources you buy on — or want to — and your buy box. I will tell you which are worth monitoring and what it would cost. Fixed price, quoted within 24 hours.
 
 
 ---
@@ -3411,7 +3411,7 @@ It does not bid. Automated bidding is prohibited on most auction platforms and a
 
 The extension makes each car fast. An [overnight run-list triage](/services/auction-run-list-triage) makes sure the right cars are in front of you in the first place — the sale read while you sleep, filtered, checked and in your watch list by morning. Together, the buyer walks in, opens the watch list, and every listing already shows its numbers.
 
-See [how custom dealer extensions work](/services/dealer-browser-extension), or **email sam@autosmartcode.com** with the sites you buy on. Fixed quote within 24 hours.
+See [how custom dealer extensions work](/services/dealer-browser-extension), or [send me a message](/#contact) with the sites you buy on. Fixed quote within 24 hours.
 
 
 ---

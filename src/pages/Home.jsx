@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FAQS } from "../data/content";
 import { scraperBySlug } from "../data/scrapers";
 import { PRICING, PRICE_COMPARISON, priceById } from "../data/pricing";
-import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
+import { APPS_SCRIPT_URL } from "../config";
 import { useSeo } from "../useSeo";
 import Photo from "../components/Photo";
 import ExtensionDemo from "../components/ExtensionDemo";
@@ -187,7 +187,8 @@ const NEEDS = [
 ];
 
 function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+  const EMPTY = { name: "", email: "", whatsapp: "", company: "", service: "", budget: "", message: "" };
+  const [form, setForm] = useState(EMPTY);
   const [status, setStatus] = useState(null);
   const [loading, setLoading] = useState(false);
 
@@ -198,17 +199,29 @@ function ContactForm() {
       setStatus({ type: "error", text: "Please fill in all required fields." });
       return;
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      setStatus({ type: "error", text: "Please enter a valid email address so I can reply." });
+      return;
+    }
     setLoading(true);
     setStatus(null);
     try {
       const date = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
-      const params = new URLSearchParams({ ...form, date });
+      // WhatsApp is also folded into the message so it reaches the sheet even
+      // before the Apps Script is updated with its own column (APPS_SCRIPT.md).
+      const message = form.whatsapp.trim()
+        ? form.message + "\n\nWhatsApp: " + form.whatsapp.trim()
+        : form.message;
+      const params = new URLSearchParams({ ...form, email: form.email.trim(), whatsapp: form.whatsapp.trim(), message, date });
       await fetch(APPS_SCRIPT_URL + "?" + params.toString(), { method: "GET", mode: "no-cors" });
-      setStatus({ type: "success", text: "Message sent! I'll email you at " + form.email + " within 24 hours." });
-      setForm({ name: "", email: "", company: "", service: "", budget: "", message: "" });
+      setStatus({
+        type: "success",
+        text: "Message sent! I'll reply to " + form.email.trim() +
+          (form.whatsapp.trim() ? " or on WhatsApp" : "") + " within 24 hours.",
+      });
+      setForm(EMPTY);
     } catch (err) {
-      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=Project from " + form.name + "&body=Name: " + form.name + "%0AEmail: " + form.email + "%0AService: " + form.service + "%0A%0A" + encodeURIComponent(form.message);
-      setStatus({ type: "success", text: "Opening your email client..." });
+      setStatus({ type: "error", text: "That didn't go through — please check your connection and press Send again." });
     }
     setLoading(false);
   }
@@ -226,14 +239,20 @@ function ContactForm() {
         </div>
         <div className="form-group">
           <label>Email Address *</label>
-          <input type="email" value={form.email} onChange={set("email")} placeholder="john@dealership.com" />
+          <input type="email" required autoComplete="email" value={form.email} onChange={set("email")} placeholder="john@dealership.com" />
         </div>
       </div>
       <div className="form-row">
         <div className="form-group">
+          <label>WhatsApp Number <span className="form-optional">(optional)</span></label>
+          <input type="tel" autoComplete="tel" value={form.whatsapp} onChange={set("whatsapp")} placeholder="+1 555 123 4567" />
+        </div>
+        <div className="form-group">
           <label>Dealership / Company</label>
           <input value={form.company} onChange={set("company")} placeholder="Your dealership" />
         </div>
+      </div>
+      <div className="form-row">
         <div className="form-group">
           <label>What You Need *</label>
           <select value={form.service} onChange={set("service")}>
@@ -241,10 +260,10 @@ function ContactForm() {
             {NEEDS.map(s => <option key={s}>{s}</option>)}
           </select>
         </div>
-      </div>
-      <div className="form-group">
-        <label>Which sites do you buy or sell on?</label>
-        <input value={form.budget} onChange={set("budget")} placeholder="Manheim, ADESA, Copart, eBay Motors, a private dealer portal..." />
+        <div className="form-group">
+          <label>Which sites do you buy or sell on?</label>
+          <input value={form.budget} onChange={set("budget")} placeholder="Manheim, ADESA, Copart..." />
+        </div>
       </div>
       <div className="form-group">
         <label>Your buy box or the job — years, mileage, grade, margin *</label>
@@ -653,7 +672,7 @@ export default function Home() {
               </p>
               <div className="contact-details">
                 {[
-                  { icon: "📧", label: "Email — replies within 24hrs", val: CONTACT_EMAIL },
+                  { icon: "💬", label: "Use the form — reply by email or WhatsApp", val: "Personal reply within 24 hours" },
                   { icon: "🔨", label: "Sites covered", val: "Manheim, ADESA, ACV, Copart, IAA, eBay Motors & more" },
                   { icon: "⚡", label: "Live in 3–7 days", val: "You see one real sale done first" },
                   { icon: "🔒", label: "Your accounts, your data", val: "Never shared between clients · NDA on request" },

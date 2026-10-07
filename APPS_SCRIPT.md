@@ -4,10 +4,17 @@ The site now sends **two** kinds of submission to the same Apps Script URL:
 
 | Form | `formType` | Fields sent |
 |---|---|---|
-| Contact form | *(absent)* | `name, email, company, service, budget, message, date` |
+| Contact form | *(absent)* | `name, email, whatsapp, company, service, budget, message, date` |
 | Feedback form | `feedback` | `name, company, role, email, rating, message, formType, date` |
 
 Both are sent as a **GET** request with query-string parameters.
+
+`whatsapp` is optional. Until the script below is deployed it is ignored by
+the sheet, so the site also appends `WhatsApp: <number>` to `message` — the
+number reaches the sheet either way. `budget` holds "which sites do you buy on".
+
+If your Leads sheet already exists, insert a **WhatsApp** column after Email
+by hand so the old rows line up with the new ones.
 
 Replace your Apps Script `doGet` with the version below. It writes contact
 submissions to a sheet named **Leads** and feedback to a sheet named
@@ -38,12 +45,13 @@ function doGet(e) {
     var leads = ss.getSheetByName('Leads');
     if (!leads) {
       leads = ss.insertSheet('Leads');
-      leads.appendRow(['Date', 'Name', 'Email', 'Company', 'Service', 'Budget', 'Message']);
+      leads.appendRow(['Date', 'Name', 'Email', 'WhatsApp', 'Company', 'Service', 'Sites', 'Message']);
     }
     leads.appendRow([
       p.date || new Date(),
       p.name || '',
       p.email || '',
+      p.whatsapp || '',
       p.company || '',
       p.service || '',
       p.budget || '',

@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
-import { APPS_SCRIPT_URL, CONTACT_EMAIL } from "../config";
+import { APPS_SCRIPT_URL } from "../config";
 import "./FeedbackModal.css";
 
 /* Any component can open the rate-us popup via useFeedback().open() */
@@ -34,9 +34,7 @@ function RateForm({ onDone }) {
       setRating(5);
       setTimeout(onDone, 1800);
     } catch (err) {
-      window.location.href = "mailto:" + CONTACT_EMAIL + "?subject=Feedback from " + form.name +
-        "&body=" + encodeURIComponent(form.message);
-      setStatus({ type: "success", text: "Opening your email client..." });
+      setStatus({ type: "error", text: "That didn't go through — please check your connection and try again." });
     }
     setLoading(false);
   }
@@ -105,7 +103,7 @@ function RateForm({ onDone }) {
 
       <p className="form-consent">
         By submitting, you're happy for your first name, role and comment to be shown
-        on this site. Your email is never published — it goes to {CONTACT_EMAIL}.
+        on this site. Your email is never published.
       </p>
     </>
   );

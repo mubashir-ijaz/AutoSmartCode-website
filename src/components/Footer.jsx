@@ -34,7 +34,7 @@ export default function Footer() {
           </div>
           <div className="footer-cta-actions">
             <Link to="/#contact" className="btn footer-cta-btn">Get a Free Quote →</Link>
-            <a href="mailto:sam@autosmartcode.com" className="btn footer-cta-btn ghost">Email Me</a>
+            <Link to="/#pricing" className="btn footer-cta-btn ghost">See Pricing</Link>
           </div>
         </div>
       </section>
@@ -53,9 +53,9 @@ export default function Footer() {
                 Auction run lists, history reports and MMR automated for car dealers,
                 wholesalers and auction buyers, running on your own accounts.
               </p>
-              <a href="mailto:sam@autosmartcode.com" className="footer-email">
-                sam@autosmartcode.com
-              </a>
+              <Link to="/#contact" className="footer-email">
+                Send a message →
+              </Link>
               <p className="footer-note">Fixed-price quote within 24 hours.</p>
             </div>
 
