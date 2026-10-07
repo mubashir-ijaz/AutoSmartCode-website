@@ -41,6 +41,14 @@ const { blogs, projects, FAQS } =
 const { services } = loadData("src/data/services.js", ["services"]);
 const { AREAS_SERVED } = loadData("src/data/geo.js", ["AREAS_SERVED"]);
 const { scrapers } = loadData("src/data/scrapers.js", ["scrapers"]);
+const { GUIDE_LINKS } = loadData("src/data/guideLinks.js", ["GUIDE_LINKS"]);
+
+/** A GUIDE_LINKS path resolved to [href, title], matching Blog.jsx. */
+const guideLinkTitle = to => {
+  if (to.startsWith("/services/")) { const s = services.find(x => "/services/" + x.slug === to); return s && [to, s.h1]; }
+  if (to.startsWith("/projects/")) { const p = projects.find(x => "/projects/" + x.id === to); return p && [to, "Case study: " + p.title]; }
+  const sc = scrapers.find(x => "/" + x.slug === to); return sc && [to, sc.h1 || sc.site + " Scraper"];
+};
 const { PRICING, priceLine } = loadData("src/data/pricing.js", ["PRICING", "priceLine"]);
 const { blogImage, scraperImage, serviceImage, socialImage, dimsFor, IMG_W, IMG_H } =
   loadData("src/data/images.js",
@@ -344,6 +352,7 @@ routes.push({
 });
 
 /* Service landing pages */
+const guidesFor = s => blogs.filter(b => (GUIDE_LINKS[b.slug] || []).includes("/services/" + s.slug));
 for (const s of services) {
   const hero = serviceImage(s);
   const proof = projects.find(pr => pr.id === s.caseStudy);
@@ -388,6 +397,8 @@ for (const s of services) {
           p("[Read the full case study](/projects/" + proof.id + ")")
         : "") +
       h2("What you get") + ul(s.deliverables) +
+      // Matches the "Guides on this" sidebar card in Services.jsx.
+      (guidesFor(s).length ? linkList("Guides on this", guidesFor(s).map(b => ["/blog/" + b.slug, b.title])) : "") +
       h2("Sites and platforms") + p(s.platforms.join(", ")) +
       h2("Built with") + p(s.stack.join(", ")) +
       faqBlock(s.faqs) +
@@ -507,7 +518,10 @@ for (const b of blogs) {
       h1(b.title) +
       heroFigure(hero.src, hero.alt) +
       p(b.summary) +
-      markdown(b.content),
+      markdown(b.content) +
+      ((GUIDE_LINKS[b.slug] || []).length
+        ? linkList("Put this to work", GUIDE_LINKS[b.slug].map(guideLinkTitle).filter(Boolean))
+        : ""),
   });
 }
 

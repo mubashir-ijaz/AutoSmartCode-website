@@ -62,7 +62,7 @@ The problems that mattered:
 | P1 | Blog sidebar "Services Mentioned" now links to the real service pages, not `/#services` | **Done** | Internal-link equity to the commercial pages | XS | Click through |
 | P1 | Accurate sitemap `lastmod` from git history; timezone-safe blog dates | **Done** | Google keeps trusting `lastmod` | S | `grep lastmod public/sitemap.xml` |
 | P1 | Write 1–2 more real case studies with numbers the client agrees to publish (see I) | Needs you | Evidence is the biggest gap for AI recommendation | M | — |
-| P1 | Add contextual links from guides to service and platform pages (see J) | Proposed | V10 | M | Rerun the link-graph script |
+| P1 | Guide ↔ service/platform/case-study links (see J) | **Done** — `src/data/guideLinks.js`, "Put this to work" on guides, "Guides on this" on services | V10 | M | Case studies now have 2–7 in-content inbound links each |
 | P2 | Separate triage from car-auction automation (see H) | Proposed | V16, so the two pages stop competing | M | GSC: queries split cleanly between them |
 | P2 | Move retail listing sites to their own cluster | Proposed | V15 | S–M | — |
 | P2 | Add `sameAs` (LinkedIn, GitHub, Upwork/Fiverr profile) to the Organization schema | Needs URLs | Entity disambiguation | XS | Rich Results Test |
@@ -147,7 +147,7 @@ Add only what you can back with real work:
 3. **Guide: "How to read an auction run list in 30 minutes instead of 3 hours."** The triage method itself; links to triage.
 4. **Guide: "Autoniq vs AccuTrade vs a custom extension."** Comparison intent; links to the extension page. Keep the facts sourced.
 5. **Guide: "Does Carfax have an API for dealers?"** High-intent question; links to history reports.
-6. **FAQ addition sitewide:** "What is AutoSmartCode not?" Not a data reseller, not a bidding bot, not an agency. This is the clearest distinction from generic scraping tools.
+6. **FAQ addition sitewide:** "How is this different from a scraping tool or a software agency?" — **done** (homepage FAQ + FAQPage schema).
 
 Don't add more "X scraper" pages unless a client actually buys on X.
 

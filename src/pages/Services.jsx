@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import { services, serviceBySlug } from "../data/services";
 import { scrapers } from "../data/scrapers";
-import { projects } from "../data/content";
+import { projects, blogs } from "../data/content";
+import { GUIDE_LINKS } from "../data/guideLinks";
 import { AREAS_SERVED } from "../data/geo";
 import { serviceImage, socialFor } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
@@ -126,6 +127,10 @@ export function ServiceDetailPage() {
   const hero = service && serviceImage(service);
   /* The per-platform pages that roll up to this pillar. */
   const spokes = service ? scrapers.filter(sp => sp.pillar === service.slug) : [];
+  /* Guides that point at this service (src/data/guideLinks.js), linked back. */
+  const guides = service
+    ? blogs.filter(b => (GUIDE_LINKS[b.slug] || []).includes("/services/" + service.slug))
+    : [];
 
   useSeo(service ? {
     title: service.metaTitle + " | AutoSmartCode",
@@ -249,6 +254,16 @@ export function ServiceDetailPage() {
                 ))}
               </ul>
             </div>
+            {guides.length > 0 && (
+              <div className="sidebar-card">
+                <h3>Guides on this</h3>
+                <div className="sidebar-service-list">
+                  {guides.map(b => (
+                    <Link to={`/blog/${b.slug}`} key={b.slug} className="sidebar-service-item">{b.title}</Link>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="sidebar-card">
               <h3>Sites &amp; platforms</h3>
               <div className="sidebar-tags">

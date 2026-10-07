@@ -69,6 +69,10 @@ Yes. Everything runs through the accounts you already hold and are licensed to u
 
 No, and I will not build that. Most auction platforms prohibit automated bidding outright, and the failure mode of a bug in a bidding bot is that you own a car nobody chose. The system finds, checks, annotates and ranks. Your buyer bids.
 
+### How is this different from a scraping tool or a software agency?
+
+A scraping tool hands you raw rows and leaves the car decisions to you; an agency builds whatever is asked and does not know what a grade 3.1 or an announced frame means. AutoSmartCode works only for the car trade. It is not a data reseller — nothing is sold to you, everything runs on the auction and report accounts you already hold. It is not a bidding bot — it finds, checks and ranks, and your buyer bids. And it is not an agency — the developer who builds your system is the one who answers your messages and gets the alert when an auction site changes.
+
 ### What happens when an auction site changes and it breaks?
 
 It will break eventually — every scraper does, and anyone who tells you otherwise is selling something. The difference is that you hear about it from an alert the same morning rather than from three quiet days of an empty watch list. Fixes on systems I built are covered by the monthly, not quoted as a new project.

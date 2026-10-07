@@ -1,10 +1,27 @@
 import { Link, useParams } from "react-router-dom";
-import { blogs } from "../data/content";
+import { blogs, projects } from "../data/content";
+import { scraperBySlug } from "../data/scrapers";
+import { GUIDE_LINKS } from "../data/guideLinks";
 import { services } from "../data/services";
 import { blogImage, socialFor, dimsFor, IMG_W, IMG_H } from "../data/images";
 import { useSeo, crumbs, ORIGIN } from "../useSeo";
 import { FounderHeader, FounderNote } from "../components/Founder";
 import "./Blog.css";
+
+/* A guide's "Put this to work" link, resolved to the page's own title and
+   a one-word kind. Unknown paths resolve to null and are skipped. */
+function resolveLink(to) {
+  if (to.startsWith("/services/")) {
+    const s = services.find(x => "/services/" + x.slug === to);
+    return s && { to, kind: "Service", title: s.h1 };
+  }
+  if (to.startsWith("/projects/")) {
+    const p = projects.find(x => "/projects/" + x.id === to);
+    return p && { to, kind: "Case study", title: p.title };
+  }
+  const sc = scraperBySlug(to.slice(1));
+  return sc && { to, kind: "Platform", title: sc.h1 || sc.site + " Scraper" };
+}
 
 /* "June 10, 2025" -> "2025-06-10" in every timezone. toISOString() on the
    local-midnight parse gave the day before for anyone east of UTC. */
@@ -308,6 +325,18 @@ export function BlogDetailPage() {
             <div className="blog-content">
               {renderContent(blog.content)}
             </div>
+            {(GUIDE_LINKS[blog.slug] || []).length > 0 && (
+              <div className="guide-next">
+                <h2>Put this to work</h2>
+                <ul>
+                  {GUIDE_LINKS[blog.slug].map(resolveLink).filter(Boolean).map(l => (
+                    <li key={l.to}>
+                      <Link to={l.to}><span className="guide-next-kind">{l.kind}</span>{l.title} →</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
           </article>
 
           <aside className="blog-sidebar">
