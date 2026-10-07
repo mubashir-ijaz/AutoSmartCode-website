@@ -8,6 +8,7 @@ import { useSeo } from "../useSeo";
 import AuctionPipeline from "../components/AuctionPipeline";
 import Photo from "../components/Photo";
 import ExtensionDemo from "../components/ExtensionDemo";
+import WeekWatchLists from "../components/WeekWatchLists";
 import "./Home.css";
 import "../components/AuctionPipeline.css";
 import "../components/ExtensionDemo.css";
@@ -31,13 +32,6 @@ const PLATFORMS = [
   "AutoCheck", "Manheim MMR", "eBay Motors", "AutoTrader", "Cars.com",
   "CarGurus", "CarMax", "BacklotCars", "EDGE Pipeline", "SmartAuction",
   "AutoScout24", "Carsales", "NHTSA vPIC",
-];
-
-/* What the hero card shows — one sale, three cars, two kept and one dropped. */
-const DEMO_CARS = [
-  { car: "2021 Toyota RAV4 XLE", meta: "38k mi · Grade 4.2 · Clean title · 1 owner", mmr: "$24,900", max: "$22,100", keep: true },
-  { car: "2019 Ford F-150 XLT", meta: "71k mi · Frame damage announced", mmr: "$27,300", max: "—", keep: false },
-  { car: "2020 Honda Accord Sport", meta: "44k mi · Grade 3.9 · Clean Carfax", mmr: "$19,750", max: "$17,400", keep: true },
 ];
 
 /* The four things AutoSmartCode does, in the order a dealer meets them. Each
@@ -161,45 +155,6 @@ const TESTIMONIALS = [
 ];
 
 /* ---------------- Hero watch-list card ---------------- */
-
-function WatchListCard() {
-  return (
-    <div className="wl-wrap">
-    <span className="wl-float wl-float-top">☕ Ready at 6:00 AM</span>
-    <div className="wl-card" aria-label="Example: an auction sale triaged overnight">
-      <div className="wl-head">
-        <span className="wl-dot" />
-        <span className="wl-title">Manheim · Tuesday sale</span>
-        <span className="wl-time">05:52 AM</span>
-      </div>
-      <div className="wl-funnel">
-        <div><strong>5,214</strong><span>cars in sale</span></div>
-        <span className="wl-arrow">→</span>
-        <div><strong>812</strong><span>pass your rules</span></div>
-        <span className="wl-arrow">→</span>
-        <div className="wl-hot"><strong>47</strong><span>in watch list</span></div>
-      </div>
-      <ul className="wl-list">
-        {DEMO_CARS.map(c => (
-          <li key={c.car} className={c.keep ? "keep" : "drop"}>
-            <span className="wl-badge">{c.keep ? "✓" : "✕"}</span>
-            <div className="wl-car">
-              <strong>{c.car}</strong>
-              <span>{c.meta}</span>
-            </div>
-            <div className="wl-nums">
-              <span>MMR {c.mmr}</span>
-              <strong>{c.keep ? "Max " + c.max : "Dropped"}</strong>
-            </div>
-          </li>
-        ))}
-      </ul>
-      <div className="wl-foot">Carfax ✓ · AutoCheck ✓ · MMR ✓ · notes written</div>
-    </div>
-    <span className="wl-float wl-float-bottom">🌙 Built while you slept</span>
-    </div>
-  );
-}
 
 /* ---------------- Pricing band ---------------- */
 
@@ -391,7 +346,10 @@ export default function Home() {
             </a>
           </div>
 
-          <WatchListCard />
+          <div className="wl-wrap">
+            <WeekWatchLists />
+            <span className="wl-float wl-float-bottom">🌙 Built while you slept</span>
+          </div>
         </div>
 
         <div className="ticker" aria-label="Platforms automated">
