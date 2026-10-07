@@ -128,6 +128,26 @@ const SITE_GROUPS = [
   { title: "International", slugs: ["autoscout24-scraper", "carsales-scraper", "otomoto-scraper"] },
 ];
 
+/* The featured client. Real result, supplied by the owner: daily auctions and
+   marketplaces handled, watch list ready when he arrives at 6 AM, and the
+   business grew from 10-15 cars in stock to 150-200 as a wholesaler. */
+const RICKY = {
+  name: "Ricky",
+  company: "Major Auto Sales",
+  place: "New York, USA",
+  short: "Everything is ready when I walk in at 6 AM.",
+  quote:
+    "I walk into the office at 6 AM and everything is already done — the auctions are " +
+    "checked, the marketplaces are checked, and my watch list is ready. Before, we had 10 " +
+    "to 15 cars in inventory. Now we run 150 to 200 cars as a wholesaler. I'm happy with " +
+    "it every single day.",
+  stats: [
+    { from: "10–15", to: "150–200", l: "cars in inventory" },
+    { from: "", to: "6 AM", l: "watch list ready, every sale day" },
+    { from: "", to: "Daily", l: "auctions + marketplaces handled" },
+  ],
+};
+
 const TESTIMONIALS = [
   {
     initials: "JR", color: "#34d399", name: "James R.", role: "Used Car Dealer, New York",
@@ -147,6 +167,8 @@ const TESTIMONIALS = [
 
 function WatchListCard() {
   return (
+    <div className="wl-wrap">
+    <span className="wl-float wl-float-top">☕ Ready at 6:00 AM</span>
     <div className="wl-card" aria-label="Example: an auction sale triaged overnight">
       <div className="wl-head">
         <span className="wl-dot" />
@@ -176,6 +198,8 @@ function WatchListCard() {
         ))}
       </ul>
       <div className="wl-foot">Carfax ✓ · AutoCheck ✓ · MMR ✓ · notes written</div>
+    </div>
+    <span className="wl-float wl-float-bottom">🌙 Built while you slept</span>
     </div>
   );
 }
@@ -360,7 +384,14 @@ export default function Home() {
               <a href="#services" className="btn btn-outline">See what I build</a>
             </div>
 
-            <p className="hero-fine">No setup fees · Live in 3–7 days · Your accounts, your data</p>
+            <a href="#results" className="hero-proof">
+              <span className="hp-avatar" aria-hidden="true">R</span>
+              <span className="hp-proof-text">
+                <span className="hp-stars" aria-label="5 stars">★★★★★</span>
+                “{RICKY.short}”
+                <em>{RICKY.name} · {RICKY.company}, {RICKY.place}</em>
+              </span>
+            </a>
           </div>
 
           <WatchListCard />
@@ -402,6 +433,40 @@ export default function Home() {
                 </div>
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============ FEATURED RESULT ============ */}
+      <section className="section result-section" id="results">
+        <Photo name="lot-rows" className="band-photo" alt="" />
+        <div className="band-shade heavy" aria-hidden="true" />
+        <div className="container result-wrap">
+          <div className="result-copy">
+            <span className="s-label">Client result · {RICKY.company}</span>
+            <h2 className="s-title">From 15 cars to 200 — without working the list by hand</h2>
+            <blockquote className="result-quote">
+              <span className="hp-stars" aria-label="5 stars">★★★★★</span>
+              <p>“{RICKY.quote}”</p>
+              <footer>
+                <span className="hp-avatar lg" aria-hidden="true">R</span>
+                <span>
+                  <strong>{RICKY.name}</strong>
+                  <em>{RICKY.company} · {RICKY.place}</em>
+                </span>
+              </footer>
+            </blockquote>
+          </div>
+
+          <div className="result-stats">
+            {RICKY.stats.map(st => (
+              <div key={st.l} className="result-stat">
+                {st.from && <span className="rs-from">from {st.from} →</span>}
+                <strong>{st.to}</strong>
+                <span className="rs-l">{st.l}</span>
+              </div>
+            ))}
+            <Link to="/projects/12" className="btn btn-blue result-btn">Read the case study →</Link>
           </div>
         </div>
       </section>

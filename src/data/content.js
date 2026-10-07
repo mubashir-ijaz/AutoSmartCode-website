@@ -1404,6 +1404,20 @@ See [how custom dealer extensions work](/services/dealer-browser-extension), or 
 
 export const projects = [
   {
+    id: 12,
+    type: "Wholesale",
+    emoji: "📈",
+    color: "#34d399",
+    title: "Major Auto Sales — From 15 Cars to 200 as a Wholesaler",
+    client: "Ricky, Major Auto Sales — New York, USA",
+    description: "Daily auction and marketplace automation for a New York wholesaler. Every auction sale and the marketplaces he buys from are worked overnight, every car checked against his buy box with history and MMR, and the watch list is ready when he walks into the office at 6 AM. Inventory grew from 10–15 cars to 150–200.",
+    challenge: "Ricky was running a small operation with 10 to 15 cars in inventory. Sourcing meant working auction run lists and marketplaces by hand, one car at a time, so the number of cars he could find and check was capped by the hours in his morning — and the business could not grow past what one person could look at.",
+    solution: "Set up overnight automation across the auctions and marketplaces he buys on. Each sale is read in full, his buy box is applied to every car, VINs are checked for history and market value, cars that fail his rules are dropped, and the rest go into his watch list with a note and a max bid. The same daily routine runs on the marketplaces he uses, so new matches are waiting with everything else. All of it runs on his own accounts and is ready before he arrives.",
+    result: "Ricky walks into the office at 6 AM and the work is already done — auctions checked, marketplaces checked, watch list ready. With sourcing no longer limited by his own hours, Major Auto Sales grew from 10–15 cars in inventory to 150–200 cars as a wholesaler.",
+    stack: ["Python", "Playwright", "Selenium", "Pandas", "Scheduling", "Email reports"],
+    details: ["Daily auction run lists", "Daily marketplace monitoring", "Buy box applied to every car", "History and MMR per VIN", "Notes and max bid per car", "Watch list ready by 6 AM", "Runs on the client's own accounts", "Inventory grew from 10–15 to 150–200 cars"]
+  },
+  {
     id: 1,
     type: "Automotive",
     emoji: "🚗",

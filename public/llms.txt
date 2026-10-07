@@ -71,6 +71,7 @@ quoted before work starts.
 
 ## Case studies
 
+- [Major Auto Sales — From 15 Cars to 200 as a Wholesaler](https://www.autosmartcode.com/projects/12): Daily auction and marketplace automation for a New York wholesaler. Every auction sale and the marketplaces he buys from are worked overnigh
 - [Car Auction Intelligence System](https://www.autosmartcode.com/projects/1): Full automation pipeline that scrapes live auction listings from Manheim MMR, BacklotCars, Autoniq, and ADESA daily. Compares each vehicle's
 - [Facebook Marketplace Vehicle Scraper](https://www.autosmartcode.com/projects/7): Automated scraper collecting vehicle listings from Facebook Marketplace across multiple US cities — make, model, year, price, mileage, selle
 - [Run-List Triage — 5,000 Cars Cut to a Working Watch List](https://www.autosmartcode.com/projects/10): Overnight triage of a full auction run list. Every lot in the sale is pulled, the dealer's own buy box is applied, each surviving VIN is enr

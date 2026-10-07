@@ -3434,6 +3434,24 @@ See [how custom dealer extensions work](/services/dealer-browser-extension), or 
 
 ---
 
+## Major Auto Sales — From 15 Cars to 200 as a Wholesaler (case study)
+
+URL: https://www.autosmartcode.com/projects/12
+Client: Ricky, Major Auto Sales — New York, USA
+
+Daily auction and marketplace automation for a New York wholesaler. Every auction sale and the marketplaces he buys from are worked overnight, every car checked against his buy box with history and MMR, and the watch list is ready when he walks into the office at 6 AM. Inventory grew from 10–15 cars to 150–200.
+
+**Challenge:** Ricky was running a small operation with 10 to 15 cars in inventory. Sourcing meant working auction run lists and marketplaces by hand, one car at a time, so the number of cars he could find and check was capped by the hours in his morning — and the business could not grow past what one person could look at.
+
+**Solution:** Set up overnight automation across the auctions and marketplaces he buys on. Each sale is read in full, his buy box is applied to every car, VINs are checked for history and market value, cars that fail his rules are dropped, and the rest go into his watch list with a note and a max bid. The same daily routine runs on the marketplaces he uses, so new matches are waiting with everything else. All of it runs on his own accounts and is ready before he arrives.
+
+**Result:** Ricky walks into the office at 6 AM and the work is already done — auctions checked, marketplaces checked, watch list ready. With sourcing no longer limited by his own hours, Major Auto Sales grew from 10–15 cars in inventory to 150–200 cars as a wholesaler.
+
+**Stack:** Python, Playwright, Selenium, Pandas, Scheduling, Email reports
+
+
+---
+
 ## Car Auction Intelligence System (case study)
 
 URL: https://www.autosmartcode.com/projects/1

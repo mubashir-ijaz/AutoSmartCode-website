@@ -212,6 +212,9 @@ routes.push({
       "A clean auction watch list waiting every morning — $500/mo per site",
       "Daily deals from marketplaces, government & lease sales",
     ]) +
+    h2("From 15 cars to 200 — without working the list by hand") +
+    p("“I walk into the office at 6 AM and everything is already done — the auctions are checked, the marketplaces are checked, and my watch list is ready. Before, we had 10 to 15 cars in inventory. Now we run 150 to 200 cars as a wholesaler. I'm happy with it every single day.” — Ricky, Major Auto Sales, New York, USA") +
+    p("[Read the Major Auto Sales case study](/projects/12)") +
     h2("Four ways I take the busywork off your desk") +
     ul([
       "[Scan the car, see everything on the same screen](/services/dealer-browser-extension) — a custom extension reads the VIN off the listing and shows MMR, Carfax, AutoCheck and your max bid right there.",
