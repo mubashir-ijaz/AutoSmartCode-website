@@ -215,10 +215,10 @@ A raw CSV dump is free. A cleaned, deduplicated, validated Excel file with calcu
 
 ## Realistic Price Ranges
 
-### Tier 1 — Simple one-time scrape: $80 – $300
+### Tier 1 — One-time pull: $80 – $300
 A single site, static or lightly dynamic, a few thousand records, delivered as Excel or CSV. Turnaround: 1–2 days.
 
-*Example: 3,000 product listings with title, price, rating and URL from a single category.*
+*Example: a one-off bulk Carfax or AutoCheck pull on a list of 300 VINs, delivered as one spreadsheet.*
 
 ### Tier 2 — Standard project: $300 – $1,000
 Multiple pages or categories, JavaScript rendering, moderate anti-bot handling, cleaning and deduplication included. Turnaround: 2–5 days.
@@ -248,11 +248,11 @@ Websites change. A scraper that worked perfectly in March breaks in June because
 
 ## Buy vs Build vs Hire
 
-**No-code tools** ($50–$200/month) work well for simple, unprotected sites and small volumes. They fall over on anti-bot systems and awkward pagination, and you are still the one operating them.
+**No-code tools** ($50–$200/month) work for a simple, unprotected site and small volumes. They fall over on auction-platform anti-bot systems and awkward pagination, and you are still the one operating them.
 
-**Hiring in-house** costs a US developer salary and only makes sense if scraping is core to your product.
+**Hiring in-house** costs a US developer salary and only makes sense if data automation is core to how you run the lot, not a once-a-month task.
 
-**Hiring a specialist** gets you a working system for a fixed price, without hiring, and without you learning Selenium. This is the right answer for most small and mid-sized businesses.
+**Hiring a specialist** gets you a working system — triage, history pulls, or a custom dashboard — for a fixed price, without hiring and without your team learning Selenium. This is the right answer for most dealers and wholesalers.
 
 ## How to Get an Accurate Quote Fast
 
